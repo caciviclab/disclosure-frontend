@@ -67,19 +67,19 @@ var filePath = {
     vendorJS: {
         // These files will be bundled into a single vendor.js file that's called at the bottom of index.html
         src: [
-            './libs/angular/angular.js',
-            './libs/angular-animate/angular-animate.js',
-            './libs/angular-bootstrap/ui-bootstrap-tpls.js',
-            './libs/angular-cookies/angular-cookies.js',
-            './libs/angular-resource/angular-resource.js',
-            './libs/angular-sanitize/angular-sanitize.js',
-            './libs/angular-ui-router/release/angular-ui-router.js',
-            './libs/jquery/dist/jquery.js',
-            './libs/bootstrap/dist/js/bootstrap.js',
-            './libs/domready/ready.js',
-            './libs/lodash/lodash.js',
-            './libs/restangular/dist/restangular.js',
-            './libs/angular-breadcrumb/release/angular-breadcrumb'
+          './node_modules/angular/angular.js',
+          './node_modules/angular-animate/angular-animate.js',
+          './node_modules/angular-bootstrap/ui-bootstrap-tpls.js',
+          './node_modules/angular-cookies/angular-cookies.js',
+          './node_modules/angular-resource/angular-resource.js',
+          './node_modules/angular-sanitize/angular-sanitize.js',
+          './node_modules/angular-ui-router/release/angular-ui-router.js',
+          './node_modules/jquery/dist/jquery.js',
+          './node_modules/bootstrap/dist/js/bootstrap.js',
+          './node_modules/domready/ready.js',
+          './node_modules/lodash/index.js',
+          './node_modules/restangular/dist/restangular.js',
+          './node_modules/angular-breadcrumb/release/angular-breadcrumb'
         ]
     },
     //vendorCSS: {

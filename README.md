@@ -79,13 +79,9 @@ Bower dependencies should install automatically at the end of the NPM install pr
 
 4) The ```gulpfile.js``` is clearly commented, defining each task that takes place during pipeline automation. Every file change is watched and new files are automatically pushed to the ```dist``` folder. All files are concatenated into individual files for use on production servers.
 
+Install the project dependencies, including gulp.
 
-### Development, Test, Production, and Deployment
-DEV: During development you should be using the standard ```gulp``` task (unless you need to rebuild your dist files, at which point you can run ```gulp build```).
-
-TEST: Contrary to the traditional unit testing approach of putting all tests in a ```/test``` folder, unit test files are included inside of each module alongside the files that they are testing. Each test file has a ```.spec.js``` file type (ex: ```MainController.spec.js```). To run the tests you can simply use ```gulp test```. It will run the development server as well as a karma server so you can develop your code and your tests at the same time. Karma will watch for code changes and run the tests each time a file is saved.
-
-PROD: However, when you are ready for production, you can run ```gulp prod``` to run the production build pipeline, which will minify and concatenate your files. Production files are still sent to the ```/dist``` folder. There is a ```server.js``` file in the root directory that runs a basic Express server that you can use when you deploy to your production server environment. Just run ```node server``` locally from the root directory to try it out.
+    $ npm install
 
 
 ### Routes, Controllers and TemplateURLs
