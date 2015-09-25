@@ -2,7 +2,7 @@
 
 'use strict';
 
-describe('MainController', function() {
+describe.skip('MainController', function() {
 
     var ctrl, scope;
 
