@@ -6,7 +6,7 @@ require('angular-resource');
 require('angular-sanitize');
 require('angular-ui-router');
 require('angular-breadcrumb');
-require('jquery');
+window.jQuery = require('jquery');
 require('bootstrap');
 require('domready');
 require('lodash');
