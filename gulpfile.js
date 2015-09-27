@@ -50,7 +50,7 @@ var filePath = {
     },
     styles: {
         src: './app/app.less',
-        watch: ['./app/app.less', './app/**/*.less']
+        watch: ['./app/app.less', './app/**/*.less', './app/components/**/*.less']
     },
     assets: {
         images: {

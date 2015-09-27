@@ -5,7 +5,7 @@
 
   module.exports = function appMainNav() {
     return {
-      //controller: 'AppMainNavController', // Called from AppMainNavController.js
+      controller: 'AppMainNavController', // Called from AppMainNavController.js
       restrict: 'E',
       scope: true,
       //scope: {},
