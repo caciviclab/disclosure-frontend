@@ -2,12 +2,14 @@
   'use strict';
 
   require('./homePageModule/homePage');
+  require('./appMainModule/appMain');
   require('./examplePage1/examplePage1');
   require('./examplePage2/examplePage2');
 
   module.exports = angular.module('components',
       [
         'homePageModule',
+        'appMainModule',
         'examplePage1Module',
         'examplePage2Module'
       ]);

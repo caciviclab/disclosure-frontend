@@ -27,6 +27,39 @@ function appRoutes($stateProvider) {
     }
   };
 
+  var appMain = {
+    name: 'appMain',
+    abstract: true,  // This makes it so that the url for this route doesn't actually resolve
+    url: '/app-main',
+    //template: '<app-main></app-main>'
+    template: '<div ui-view></div>'
+  };
+
+  var city = {
+    name: 'appMain.city',
+    url: '^/city', // The ^ character makes this url override the parent url
+    template: '<div app-main></div>',
+    data: {
+      moduleClasses: 'page',
+      pageClasses: 'city',
+      pageTitle: 'City',
+      pageDescription: 'Some description.'
+    }
+  };
+
+  //var cityElections = {
+  //  name: 'cityElections',
+  //  url: '/city-elections',
+  //  template: '<app-main></app-main>',
+  //  //controller: 'ExamplePage1Controller',
+  //  data: {
+  //    moduleClasses: 'page',
+  //    pageClasses: 'cityElections',
+  //    pageTitle: 'City Elections',
+  //    pageDescription: 'Some description.'
+  //  }
+  //};
+
   var examplePage1 = {
     name: 'examplePage1',
     url: '/example-page-1',
@@ -54,6 +87,8 @@ function appRoutes($stateProvider) {
   };
 
   $stateProvider.state(home);
+  $stateProvider.state(appMain);
+  $stateProvider.state(city);
   $stateProvider.state(examplePage1);
   $stateProvider.state(examplePage2);
 
