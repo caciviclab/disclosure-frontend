@@ -5,9 +5,10 @@
 
   module.exports = function appMainNav() {
     return {
-      //controller: 'AppMainNavController', // Called from AppMainNavController.js
-      restrict: 'E',
-      scope: true,
+      controller: 'AppMainNavController', // Called from AppMainNavController.js
+      restrict: 'EA',
+      transclude: true,
+      //scope: true,
       //scope: {},
       template: template
     };

@@ -9,6 +9,9 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" ui-sref="home"><i class="fa fa-reorder visible-xs-inline-block"></i> ODCA</a>
+					<span id="navSearchXS" class="nav navbar-nav navbar-right visible-xs-inline">
+						<span search-in-navbar="true"></span>
+					</span>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -16,8 +19,19 @@
             <!--<li ui-sref-active="active"><a ui-sref="pages.about">About</a></li>-->
             <li ui-sref-active="active"><a ui-sref="examplePage1">Example Page 1</a></li>
 						<li ui-sref-active="active"><a ui-sref="examplePage2">Example Page 2</a></li>
+						<li ui-sref-active="active"><a ui-sref="appMain.city">City</a></li>
           </ul>
+
+					<div ng-show="searchBarEnabled">
+						<a class="navbar-search"><i class="fa fa-search fa-lg"></i></a>
+					</div>
+
+          <!--<ul id="navSearchSM" class="nav navbar-nav navbar-right hidden-xs" ng-show="searchInNav">-->
+					<!--<ul id="navSearchSM" class="nav navbar-nav navbar-right hidden-xs" ng-if="navbarSearch">-->
+						<!--<li search-in-navbar="true"></li>-->
+					<!--</ul>-->
         </div><!--/.nav-collapse -->
+
       </div>
     </nav>
 </header>
