@@ -1,4 +1,7 @@
 'use strict';
+
+var argv = require('yargs').argv;
+
 // =======================================================================
 // Gulp Plugins
 // =======================================================================
@@ -47,7 +50,7 @@ var filePath = {
     },
     styles: {
         src: './app/app.less',
-        watch: ['./app/app.less', './app/**/*.less']
+        watch: ['./app/app.less', './app/**/*.less', './app/components/**/*.less']
     },
     assets: {
         images: {
@@ -364,7 +367,8 @@ gulp.task('watch', function() {
 // =======================================================================
 gulp.task('karma', function(done) {
     karma.start({
-        configFile: __dirname + '/karma.conf.js'
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: !argv.watch
     }, done);
 });
 

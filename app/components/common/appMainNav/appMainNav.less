@@ -1,7 +1,7 @@
 @HeaderLightGreyBorderColor: #efefef;
-@HeaderBackgroundColor: #fff;
+@HeaderBackgroundColor: @white;
 
-.header {
+.appMainHeader {
 	background-color: @HeaderBackgroundColor;
 }
 
@@ -17,6 +17,49 @@
 	&:nth-last-child(1) {
 		border-right: 1px solid @HeaderLightGreyBorderColor;
 	}
+}
+
+.navbar-default {
+	.navbar-toggle {
+
+		&:hover, &:focus {
+			background-color: @navbar-default-bg;
+		}
+
+		.icon-bar {
+			background-color: @navbar-default-brand-color;
+		}
+	}
+}
+
+.navbar-toggle {
+	.icon-bar {
+		width: 26px;
+		height: 3px;
+	}
+}
+
+.appMainNav-navbar-toggle {
+	.pull-left;
+	border: none;
+	border-radius: 0;
+	margin-left: @navbar-padding-horizontal;
+	margin-right: 0;
+	margin-top: 12px;
+}
+
+.appMainNav-navbar-brand {
+	padding-left: 6px;
+	font-size: 26px;
+}
+
+.appMainNav-navbar-brand--span {
+	color: @bodyTextColor;
+}
+
+.appMainNav-icon-bar {
+	width: 26px;
+	height: 3px;
 }
 
 .navbar-search {

@@ -8,7 +8,7 @@
       controller: 'AppMainNavController', // Called from AppMainNavController.js
       restrict: 'EA',
       transclude: true,
-      //scope: true,
+      //scope: true, //test that collapse and search icon work correctly
       //scope: {},
       template: template
     };
