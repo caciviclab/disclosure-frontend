@@ -1,15 +1,19 @@
-@footerBackgroundColor1: #f7f7f7;
-@footerBackgroundColor2: #E9EDEF;
-
 .footer {
-	background-color: @white;
-	border-top: 1px solid @HeaderLightGreyBorderColor;
-	//padding-top: 15px;
-	//padding-bottom: 15px;
+	background-color: @body-bg;
+	//border-top: 1px solid @body-bg;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
 	min-height: 20px;
+}
+
+.appMainFooterText {
+	&:extend(.serif);
+	color: @headings-color;
+	margin-bottom: 6.5px;
+	cursor: pointer;
 }
 
 
