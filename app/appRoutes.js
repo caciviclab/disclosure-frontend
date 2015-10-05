@@ -2,19 +2,6 @@
 
 function appRoutes($stateProvider) {
 
-  // var appMain = {
-  //  name: 'appMain', // state name
-  //  url: '/', // url path that activates this state
-  //  template: '<app-main></app-main>', // generate the Directive "homeView" - when calling the directive in HTML, the name must not be camelCased
-  //  controller: 'AppMainController'
-  //  // data: {
-  //  //  moduleClasses: 'page', // assign a module class to the <body> tag
-  //  //  pageClasses: 'appMain', // assign a page-specific class to the <body> tag
-  //  //  pageTitle: 'AppMain', // set the title in the <head> section of the index.html file
-  //  //  pageDescription: 'Meta Description goes here' // meta description in <head>
-  //  // }
-  // };
-
   var home = {
     name: 'home', // state name
     url: '/', // url path that activates this state
@@ -46,11 +33,10 @@ function appRoutes($stateProvider) {
     }
   };
 
-
   var about = {
-    name: 'about', // state name
-    url: '/about', // url path that activates this state
-    template: '<about-page></about-page>', // generate the Directive "aboutPage" - when calling the directive in HTML, the name must not be camelCased
+    name: 'appMain.about', // state name
+    url: '^/about', // The ^ character makes this url override the parent url
+    template: '<about-page></about-page>', // generate the Directive "aboutPage"
     data: {
       moduleClasses: 'page', // assign a module class to the <body> tag
       pageClasses: 'aboutPage', // assign a page-specific class to the <body> tag
@@ -60,9 +46,9 @@ function appRoutes($stateProvider) {
   };
 
   var faq = {
-    name: 'faq', // state name
-    url: '/faq', // url path that activates this state
-    template: '<faq-page></faq-page>', // generate the Directive "faqPage" - when calling the directive in HTML, the name must not be camelCased
+    name: 'appMain.faq', // state name
+    url: '^/faq', // The ^ character makes this url override the parent url
+    template: '<faq-page></faq-page>', // generate the Directive "faqPage"
     data: {
       moduleClasses: 'page', // assign a module class to the <body> tag
       pageClasses: 'faqPage', // assign a page-specific class to the <body> tag
@@ -99,6 +85,8 @@ function appRoutes($stateProvider) {
 
   $stateProvider.state(home);
   $stateProvider.state(appMain);
+  $stateProvider.state(about);
+  $stateProvider.state(faq);
   $stateProvider.state(city);
   $stateProvider.state(examplePage1);
 

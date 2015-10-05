@@ -1,19 +1,42 @@
-.footer {
+.appMainFooter {
 	background-color: @body-bg;
-	//border-top: 1px solid @body-bg;
-	padding-top: 15px;
-	padding-bottom: 15px;
-	position: absolute;
-	bottom: 0;
+	position: relative;
 	width: 100%;
 	min-height: 20px;
+	margin-top: 15px;
+	box-sizing: border-box;
 }
 
-.appMainFooterText {
+.appMainFooter-row {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.appMainFooter-row--pageLinks {
+	background-color: darken(@body-bg, 3%);
+}
+
+.appMainFooter-taglineText {
 	&:extend(.serif);
 	color: @headings-color;
 	margin-bottom: 6.5px;
 	cursor: pointer;
+}
+
+.appMainFooter-linksList {
+	margin-bottom: 0;
+}
+
+.appMainFooter-linksList--link {
+	color: lighten(@headings-color, 15.5%);
+	font-size: 16px;
+	text-decoration: none;
+	cursor: pointer;
+
+	&:hover {
+		color: @headings-color;
+		text-decoration: none;
+	}
 }
 
 
