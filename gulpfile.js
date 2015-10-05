@@ -50,7 +50,7 @@ var filePath = {
     },
     styles: {
         src: './app/app.less',
-        watch: ['./app/app.less', './app/**/*.less', './app/components/**/*.less']
+        watch: ['./app/app.less', './app/**/*.less', './app/components/common/**/*.less', './app/components/**/*.less']
     },
     assets: {
         images: {
@@ -59,7 +59,7 @@ var filePath = {
             dest: './dist/images/'
         },
         fonts: {
-            src: ['./libs/font-awesome/fonts/*'],
+            src: ['./libs/font-awesome/fonts/*', './app/fonts/**/*'],
             dest: './dist/fonts/'
         }
     },
