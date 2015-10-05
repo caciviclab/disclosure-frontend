@@ -31,14 +31,13 @@ function appRoutes($stateProvider) {
     name: 'appMain',
     abstract: true,  // This makes it so that the url for this route doesn't actually resolve
     url: '/app-main',
-    //template: '<app-main></app-main>'
-    template: '<div ui-view></div>'
+    template: '<app-main></app-main>'
   };
 
   var city = {
     name: 'appMain.city',
     url: '^/city', // The ^ character makes this url override the parent url
-    template: '<div app-main></div>',
+    //template: '<div app-main></div>',
     data: {
       moduleClasses: 'page',
       pageClasses: 'city',
@@ -61,8 +60,8 @@ function appRoutes($stateProvider) {
   //};
 
   var examplePage1 = {
-    name: 'examplePage1',
-    url: '/example-page-1',
+    name: 'appMain.examplePage1',
+    url: '^/example-page-1', // The ^ character makes this url override the parent url
     template: '<example-page-1></example-page-1>',
     //controller: 'ExamplePage1Controller',
     data: {
@@ -74,8 +73,8 @@ function appRoutes($stateProvider) {
   };
 
   var examplePage2 = {
-    name: 'examplePage2',
-    url: '/example-page-2',
+    name: 'appMain.examplePage2',
+    url: '^/example-page-2', // The ^ character makes this url override the parent url
     template: '<example-page-2></example-page-2>',
     //controller: 'ExamplePage2Controller',
     data: {
