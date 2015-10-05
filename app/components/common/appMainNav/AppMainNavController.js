@@ -27,8 +27,7 @@
 
     $scope.mainNavMenu = [
       {sref: 'home', title: 'Home'},
-      {sref: 'examplePage1', title: 'Example Page 1'},
-      {sref: 'examplePage2', title: 'Example Page 2'}
+      {sref: 'examplePage1', title: 'Example Page 1'}
     ];
   }
 

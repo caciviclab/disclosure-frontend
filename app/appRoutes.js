@@ -46,6 +46,31 @@ function appRoutes($stateProvider) {
     }
   };
 
+
+  var about = {
+    name: 'about', // state name
+    url: '/about', // url path that activates this state
+    template: '<about-page></about-page>', // generate the Directive "aboutPage" - when calling the directive in HTML, the name must not be camelCased
+    data: {
+      moduleClasses: 'page', // assign a module class to the <body> tag
+      pageClasses: 'aboutPage', // assign a page-specific class to the <body> tag
+      pageTitle: 'About', // set the title in the <head> section of the index.html file
+      pageDescription: 'Meta Description goes here' // meta description in <head>
+    }
+  };
+
+  var faq = {
+    name: 'faq', // state name
+    url: '/faq', // url path that activates this state
+    template: '<faq-page></faq-page>', // generate the Directive "faqPage" - when calling the directive in HTML, the name must not be camelCased
+    data: {
+      moduleClasses: 'page', // assign a module class to the <body> tag
+      pageClasses: 'faqPage', // assign a page-specific class to the <body> tag
+      pageTitle: 'Frequently Asked Questions', // set the title in the <head> section of the index.html file
+      pageDescription: 'Meta Description goes here' // meta description in <head>
+    }
+  };
+
   //var cityElections = {
   //  name: 'cityElections',
   //  url: '/city-elections',
@@ -72,24 +97,10 @@ function appRoutes($stateProvider) {
     }
   };
 
-  var examplePage2 = {
-    name: 'appMain.examplePage2',
-    url: '^/example-page-2', // The ^ character makes this url override the parent url
-    template: '<example-page-2></example-page-2>',
-    //controller: 'ExamplePage2Controller',
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'examplePage2',
-      pageTitle: 'Example Page 2',
-      pageDescription: 'Some description.'
-    }
-  };
-
   $stateProvider.state(home);
   $stateProvider.state(appMain);
   $stateProvider.state(city);
   $stateProvider.state(examplePage1);
-  $stateProvider.state(examplePage2);
 
 }
 
