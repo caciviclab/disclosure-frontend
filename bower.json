@@ -10,7 +10,8 @@
   "authors": "Ben Scott <bscott@tekalstudios.com>",
   "private": false,
   "devDependencies": {
-    "angular-mocks": "~1.4.2"
+    "angular-mocks": "~1.4.2",
+    "ui-select": "*"
   },
   "dependencies": {
     "angular": "~1.4.2",
