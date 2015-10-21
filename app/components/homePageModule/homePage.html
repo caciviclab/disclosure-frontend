@@ -6,6 +6,17 @@
 			<div class="text-center">
 				<h1 class="serif">Open Disclosure<br><span class="homepageText-header-brandPrimary">California</span></h1>
 				<p class="homepageText-subheader">Bringing Campaign Money to Light</p>
+
+				<div ng-repeat='candidate in candidates'>
+					<h3>{{candidate.f_name + ' ' + candidate.l_name}}</h3>
+					<p>Total Raised: ${{candidate.cc_committee[0].details.schA.sum | number}}</p>
+					<p>Raised from Individual Donors : {{(candidate.cc_committee[0].details.schA.by_contributorType[0]/candidate.cc_committee[0].details.schA.sum) * 100 | number:0}}%</p>
+
+
+				</div>
+
+
+
 			</div>
 		</div>
 	</div>

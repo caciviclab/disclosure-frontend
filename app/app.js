@@ -2,6 +2,7 @@
 
 window.jQuery = window.$ = require('jquery');
 window._ = require('lodash');
+//window.d3 = require('d3');
 
 var angular = require('angular');
 //require('../common/campaignFinanceApp/campaignFinanceApp');
@@ -16,9 +17,14 @@ require('angular-sanitize');
 require('domready/ready');
 require('lodash');
 require('restangular');
+//require('d3');
+//require('c3');
+//require('c3-angular');
 
 require('./components/common/appMainNav/appMainNav');
 require('./components/common/appMainFooter/appMainFooter');
+
+require('./components/common/api/api');
 
 require('./components/components');
 

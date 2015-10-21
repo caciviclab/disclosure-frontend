@@ -9,7 +9,8 @@
   module.exports = angular.module('homePageModule',
     [
       'appMainNavModule',
-      'appMainFooterModule'
+      'appMainFooterModule', 
+      'apiModule'
     ])
       .directive('homePage', homePageDirective)
       .controller('HomePageController', HomePageController);

@@ -78,6 +78,9 @@ var filePath = {
             './libs/domready/ready.js',
             './libs/lodash/lodash.js',
             './libs/restangular/dist/restangular.js'
+            //,'./libs/d3/d3.min.js',
+            //'./libs/c3/c3.min.js',
+            //'./libs/c3-angular/c3-angular.min.js'
         ]
     },
     //vendorCSS: {
