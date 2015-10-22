@@ -66,7 +66,7 @@ var filePath = {
     },
     vendorJS: {
         // These files will be bundled into a single vendor.js file that's called at the bottom of index.html
-        src: ['./frontend/thirdparty/index.js']
+        src: ['./app/thirdparty/index.js']
     },
     //vendorCSS: {
     //    src: [
