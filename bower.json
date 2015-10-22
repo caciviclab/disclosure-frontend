@@ -1,13 +1,13 @@
 {
-  "name": "AngularJS-Gulp-Browserify-Starter",
+  "name": "Disclosure-Frontend-Alpha",
   "version": "1.0.0",
   "description": "Base AngularJS application with gulp and browserify",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/goodbomb/angular-gulp-browserify-starter"
+    "url": "https://github.com/caciviclab/disclosure-frontend-alpha"
   },
-  "authors": "Ben Scott <bscott@tekalstudios.com>",
+  "authors": "CA Civic Lab",
   "private": false,
   "devDependencies": {
     "angular-mocks": "~1.4.2"
