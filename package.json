@@ -10,7 +10,7 @@
   "authors": "CA Civic Lab",
   "private": false,
   "engines": {
-    "node": "0.10.38"
+    "node": ">=0.10.38"
   },
   "scripts": {
     "start": "node server.js",
