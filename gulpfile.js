@@ -77,7 +77,8 @@ var filePath = {
             './libs/bootstrap/dist/js/bootstrap.js',
             './libs/domready/ready.js',
             './libs/lodash/lodash.js',
-            './libs/restangular/dist/restangular.js'
+            './libs/restangular/dist/restangular.js',
+            './libs/angular-breadcrumb/release/angular-breadcrumb'
         ]
     },
     //vendorCSS: {

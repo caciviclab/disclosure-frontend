@@ -6,6 +6,9 @@ function appRoutes($stateProvider) {
     name: 'home', // state name
     url: '/', // url path that activates this state
     template: '<home-page></home-page>', // generate the Directive "homeView" - when calling the directive in HTML, the name must not be camelCased
+    ncyBreadcrumb: {
+      label: 'Home'
+    },
     data: {
       moduleClasses: 'page', // assign a module class to the <body> tag
       pageClasses: 'home', // assign a page-specific class to the <body> tag
@@ -18,13 +21,20 @@ function appRoutes($stateProvider) {
     name: 'appMain',
     abstract: true,  // This makes it so that the url for this route doesn't actually resolve
     url: '/app-main',
-    template: '<app-main></app-main>'
+    template: '<app-main></app-main>',
+    ncyBreadcrumb: {
+      label: 'appMain'
+    }
   };
 
   var city = {
     name: 'appMain.city',
     url: '^/city', // The ^ character makes this url override the parent url
     //template: '<div app-main></div>',
+    ncyBreadcrumb: {
+      label: 'City',
+      parent: 'appMain'
+    },
     data: {
       moduleClasses: 'page',
       pageClasses: 'city',
@@ -37,6 +47,10 @@ function appRoutes($stateProvider) {
     name: 'appMain.about', // state name
     url: '^/about', // The ^ character makes this url override the parent url
     template: '<about-page></about-page>', // generate the Directive "aboutPage"
+    ncyBreadcrumb: {
+      label: 'About',
+      parent: 'appMain'
+    },
     data: {
       moduleClasses: 'page', // assign a module class to the <body> tag
       pageClasses: 'aboutPage', // assign a page-specific class to the <body> tag
@@ -49,6 +63,10 @@ function appRoutes($stateProvider) {
     name: 'appMain.faq', // state name
     url: '^/faq', // The ^ character makes this url override the parent url
     template: '<faq-page></faq-page>', // generate the Directive "faqPage"
+    ncyBreadcrumb: {
+      label: 'FAQ',
+      parent: 'appMain'
+    },
     data: {
       moduleClasses: 'page', // assign a module class to the <body> tag
       pageClasses: 'faqPage', // assign a page-specific class to the <body> tag
@@ -75,6 +93,10 @@ function appRoutes($stateProvider) {
     url: '^/example-page-1', // The ^ character makes this url override the parent url
     template: '<example-page-1></example-page-1>',
     //controller: 'ExamplePage1Controller',
+    ncyBreadcrumb: {
+      label: 'Example Page 1',
+      parent: 'appMain'
+    },
     data: {
       moduleClasses: 'page',
       pageClasses: 'examplePage1',
