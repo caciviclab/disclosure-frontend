@@ -9,8 +9,7 @@ env:
 
 install:
 - npm install
-- npm install -g bower gulp
-- bower install
+- npm install -g gulp
 
 deploy:
   provider: script
