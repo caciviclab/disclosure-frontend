@@ -23,7 +23,6 @@
     "angular-sanitize": "~1.4.2",
     "animate.css": "~3.2.5",
     "bootstrap": "~3.3.4",
-    "ui-select": "~0.13.2",
     "domready": "~1.0.7",
     "font-awesome": "~4.3.0",
     "jquery": "~2.1.3",

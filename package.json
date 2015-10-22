@@ -78,6 +78,7 @@
   "dependencies": {
     "connect": "^3.2.0",
     "express": "^4.4.5",
+    "ng-ui-select": "^0.12.0",
     "proxy-middleware": "^0.5.1"
   }
 }
