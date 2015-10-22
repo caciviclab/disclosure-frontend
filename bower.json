@@ -10,8 +10,7 @@
   "authors": "Ben Scott <bscott@tekalstudios.com>",
   "private": false,
   "devDependencies": {
-    "angular-mocks": "~1.4.2",
-    "ui-select": "*"
+    "angular-mocks": "~1.4.2"
   },
   "dependencies": {
     "angular": "~1.4.2",
@@ -24,6 +23,7 @@
     "angular-sanitize": "~1.4.2",
     "animate.css": "~3.2.5",
     "bootstrap": "~3.3.4",
+    "ui-select": "~0.13.2",
     "domready": "~1.0.7",
     "font-awesome": "~4.3.0",
     "jquery": "~2.1.3",
