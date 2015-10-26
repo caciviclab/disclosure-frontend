@@ -3,7 +3,18 @@ node_js:
 - '0.11'
 - '0.10'
 
+env:
+  global:
+  - secure: "jw/4FixTVm56tmXU+aHxWO6ORLBphXZwWnq8kQ8O5G6UYvdz5ACnn9NWfsfLn2hlvHe/lpGgD+bgIj5XnlZDNQ84g/6Ekw24gT0ZxCVHqVeFGrxEiQXllV++KpZ5gW+bctvwZBx08EjGdY4OSZawkWNAulq2aCtF8BHeoTuQR9wLavFOJ0qaD0IOP2WWMNGQYdDjLob26SVRFwIEHT3ieu9TQHuw/jFeYvvA9fpXm5gZ+6MZ7skPW3cqxlSJoTeu6W5yhoSDrS/1WKiiHwYiM7BbJd0+rwmlJOmWZNcN0oFsASn9Hbe3eH/dS61zKBflibms0XmCaU2AQuY/csZlZIowDWmQEXQiAWbiofWly4nGbRl9kV5k4JBHlTRUDsPMyro5xPBcoyXg+KusnCa2CfMUPKmS0ke/9tRDdfJ7fcn/tppeo40TXbmXHMVgfy0AG1SI2xf0/n8fGrsFEsXiVXpbg4nzjtWK2jEwXMWYcxogLjD7z7035QZApAxIGvOJKzz4ncBccN3rPwaHuXabMYb7HkSQMYpMdE2PQLafRCTDrdL+gtV3g1HpM2Ks8aVF1IYs4tnyWRIppGFzj/zfgxiz8JdZlFP+sIbfCtEVv5Su5p5wcEkjv4Bl6RLSD/X3N0t9PPl0zD9fnD4NSWEPRkwilIFa9Iitu2Ji6glkFIw=" # GITHUB_TOKEN
+
 install:
 - npm install
 - npm install -g bower gulp
 - bower install
+
+deploy:
+  provider: script
+  script: ./deploy.sh
+  skip_cleanup: true
+  on:
+    branch: master
