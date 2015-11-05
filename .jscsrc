@@ -11,7 +11,7 @@
         "beforeOpeningRoundBrace": true
     },
     "disallowSpacesInsideParentheses": true,
-    "disallowTrailingWhitespace": true,
+    "disallowTrailingWhitespace": "ignoreEmptyLines",
     "requireCamelCaseOrUpperCaseIdentifiers": true,
     "requireCapitalizedConstructors": true,
     "requireCurlyBraces": true,

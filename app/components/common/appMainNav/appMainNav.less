@@ -2,62 +2,67 @@
 @HeaderBackgroundColor: @white;
 
 .appMainHeader {
-	background-color: @HeaderBackgroundColor;
+  background-color: @HeaderBackgroundColor;
 }
 
 //Bootstrap Overrides
 .navbar {
-	border-bottom: 5px solid @brand-warning;
-	box-sizing: border-box;
+  border-bottom: 5px solid @brand-warning;
+  box-sizing: border-box;
 }
 
 .nav > li {
-	border-left: 1px solid @HeaderLightGreyBorderColor;
+  border-left: 1px solid @HeaderLightGreyBorderColor;
 
-	&:nth-last-child(1) {
-		border-right: 1px solid @HeaderLightGreyBorderColor;
-	}
+  &:nth-last-child(1) {
+    border-right: 1px solid @HeaderLightGreyBorderColor;
+  }
 }
 
 .navbar-default {
-	.navbar-toggle {
+  .navbar-toggle {
 
-		&:hover, &:focus {
-			background-color: @navbar-default-bg;
-		}
+    &:hover, &:focus {
+      background-color: @navbar-default-bg;
+    }
 
-		.icon-bar {
-			background-color: @navbar-default-brand-color;
-		}
-	}
+    .icon-bar {
+      background-color: @navbar-default-brand-color;
+    }
+  }
 }
 
 .navbar-toggle {
-	.icon-bar {
-		width: 26px;
-		height: 3px;
-	}
+  .icon-bar {
+    width: 26px;
+    height: 3px;
+  }
 }
 
 .appMainNav-navbar-toggle {
-	.pull-left;
-	border: none;
-	border-radius: 0;
-	margin-left: @navbar-padding-horizontal;
-	margin-right: 0;
-	margin-top: 12px;
+  .pull-left;
+  border: none;
+  border-radius: 0;
+  margin-left: @navbar-padding-horizontal;
+  margin-right: 0;
+  margin-top: 12px;
 }
 
 .appMainNav-navbar-brand {
-	padding-left: 6px;
-	font-size: 26px;
+  padding-left: 6px;
+  font-family: @font-family-serif;
+  font-size: 26px;
 }
 
 .appMainNav-navbar-brand--span {
-	color: @bodyTextColor;
+  color: @bodyTextColor;
 }
 
 .appMainNav-icon-bar {
-	width: 26px;
-	height: 3px;
+  width: 26px;
+  height: 3px;
+}
+
+.navbar-search {
+  .pull-right;
 }

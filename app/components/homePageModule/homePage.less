@@ -1,10 +1,32 @@
 /* =======================================================================
-    Style References
-======================================================================= */
-@import (reference) "../common/styles/custom_mixins.less";
-@import (reference) "../common/styles/custom_variables.less";
-
-
-/* =======================================================================
     Module Styles
 ======================================================================= */
+.homepageText-header-brandPrimary {
+  .text-brand-primary;
+}
+
+.homepageText-subheader {
+  font-family: @creteRound-font-family;
+  font-style: italic;
+  font-size: 21px;
+  font-weight: 400;
+  color: @grey1;
+}
+
+.homepageText-body {
+  &:extend(.serif);
+  color: @headings-color;
+  font-size: 21px;
+}
+
+.homepageSearchContainer {
+  padding-top: 30px;
+  padding-bottom: 15px;
+  box-sizing: border-box;
+}
+
+.homepageFooter {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}

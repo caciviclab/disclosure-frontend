@@ -2,6 +2,24 @@
   'use strict';
   // Controller naming conventions should start with an uppercase letter
   function AppMainNavController($scope) {
+    
+    //$scope.searchBarEnabled = true;
+    //$scope.searchBarEnabled = false;
+
+    //$scope.hasNavbarSearch = !hasNavbarSearch;
+
+    //$scope.searchInNav = false;
+
+    //$scope.navbarSearch = function() {
+    //
+    //};
+    //$scope.searchEnabled = function() {
+    //  $scope.searchInNav = true;
+    //};
+    //
+    //$scope.deActivateSearch = function() {
+    //  $scope.searchInNav = false;
+    //};
 
     $scope.navCollapsed = true;
 
@@ -9,8 +27,7 @@
 
     $scope.mainNavMenu = [
       {sref: 'home', title: 'Home'},
-      {sref: 'examplePage1', title: 'Example Page 1'},
-      {sref: 'examplePage2', title: 'Example Page 2'}
+      {sref: 'examplePage1', title: 'Example Page 1'}
     ];
   }
 

@@ -50,7 +50,7 @@ var filePath = {
     },
     styles: {
         src: './app/app.less',
-        watch: ['./app/app.less', './app/**/*.less', './app/components/**/*.less']
+        watch: ['./app/app.less', './app/**/*.less', './app/components/common/**/*.less', './app/components/**/*.less']
     },
     assets: {
         images: {
@@ -59,7 +59,7 @@ var filePath = {
             dest: './dist/images/'
         },
         fonts: {
-            src: ['./libs/font-awesome/fonts/*'],
+            src: ['./libs/font-awesome/fonts/*', './app/fonts/**/*'],
             dest: './dist/fonts/'
         }
     },
@@ -211,8 +211,14 @@ function rebundle() {
 }
 
 function configureBundle(prod) {
-    bundle.bundler = watchify(browserify(bundle.conf));
-    bundle.bundler.on('update', rebundle);
+    var bundler = browserify(bundle.conf);
+
+    if (!prod) {
+        bundler = watchify(bundler);
+        bundler.on('update', rebundle);
+    }
+
+    bundle.bundler = bundler;
     bundle.prod = prod;
 }
 
@@ -401,7 +407,6 @@ gulp.task('build-prod', function(callback) {
     runSequence(
         ['clean-full', 'lint', 'checkstyle'],
         ['bundle-prod', 'styles-prod', 'images', 'fonts', 'vendorJS', 'copyIndex', 'copyFavicon'],
-        ['server'],
         callback
     );
 });
