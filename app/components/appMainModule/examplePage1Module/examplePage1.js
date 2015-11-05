@@ -1,8 +1,6 @@
 (function() {
   'use strict';
-// Example Page 1
 
-  //var examplePage1Module = require('./examplePage1');
   var examplePage1Directive = require('./examplePage1Directive');
   var ExamplePage1Controller = require('./ExamplePage1Controller');
 
