@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   // Controller naming conventions should start with an uppercase letter
-  function HomePageController($scope, $http) {
+  function HomePageController($scope, $http, disclosureApi) {
     $scope.searchBarEnabled = false;
     $scope.testVar = 'We are up and running using a required module!';
     $scope.searchResults = [];
@@ -12,17 +12,19 @@
         return;
       }
 
-      $http({
-        url: 'http://admin.caciviclab.org/search/?q=' + $scope.search,
-        headers: {'Accept': 'application/json' }
-      }).then(function(resp) {
-        $scope.searchResults = resp.data;
-        // $scope.searchResults.concat(resp.data);
+      disclosureApi.then(function(api) {
+        api.search.get({q: $scope.search})
+          .then(function(resp) {
+            // TODO Fix this on the server, shouldn't need JSON.parse.
+            // JSON.parse is required because the swagger schema doesn't define
+            // the response as an array, so it's just interpretted as string.
+            $scope.searchResults = JSON.parse(resp.data);
+          });
       });
     });
   }
 
   // $inject is necessary for minification. See http://bit.ly/1lNICde for explanation.
-  HomePageController.$inject = ['$scope', '$http'];
+  HomePageController.$inject = ['$scope', '$http', 'disclosureApi'];
   module.exports = HomePageController;
 })();

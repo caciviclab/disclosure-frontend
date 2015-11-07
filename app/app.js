@@ -18,6 +18,7 @@ require('lodash');
 require('restangular');
 require('angular-breadcrumb');
 
+require('./components/services/disclosure');
 require('./components/common/appMainNav/appMainNav');
 require('./components/common/appMainFooter/appMainFooter');
 require('./components/common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
@@ -34,7 +35,8 @@ module.exports = angular.module('campaignFinanceApp',
       'ngSanitize',
       'restangular',
       'ncy-angular-breadcrumb',
-      'components'
+      'components',
+      'disclosure'
     ])
     .config(require('./appRoutes'))
     .config(require('./appConfig'))
