@@ -8,7 +8,7 @@
     // This is pretty jank, we should debounce this or do the search when the
     // user stops typing.
     $scope.$watch('search', function(newValue, old) {
-      if (typeof newValue === "undefined") {
+      if (typeof newValue === 'undefined') {
         return;
       }
 
