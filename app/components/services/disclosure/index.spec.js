@@ -1,37 +1,41 @@
+'use strict';
+
 require('./index');
 
 describe('disclosureApi', function() {
-  var api;
+  var disclosureApi;
 
   beforeEach(angular.mock.module('disclosure'));
-  beforeEach(function() {
-    var disclosureApi;
-    angular.mock.inject(function(_disclosureApi_) {
-      disclosureApi = _disclosureApi_;
-      disclosureApi.then(function(_api_) {
-        api = _api_;
-      });
-    });
 
-    return disclosureApi;
-  });
+  beforeEach(angular.mock.inject(function(_disclosureApi_) {
+    disclosureApi = _disclosureApi_;
+  }));
 
   it('exists', function() {
-    expect(api).to.be.ok;
+    expect(disclosureApi).to.be.ok;
   });
 
   it('has contributions', function() {
-    expect(api).to.have.property('contributions');
+    expect(disclosureApi).to.have.property('contributions');
   });
 
   it('has elections', function() {
-    expect(api).to.have.property('elections');
+    expect(disclosureApi).to.have.property('elections');
+  });
+
+  it('has locations', function() {
+    expect(disclosureApi).to.have.property('locations');
+  });
+
+  it('has search', function() {
+    expect(disclosureApi).to.have.property('search');
   });
 
   it('lists 10 contributions', function() {
-    return api.contributions.list()
-      .then(function(resp) {
-        expect(resp.data).to.have.length(10);
+    // This hits a live API, so changes outside of this project could failt his test :(
+    return disclosureApi.contributions.list()
+      .then(function(contributions) {
+        expect(contributions).to.have.length(9);
       });
   });
 });

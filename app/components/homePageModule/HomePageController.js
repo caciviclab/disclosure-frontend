@@ -12,15 +12,10 @@
         return;
       }
 
-      disclosureApi.then(function(api) {
-        api.search.get({q: $scope.search})
-          .then(function(resp) {
-            // TODO Fix this on the server, shouldn't need JSON.parse.
-            // JSON.parse is required because the swagger schema doesn't define
-            // the response as an array, so it's just interpretted as string.
-            $scope.searchResults = JSON.parse(resp.data);
-          });
-      });
+      disclosureApi.search.get({q: $scope.search})
+        .then(function(results) {
+          $scope.searchResults = results;
+        });
     });
   }
 
