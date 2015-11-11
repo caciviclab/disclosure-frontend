@@ -1,29 +1,33 @@
 <app-main-nav></app-main-nav>
 
 <div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<div class="text-center">
-				<h1 class="serif">Open Disclosure<br><span class="homepageText-header-brandPrimary">California</span></h1>
-				<p class="homepageText-subheader">Bringing Campaign Money to Light</p>
-			</div>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="text-center">
+        <h1 class="serif">Open Disclosure<br><span class="homepageText-header-brandPrimary">California</span></h1>
+        <p class="homepageText-subheader">Bringing Campaign Money to Light</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div class="container homepageSearchContainer">
-	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-sm-offset-2">
-			<p class="homepageText-body">Search zipcode, city, or county</p>
-		</div>
-	</div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <p class="homepageText-body">Search zipcode, city, or county</p>
+    </div>
+  </div>
 
-	<div class="row">
-		<div class="col-xs-12 col-sm-8 col-sm-offset-2">
-			<!--search bar goes here-->
-		</div>
-	</div>
-
+  <div class="row">
+    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+      <input ng-model="search" type="text" />
+      <ul>
+        <li ng-repeat="r in searchResults">
+          <a ui-sref="appMain.city({fips_id: r.fip_id })">{{ r.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 </div>
 
 <app-main-footer class="homepageFooter"></app-main-footer>

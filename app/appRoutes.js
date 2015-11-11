@@ -29,7 +29,7 @@ function appRoutes($stateProvider) {
 
   var city = {
     name: 'appMain.city',
-    url: '^/city', // The ^ character makes this url override the parent url
+    url: '^/city/:fips_id',
     //template: '<div app-main></div>',
     ncyBreadcrumb: {
       label: 'City',

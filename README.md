@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/opencalifornia/disclosure-frontend-alpha.svg)](https://travis-ci.org/opencalifornia/disclosure-frontend-alpha)
+[![Build Status](https://travis-ci.org/caciviclab/disclosure-frontend-alpha.svg)](https://travis-ci.org/caciviclab/disclosure-frontend-alpha)
 
 # Open Disclosure California
 
@@ -8,6 +8,7 @@ Don't forget to run the tests.
 
 
 --
+
 
 ##Unofficial Fork of the [AngularJS-Gulp-Browserify Starter App](https://github.com/goodbomb/angular-gulp-browserify-starter) written by [@goodbomb](https://github.com/goodbomb)
 
@@ -216,3 +217,15 @@ This project is open source so collaboration is welcome. If you see a way to imp
 - https://www.codeschool.com/courses/shaping-up-with-angular-js
 - http://egghead.io
 - http://thinkster.io
+
+
+## Deployment
+
+Travis will deploy the `master` branch to Github Pages. You shouldn't need to manually deploy
+but, here are the instructions.
+
+To deploy, just set a personal access token via GITHUB_TOKEN in your environment
+and run the deploy script. The script will build your working directory as is,
+and push it to Github pages.
+
+    $ GITHUB_TOKEN=<your personal token> ./deploy.sh
