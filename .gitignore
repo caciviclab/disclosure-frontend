@@ -3,9 +3,7 @@ dist
 reports
 
 # Third Party Dependencies
-bower_components
 node_modules
-libs/*
 
 # Webstorm Files
 .idea
