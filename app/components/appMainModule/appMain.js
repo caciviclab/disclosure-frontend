@@ -10,6 +10,7 @@
 
   module.exports = angular.module('appMainModule',
     [
+      'pageHeaderBreadcrumbsModule',
       'examplePage1Module',
       'aboutPageModule',
       'faqPageModule'

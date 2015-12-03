@@ -2,6 +2,8 @@
 
 'use strict';
 
+require('../../app');
+
 describe('HomeController', function() {
 
     var ctrl, scope;

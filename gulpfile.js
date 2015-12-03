@@ -18,6 +18,7 @@ var gulp = require('gulp'),
     prefix = require('gulp-autoprefixer'),
     minifyCSS = require('gulp-minify-css'),
     notify = require('gulp-notify'),
+    webserver = require('gulp-webserver'),
     browserify = require('browserify'),
     watchify = require('watchify'),
     del = require('del'),
@@ -59,26 +60,13 @@ var filePath = {
             dest: './dist/images/'
         },
         fonts: {
-            src: ['./libs/font-awesome/fonts/*', './app/fonts/**/*'],
+            src: ['./node_modules/font-awesome/fonts/*', './app/fonts/**/*'],
             dest: './dist/fonts/'
         }
     },
     vendorJS: {
         // These files will be bundled into a single vendor.js file that's called at the bottom of index.html
-        src: [
-            './libs/angular/angular.js',
-            './libs/angular-animate/angular-animate.js',
-            './libs/angular-bootstrap/ui-bootstrap-tpls.js',
-            './libs/angular-cookies/angular-cookies.js',
-            './libs/angular-resource/angular-resource.js',
-            './libs/angular-sanitize/angular-sanitize.js',
-            './libs/angular-ui-router/release/angular-ui-router.js',
-            './libs/jquery/dist/jquery.js',
-            './libs/bootstrap/dist/js/bootstrap.js',
-            './libs/domready/ready.js',
-            './libs/lodash/lodash.js',
-            './libs/restangular/dist/restangular.js'
-        ]
+        src: ['./app/thirdparty/index.js']
     },
     //vendorCSS: {
     //    src: [
@@ -367,6 +355,17 @@ gulp.task('watch', function() {
     console.log('Watching...');
 });
 
+// =======================================================================
+// Start a webserver to serve the assets to developers directly
+// =======================================================================
+gulp.task('webserver', function() {
+  gulp.src('app')
+  .pipe(webserver({
+    livereload: true,
+    directoryListing: true,
+    open: true
+  }));
+});
 
 // =======================================================================
 // Karma Configuration

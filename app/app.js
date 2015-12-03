@@ -16,9 +16,12 @@ require('angular-sanitize');
 require('domready/ready');
 require('lodash');
 require('restangular');
+require('angular-breadcrumb');
 
+require('./components/services/disclosure');
 require('./components/common/appMainNav/appMainNav');
 require('./components/common/appMainFooter/appMainFooter');
+require('./components/common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
 
 require('./components/components');
 
@@ -31,7 +34,9 @@ module.exports = angular.module('campaignFinanceApp',
       'ngResource',
       'ngSanitize',
       'restangular',
-      'components'
+      'ncy-angular-breadcrumb',
+      'components',
+      'disclosure'
     ])
     .config(require('./appRoutes'))
     .config(require('./appConfig'))
