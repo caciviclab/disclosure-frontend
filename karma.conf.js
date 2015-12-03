@@ -19,7 +19,6 @@ module.exports = function (config) {
         files: [
             'app/thirdparty/index.js',
             'node_modules/angular-mocks/angular-mocks.js', // for angular.mock.module and inject.
-            'app/app.js',
             'app/**/*.spec.js'
         ],
 
@@ -50,8 +49,11 @@ module.exports = function (config) {
         reporters: ['spec', 'coverage'],
 
         coverageReporter: {
-            type: 'html',
-            dir: './reports/coverage'
+            dir: './reports/coverage',
+            reporters: [
+                {type: 'text-summary'},
+                {type: 'html'}
+            ]
         },
 
         // web server port
