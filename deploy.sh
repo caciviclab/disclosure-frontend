@@ -16,6 +16,9 @@ rm -rf ./dist
 # Build
 gulp prod
 
+# Copy CNAME
+cp CNAME dist/
+
 # Git init
 cd dist
 git --version
