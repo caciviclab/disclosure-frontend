@@ -33,7 +33,7 @@ function appRoutes($stateProvider) {
     controller: require('./components/cityModule/cityController'),
     template: require('./components/cityModule/city.html'),
     ncyBreadcrumb: {
-      label: 'City',
+      label: '{{ city.location.name }}',
       parent: 'appMain'
     },
     resolve: {
