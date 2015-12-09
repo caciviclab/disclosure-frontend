@@ -29,17 +29,46 @@ function appRoutes($stateProvider) {
 
   var city = {
     name: 'appMain.city',
+    abstract: true,
     url: '^/city/:fips_id',
     controller: require('./components/common/cityModule/cityController'),
-    template: require('./components/common/cityModule/city.html'),
-    ncyBreadcrumb: {
-      label: '{{ city.location.name }}',
-      parent: 'appMain'
-    },
+    template: require('./components/common/cityModule/index.html'),
     resolve: {
       city: function($stateParams, disclosureApi) {
         return disclosureApi.locations.get({fips_id: $stateParams.fips_id});
       }
+    },
+    data: {
+      moduleClasses: 'page',
+      pageClasses: 'city',
+      pageTitle: 'City',
+      pageDescription: 'Some description.'
+    }
+  };
+
+  var cityMoney = {
+    name: 'appMain.city.money',
+    url: '/money',
+    template: require('./components/common/cityModule/money/index.html'),
+    ncyBreadcrumb: {
+      label: '{{ city.location.name }}',
+      parent: 'appMain.city'
+    },
+    data: {
+      moduleClasses: 'page',
+      pageClasses: 'city',
+      pageTitle: 'City',
+      pageDescription: 'Some description.'
+    }
+  };
+
+  var cityElections = {
+    name: 'appMain.city.elections',
+    url: '/elections',
+    template: require('./components/common/cityModule/elections/index.html'),
+    ncyBreadcrumb: {
+      label: '{{ city.location.name }}',
+      parent: 'appMain.city'
     },
     data: {
       moduleClasses: 'page',
@@ -116,6 +145,8 @@ function appRoutes($stateProvider) {
   $stateProvider.state(about);
   $stateProvider.state(faq);
   $stateProvider.state(city);
+  $stateProvider.state(cityMoney);
+  $stateProvider.state(cityElections);
   $stateProvider.state(examplePage1);
 
 }
