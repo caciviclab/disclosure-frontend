@@ -184,6 +184,35 @@ function appRoutes($stateProvider) {
     }
   };
 
+  var measureOpposing = {
+    name: 'appMain.measure.opposing',
+    url: '/opposing',
+    controller: 'opposingController',
+    template: require('./components/common/measureModule/templates/opposing.html'),
+    ncyBreadcrumb: {
+      label: 'Opposing',
+      parent: 'appMain.measure.index'
+    },
+    resolve: {
+      opposers: function($stateParams, $q) {
+        return $q.resolve([
+          {name: 'Citizens for a Better Oakland', contributions: 185859},
+          {name: 'Oaklanders for Ethical Government', contributions: 152330},
+          {name: 'Americans for Liberty', contributions: 83199},
+          {name: 'Golden State Citizens for Positive Reform', contributions: 23988},
+          {name: 'The Public Commission for Ethical Civic Reform', contributions: 15040},
+          {name: 'The Committee of True Americans who Dearly Love America and Liberty', contributions: 7943}
+        ]);
+      }
+    },
+    data: {
+      moduleClasses: 'page',
+      pageClasses: 'measure-opposing',
+      pageTitle: 'Opposers',
+      pageDescription: 'Opposers of the ballot measure.'
+    }
+  };
+
 
   $stateProvider.state(home);
   $stateProvider.state(appMain);
@@ -193,6 +222,7 @@ function appRoutes($stateProvider) {
   $stateProvider.state(measure);
   $stateProvider.state(measureIndex);
   $stateProvider.state(measureSupporting);
+  $stateProvider.state(measureOpposing);
   $stateProvider.state(examplePage1);
 
 }

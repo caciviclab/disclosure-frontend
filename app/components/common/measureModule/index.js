@@ -5,4 +5,5 @@ module.exports = angular.module('measureModule', [
   ])
   .controller('measureController', require('./controllers/measure'))
   .controller('indexController', require('./controllers/index'))
-  .controller('supportingController', require('./controllers/supporting'));
+  .controller('supportingController', require('./controllers/supporting'))
+  .controller('opposingController', require('./controllers/opposing'));
