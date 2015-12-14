@@ -2,7 +2,7 @@
 
 require('./homePageModule/homePage');
 require('./appMainModule/appMain');
-require('./cityModule');
+require('./common/cityModule');
 
 module.exports = angular.module('components', [
   'homePageModule',

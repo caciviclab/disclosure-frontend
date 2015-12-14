@@ -30,8 +30,8 @@ function appRoutes($stateProvider) {
   var city = {
     name: 'appMain.city',
     url: '^/city/:fips_id',
-    controller: require('./components/cityModule/cityController'),
-    template: require('./components/cityModule/city.html'),
+    controller: require('./components/common/cityModule/cityController'),
+    template: require('./components/common/cityModule/city.html'),
     ncyBreadcrumb: {
       label: '{{ city.location.name }}',
       parent: 'appMain'
