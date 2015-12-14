@@ -111,11 +111,48 @@ function appRoutes($stateProvider) {
     }
   };
 
+  var measure = {
+    name: 'appMain.measure',
+    url: '^/measure/:measure_id',
+    controller: require('./components/common/measureModule/measureController'),
+    template: require('./components/common/measureModule/templates/measure.html'),
+    ncyBreadcrumb: {
+      label: 'Measure {{ measure.number }}',
+      parent: 'appMain.city({fips_id: measure.city.fips_id})'
+    },
+    resolve: {
+      measure: function($stateParams, $q) {
+        return $q.resolve({
+          measure_id: 1,
+          city: {
+            fips_id: 6075,
+            location: {
+              name: 'San Francisco'
+            }
+          }, // Not sure if city really makes sense here
+          number: 'BB',
+          full_text: 'Shall the Charter of the City of Oakland be amended to provide the Public Ethics Commission greater independence, broader enforcement authority, powers and…',
+          title: 'Ethics Commission Authority Increase Charter Amendment',
+          supporting_count: 4,
+          opposing_count: 6
+        });
+      }
+    },
+    data: {
+      moduleClasses: 'page',
+      pageClasses: 'measure',
+      pageTitle: 'Measure',
+      pageDescription: 'Ballot measures.'
+    }
+  };
+
+
   $stateProvider.state(home);
   $stateProvider.state(appMain);
   $stateProvider.state(about);
   $stateProvider.state(faq);
   $stateProvider.state(city);
+  $stateProvider.state(measure);
   $stateProvider.state(examplePage1);
 
 }
