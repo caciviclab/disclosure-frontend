@@ -21,10 +21,7 @@ function appRoutes($stateProvider) {
     name: 'appMain',
     abstract: true,  // This makes it so that the url for this route doesn't actually resolve
     url: '/app-main',
-    template: '<app-main></app-main>',
-    ncyBreadcrumb: {
-      label: 'appMain'
-    }
+    template: '<app-main></app-main>'
   };
 
   var city = {
@@ -114,12 +111,9 @@ function appRoutes($stateProvider) {
   var measure = {
     name: 'appMain.measure',
     url: '^/measure/:measure_id',
-    controller: require('./components/common/measureModule/measureController'),
-    template: require('./components/common/measureModule/templates/measure.html'),
-    ncyBreadcrumb: {
-      label: 'Measure {{ measure.number }}',
-      parent: 'appMain.city({fips_id: measure.city.fips_id})'
-    },
+    abstract: true,
+    controller: 'measureController',
+    template: '<ui-view></ui-view>',
     resolve: {
       measure: function($stateParams, $q) {
         return $q.resolve({
@@ -146,6 +140,23 @@ function appRoutes($stateProvider) {
     }
   };
 
+  var measureIndex = {
+    name: 'appMain.measure.index',
+    url: '',
+    controller: 'indexController',
+    template: require('./components/common/measureModule/templates/measure.html'),
+    ncyBreadcrumb: {
+      label: 'Measure {{ measure.number }}',
+      parent: 'appMain.city({fips_id: measure.city.fips_id})'
+    },
+    data: {
+      moduleClasses: 'page',
+      pageClasses: 'measure',
+      pageTitle: 'Measure',
+      pageDescription: 'Ballot measures.'
+    }
+  };
+
 
   $stateProvider.state(home);
   $stateProvider.state(appMain);
@@ -153,6 +164,7 @@ function appRoutes($stateProvider) {
   $stateProvider.state(faq);
   $stateProvider.state(city);
   $stateProvider.state(measure);
+  $stateProvider.state(measureIndex);
   $stateProvider.state(examplePage1);
 
 }
