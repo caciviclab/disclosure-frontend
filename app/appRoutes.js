@@ -157,6 +157,33 @@ function appRoutes($stateProvider) {
     }
   };
 
+  var measureSupporting = {
+    name: 'appMain.measure.supporting',
+    url: '/supporting',
+    controller: 'supportingController',
+    template: require('./components/common/measureModule/templates/supporting.html'),
+    ncyBreadcrumb: {
+      label: 'Supporting',
+      parent: 'appMain.measure.index'
+    },
+    resolve: {
+      supporters:function($stateParams, $q) {
+        return $q.resolve([
+          {name: 'Citizens for a Better Oakland', contributions: 185859},
+          {name: 'Oaklanders for Ethical Government', contributions: 152330},
+          {name: 'Americans for Liberty', contributions: 83199},
+          {name: 'Golden State Citizens for Positive Reform', contributions: 23988}
+        ]);
+      }
+    },
+    data: {
+      moduleClasses: 'page',
+      pageClasses: 'measure-supporting',
+      pageTitle: 'Supporters',
+      pageDescription: 'Supporters of the ballot measure.'
+    }
+  };
+
 
   $stateProvider.state(home);
   $stateProvider.state(appMain);
@@ -165,6 +192,7 @@ function appRoutes($stateProvider) {
   $stateProvider.state(city);
   $stateProvider.state(measure);
   $stateProvider.state(measureIndex);
+  $stateProvider.state(measureSupporting);
   $stateProvider.state(examplePage1);
 
 }
