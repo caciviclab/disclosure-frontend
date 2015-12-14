@@ -1,13 +1,11 @@
-(function() {
-  'use strict';
+'use strict';
 
-  require('./homePageModule/homePage');
-  require('./appMainModule/appMain');
+require('./homePageModule/homePage');
+require('./appMainModule/appMain');
+require('./common/cityModule');
 
-  module.exports = angular.module('components',
-      [
-        'homePageModule',
-        'appMainModule'
-      ]);
-      //.controller('MainCtrl', require('./MainController'));
-})();
+module.exports = angular.module('components', [
+  'homePageModule',
+  'appMainModule',
+  'cityModule'
+]);

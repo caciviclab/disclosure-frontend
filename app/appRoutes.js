@@ -30,10 +30,16 @@ function appRoutes($stateProvider) {
   var city = {
     name: 'appMain.city',
     url: '^/city/:fips_id',
-    //template: '<div app-main></div>',
+    controller: require('./components/common/cityModule/cityController'),
+    template: require('./components/common/cityModule/city.html'),
     ncyBreadcrumb: {
-      label: 'City',
+      label: '{{ city.location.name }}',
       parent: 'appMain'
+    },
+    resolve: {
+      city: function($stateParams, disclosureApi) {
+        return disclosureApi.locations.get({fips_id: $stateParams.fips_id});
+      }
     },
     data: {
       moduleClasses: 'page',
