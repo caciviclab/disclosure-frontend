@@ -15,13 +15,7 @@
   </div>
   <div class="section">
     <p>Where is the money coming from?</p>
-    <dl>
-      <dt>Within {{ city.location.name }}</dt>
-      <dd>{{ city.contribution_by_area.inside_location }}</dd>
-      <dt>In-state</dt>
-      <dd>{{ city.contribution_by_area.inside_state }}</dd>
-      <dt>Out-of-state</dt>
-      <dd>{{ city.contribution_by_area.outside_state }}</dd>
-    </dl>
+    <div contribution-area-breakdown="city.contribution_by_area" location="city.location"></div>
   </div>
 </div>
+
