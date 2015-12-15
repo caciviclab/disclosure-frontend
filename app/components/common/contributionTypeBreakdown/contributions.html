@@ -1,0 +1,14 @@
+<dl>
+  <dt>Individual</dt>
+  <dd class="money">{{ contributionByType.individual | currency:$:0 }}</dd>
+  <dt>Political Party</dt>
+  <dd class="money">{{ contributionByType.political_party | currency:$:0 }}</dd>
+  <dt>Not Itemized</dt>
+  <dd><i>Small (unitemized) contributions are those under $100</i></dd>
+  <dd class="money">{{ contributionByType.unitemized | currency:$:0 }}</dd>
+  <dt>Recipient Commitee</dt>
+  <dd><i>This category includes Political Action Committees (PACs)&#x2026;</i></dd>
+  <dd class="money">{{ contributionByType.recipient_committee | currency:$:0 }}</dd>
+  <dt>Self-Funded</dt>
+  <dd class="money">{{ contributionByType.self_funded | currency:$:0 }}</dd>
+</dl>

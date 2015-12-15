@@ -11,20 +11,7 @@
     <div>
       <span>{{ city.contribution_total }}</span>
     </div>
-    <dl>
-      <dt>Individual</dt>
-      <dd>{{ city.contribution_by_type.individual }}</dd>
-      <dt>Political Party</dt>
-      <dd>{{ city.contribution_by_type.political_party }}</dd>
-      <dt>Not Itemized</dt>
-      <dd><i>Small (unitemized) contributions are those under $100</i></dd>
-      <dd>{{ city.contribution_by_type.unitemized }}</dd>
-      <dt>Recipient Commitee</dt>
-      <dd><i>This category includes Political Action Committees (PACs)&#x2026;</i></dd>
-      <dd>{{ city.contribution_by_type.recipient_committee }}</dd>
-      <dt>Self-Funded</dt>
-      <dd>{{ city.contribution_by_type.self_funded }}</dd>
-    </dl>
+    <div contribution-type-breakdown="city.contribution_by_type"></div>
   </div>
   <div class="section">
     <p>Where is the money coming from?</p>
