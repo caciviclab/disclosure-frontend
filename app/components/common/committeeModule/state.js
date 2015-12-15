@@ -8,13 +8,10 @@
 module.exports = function($stateProvider) {
   $stateProvider.state({
     name: 'appMain.committee',
+    abstract: true,
     url: '^/committee/:committee_id',
+    template: '<ui-view></ui-view>',
     controller: 'committeeController',
-    template: require('./templates/committee.html'),
-    ncyBreadcrumb: {
-      label: '{{ committee.name }}',
-      parent: 'appMain.city'
-    },
     resolve: {
       committee: function($stateParams, $q) {
         return $q.resolve({
@@ -40,6 +37,54 @@ module.exports = function($stateProvider) {
       pageClasses: 'committee',
       pageTitle: 'Committee',
       pageDescription: 'A campaign committee.'
+    }
+  });
+
+  $stateProvider.state({
+    name: 'appMain.committee.main',
+    url: '',
+    template: require('./templates/committee.html'),
+    ncyBreadcrumb: {
+      label: '{{ committee.name }}',
+      parent: 'appMain.city'
+    }
+  });
+
+  $stateProvider.state({
+    name: 'appMain.committee.contributors',
+    url: '/contributors',
+    controller: 'contributorsController',
+    template: require('./templates/contributors.html'),
+    ncyBreadcrumb: {
+      label: 'Contributors',
+      parent: 'appMain.committee.main'
+    },
+    resolve: {
+      contributors: function($stateParams, $q) {
+        return $q.resolve([
+          {
+            name: 'Samantha Brooks',
+            amount: 700,
+            date: new Date('2015-04-12')
+          },
+          {
+            name: 'Lisa Sheppards',
+            amount: 700,
+            date: new Date('2015-01-13')
+          },
+          {
+            name: 'Raoul Esponsito',
+            amount: 700,
+            date: new Date('2015-04-04')
+          }
+        ]);
+      }
+    },
+    data: {
+      moduleClasses: 'page',
+      pageClasses: 'contributors',
+      pageTitle: 'Committee contributors',
+      pageDescription: 'Contributors to a campaign committee.'
     }
   });
 };

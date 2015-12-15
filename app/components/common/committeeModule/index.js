@@ -7,6 +7,7 @@
 
 'use strict';
 
+require('../contributionAreaBreakdown');
 require('../contributionTypeBreakdown');
 
 var committeeModule = angular.module('committeeModule', [
@@ -14,6 +15,7 @@ var committeeModule = angular.module('committeeModule', [
     'appMainModule'
   ])
   .controller('committeeController', require('./controllers/committee'))
+  .controller('contributorsController', require('./controllers/contributors'))
   .config(require('./state'));
 
 module.exports = committeeModule;
