@@ -27,26 +27,35 @@ function appRoutes($stateProvider) {
     }
   };
 
-  var city = {
-    name: 'appMain.city',
-    url: '^/city/:fips_id',
-    controller: require('./components/common/cityModule/cityController'),
-    template: require('./components/common/cityModule/city.html'),
-    ncyBreadcrumb: {
-      label: '{{ city.location.name }}',
-      parent: 'appMain'
-    },
+  var cityPage = {
+    name: 'appMain.cityPage',
+    //url: '^/city/:fips_id',
+    url: '^/city/:fips_id/:city',
+    //url: '^/city/:fips_id/:[$filter('spacesToDashes')('city')]',
+    template: require('./components/appMainModule/cityPageModule/cityPage.html'),
+    //template: '<city-page></city-page>',
+    controller: require('./components/appMainModule/cityPageModule/CityPageController'),
+    //controllerAs: 'ctrl',
     resolve: {
-      city: function($stateParams, disclosureApi) {
-        return disclosureApi.locations.get({fips_id: $stateParams.fips_id});
+      cityPageService: function($stateParams, disclosureApi) {
+        return disclosureApi.locations
+          //.get({fips_id: $stateParams.fips_id});
+          .get({fips_id: $stateParams.fips_id, city: $stateParams.name});
       }
+    },
+    ncyBreadcrumb: {
+      label: '{{city}}',
+      parent: 'appMain'
     },
     data: {
       moduleClasses: 'page',
-      pageClasses: 'city',
-      pageTitle: 'City',
+      pageClasses: 'cityPage',
+      pageTitle: '{{city}}',
       pageDescription: 'Some description.'
     }
+    // resolve: {
+    //   cityName: cityName
+    // }
   };
 
   var about = {
@@ -115,7 +124,7 @@ function appRoutes($stateProvider) {
   $stateProvider.state(appMain);
   $stateProvider.state(about);
   $stateProvider.state(faq);
-  $stateProvider.state(city);
+  $stateProvider.state(cityPage);
   $stateProvider.state(examplePage1);
 
 }

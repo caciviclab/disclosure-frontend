@@ -23,7 +23,8 @@
       <input ng-model="search" type="text" />
       <ul>
         <li ng-repeat="location in searchResults">
-          <a ui-sref="appMain.city({fips_id: location.fip_id })">{{ location.name }}</a>
+          <a ui-sref="appMain.cityPage({fips_id: location.fip_id, city: location.name})">{{ location.name }}</a>
+          <!-- <a ui-sref="appMain.cityPage({fips_id: location.fip_id, city: {{location.name | spacesToDashes}}})">{{ location.name }}</a> -->
         </li>
       </ul>
     </div>
