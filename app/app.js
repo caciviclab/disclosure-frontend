@@ -6,6 +6,7 @@ window._ = require('lodash');
 var angular = require('angular');
 //require('../common/campaignFinanceApp/campaignFinanceApp');
 var campaignFinanceAppDirective = require('./components/common/campaignFinanceApp/campaignFinanceAppDirective');
+var spacesToDashes = require('./components/common/spacesToDashesFilter/spacesToDashesFilter');
 
 require('angular-bootstrap');
 require('angular-ui-router');
@@ -42,4 +43,5 @@ module.exports = angular.module('campaignFinanceApp',
     .config(require('./appConfig'))
     .constant('version', require('../package.json').version)
     .run(require('./app-init'))
-    .directive('campaignFinanceApp', campaignFinanceAppDirective);
+    .directive('campaignFinanceApp', campaignFinanceAppDirective)
+    .filter('spacesToDashes', spacesToDashes);
