@@ -5,7 +5,7 @@ var Swagger = require('swagger-client');
 
 var DISCLOSURE_SWAGGER_SPEC = 'http://admin.caciviclab.org/docs/api-docs/';
 
-function DisclsoureService($q, $rootScope) {
+function DisclosureService($q, $rootScope) {
   this.$rootScope = $rootScope;
   this.$q = $q;
 
@@ -30,7 +30,7 @@ function DisclsoureService($q, $rootScope) {
   this.initialize();
 }
 
-DisclsoureService.prototype = {
+DisclosureService.prototype = {
   initialize: function() {
     var self = this;
     function setupProxy(namespace, method) {
@@ -75,4 +75,4 @@ DisclsoureService.prototype = {
   }
 };
 
-module.exports = DisclsoureService;
+module.exports = DisclosureService;
