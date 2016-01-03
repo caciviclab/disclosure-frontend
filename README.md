@@ -5,6 +5,39 @@
 This is the front-end AngularJS application for viewing ballot measure funding data. This front-end application works from an API defined by the [back-end Django application](https://github.com/caciviclab/disclosure-backend)
 
 
+## Contributing
+
+### Tests
+
+Don't forget to run the tests.
+
+    $ npm test
+
+
+### Where does the data come from?
+
+The data comes from the [disclosure API][disclosure-api]. The
+API is incomplete, but the
+[repo][disclosure-backend] has useful information
+about what the models are shaping up like, even for incomplete APIs. [Ballot models](https://github.com/caciviclab/disclosure-backend/blob/master/ballot/models.py)
+are separate from [finance data](https://github.com/caciviclab/disclosure-backend/blob/master/netfile/models.py),
+since that's how the data is ingested, but eventually should be combined for the
+frontend views.
+
+
+#### Links
+
+Url                                      | Description
+---                                      | -----------
+[disclosure-backend][disclosure-backend] | Disclosure API repo.
+[Disclosure API][disclosure-api]         | Documentation for the disclosure API.
+[Disclosure Admin][disclosure-admin]     | Admin interface for entering ballot data.
+
+[disclosure-backend]: https://github.com/caciviclab/disclosure-backend
+[disclosure-api]: http://admin.caciviclab.org/docs/
+[disclosure-admin]: http://admin.caciviclab.org/admin/
+
+
 ### Setup Instructions
 
 1. Install [node.js](http://nodejs.com)
