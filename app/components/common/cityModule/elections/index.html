@@ -1,24 +1,13 @@
 <h3>Upcoming Elections</h3>
 <div class="section">
+  <h4>Candidate Offices</h4>
   <ul class="sub-section">
-    <li>Mayor</li>
-    <li>City Auditor</li>
-    <li>City Treasurer</li>
+    <li ng-repeat="office in ballot.contests | filter:{contest_type:'office'}">{{ office.name }}</li>
   </ul>
-  <div class="sub-section">
-    <h4>City Council</h4>
-    <ul>
-      <li>District 1</li>
-      <li>District 3</li>
-      <li>District 5</li>
-    </ul>
-  </div>
   <div class="sub-section">
     <h4>Ballot Measures</h4>
     <ul>
-      <li>Measure AA</li>
-      <li>Measure BB</li>
-      <li>Measure CC</li>
+      <li ng-repeat="referendum in ballot.contests | filter:{contest_type:'referendum'}">{{ referendum.name }}</li>
     </ul>
   </div>
 </div>
