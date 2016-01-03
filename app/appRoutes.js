@@ -220,7 +220,7 @@ function appRoutes($stateProvider) {
     name: 'appMain.measure.index',
     url: '',
     controller: 'indexController',
-    template: require('./components/common/measureModule/templates/measure.html'),
+    template: require('./components/appMainModule/measurePageModule/templates/measure.html'),
     ncyBreadcrumb: {
       label: 'Measure {{ measure.number }}',
       parent: 'appMain.city({fips_id: measure.city.fips_id})'
@@ -237,7 +237,7 @@ function appRoutes($stateProvider) {
     name: 'appMain.measure.supporting',
     url: '/supporting',
     controller: 'supportingController',
-    template: require('./components/common/measureModule/templates/supporting.html'),
+    template: require('./components/appMainModule/measurePageModule/templates/supporting.html'),
     ncyBreadcrumb: {
       label: 'Supporting',
       parent: 'appMain.measure.index'
@@ -264,7 +264,7 @@ function appRoutes($stateProvider) {
     name: 'appMain.measure.opposing',
     url: '/opposing',
     controller: 'opposingController',
-    template: require('./components/common/measureModule/templates/opposing.html'),
+    template: require('./components/appMainModule/measurePageModule/templates/opposing.html'),
     ncyBreadcrumb: {
       label: 'Opposing',
       parent: 'appMain.measure.index'
