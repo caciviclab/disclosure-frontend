@@ -1,7 +1,7 @@
 'use strict';
 
 // Controller naming conventions should start with an uppercase letter
-function AppMainNavController($scope) {
+function appMainNavController($scope) {
   //$scope.searchBarEnabled = true;
   //$scope.searchBarEnabled = false;
 
@@ -46,5 +46,5 @@ function AppMainNavController($scope) {
 }
 
 // $inject is necessary for minification. See http://bit.ly/1lNICde for explanation.
-AppMainNavController.$inject = ['$scope'];
-module.exports = AppMainNavController;
+appMainNavController.$inject = ['$scope'];
+module.exports = appMainNavController;

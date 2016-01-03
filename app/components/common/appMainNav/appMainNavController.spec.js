@@ -17,7 +17,7 @@ describe('appMainNavController', function() {
   beforeEach(function() {
     angular.mock.inject(function($controller, $rootScope) {
       scope = $rootScope.$new();
-      ctrl = $controller('AppMainNavController', {
+      ctrl = $controller('appMainNavController', {
         $scope: scope
       });
     });
