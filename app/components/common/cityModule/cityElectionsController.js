@@ -7,11 +7,11 @@ function cityElectionsController($scope, ballot) {
   $scope.isReferendum = isReferendum;
 
   function isOffice(contest) {
-    return contest.type === 'office';
+    return contest.contest_type === 'office';
   }
 
   function isReferendum(contest) {
-    return contest.type === 'referendum';
+    return contest.contest_type === 'referendum';
   }
 }
 
