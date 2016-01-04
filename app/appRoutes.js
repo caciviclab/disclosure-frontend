@@ -235,8 +235,8 @@ function appRoutes($stateProvider) {
   var measureSupporting = {
     name: 'appMain.measure.supporting',
     url: '/supporting',
-    controller: 'supportingController',
-    template: require('./components/appMainModule/measurePageModule/templates/supporting.html'),
+    controller: 'measureCommitteeSupportingPageController',
+    template: '<measure-committee-supporting measure="measure" supporters="supporters"></measure-committee-supporting>',
     ncyBreadcrumb: {
       label: 'Supporting',
       parent: 'appMain.measure.index'

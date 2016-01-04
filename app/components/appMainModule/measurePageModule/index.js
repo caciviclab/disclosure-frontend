@@ -2,11 +2,13 @@
 
 require('./measureListing');
 require('./measureCommitteeOpposing');
+require('./measureCommitteeSupporting');
 
 module.exports = angular.module('measurePageModule', [
   'measureListing',
-  'measureCommitteeOpposing'
+  'measureCommitteeOpposing',
+  'measureCommitteeSupporting'
 ])
   .controller('measurePageController', require('./measurePageController'))
   .controller('measureCommitteeOpposingPageController', require('./measureCommitteeOpposingPageController'))
-  .controller('supportingController', require('./controllers/supporting'));
+  .controller('measureCommitteeSupportingPageController', require('./measureCommitteeSupportingPageController'));
