@@ -1,8 +1,8 @@
 'use strict';
 
-require('./measureListing');
-require('./measureCommitteeOpposing');
-require('./measureCommitteeSupporting');
+require('../../common/measureListing');
+require('../../common/measureCommitteeOpposing');
+require('../../common/measureCommitteeSupporting');
 
 module.exports = angular.module('measurePageModule', [
   'measureListing',
