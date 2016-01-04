@@ -262,8 +262,8 @@ function appRoutes($stateProvider) {
   var measureOpposing = {
     name: 'appMain.measure.opposing',
     url: '/opposing',
-    controller: 'opposingController',
-    template: require('./components/appMainModule/measurePageModule/templates/opposing.html'),
+    controller: 'measureCommitteeOpposingPageController',
+    template: '<measure-committee-opposing measure="measure" opposers="opposers"></measure-committee-opposing>',
     ncyBreadcrumb: {
       label: 'Opposing',
       parent: 'appMain.measure.index'

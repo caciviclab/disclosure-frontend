@@ -1,10 +1,12 @@
 'use strict';
 
 require('./measureListing');
+require('./measureCommitteeOpposing');
 
 module.exports = angular.module('measurePageModule', [
-  'measureListing'
+  'measureListing',
+  'measureCommitteeOpposing'
 ])
   .controller('measurePageController', require('./measurePageController'))
-  .controller('supportingController', require('./controllers/supporting'))
-  .controller('opposingController', require('./controllers/opposing'));
+  .controller('measureCommitteeOpposingPageController', require('./measureCommitteeOpposingPageController'))
+  .controller('supportingController', require('./controllers/supporting'));
