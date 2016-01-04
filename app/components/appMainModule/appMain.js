@@ -3,7 +3,7 @@
 var examplePage1Module = require('./examplePage1Module/examplePage1');
 var aboutPageModule = require('./aboutPageModule/aboutPage');
 var faqPageModule = require('./faqPageModule/faqPage');
-var measurePageModule = require('./measurePageModule/measurePage');
+var measurePageModule = require('./measurePageModule');
 
 var appMainDirective = require('./appMainDirective');
 var AppMainController = require('./AppMainController');

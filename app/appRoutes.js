@@ -188,7 +188,7 @@ function appRoutes($stateProvider) {
     name: 'appMain.measure',
     url: '^/measure/:measure_id',
     abstract: true,
-    controller: 'measureController',
+    controller: 'measurePageController',
     template: '<ui-view></ui-view>',
     resolve: {
       measure: function($stateParams, $q) {
@@ -219,8 +219,7 @@ function appRoutes($stateProvider) {
   var measureIndex = {
     name: 'appMain.measure.index',
     url: '',
-    controller: 'indexController',
-    template: require('./components/appMainModule/measurePageModule/templates/measure.html'),
+    template: '<measure-listing measure="measure"></measure-listing>',
     ncyBreadcrumb: {
       label: 'Measure {{ measure.number }}',
       parent: 'appMain.city({fips_id: measure.city.fips_id})'
