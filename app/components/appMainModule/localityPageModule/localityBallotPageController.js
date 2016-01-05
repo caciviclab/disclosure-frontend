@@ -1,6 +1,6 @@
 'use strict';
 
-function localityElectionsController($scope, ballot) {
+function localityBallotController($scope, ballot) {
   $scope.ballot = ballot;
 
   $scope.isOffice = isOffice;
@@ -15,4 +15,4 @@ function localityElectionsController($scope, ballot) {
   }
 }
 
-module.exports = localityElectionsController;
+module.exports = localityBallotController;

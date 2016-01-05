@@ -1,18 +1,16 @@
 'use strict';
 
-require('angular-ui-bootstrap');
-
-require('../../common/contributionAreaBreakdown');
-require('../../common/contributionTypeBreakdown');
+require('./localityBallot');
+require('./localityListing');
+require('./localityMoney');
 
 var localityPageModule = angular.module('localityPageModule', [
-  'contributionAreaBreakdown',
-  'contributionTypeBreakdown',
-  'appMainModule',
-  'ui.bootstrap.tabs'
+  'localityBallot',
+  'localityListing',
+  'localityMoney'
 ])
-  .controller('localityController', require('./cityController'))
-  .controller('localityElectionsController', require('./cityElectionsController'))
+  .controller('localityPageController', require('./localityPageController'))
+  .controller('localityBallotPageController', require('./localityBallotPageController'))
   .config(require('./state'));
 
 module.exports = localityPageModule;

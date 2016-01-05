@@ -12,8 +12,8 @@ module.exports = function($stateProvider) {
       name: 'appMain.locality',
       abstract: true,
       url: '^/locality/:fips_id',
-      controller: require('./cityController'),
-      template: require('./index.html'),
+      controller: 'localityPageController',
+      template: '<locality-listing locality="locality"></locality-listing>',
       resolve: {
         locality: function($stateParams, disclosureApi) {
           return disclosureApi.locations.get({fips_id: $stateParams.fips_id});
@@ -30,7 +30,7 @@ module.exports = function($stateProvider) {
     .state({
       name: 'appMain.locality.money',
       url: '/money',
-      template: require('./money/index.html'),
+      template: '<locality-money locality="locality"></locality-money>',
       ncyBreadcrumb: {
         label: '{{ locality.location.name }}',
         parent: 'appMain.locality'
@@ -46,8 +46,8 @@ module.exports = function($stateProvider) {
     .state({
       name: 'appMain.locality.elections',
       url: '/elections',
-      template: require('./elections/index.html'),
-      controller: 'locality',
+      template: '<locality-ballot ballot="ballot"></locality-ballot>',
+      controller: 'localityBallotPageController',
       ncyBreadcrumb: {
         label: '{{ locality.location.name }}',
         parent: 'appMain.locality'

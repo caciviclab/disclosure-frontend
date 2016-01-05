@@ -2,9 +2,8 @@
 
 var _ = require('lodash');
 
-function localityController($scope, $state, locality) {
+function localityListingController($scope, $state) {
   var selectedTab = _.last($state.current.name.split('.'));
-  $scope.locality = locality;
 
   // TODO ui-bootstrap tabs expect to control their own content, but we're
   // using them purely as a UI element. Not sure if it makes sense or to just
@@ -23,4 +22,4 @@ function localityController($scope, $state, locality) {
   };
 }
 
-module.exports = localityController;
+module.exports = localityListingController;
