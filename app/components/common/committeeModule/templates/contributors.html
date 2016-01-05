@@ -1,0 +1,62 @@
+<div class="search-container input-group">
+  <span class="input-group-addon"><i class="fa fa-search"></i></span>
+  <input class="search-input form-control" type="text" ng-model="query" placeholder="Search contributors">
+</div>
+<div class="subtitle"><span>Top 5 contributors by category</span></div>
+<div class="divided-section">
+  <h4>Individual</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Contributor</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="contributor in contributors">
+        <td>{{ contributor.name }}</td>
+        <td class="money">{{ contributor.amount | currency:$:0 }}</td>
+        <td>{{ contributor.date | date:"yyyy-MM-dd" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="divided-section">
+  <h4>Other (includes businesses)</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Contributor</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="contributor in contributors">
+        <td>{{ contributor.name }}</td>
+        <td class="money">{{ contributor.amount | currency:$:0 }}</td>
+        <td>{{ contributor.date | date:"yyyy-MM-dd" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<div class="divided-section">
+  <h4>Committee</h4>
+  <table>
+    <thead>
+      <tr>
+        <th>Contributor</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="contributor in contributors">
+        <td>{{ contributor.name }}</td>
+        <td class="money">{{ contributor.amount | currency:$:0 }}</td>
+        <td>{{ contributor.date | date:"yyyy-MM-dd" }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

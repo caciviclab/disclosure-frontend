@@ -1,0 +1,10 @@
+<h3>{{ committee.name }}</h3>
+<div class="divided-section">
+  <h4>Contributions</h4>
+  <div contribution-type-breakdown="committee.contribution_by_type"></div>
+  <span class="more-details-cta"><a ui-sref="appMain.committee.contributors({commitee_id: committee.committee_id})">more details</a></span>
+</div>
+<div class="divided-section">
+  <h4>Where is the money coming from?</h4>
+  <div contribution-area-breakdown="committee.contribution_by_area"></div>
+</div>

@@ -1,0 +1,10 @@
+<h3>Supporters of Measure {{ measure.number }}</h3>
+<div class="subtitle">{{ measure.title }}</div>
+<div class="divided-section">
+  <ul>
+    <li ng-repeat="supporter in supporters">
+      <h4><a ui-sref="appMain.committee({committee_id: supporter.committee_id})">{{ supporter.name }}</a></h4>
+      <div><span class="money">{{ supporter.contributions }}</span></div>
+    </li>
+  </ul>
+</div>
