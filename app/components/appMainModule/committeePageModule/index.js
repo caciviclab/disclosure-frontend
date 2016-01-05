@@ -7,8 +7,8 @@
 
 'use strict';
 
-require('./committeeContributors');
-require('./committeeListing');
+require('../../common/committeeContributors');
+require('../../common/committeeListing');
 
 var committeeModule = angular.module('committeePageModule', [
   'committeeContributors',

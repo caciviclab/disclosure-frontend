@@ -6,8 +6,8 @@
 
 'use strict';
 
-require('../../../common/contributionAreaBreakdown');
-require('../../../common/contributionTypeBreakdown');
+require('../contributionAreaBreakdown');
+require('../contributionTypeBreakdown');
 
 var committeeListing = angular.module('committeeListing', [
   'contributionAreaBreakdown',
