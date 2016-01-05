@@ -1,7 +1,7 @@
 'use strict';
 
-require('../../../common/contributionAreaBreakdown');
-require('../../../common/contributionTypeBreakdown');
+require('../contributionAreaBreakdown');
+require('../contributionTypeBreakdown');
 
 var localityMoney = angular.module('localityMoney', [
   'contributionAreaBreakdown',

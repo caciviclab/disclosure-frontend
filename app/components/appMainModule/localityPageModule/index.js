@@ -1,8 +1,8 @@
 'use strict';
 
-require('./localityBallot');
-require('./localityListing');
-require('./localityMoney');
+require('../../common/localityBallot');
+require('../../common/localityListing');
+require('../../common/localityMoney');
 
 var localityPageModule = angular.module('localityPageModule', [
   'localityBallot',
