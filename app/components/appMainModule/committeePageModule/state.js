@@ -13,7 +13,7 @@ module.exports = function($stateProvider) {
     abstract: true,
     url: '^/committee/:committee_id',
     template: '<ui-view></ui-view>',
-    controller: 'committeeController',
+    controller: 'committeePageController',
     resolve: {
       committee: function($stateParams, $q) {
         return $q.resolve({
@@ -45,7 +45,7 @@ module.exports = function($stateProvider) {
   $stateProvider.state({
     name: 'appMain.committee.main',
     url: '',
-    template: require('./templates/committee.html'),
+    template: '<committee-listing committee="committee"></committee-listing>',
     ncyBreadcrumb: {
       label: '{{ committee.name }}',
       parent: 'appMain.city'
@@ -55,8 +55,8 @@ module.exports = function($stateProvider) {
   $stateProvider.state({
     name: 'appMain.committee.contributors',
     url: '/contributors',
-    controller: 'contributorsController',
-    template: require('./templates/contributors.html'),
+    controller: 'committeeContributorsPageController',
+    template: '<committee-contributors contributors="contributors"></committee-contributors>',
     ncyBreadcrumb: {
       label: 'Contributors',
       parent: 'appMain.committee.main'

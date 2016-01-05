@@ -7,14 +7,15 @@
 
 'use strict';
 
-require('../../common/contributionAreaBreakdown');
-require('../../common/contributionTypeBreakdown');
+require('./committeeContributors');
+require('./committeeListing');
 
 var committeeModule = angular.module('committeePageModule', [
-  'contributionTypeBreakdown'
+  'committeeContributors',
+  'committeeListing'
 ])
-  .controller('committeeController', require('./controllers/committee'))
-  .controller('contributorsController', require('./controllers/contributors'))
+  .controller('committeePageController', require('./committeePageController'))
+  .controller('committeeContributorsPageController', require('./committeeContributorsPageController'))
   .config(require('./state'));
 
 module.exports = committeeModule;
