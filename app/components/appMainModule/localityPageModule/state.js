@@ -1,7 +1,7 @@
 /**
- * cityPageModule/state.js
+ * localityPageModule/state.js
  *
- * The ui-router state configuration for the city page module.
+ * The ui-router state configuration for the locality page module.
  **/
 
 'use strict';
@@ -9,48 +9,48 @@
 module.exports = function($stateProvider) {
   $stateProvider
     .state({
-      name: 'appMain.city',
+      name: 'appMain.locality',
       abstract: true,
-      url: '^/city/:fips_id',
+      url: '^/locality/:fips_id',
       controller: require('./cityController'),
       template: require('./index.html'),
       resolve: {
-        city: function($stateParams, disclosureApi) {
+        locality: function($stateParams, disclosureApi) {
           return disclosureApi.locations.get({fips_id: $stateParams.fips_id});
         }
       },
       data: {
         moduleClasses: 'page',
-        pageClasses: 'city',
+        pageClasses: 'locality',
         pageTitle: 'City',
         pageDescription: 'Some description.'
       }
     })
 
     .state({
-      name: 'appMain.city.money',
+      name: 'appMain.locality.money',
       url: '/money',
       template: require('./money/index.html'),
       ncyBreadcrumb: {
-        label: '{{ city.location.name }}',
-        parent: 'appMain.city'
+        label: '{{ locality.location.name }}',
+        parent: 'appMain.locality'
       },
       data: {
         moduleClasses: 'page',
-        pageClasses: 'city',
+        pageClasses: 'locality',
         pageTitle: 'City',
         pageDescription: 'Some description.'
       }
     })
 
     .state({
-      name: 'appMain.city.elections',
+      name: 'appMain.locality.elections',
       url: '/elections',
       template: require('./elections/index.html'),
-      controller: 'cityElectionsController',
+      controller: 'locality',
       ncyBreadcrumb: {
-        label: '{{ city.location.name }}',
-        parent: 'appMain.city'
+        label: '{{ locality.location.name }}',
+        parent: 'appMain.locality'
       },
       resolve: {
         ballot: function($q) {
@@ -100,7 +100,7 @@ module.exports = function($stateProvider) {
       },
       data: {
         moduleClasses: 'page',
-        pageClasses: 'city',
+        pageClasses: 'locality',
         pageTitle: 'City',
         pageDescription: 'Some description.'
       }

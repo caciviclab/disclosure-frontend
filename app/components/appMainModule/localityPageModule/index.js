@@ -5,14 +5,14 @@ require('angular-ui-bootstrap');
 require('../../common/contributionAreaBreakdown');
 require('../../common/contributionTypeBreakdown');
 
-var cityPageModule = angular.module('cityPageModule', [
+var localityPageModule = angular.module('localityPageModule', [
   'contributionAreaBreakdown',
   'contributionTypeBreakdown',
   'appMainModule',
   'ui.bootstrap.tabs'
 ])
-  .controller('cityController', require('./cityController'))
-  .controller('cityElectionsController', require('./cityElectionsController'))
+  .controller('localityController', require('./cityController'))
+  .controller('localityElectionsController', require('./cityElectionsController'))
   .config(require('./state'));
 
-module.exports = cityPageModule;
+module.exports = localityPageModule;
