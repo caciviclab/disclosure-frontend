@@ -8,6 +8,8 @@
 
 function localityBallotDirective() {
   return {
+    controller: 'localityBallotController',
+    controllerAs: 'ctrl',
     restrict: 'E',
     scope: {
       ballot: '='
