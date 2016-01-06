@@ -2,31 +2,11 @@
 <div class="section">
   <p>How much money has been contributed to all of {{ locality.location.name }} elections right now?</p>
   <div>
-    <span>{{ locality.contribution_total }}</span>
+    <span class="locality-money_contribution-total money">{{ locality.contribution_total | currency:$:0 }}</span>
   </div>
-  <dl>
-    <dt>Individual</dt>
-    <dd>{{ locality.contribution_by_type.individual }}</dd>
-    <dt>Political Party</dt>
-    <dd>{{ locality.contribution_by_type.political_party }}</dd>
-    <dt>Not Itemized</dt>
-    <dd><i>Small (unitemized) contributions are those under $100</i></dd>
-    <dd>{{ locality.contribution_by_type.unitemized }}</dd>
-    <dt>Recipient Commitee</dt>
-    <dd><i>This category includes Political Action Committees (PACs)&#x2026;</i></dd>
-    <dd>{{ locality.contribution_by_type.recipient_committee }}</dd>
-    <dt>Self-Funded</dt>
-    <dd>{{ locality.contribution_by_type.self_funded }}</dd>
-  </dl>
+  <div contribution-type-breakdown="locality.contribution_by_type"></div>
 </div>
 <div class="section">
   <p>Where is the money coming from?</p>
-  <dl>
-    <dt>Within {{ locality.location.name }}</dt>
-    <dd>{{ locality.contribution_by_area.inside_location }}</dd>
-    <dt>In-state</dt>
-    <dd>{{ locality.contribution_by_area.inside_state }}</dd>
-    <dt>Out-of-state</dt>
-    <dd>{{ locality.contribution_by_area.outside_state }}</dd>
-  </dl>
+  <div contribution-area-breakdown="locality.contribution_by_area"></div>
 </div>
