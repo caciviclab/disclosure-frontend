@@ -1,10 +1,6 @@
 'use strict';
 
-require('angular-ui-bootstrap');
-
-var localityListing = angular.module('localityListing', [
-  'ui.bootstrap.tabs'
-])
+var localityListing = angular.module('localityListing', [])
   .controller('localityListingController', require('./localityListingController'))
   .directive('localityListing', require('./localityListingDirective'));
 
