@@ -16,12 +16,9 @@
         </div>
         <div class="collapse navbar-collapse navbar-menu" collapse="navCollapsed">
           <ul class="nav navbar-nav">
-            <li ui-sref-active="active" ng-click="navCollapsed = true"><a ui-sref="home">Home</a></li>
-            <li ui-sref-active="active"><a ui-sref="appMain.examplePage1" ng-click="navCollapsed = !navCollapsed">Example Page 1</a></li>
-            <li ui-sref-active="active"><a ui-sref="appMain.city({fips_id: 6075})">San Francisco</a></li>
-            <li ui-sref-active="active"><a ui-sref="appMain.committee.main({committee_id: 1})">Committee</a></li>
-            <li ui-sref-active="active"><a ui-sref="appMain.measure.index({measure_id: 1})">Measure BB</a></li>
-            <!--<li ng-repeat="item in mainNavMenu" ui-sref-active="active"><a ng-click="navCollapsed = !navCollapsed" ui-sref="{{item.sref}}">{{item.title}}</a></li>-->
+            <li ng-repeat="item in mainNavMenu" ui-sref-active="active"><a ui-sref="{{ item.sref }}">{{ item.title }}</a></li>
+            <li><h4>Demo links</h4></li>
+            <li ng-repeat="item in demoNavMenu" ui-sref-active="active"><a ui-sref="{{ item.sref }}">{{ item.title }}</a></li>
           </ul>
 
           <div ng-show="searchBarEnabled">
