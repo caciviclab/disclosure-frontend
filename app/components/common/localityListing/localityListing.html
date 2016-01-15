@@ -1,0 +1,6 @@
+<h2 class="locality_listing-name">{{ locality.location.name }}</h2>
+<h4 class="locality_listing-next_election">Next Election: {{ locality.location.next_election }}</h4>
+<uib-tabset class="nav nav-tabs">
+  <uib-tab class="tab" ng-repeat="tab in tabs" select="onSelect(tab.stateName)" heading="{{tab.title}}" active="tab.active"></uib-tab>
+</uib-tabset>
+<ui-view></ui-view>
