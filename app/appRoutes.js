@@ -184,111 +184,6 @@ function appRoutes($stateProvider) {
     }
   };
 
-  var measure = {
-    name: 'appMain.measure',
-    url: '^/measure/:measure_id',
-    abstract: true,
-    controller: 'measureController',
-    template: '<ui-view></ui-view>',
-    resolve: {
-      measure: function($stateParams, $q) {
-        return $q.resolve({
-          measure_id: 1,
-          city: {
-            fips_id: 6075,
-            location: {
-              name: 'San Francisco'
-            }
-          }, // Not sure if city really makes sense here
-          number: 'BB',
-          full_text: 'Shall the Charter of the City of Oakland be amended to provide the Public Ethics Commission greater independence, broader enforcement authority, powers and…',
-          title: 'Ethics Commission Authority Increase Charter Amendment',
-          supporting_count: 4,
-          opposing_count: 6
-        });
-      }
-    },
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'measure',
-      pageTitle: 'Measure',
-      pageDescription: 'Ballot measures.'
-    }
-  };
-
-  var measureIndex = {
-    name: 'appMain.measure.index',
-    url: '',
-    controller: 'indexController',
-    template: require('./components/common/measureModule/templates/measure.html'),
-    ncyBreadcrumb: {
-      label: 'Measure {{ measure.number }}',
-      parent: 'appMain.city({fips_id: measure.city.fips_id})'
-    },
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'measure',
-      pageTitle: 'Measure',
-      pageDescription: 'Ballot measures.'
-    }
-  };
-
-  var measureSupporting = {
-    name: 'appMain.measure.supporting',
-    url: '/supporting',
-    controller: 'supportingController',
-    template: require('./components/common/measureModule/templates/supporting.html'),
-    ncyBreadcrumb: {
-      label: 'Supporting',
-      parent: 'appMain.measure.index'
-    },
-    resolve: {
-      supporters:function($stateParams, $q) {
-        return $q.resolve([
-          {name: 'Citizens for a Better Oakland', contributions: 185859},
-          {name: 'Oaklanders for Ethical Government', contributions: 152330},
-          {name: 'Americans for Liberty', contributions: 83199},
-          {name: 'Golden State Citizens for Positive Reform', contributions: 23988}
-        ]);
-      }
-    },
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'measure-supporting',
-      pageTitle: 'Supporters',
-      pageDescription: 'Supporters of the ballot measure.'
-    }
-  };
-
-  var measureOpposing = {
-    name: 'appMain.measure.opposing',
-    url: '/opposing',
-    controller: 'opposingController',
-    template: require('./components/common/measureModule/templates/opposing.html'),
-    ncyBreadcrumb: {
-      label: 'Opposing',
-      parent: 'appMain.measure.index'
-    },
-    resolve: {
-      opposers: function($stateParams, $q) {
-        return $q.resolve([
-          {name: 'Citizens for a Better Oakland', contributions: 185859},
-          {name: 'Oaklanders for Ethical Government', contributions: 152330},
-          {name: 'Americans for Liberty', contributions: 83199},
-          {name: 'Golden State Citizens for Positive Reform', contributions: 23988},
-          {name: 'The Public Commission for Ethical Civic Reform', contributions: 15040},
-          {name: 'The Committee of True Americans who Dearly Love America and Liberty', contributions: 7943}
-        ]);
-      }
-    },
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'measure-opposing',
-      pageTitle: 'Opposers',
-      pageDescription: 'Opposers of the ballot measure.'
-    }
-  };
-
 
   $stateProvider.state(home);
   $stateProvider.state(appMain);
@@ -297,10 +192,6 @@ function appRoutes($stateProvider) {
   $stateProvider.state(city);
   $stateProvider.state(cityMoney);
   $stateProvider.state(cityElections);
-  $stateProvider.state(measure);
-  $stateProvider.state(measureIndex);
-  $stateProvider.state(measureSupporting);
-  $stateProvider.state(measureOpposing);
   $stateProvider.state(examplePage1);
 
 }

@@ -1,8 +1,8 @@
 'use strict';
 
-function measureController($scope, measure) {
+function measurePageController($scope, measure) {
   $scope.city = measure.city; // Hack for breadcrumb
   $scope.measure = measure;
 }
 
-module.exports = measureController;
+module.exports = measurePageController;
