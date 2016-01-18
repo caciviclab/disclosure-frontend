@@ -48,7 +48,7 @@ module.exports = function($stateProvider) {
     template: '<committee-listing committee="committee"></committee-listing>',
     ncyBreadcrumb: {
       label: '{{ committee.name }}',
-      parent: 'appMain.city'
+      parent: 'appMain.locality'
     }
   });
 

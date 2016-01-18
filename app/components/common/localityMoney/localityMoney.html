@@ -1,0 +1,12 @@
+<h3>Total Money in the Election</h3>
+<div class="section">
+  <p>How much money has been contributed to all of {{ locality.location.name }} elections right now?</p>
+  <div>
+    <span class="locality-money_contribution-total money">{{ locality.contribution_total | currency:$:0 }}</span>
+  </div>
+  <div contribution-type-breakdown="locality.contribution_by_type"></div>
+</div>
+<div class="section">
+  <p>Where is the money coming from?</p>
+  <div contribution-area-breakdown="locality.contribution_by_area"></div>
+</div>
