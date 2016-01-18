@@ -11,12 +11,12 @@ module.exports = function($stateProvider) {
     .state({
       name: 'appMain.locality',
       abstract: true,
-      url: '^/locality/:fips_id',
+      url: '^/locality/:locality_id',
       controller: 'localityPageController',
       template: '<locality-listing locality="locality"></locality-listing>',
       resolve: {
         locality: function($stateParams, disclosureApi) {
-          return disclosureApi.locations.get({fips_id: $stateParams.fips_id});
+          return disclosureApi.locations.get({locality_id: $stateParams.locality_id});
         }
       },
       data: {

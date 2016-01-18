@@ -46,7 +46,7 @@ module.exports = function($stateProvider) {
       template: '<measure-listing measure="measure"></measure-listing>',
       ncyBreadcrumb: {
         label: 'Measure {{ measure.number }}',
-        parent: 'appMain.locality({fips_id: measure.city.fips_id})'
+        parent: 'appMain.locality({locality_id: measure.city.fips_id})'
       },
       data: {
         moduleClasses: 'page',

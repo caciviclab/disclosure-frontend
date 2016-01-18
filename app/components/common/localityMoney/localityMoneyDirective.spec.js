@@ -15,7 +15,7 @@ describe('localityMoneyDirective', function() {
     var locality = {
       location: {
         name: 'Bedrock',
-        fips_id: 1234
+        locality_id: 1234
       },
       contribution_total: 4597,
       contribution_by_type: {
