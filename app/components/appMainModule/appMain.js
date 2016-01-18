@@ -1,14 +1,11 @@
 'use strict';
 
-var aboutPageModule = require('./aboutPageModule/aboutPage');
-var committeePageModule = require('./committeePageModule');
-var examplePage1Module = require('./examplePage1Module/examplePage1');
-var faqPageModule = require('./faqPageModule/faqPage');
-var localityPageModule = require('./localityPageModule');
-var measurePageModule = require('./measurePageModule');
-
-var appMainDirective = require('./appMainDirective');
-var AppMainController = require('./AppMainController');
+require('./aboutPageModule/aboutPage');
+require('./committeePageModule');
+require('./examplePage1Module/examplePage1');
+require('./faqPageModule/faqPage');
+require('./localityPageModule');
+require('./measurePageModule');
 
 module.exports = angular.module('appMainModule',
   [
@@ -20,5 +17,5 @@ module.exports = angular.module('appMainModule',
     'localityPageModule',
     'measurePageModule'
   ])
-  .directive('appMain', appMainDirective)
-  .controller('AppMainController', AppMainController);
+  .directive('appMain', require('./appMainDirective'))
+  .controller('AppMainController', require('./AppMainController'));
