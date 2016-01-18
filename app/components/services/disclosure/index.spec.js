@@ -1,3 +1,5 @@
+/*jshint expr: true*/
+
 'use strict';
 
 require('./index');

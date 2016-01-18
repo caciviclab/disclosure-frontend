@@ -1,6 +1,6 @@
 'use strict';
 
-function localityPageController($scope, $state, locality) {
+function localityPageController($scope, locality) {
   $scope.locality = locality;
 }
 
