@@ -1,6 +1,6 @@
 <ul>
   <li ng-repeat="committee in committees">
-    <h4><a ui-sref="appMain.committee({committee_id: committee.committee_id})">{{ committee.name }}</a></h4>
+    <h4><a ui-sref="appMain.committee.main({committee_id: committee.committee_id})">{{ committee.name }}</a></h4>
     <div><span class="money">{{ committee.contributions }}</span></div>
   </li>
 </ul>

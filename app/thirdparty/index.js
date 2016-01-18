@@ -1,15 +1,15 @@
 'use strict';
 
-require('angular');
+window.angular = require('angular');
+require('angular-ui-router');
 require('angular-animate');
-require('angular-bootstrap');
+require('angular-ui-bootstrap');
 require('angular-cookies');
 require('angular-resource');
 require('angular-sanitize');
-require('angular-ui-router');
 require('angular-breadcrumb');
 window.jQuery = require('jquery');
 require('bootstrap');
 require('domready');
-require('lodash');
+window._ = require('lodash');
 require('restangular');
