@@ -19,7 +19,7 @@ describe('localityListingDirective', function() {
     var locality = {
       location: {
         name: 'Bedrock',
-        fips_id: 1234,
+        locality_id: 1234,
         next_election: '2016-11-03'
       },
       contribution_total: 4597,
