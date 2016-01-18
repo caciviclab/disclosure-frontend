@@ -12,7 +12,7 @@ function DisclosureService($q, $rootScope) {
   var defer = $q.defer();
   this.ready = defer.promise;
   this.swagger = new Swagger({
-    url: DISCLOSURE_SWAGGER_SPEC,
+    url: $rootScope.swaggerSpec || DISCLOSURE_SWAGGER_SPEC,
     success: function() {
       $rootScope.$apply(function() {
         defer.resolve();
