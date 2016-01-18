@@ -14,7 +14,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="contributor in contributors">
+      <tr class="contributor" ng-repeat="contributor in contributors">
         <td>{{ contributor.name }}</td>
         <td class="money">{{ contributor.amount | currency:$:0 }}</td>
         <td>{{ contributor.date | date:"yyyy-MM-dd" }}</td>
@@ -33,7 +33,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="contributor in contributors">
+      <tr class="contributor" ng-repeat="contributor in contributors">
         <td>{{ contributor.name }}</td>
         <td class="money">{{ contributor.amount | currency:$:0 }}</td>
         <td>{{ contributor.date | date:"yyyy-MM-dd" }}</td>
@@ -52,7 +52,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr ng-repeat="contributor in contributors">
+      <tr class="contributor" ng-repeat="contributor in contributors">
         <td>{{ contributor.name }}</td>
         <td class="money">{{ contributor.amount | currency:$:0 }}</td>
         <td>{{ contributor.date | date:"yyyy-MM-dd" }}</td>
