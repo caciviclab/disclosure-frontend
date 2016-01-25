@@ -53,7 +53,7 @@ To tweak the install,
 
 To point this front-end to another (e.g. local test) back-end:
 * Run `python manage.py runserver` from your back-end repo; this should start your back-end server on port 8000.
-* Edit `app/components/services/disclosure/service.js`, set `DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/';`.
+* Edit `app/app-init.js`, set `$rootScope.swaggerSpec = 'http://127.0.0.1:8000/docs/api-docs/';`.
 
 
 ### Contributing
