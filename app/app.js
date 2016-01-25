@@ -26,5 +26,5 @@ module.exports = angular.module('campaignFinanceApp',
     .config(require('./appRoutes'))
     .config(require('./appConfig'))
     .constant('version', require('../package.json').version)
-    .run(require('./app-init'))
+    .run(require('./appInit'))
     .directive('campaignFinanceApp', campaignFinanceAppDirective);
