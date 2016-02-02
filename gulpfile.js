@@ -26,7 +26,8 @@ var gulp = require('gulp'),
     buffer = require('vinyl-buffer'),
     runSequence = require('run-sequence'),
     karma = require('karma').server,
-    gulpif = require('gulp-if');
+    gulpif = require('gulp-if'),
+    envify = require('envify');
 
 
 // =======================================================================
@@ -203,6 +204,8 @@ function configureBundle(prod) {
         bundler = watchify(bundler);
         bundler.on('update', rebundle);
     }
+
+    bundler.transform(envify);
 
     bundle.bundler = bundler;
     bundle.prod = prod;
