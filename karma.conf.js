@@ -17,7 +17,7 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'app/thirdparty/index.js',
+            'app/vendor/vendor.js',
             'node_modules/angular-mocks/angular-mocks.js', // for angular.mock.module and inject.
             'app/**/*.spec.js'
         ],
@@ -36,7 +36,7 @@ module.exports = function (config) {
         browserify: {
             debug: true,
             transform: ['partialify', istanbul({
-                'ignore': ['**/*.spec.js', '**/thirdparty/**/*.js']
+                'ignore': ['**/*.spec.js', '**/vendor/**/*.js']
             })],
 
             // don't forget to register the extensions
