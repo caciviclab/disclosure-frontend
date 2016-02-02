@@ -7,6 +7,7 @@ require('./components/services/disclosure');
 require('./components/common/appMainNav/appMainNav');
 require('./components/common/appMainFooter/appMainFooter');
 require('./components/common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
+require('./components/common/pageHeader/pageHeader');
 
 require('./components/components');
 
