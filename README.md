@@ -37,6 +37,17 @@ Url                                      | Description
 [disclosure-api]: http://admin.caciviclab.org/docs/
 [disclosure-admin]: http://admin.caciviclab.org/admin/
 
+#### Testing against a development backend
+
+If you want to test against a development backend, you can set an environment
+variable
+
+    $ DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' gulp build
+
+And the tests
+
+    $ DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' gulp test
+
 
 ### Setup Instructions
 
