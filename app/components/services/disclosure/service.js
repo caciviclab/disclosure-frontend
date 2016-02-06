@@ -3,16 +3,14 @@
 var _ = require('lodash');
 var Swagger = require('swagger-client');
 
-var DISCLOSURE_SWAGGER_SPEC = 'http://admin.caciviclab.org/docs/api-docs/';
-
-function DisclosureService($q, $rootScope) {
+function DisclosureService($q, $rootScope, url) {
   this.$rootScope = $rootScope;
   this.$q = $q;
 
   var defer = $q.defer();
   this.ready = defer.promise;
   this.swagger = new Swagger({
-    url: $rootScope.swaggerSpec || DISCLOSURE_SWAGGER_SPEC,
+    url: url,
     success: function() {
       $rootScope.$apply(function() {
         defer.resolve();
