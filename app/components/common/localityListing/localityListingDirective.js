@@ -12,6 +12,8 @@ function localityListingDirective() {
     controllerAs: 'ctrl',
     restrict: 'E',
     scope: {
+      ballot: '=',
+      disclosureSummary: '=',
       locality: '=',
       tabs: '=',
       onSelect: '&'

@@ -17,6 +17,12 @@ describe('localityListingDirective', function() {
   beforeEach(function() {
     //TODO factory.js
     var locality = {
+      id: 1,
+      name: 'Bedrock',
+      type: 'city'
+    };
+
+    var disclosureSummary = {
       location: {
         name: 'Bedrock',
         locality_id: 1234,
@@ -31,9 +37,10 @@ describe('localityListingDirective', function() {
 
     angular.mock.inject(function($compile, $rootScope) {
       scope = $rootScope.$new();
+      scope.disclosureSummary = disclosureSummary;
       scope.locality = locality;
 
-      localityListingEl = angular.element('<locality-listing locality="locality"></locality-listing>');
+      localityListingEl = angular.element('<locality-listing locality="locality" disclosure-summary="disclosureSummary"></locality-listing>');
       $compile(localityListingEl)(scope);
       $rootScope.$digest();
     });

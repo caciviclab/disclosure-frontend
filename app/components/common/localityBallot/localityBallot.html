@@ -2,12 +2,12 @@
 <div class="divided-section">
   <h4>Candidate Offices</h4>
   <ul class="sub-section">
-    <li class="locality-ballot_contest office" ng-repeat="office in ballot.contests | filter:isOffice">{{ office.name }}</li>
+    <li class="locality-ballot_contest office" ng-repeat="office in ballot.ballot_items | filter:isOffice">{{ office.name }}</li>
   </ul>
   <div class="sub-section">
     <h4>Ballot Measures</h4>
     <ul>
-      <li class="locality-ballot_contest referendum" ng-repeat="referendum in ballot.contests | filter:isReferendum">{{ referendum.name }}</li>
+      <li class="locality-ballot_contest referendum" ng-repeat="referendum in ballot.ballot_items | filter:isReferendum">{{ referendum.name }}</li>
     </ul>
   </div>
 </div>
