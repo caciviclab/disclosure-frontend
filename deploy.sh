@@ -3,7 +3,7 @@
 set -o errexit
 set -o pipefail
 
-GITHUB_REPO="github.com/caciviclab/disclosure-frontend-alpha"
+GITHUB_REPO="github.com/caciviclab/disclosure-frontend"
 
 if [ -z "$GITHUB_TOKEN" ]; then
     echo "GITHUB_TOKEN is required." >&2

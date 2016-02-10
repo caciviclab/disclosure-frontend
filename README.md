@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/caciviclab/disclosure-frontend-alpha.svg)](https://travis-ci.org/caciviclab/disclosure-frontend-alpha)
+[![Build Status](https://travis-ci.org/caciviclab/disclosure-frontend.svg)](https://travis-ci.org/caciviclab/disclosure-frontend)
 
 # Open Disclosure California
 
