@@ -16,11 +16,17 @@ module.exports = function($stateProvider) {
       template: '<locality-listing locality="locality"></locality-listing>',
       resolve: {
         locality: function($stateParams, disclosureApi) {
+          return disclosureApi.locality.get({
+            locality_id: $stateParams.locality_id
+          });
+        },
+        ballot: function($stateParams, disclosureApi) {
           return disclosureApi.locality.current_ballot({
             locality_id: $stateParams.locality_id
-          }).then(function(ballot) {
-            disclosureApi.ballot.summary({ballot_id: ballot.ballot_id});
           });
+        },
+        ballotSummary: function(disclosureApi, ballot) {
+          return disclosureApi.ballot.summary({ballot_id: ballot.ballot_id});
         }
       },
       data: {

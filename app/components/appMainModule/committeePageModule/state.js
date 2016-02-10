@@ -17,7 +17,7 @@ module.exports = function($stateProvider) {
     resolve: {
       committee: function($stateParams, disclosureApi) {
         return disclosureApi.committee.get({
-          committee_id: $stateProvider.committee_id
+          committee_id: $stateParams.committee_id
         });
       }
     },
@@ -51,7 +51,7 @@ module.exports = function($stateProvider) {
     resolve: {
       contributors: function($stateParams, disclosureApi) {
         return disclosureApi.committee.contributors({
-          committee_id: $stateProvider.committee_id
+          committee_id: $stateParams.committee_id
         });
       }
     },
