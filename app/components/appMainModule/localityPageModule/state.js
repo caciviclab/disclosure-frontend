@@ -26,7 +26,7 @@ module.exports = function($stateProvider) {
           });
         },
         disclosureSummary: function(disclosureApi, ballot) {
-          return disclosureApi.ballot.disclosure_summary({ballot_id: ballot.ballot_id});
+          return disclosureApi.ballot.disclosure_summary({ballot_id: ballot.id});
         }
       },
       data: {
