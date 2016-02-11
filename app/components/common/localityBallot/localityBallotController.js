@@ -5,11 +5,11 @@ function localityBallotController($scope) {
   $scope.isReferendum = isReferendum;
 
   function isOffice(contest) {
-    return contest.contest_type === 'office';
+    return contest.type === 'office';
   }
 
   function isReferendum(contest) {
-    return contest.contest_type === 'referendum';
+    return contest.type === 'referendum';
   }
 }
 

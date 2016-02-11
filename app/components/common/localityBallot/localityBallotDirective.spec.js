@@ -14,26 +14,26 @@ describe('localityBallotDirective', function() {
     //TODO factory.js
     var ballot = {
       ballot_id: 7,
-      contests: [
+      ballot_items: [
         {
           name: 'Mayor',
-          contest_type: 'office'
+          type: 'office'
         },
         {
           name: 'Vice Mayor',
-          contest_type: 'office'
+          type: 'office'
         },
         {
           name: 'Measure A',
-          contest_type: 'referendum'
+          type: 'referendum'
         },
         {
           name: 'Measure B',
-          contest_type: 'referendum'
+          type: 'referendum'
         },
         {
           name: 'Measure C',
-          contest_type: 'referendum'
+          type: 'referendum'
         }
       ]
     };

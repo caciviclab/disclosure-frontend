@@ -13,6 +13,12 @@ describe('localityMoneyDirective', function() {
   beforeEach(function() {
     //TODO factory.js
     var locality = {
+      id: 1234,
+      name: 'Bedrock',
+      type: 'city'
+    };
+
+    var disclosureSummary = {
       location: {
         name: 'Bedrock',
         locality_id: 1234
@@ -26,9 +32,10 @@ describe('localityMoneyDirective', function() {
 
     angular.mock.inject(function($compile, $rootScope) {
       scope = $rootScope.$new();
+      scope.disclosureSummary = disclosureSummary;
       scope.locality = locality;
 
-      localityMoneyEl = angular.element('<locality-money locality="locality"></locality-money>');
+      localityMoneyEl = angular.element('<locality-money locality="locality" disclosure-summary="disclosureSummary"></locality-money>');
       $compile(localityMoneyEl)(scope);
       $rootScope.$digest();
     });
