@@ -3,16 +3,14 @@
 var _ = require('lodash');
 var Swagger = require('swagger-client');
 
-var DISCLOSURE_SWAGGER_SPEC = 'http://admin.caciviclab.org/docs/api-docs/';
-
-function DisclosureService($q, $rootScope) {
+function DisclosureService($q, $rootScope, url) {
   this.$rootScope = $rootScope;
   this.$q = $q;
 
   var defer = $q.defer();
   this.ready = defer.promise;
   this.swagger = new Swagger({
-    url: $rootScope.swaggerSpec || DISCLOSURE_SWAGGER_SPEC,
+    url: url,
     success: function() {
       $rootScope.$apply(function() {
         defer.resolve();
@@ -40,11 +38,42 @@ DisclosureService.prototype = {
       };
     }
 
-    setupProxy('contributions', 'list');
-    setupProxy('contributions', 'retrieve');
-    setupProxy('elections', 'list');
-    setupProxy('locations', 'get');
-    setupProxy('search', 'get');
+    //////////////////////////////
+    // Non-disclosure info
+    //////////////////////////////
+
+    // Ballot
+    setupProxy('ballot', 'get');  // List of ballot items.
+    setupProxy('candidate', 'get');  // Candidate details
+    setupProxy('elections', 'list');  // List all elections
+    setupProxy('office_election', 'get');  // List of candidates
+    setupProxy('referendum', 'get');  // Referendum details
+
+    // Locality
+    setupProxy('locality', 'get');  // Locality details (e.g. name)
+
+
+    // Non-disclosure information, filtered by presence of disclosure data
+    setupProxy('locality', 'current_ballot');  // Show current ballot
+    setupProxy('locality', 'search');
+
+    //////////////////////////////
+    // Disclosure info
+    //////////////////////////////
+
+    // Basic info
+    setupProxy('committee', 'get');  // Committee details
+
+    // Money info
+    setupProxy('ballot', 'disclosure_summary');  // overall disclosure summary
+    setupProxy('candidate', 'supporting');
+    setupProxy('candidate', 'opposing');
+    setupProxy('committee', 'contributors');  // list of contributors
+    setupProxy('committee', 'contributions');  // list of contributions made to other campaigns
+    setupProxy('committee', 'summary');  // summary over contributors
+    setupProxy('referendum', 'supporting');
+    setupProxy('referendum', 'opposing');
+
   },
 
   // Proxies the swagger function in an angular promise

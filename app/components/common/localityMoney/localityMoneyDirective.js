@@ -10,6 +10,7 @@ function localityMoneyDirective() {
   return {
     restrict: 'E',
     scope: {
+      disclosureSummary: '=',
       locality: '='
     },
     template: require('./localityMoney.html')
