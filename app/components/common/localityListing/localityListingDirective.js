@@ -12,8 +12,10 @@ function localityListingDirective() {
     controllerAs: 'ctrl',
     restrict: 'E',
     scope: {
+      ballot: '=?',
+      disclosureSummary: '=',
       locality: '=',
-      tabs: '=',
+      tabs: '=?',
       onSelect: '&'
     },
     template: require('./localityListing.html')
