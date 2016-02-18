@@ -1,0 +1,19 @@
+<h3>Upcoming Elections</h3>
+<div class="divided-section">
+  <h4>Candidate Offices</h4>
+  <ul class="sub-section">
+    <li class="locality-ballot_contest office" ng-repeat="office in ballot.ballot_items | filter:isOffice">{{ office.name }}</li>
+  </ul>
+  <div class="sub-section">
+    <h4>Ballot Measures</h4>
+    <ul>
+      <li class="locality-ballot_contest referendum" ng-repeat="referendum in ballot.ballot_items | filter:isReferendum">{{ referendum.name }}</li>
+    </ul>
+  </div>
+</div>
+<h3>Past Elections</h3>
+<div class="divided-section">
+  <ul>
+    <li>2014 Mayor of Oakland</li>
+  </ul>
+</div>

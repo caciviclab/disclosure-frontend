@@ -26,7 +26,8 @@ var gulp = require('gulp'),
     buffer = require('vinyl-buffer'),
     runSequence = require('run-sequence'),
     karma = require('karma').server,
-    gulpif = require('gulp-if');
+    gulpif = require('gulp-if'),
+    envify = require('envify');
 
 
 // =======================================================================
@@ -37,21 +38,19 @@ var filePath = {
         dest: './dist'
     },
     lint: {
-        src: ['./app/*.js', './app/**/*.js']
+        src: ['./app/**/*.js']
     },
     browserify: {
         src: './app/app.js',
         watch: [
-            '!./app/assets/libs/*.js',
-            '!./app/assets/libs/**/*.js',
             '!./app/**/*.spec.js',
-            './app/*.js', './app/**/*.js',
-            '/app/**/*.html'
+            './app/**/*.js',
+            './app/**/*.html'
         ]
     },
     styles: {
         src: './app/app.less',
-        watch: ['./app/app.less', './app/**/*.less', './app/components/common/**/*.less', './app/components/**/*.less']
+        watch: ['./app/**/*.less']
     },
     assets: {
         images: {
@@ -206,6 +205,8 @@ function configureBundle(prod) {
         bundler.on('update', rebundle);
     }
 
+    bundler.transform(envify);
+
     bundle.bundler = bundler;
     bundle.prod = prod;
 }
@@ -287,7 +288,7 @@ gulp.task('fonts', function () {
 gulp.task('vendorJS', function() {
     var b = browserify({
         debug: true,
-        require: filePath.vendorJS.src
+        entries: filePath.vendorJS.src
     });
 
     return b.bundle()

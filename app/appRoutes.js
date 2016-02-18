@@ -21,32 +21,7 @@ function appRoutes($stateProvider) {
     name: 'appMain',
     abstract: true,  // This makes it so that the url for this route doesn't actually resolve
     url: '/app-main',
-    template: '<app-main></app-main>',
-    ncyBreadcrumb: {
-      label: 'appMain'
-    }
-  };
-
-  var city = {
-    name: 'appMain.city',
-    url: '^/city/:fips_id',
-    controller: require('./components/common/cityModule/cityController'),
-    template: require('./components/common/cityModule/city.html'),
-    ncyBreadcrumb: {
-      label: '{{ city.location.name }}',
-      parent: 'appMain'
-    },
-    resolve: {
-      city: function($stateParams, disclosureApi) {
-        return disclosureApi.locations.get({fips_id: $stateParams.fips_id});
-      }
-    },
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'city',
-      pageTitle: 'City',
-      pageDescription: 'Some description.'
-    }
+    template: '<app-main></app-main>'
   };
 
   var about = {
@@ -111,11 +86,11 @@ function appRoutes($stateProvider) {
     }
   };
 
+
   $stateProvider.state(home);
   $stateProvider.state(appMain);
   $stateProvider.state(about);
   $stateProvider.state(faq);
-  $stateProvider.state(city);
   $stateProvider.state(examplePage1);
 
 }
