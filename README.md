@@ -51,7 +51,7 @@ And the tests
 
 ### Setup Instructions
 
-1. Install [node.js](http://nodejs.com)
+1. Install the LTS version of [node.js](https://nodejs.org/en/)
 2. Install [gulp.js](http://gulpjs.com) (```npm install -g gulp```)
 3. Clone the repository.
 4. Run: ```npm install``` from inside the repository directory, to install all project dependencies.
