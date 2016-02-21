@@ -1,5 +1,4 @@
-@import "../node_modules/bootstrap/less/bootstrap";
-@import "../node_modules/font-awesome/less/font-awesome";
+@import "vendor/vendor";
 
 /* =======================================================================
     App Layout
@@ -14,12 +13,13 @@ body .main {
     LESS file imports
 ======================================================================= */
 @import "components/common/styles/styles";
-@import "components/common/localityListing/styles";
+@import "components/common/localityListing/localityListing";
 @import "components/common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs";
+@import "components/common/pageHeader/pageHeader";
 
 @import "components/homePageModule/homePage";
 @import "components/appMainModule/aboutPageModule/aboutPage";
-@import "components/appMainModule/committeePageModule/styles";
+@import "components/appMainModule/committeePageModule/committeePage";
 @import "components/appMainModule/faqPageModule/faqPage";
 
 //Angular UI Bootstrap Required Styling:
