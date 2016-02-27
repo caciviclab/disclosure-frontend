@@ -15,8 +15,8 @@ var gulp = require('gulp'),
     uglify = require('gulp-uglify'),
     sourcemaps = require('gulp-sourcemaps'),
     less = require('gulp-less'),
+    cssnano = require('gulp-cssnano'),
     prefix = require('gulp-autoprefixer'),
-    minifyCSS = require('gulp-minify-css'),
     notify = require('gulp-notify'),
     webserver = require('gulp-webserver'),
     browserify = require('browserify'),
@@ -25,7 +25,7 @@ var gulp = require('gulp'),
     source = require('vinyl-source-stream'),
     buffer = require('vinyl-buffer'),
     runSequence = require('run-sequence'),
-    karma = require('karma').server,
+    Karma = require('karma').Server,
     gulpif = require('gulp-if'),
     envify = require('envify');
 
@@ -50,7 +50,8 @@ var filePath = {
     },
     styles: {
         src: './app/app.less',
-        watch: ['./app/**/*.less']
+        watch: ['./app/**/*.less'],
+        dest: './dist/css/'
     },
     assets: {
         images: {
@@ -131,7 +132,8 @@ gulp.task('server', function() {
 // =======================================================================
 gulp.task('clean-dev', function() {
     del(['./dist/*.js',
-        './dist/*.css',
+        './dist/css/*.css',
+        '!./dist/fonts/**',
         '!./dist/vendor.js',
         '!./dist/vendor.css',
         './dist/*.html',
@@ -233,7 +235,7 @@ gulp.task('styles-dev', function() {
     .pipe(less())
     .on('error', handleError)
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(filePath.build.dest))
+    .pipe(gulp.dest(filePath.build.dest + '/css'))
     .on('error', handleError)
     .pipe(notify({
         message: 'Styles task complete'
@@ -245,11 +247,11 @@ gulp.task('styles-prod', function() {
     return gulp.src(filePath.styles.src)
     .pipe(less())
     .on('error', handleError)
-    .pipe(prefix('last 1 version', '> 1%', 'ie 8', 'ie 7', {
+    .pipe(prefix('last 1 version', '> 1%', {
         map: true
     }))
-    .pipe(minifyCSS())
-    .pipe(gulp.dest(filePath.build.dest))
+    .pipe(cssnano())
+    .pipe(gulp.dest(filePath.build.dest + '/css'))
     .on('error', handleError)
     .pipe(notify({
         message: 'Styles task complete'
@@ -310,7 +312,7 @@ gulp.task('vendorJS', function() {
 //    return gulp.src(filePath.vendorCSS.src)
 //    .pipe(concat('vendor.css'))
 //    .on('error', handleError)
-//    .pipe(minifyCSS())
+//    .pipe(cssnano())
 //    .pipe(gulp.dest(filePath.build.dest))
 //    .pipe(notify({
 //        message: 'VendorCSS task complete'
@@ -372,10 +374,11 @@ gulp.task('webserver', function() {
 // Karma Configuration
 // =======================================================================
 gulp.task('karma', function(done) {
-    karma.start({
-        configFile: __dirname + '/karma.conf.js',
-        singleRun: !argv.watch
-    }, done);
+  var karma = new Karma({
+    configFile: __dirname + '/karma.conf.js',
+    singleRun: !argv.watch
+  }, done);
+  karma.start();
 });
 
 
@@ -414,7 +417,10 @@ gulp.task('build-prod', function(callback) {
 // run "gulp build" in terminal for a full re-build in DEV
 gulp.task('build', function(callback) {
     runSequence(
-        ['clean-full', 'lint', 'checkstyle'],
+      ['clean-full'
+        //'lint'
+        //'checkstyle'
+      ],
         ['bundle-dev', 'styles-dev', 'images', 'fonts', 'vendorJS', 'copyIndex', 'copyFavicon'],
         ['server', 'watch'],
         callback
