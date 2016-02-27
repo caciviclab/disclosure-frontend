@@ -2,6 +2,7 @@
 
 //require('../common/campaignFinanceApp/campaignFinanceApp');
 var campaignFinanceAppDirective = require('./components/common/campaignFinanceApp/campaignFinanceAppDirective');
+var appConstants = require('./appConstants');
 
 require('./components/services/disclosure');
 require('./components/common/appMainNav/appMainNav');
@@ -27,5 +28,6 @@ module.exports = angular.module('campaignFinanceApp',
     .config(require('./appRoutes'))
     .config(require('./appConfig'))
     .constant('version', require('../package.json').version)
+    .constant('CONSTANTS', appConstants)
     .run(require('./appInit'))
     .directive('campaignFinanceApp', campaignFinanceAppDirective);
