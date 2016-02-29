@@ -37,6 +37,8 @@ module.exports = function (config) {
             debug: true,
             transform: ['partialify', istanbul({
                 'ignore': ['**/*.spec.js', '**/vendor/**/*.js']
+            transform: ['envify', 'partialify', istanbul({
+                'ignore': ['**/*.spec.js', '**/vendor/**/*.js']
             })],
 
             // don't forget to register the extensions
