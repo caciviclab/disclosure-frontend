@@ -1,7 +1,6 @@
 (function() {
   'use strict';
   // Controller naming conventions should start with an uppercase letter
-  function ExamplePage1Controller($scope, $log, TestFactory1, ExamplePage1Factory) {
   function ExamplePage1Controller($scope, $log, TestFactory1, examplePage1Factory) {
     $scope.exampleContents1 = 'We are up and running using a required module!';
     $scope.paragraphText = ' Example Page 1 explicitly references required files';
