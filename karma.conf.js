@@ -35,9 +35,15 @@ module.exports = function (config) {
 
         browserify: {
             debug: true,
-            transform: ['envify', 'partialify', istanbul({
-                'ignore': ['**/*.spec.js', '**/vendor/**/*.js']
-            })],
+            transform: [
+              'partialify',
+              'envify'
+            ],
+            //transform: ['partialify', istanbul({
+            //    'ignore': ['**/*.spec.js', '**/vendor/**/*.js']})],
+            //transform: ['envify', 'partialify', istanbul({
+            //    'ignore': ['**/*.spec.js', '**/vendor/**/*.js']
+            //})],
 
             // don't forget to register the extensions
             extensions: ['.js']
@@ -64,7 +70,7 @@ module.exports = function (config) {
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_INFO,
+        logLevel: config.LOG_DEBUG,
 
         // enable / disable watching file and executing tests whenever any file changes
         autoWatch: true,
