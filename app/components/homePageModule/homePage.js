@@ -1,6 +1,8 @@
 (function() {
   'use strict';
-// Home View
+  // Home View
+
+  //require('./../common/globalSearchBar/globalSearchBar');
 
   //var homePageModule = require('./homePage');
   var homePageDirective = require('./homePageDirective');
@@ -9,6 +11,7 @@
   module.exports = angular.module('homePageModule',
     [
       'appMainNavModule',
+      'globalSearchBar',
       'appMainFooterModule'
     ])
       .directive('homePage', homePageDirective)
