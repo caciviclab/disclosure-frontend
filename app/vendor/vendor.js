@@ -13,3 +13,4 @@ require('bootstrap');
 require('domready');
 window._ = require('lodash');
 require('restangular');
+require('ng-ui-select');

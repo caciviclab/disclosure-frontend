@@ -10,6 +10,7 @@ require('./components/common/appMainFooter/appMainFooter');
 require('./components/common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
 require('./components/common/pageHeader/pageHeader');
 require('./components/common/blankGraph/blankGraph');
+require('./components/common/globalSearchBar/globalSearchBar');
 
 require('./components/components');
 
