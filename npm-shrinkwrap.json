@@ -661,14 +661,7 @@
     "c3": {
       "version": "0.4.11-rc4",
       "from": "c3@latest",
-      "resolved": "https://registry.npmjs.org/c3/-/c3-0.4.11-rc4.tgz",
-      "dependencies": {
-        "d3": {
-          "version": "3.5.0",
-          "from": "d3@<=3.5.0",
-          "resolved": "https://registry.npmjs.org/d3/-/d3-3.5.0.tgz"
-        }
-      }
+      "resolved": "https://registry.npmjs.org/c3/-/c3-0.4.11-rc4.tgz"
     },
     "c3-angular": {
       "version": "1.0.1",
