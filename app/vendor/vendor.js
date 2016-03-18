@@ -14,3 +14,5 @@ require('domready');
 window._ = require('lodash');
 require('restangular');
 require('ng-ui-select');
+window.d3 = require('d3');
+window.c3 = require('./noNpm/c3/c3');
