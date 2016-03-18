@@ -29,7 +29,7 @@
   },
   "jscsConfig": ".jscsrc",
   "devDependencies": {
-    "angular-mocks": "^1.4.9",
+    "angular-mocks": "1.4.9",
     "browserify": "^13.0.0",
     "browserify-istanbul": "^1.0.0",
     "browserify-shim": "^3.8.5",
