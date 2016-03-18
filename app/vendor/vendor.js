@@ -13,3 +13,5 @@ require('bootstrap');
 require('domready');
 window._ = require('lodash');
 require('restangular');
+window.d3 = require('d3');
+window.c3 = require('./noNpm/c3/c3');
