@@ -1,8 +1,9 @@
 (function() {
   'use strict';
 // Home View
+  require('../common/appMainNav/appMainNav');
+  require('../common/appMainFooter/appMainFooter');
 
-  //var homePageModule = require('./homePage');
   var homePageDirective = require('./homePageDirective');
   var HomePageController = require('./HomePageController');
 
