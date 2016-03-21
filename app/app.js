@@ -1,8 +1,8 @@
 'use strict';
 
-//require('../common/campaignFinanceApp/campaignFinanceApp');
-var campaignFinanceAppDirective = require('./components/common/campaignFinanceApp/campaignFinanceAppDirective');
 var appConstants = require('./appConstants');
+require('./components/homePageModule/homePage');
+require('./components/appMainModule/appMain');
 
 require('./components/services/disclosure');
 require('./components/common/appMainNav/appMainNav');
@@ -10,8 +10,11 @@ require('./components/common/appMainFooter/appMainFooter');
 require('./components/common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
 require('./components/common/pageHeader/pageHeader');
 require('./components/common/blankGraph/blankGraph');
+var appDirective = require('./appDirective');
 
-require('./components/components');
+    'homePageModule',
+    'appMainModule'
+  .directive('campaignFinanceApp', appDirective);
 
 module.exports = angular.module('campaignFinanceApp',
     [
