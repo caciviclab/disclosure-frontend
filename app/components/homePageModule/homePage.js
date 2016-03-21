@@ -1,6 +1,9 @@
 (function() {
   'use strict';
-// Home View
+  // Home View
+
+  require('../common/core/core');
+
   require('../common/appMainNav/appMainNav');
   require('../common/appMainFooter/appMainFooter');
 
@@ -9,6 +12,7 @@
 
   module.exports = angular.module('homePageModule',
     [
+      'coreModules',
       'appMainNavModule',
       'appMainFooterModule'
     ])
