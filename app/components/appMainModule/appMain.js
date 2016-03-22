@@ -12,8 +12,9 @@
   require('./committeePageModule/committeePage');
   require('./examplePage1Module/examplePage1');
   require('./faqPageModule/faqPage');
-  require('./localityPageModule');
+  require('./localityPageModule/localityPage');
   require('./measurePageModule');
+  require('./cityPageModule/cityPage');
 
   /* Components of AppMain */
   var appMainRoutes = require('./appMainRoutes');
