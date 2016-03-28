@@ -82,7 +82,7 @@
     "angular-cookies": "1.4.9",
     "angular-resource": "1.4.9",
     "angular-sanitize": "1.4.9",
-    "angular-ui-bootstrap": "^1.2.1",
+    "angular-ui-bootstrap": "^1.2.5",
     "angular-ui-router": "^0.2.18",
     "animate.css": "^3.5.1",
     "bootstrap": "^3.3.4",
