@@ -1,11 +1,12 @@
 'use strict';
 
 // Controller naming conventions should start with an uppercase letter
-function HomePageController($scope, $log, $http, TestFactory1) {
+// function HomePageController($scope, $log, $http, TestFactory1) {
+function HomePageController($scope, $log) {
   $scope.searchBarEnabled = false;
   $scope.testVar = 'We are up and running using a required module!';
-  $scope.searchResults = [];
-  var localitiesList = {};
+  //$scope.searchResults = [];
+  //var localitiesList = {};
   // This is pretty jank, we should debounce this or do the search when the
   // user stops typing.
   // $scope.$watch('search', function(newValue) {
@@ -22,17 +23,9 @@ function HomePageController($scope, $log, $http, TestFactory1) {
     $log.info('EVENT = ', $event);
   };
 
-  function searchLocalities() {
-    return TestFactory1.getListOfLocalities()
-      .then(function(data) {
-        $scope.searchResults = data;
-        $log.info('LIST OF LOCALITIES = ', $scope.searchResults);
-        return $scope.searchResults;
-      });
-  }
-  searchLocalities();
 }
 
 // $inject is necessary for minification. See http://bit.ly/1lNICde for explanation.
-HomePageController.$inject = ['$scope', '$log', '$http', 'TestFactory1'];
+// HomePageController.$inject = ['$scope', '$log', '$http', 'TestFactory1'];
+HomePageController.$inject = ['$scope', '$log'];
 module.exports = HomePageController;
