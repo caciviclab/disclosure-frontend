@@ -8,11 +8,10 @@
       restrict: 'EA',
       scope: {},
       controllerAs: 'vm',
-      bindToController: {
-      },
+      bindToController: {},
       //link: link,
       template: template,
-      controller: function() {} //if access to the controller is needed, add the controller in separate file
+      controller: 'GlobalSearchBarController'
     };
     return directive;
 

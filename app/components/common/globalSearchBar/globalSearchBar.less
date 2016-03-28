@@ -1,2 +1,65 @@
+@odca-global-search-bar-width-xs: 300px;
+@odca-global-search-bar-width-phablet: 345px;
+@odca-global-search-bar-width-sm: 470px;
+@odca-global-search-bar-width-md: 650px;
 
+//TODO: determine if placeholder classes are needed (for color, spacing, etc). (if not needed, they can be removed)
+
+//.odca-globalSearch {  }
+
+.odca-globalSearch-prePlaceholderIconLabel {
+	position: absolute;
+	left: 24px;
+	top: 42px;
+	//TODO: find a better fix for icon positioning.  absolute positioning this will probably break somewhere..
+}
+
+//.odca-globalSearch-placeholderText {
+//	.placeholder();
+//	//.placeholder(@color: green); //for testing purposes
+//}
+
+.odca-globalSearch-inputBar {
+	.form-control;
+	height: 42px;
+	width: @odca-global-search-bar-width-xs;
+	text-indent: 20px;
+	//.odca-globalSearch-placeholderText;
+}
+
+//.odca-globalSearch-placeholderText,
+//.odca-globalSearch-inputBar&::-webkit-input-placeholder {
+//	//padding-left: 14px;
+//}
+
+.dropdown-menu {
+	top: 131px;
+	left: 15px;
+	width: @odca-global-search-bar-width-xs;
+	border-radius: 0 0 4px 4px;
+	box-sizing: border-box;
+}
+
+/* Media Queries */
+/************************************************/
+/* Devices between xs and small (phablets, 360px and up) */
+@media (min-width: @odca-screen-phablet-min-width) {
+	.odca-globalSearch-inputBar, .dropdown-menu {
+		width: @odca-global-search-bar-width-phablet;
+	}
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+	.odca-globalSearch-inputBar, .dropdown-menu {
+		width: @odca-global-search-bar-width-sm;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+	.odca-globalSearch-inputBar, .dropdown-menu {
+		width: @odca-global-search-bar-width-md;
+	}
+}
 
