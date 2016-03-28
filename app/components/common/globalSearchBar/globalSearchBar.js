@@ -13,7 +13,7 @@
       'ngSanitize',
       'ui.bootstrap.typeahead'
     ])
-    .directive('globalSearchBar', globalSearchBarDirective)
+    .directive('odcaGlobalSearchBar', globalSearchBarDirective)
     .controller('GlobalSearchBarController', GlobalSearchBarController)
     .factory('globalSearchFactory', globalSearchFactory);
 

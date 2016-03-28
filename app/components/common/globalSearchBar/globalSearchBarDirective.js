@@ -3,9 +3,9 @@
 
   var template = require('./globalSearchBar.html');
 
-  module.exports = function globalSearchBar() {
+  module.exports = function odcaGlobalSearchBar() {
     var directive = {
-      restrict: 'EA',
+      restrict: 'E',
       scope: {},
       controllerAs: 'vm',
       bindToController: {},
