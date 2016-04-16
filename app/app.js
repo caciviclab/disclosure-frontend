@@ -1,6 +1,13 @@
 (function () {
 'use strict';
 
+window.angular = require('angular');
+window.jQuery = require('jquery');
+window._ = require('lodash');
+window.d3 = require('d3');
+window.c3 = require('./vendor/noNpm/c3/c3');
+
+// require('./vendor/vendor');
 require('./components/common/core/core');
 require('./components/homePageModule/homePage');
 require('./components/appMainModule/appMain');

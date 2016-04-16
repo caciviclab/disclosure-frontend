@@ -1,6 +1,7 @@
 (function() {
   'use strict';
 
+  require('../../../vendor/vendor');
   require('../../services/disclosure');
 
   //module.exports = angular.module('common.core', [
