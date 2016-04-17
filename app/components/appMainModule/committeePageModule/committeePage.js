@@ -15,12 +15,18 @@
   *
   */
 
+  require('../../common/core/core');
+  require('../../common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
+
+  //TODO: remove these from common and add in directives
   require('../../common/committeeContributors');
   require('../../common/committeeListing');
 
   // var committeeModule = angular.module('committeePageModule', [
   module.exports = angular.module('committeePageModule',
     [
+      'coreModules',
+      'pageHeaderBreadcrumbsModule',
       'committeeContributors',
       'committeeListing'
     ])

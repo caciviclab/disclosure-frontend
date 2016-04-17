@@ -2,12 +2,14 @@
 'use strict';
 
   require('../../common/core/core');
-  require('../../common/localityBallot');
+  require('../../common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
+  require('../../common/localityBallot/localityBallot');
   require('../../common/localityListing');
   require('../../common/localityMoney');
 
   var localityPageModule = angular.module('localityPageModule', [
     'coreModules',
+    'pageHeaderBreadcrumbsModule',
     'localityBallot',
     'localityListing',
     'localityMoney'
