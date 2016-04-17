@@ -8,10 +8,11 @@
 
 module.exports = function($stateProvider) {
   $stateProvider
-    .state({
+    .state({  //TODO: ADD IN MISSING UI-VIEW
       name: 'appMain.locality',
-      abstract: true,
-      url: '^/locality/:locality_id',
+      //abstract: true,
+      url: '^/locality',
+      //url: '^/locality/:locality_id',
       controller: 'localityPageController',
       template: '<locality-listing locality="locality" disclosure-summary="disclosureSummary"></locality-listing>',
       resolve: {
@@ -39,7 +40,7 @@ module.exports = function($stateProvider) {
 
     .state({
       name: 'appMain.locality.money',
-      url: '/money',
+      url: '^/:locality_id/money',
       template: '<locality-money locality="locality" disclosure-summary="disclosureSummary"></locality-money>',
       ncyBreadcrumb: {
         label: '{{ locality.name }}',
