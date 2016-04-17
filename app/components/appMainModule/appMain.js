@@ -14,7 +14,7 @@
   require('./faqPageModule/faqPage');
   require('./localityPageModule/localityPage');
   require('./measurePageModule');
-  require('./cityPageModule/cityPage');
+  // require('./cityPageModule/cityPage');
 
   /* Components of AppMain */
   var appMainRoutes = require('./appMainRoutes');
@@ -33,6 +33,7 @@
       'faqPageModule',
       'localityPageModule',
       'measurePageModule'
+      // 'cityPageModule'
     ])
     .config(appMainRoutes)
     .directive('appMain', appMainDirective)
