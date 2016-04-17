@@ -96,7 +96,8 @@ var filePath = {
 // =======================================================================
 function handleError(err) {
     console.log(err.toString());
-    this.emit('end');
+    gutil.debug(err);
+    // this.emit('end');
 }
 
 
@@ -189,23 +190,7 @@ gulp.task('checkstyle', function() {
 //     cache: {},
 //     packageCache: {}
 // };
-//
-// function rebundle() {
-//     return bundle.bundler.bundle()
-//         .pipe(source('bundle.js'))
-//         .on('error', handleError)
-//         .pipe(buffer())
-//         .pipe(gulpif(!bundle.prod, sourcemaps.init({
-//             loadMaps: true
-//         })))
-//         .pipe(gulpif(!bundle.prod, sourcemaps.write('./')))
-//         .pipe(gulpif(bundle.prod, streamify(uglify({
-//             mangle: false
-//         }))))
-//         .pipe(gulp.dest(filePath.build.dest))
-//         .pipe(connect.reload());
-// }
-//
+
 // function configureBundle(prod) {
 //     var bundler = browserify(bundle.conf);
 //
@@ -244,10 +229,19 @@ function bundle(bundler) {
                                                                               //   to 'bundle.js'
       .pipe(sourceMaps.init({ loadMaps : true }))  // Strip inline source maps
       .pipe(sourceMaps.write(filePath.browserify.mapDir))    // Save source maps to their
-                                                                                      //   own directory
+                                                                       //   own directory
       .pipe(gulp.dest(filePath.browserify.outputDir))        // Save 'bundle' to build/
-      // .pipe(livereload());                                       // Reload browser if relevant
-      .pipe(connect.reload());
+      .pipe(connect.reload());                              // Reload browser if relevant
+
+      //TODO: add this code in for bundling dev vs prod
+      //.pipe(gulpif(!bundle.prod, sourcemaps.init({
+      //             loadMaps: true
+      //         })))
+      //         .pipe(gulpif(!bundle.prod, sourcemaps.write('./')))
+      //         .pipe(gulpif(bundle.prod, streamify(uglify({
+      //             mangle: false
+      //         }))))
+
 }
 
 gulp.task('bundle', function () {
@@ -313,28 +307,6 @@ gulp.task('fonts', function () {
         .pipe(gulp.dest(filePath.assets.fonts.dest))
         .pipe(connect.reload());
 });
-
-
-// =======================================================================
-// Vendor JS Task
-// =======================================================================
-gulp.task('vendorJS', function() {
-    var b = browserify({
-        debug: true,
-        entries: filePath.vendorJS.src
-    });
-
-    return b.bundle()
-    .pipe(source('vendor.js'))
-    .on('error', handleError)
-    .pipe(buffer())
-    .pipe(uglify())
-    .pipe(gulp.dest(filePath.build.dest))
-    .pipe(notify({
-        message: 'VendorJS task complete'
-    }));
-});
-
 
 // =======================================================================
 // Vendor CSS Task
@@ -444,10 +416,7 @@ gulp.task('build-test', function(callback) {
 gulp.task('build-prod', function(callback) {
     runSequence(
         ['clean-full', 'lint', 'checkstyle'],
-        [
-          'bundle-prod', 'styles-prod', 'images', 'fonts',
-          // 'vendorJS',
-          'copyIndex', 'copyFavicon'],
+        ['bundle-prod', 'styles-prod', 'images', 'fonts','copyIndex', 'copyFavicon'],
         callback
     );
 });
@@ -456,15 +425,13 @@ gulp.task('build-prod', function(callback) {
 gulp.task('build', function(callback) {
     runSequence(
       ['clean-full'
-        //'lint'
-        //'checkstyle'
+        // 'lint',
+        // 'checkstyle'
       ],
         [
-          // 'bundle-dev', 
+          // 'bundle-dev',
           'bundle',
-          'styles-dev', 'images', 'fonts',
-          // 'vendorJS',
-          'copyIndex', 'copyFavicon'],
+          'styles-dev', 'images', 'fonts','copyIndex', 'copyFavicon'],
         ['server', 'watch'],
         callback
     );
