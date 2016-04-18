@@ -1,5 +1,5 @@
 /**
- * committeeModule/state.js
+ * committeePageModule/committeePageRoutes.js
  *
  * The ui-router state configuration for the committee module. Contains several
  * pages containing information on a single campaign committee.
@@ -7,7 +7,8 @@
 
 'use strict';
 
-module.exports = function($stateProvider) {
+function committeePageRoutes($stateProvider) {
+//module.exports = function($stateProvider) {
   $stateProvider.state({
     name: 'appMain.committee',
     abstract: true,
@@ -62,4 +63,7 @@ module.exports = function($stateProvider) {
       pageDescription: 'Contributors to a campaign committee.'
     }
   });
-};
+}
+
+committeePageRoutes.$inject = ['$stateProvider'];
+module.exports = committeePageRoutes;
