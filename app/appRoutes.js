@@ -5,7 +5,7 @@ function appRoutes($stateProvider) {
   var home = {
     name: 'home', // state name
     url: '/', // url path that activates this state
-    template: '<home-page></home-page>', // generate the Directive "homeView" - when calling the directive in HTML, the name must not be camelCased
+    template: '<home-page class="page-fade"></home-page>', // generate the Directive "homeView" - when calling the directive in HTML, the name must not be camelCased
     ncyBreadcrumb: {
       label: 'Home'
     },
@@ -21,7 +21,7 @@ function appRoutes($stateProvider) {
     name: 'appMain',
     abstract: true,  // This makes it so that the url for this route doesn't actually resolve
     url: '/app-main',
-    template: '<app-main></app-main>'
+    template: '<app-main class="page-fade"></app-main>'
   };
 
   var about = {
