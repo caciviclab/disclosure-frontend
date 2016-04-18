@@ -1,6 +1,6 @@
 (function() {
   'use strict';
-  // Home View
+// Home View
 
   require('../common/core/core');
   require('../common/appMainNav/appMainNav');
