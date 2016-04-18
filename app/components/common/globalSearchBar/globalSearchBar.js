@@ -1,4 +1,4 @@
-(function() {
+// (function() {
   'use strict';
 
 //  require('angular');
@@ -11,10 +11,11 @@
   module.exports = angular.module('globalSearchBar',
     [
       'ngSanitize',
+      'ui.router',
       'ui.bootstrap.typeahead'
     ])
     .directive('odcaGlobalSearchBar', globalSearchBarDirective)
     .controller('GlobalSearchBarController', GlobalSearchBarController)
     .factory('globalSearchFactory', globalSearchFactory);
 
-})();
+// })();

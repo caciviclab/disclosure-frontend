@@ -1,6 +1,8 @@
-<!--<pre>Model: {{vm.selected | json}}</pre>-->
-
 <label class="odca-globalSearch-prePlaceholderIconLabel"><i class="fa fa-search"></i></label>
-<input type="text" ng-model="vm.selected" placeholder="Search" uib-typeahead="result.name for result in vm.searchResults | filter:$viewValue | limitTo:8" class="odca-globalSearch-inputBar">
+<!--<input type="text" ng-model="vm.selected" placeholder="Search" uib-typeahead="result.name for result in vm.searchResults | filter:$viewValue | limitTo:8" class="odca-globalSearch-inputBar">-->
+<input type="text" ng-model="vm.selected" placeholder="Search" uib-typeahead="result as result.name for result in vm.searchResults | filter:{name:$viewValue} | limitTo:8" typeahead-on-select="vm.selectFn($item, $model, $label, $event)" class="odca-globalSearch-inputBar">
 
 <!--typeahead-popup-template-url="customPopupTemplate.html"-->
+
+<pre>Model: {{vm.selected | json}}</pre>
+

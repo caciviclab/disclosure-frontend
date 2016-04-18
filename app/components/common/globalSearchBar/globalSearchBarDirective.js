@@ -8,7 +8,9 @@
       restrict: 'E',
       scope: {},
       controllerAs: 'vm',
-      bindToController: {},
+      bindToController: {
+        selectFn: '&'
+      },
       //link: link,
       template: template,
       controller: 'GlobalSearchBarController'

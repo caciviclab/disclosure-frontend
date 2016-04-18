@@ -5,7 +5,7 @@
   require('../common/core/core');
   require('../common/appMainNav/appMainNav');
   require('../common/appMainFooter/appMainFooter');
-  //require('./../common/globalSearchBar/globalSearchBar');
+  require('./../common/globalSearchBar/globalSearchBar');
   
   var homePageDirective = require('./homePageDirective');
   var HomePageController = require('./HomePageController');

@@ -56,6 +56,53 @@ function appRoutes($stateProvider) {
     }
   };
 
+  var localePage = {
+    name: 'appMain.localePage',
+    //url: '^/locale',
+    //url: '^/:localeType/:localeId',
+    url: '^/:localeType/:localeId/:localeName',
+    //template: '<{{localeType}}-page></{{localeType}}-page>',
+    //template: '<city-page></city-page>',
+    //template: '<h1 class="page-fade">Locale Page</h1>',
+    //template: require('./components/appMainModule/cityPageModule/cityPage.html'),
+    //controller: 'CityPageController',
+    //controller: require('./components/appMainModule/cityPageModule/CityPageController'),
+    // resolve: {
+    //   localePageService: function ($stateParams) {
+    //     return $stateParams
+    //       .get({localeType: $stateParams.localeType, localeId: $stateParams.localeId, localeName: $stateParams.localeName});
+    //   }
+    // },
+    ncyBreadcrumb: {
+      label: 'Locale Page',
+      //label: '{{ localeName }}',
+      parent: 'appMain'
+    },
+    data: {
+      moduleClasses: 'page', // assign a module class to the <body> tag
+      pageClasses: 'localePage', // assign a page-specific class to the <body> tag
+      pageTitle: 'Locale Page', // set the title in the <head> section of the index.html file
+      pageDescription: 'Meta Description goes here' // meta description in <head>
+    }
+  };
+
+  // var cityPage = {
+  //   name: 'appMain.cityPage',
+  //   //url: '^/city',
+  //   url: '^/city/:cityId',
+  //   template: '<h1>City Page</h1>',
+  //   ncyBreadcrumb: {
+  //     label: 'City Page',
+  //     parent: 'appMain'
+  //   },
+  //   data: {
+  //     moduleClasses: 'page', // assign a module class to the <body> tag
+  //     pageClasses: 'cityPage', // assign a page-specific class to the <body> tag
+  //     pageTitle: 'City Page', // set the title in the <head> section of the index.html file
+  //     pageDescription: 'Meta Description goes here' // meta description in <head>
+  //   }
+  // };
+
   //var cityElections = {
   //  name: 'cityElections',
   //  url: '/city-elections',
@@ -91,6 +138,8 @@ function appRoutes($stateProvider) {
   $stateProvider.state(appMain);
   $stateProvider.state(about);
   $stateProvider.state(faq);
+  $stateProvider.state(localePage);
+  //$stateProvider.state(cityPage);
   $stateProvider.state(examplePage1);
 
 }
