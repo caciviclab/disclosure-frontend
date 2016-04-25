@@ -416,7 +416,10 @@ gulp.task('build-test', function(callback) {
 gulp.task('build-prod', function(callback) {
     runSequence(
         ['clean-full', 'lint', 'checkstyle'],
-        ['bundle-prod', 'styles-prod', 'images', 'fonts','copyIndex', 'copyFavicon'],
+        [
+          // 'bundle-prod',
+          'bundle',
+          'styles-prod', 'images', 'fonts','copyIndex', 'copyFavicon'],
         callback
     );
 });

@@ -2,7 +2,7 @@
 
   /**
    * @ngdoc controller
-   * @name localePage:LocalePageController
+   * @name localePageModule:LocalePageController
    *
    * @description
    *
