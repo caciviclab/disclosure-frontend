@@ -10,9 +10,10 @@
   /* AppMain Modules */
   require('./aboutPageModule/aboutPage');
   require('./committeePageModule/committeePage');
+  require('./localePageModule/localePage');
   require('./examplePage1Module/examplePage1');
   require('./faqPageModule/faqPage');
-  require('./localityPageModule/localityPage');
+  //require('./localityPageModule/localityPage');
   require('./measurePageModule');
   // require('./cityPageModule/cityPage');
 
@@ -27,11 +28,12 @@
       'appMainNavModule',
       'appMainFooterModule',
       'pageHeaderBreadcrumbsModule',
+      'localePageModule',
       'examplePage1Module',
       'aboutPageModule',
       'committeePageModule',
       'faqPageModule',
-      'localityPageModule',
+      // 'localityPageModule',
       'measurePageModule'
       // 'cityPageModule'
     ])
