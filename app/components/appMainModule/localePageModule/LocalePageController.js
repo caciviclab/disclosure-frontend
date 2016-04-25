@@ -11,7 +11,6 @@
    * */
    
   // function LocalePageController($log, $state, localePageService) {
-  // function LocalePageController($log, $state, $filter, localeItemSelected) {
   function LocalePageController($log, $state, $stateParams, localePageFactory) {
     var pageMetaData = {};
     

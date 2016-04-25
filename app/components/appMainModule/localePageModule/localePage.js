@@ -7,7 +7,7 @@
   require('../../common/pageHeader/pageHeader');
 
   /* Components of 'localePageModule' */
-  // var localePageRoutes = require('./localePageRoutes');
+  var localePageRoutes = require('./localePageRoutes');
   var localePageDirective = require('./localePageDirective');
   var LocalePageController = require('./LocalePageController');
   var localePageFactory = require('./localePageFactory');
@@ -18,7 +18,7 @@
       'pageHeaderBreadcrumbsModule',
       'pageHeaderModule'
     ])
-    // .config(localePageRoutes)
+    .config(localePageRoutes)
     .directive('localePage', localePageDirective)
     .controller('LocalePageController', LocalePageController)
     .factory('localePageFactory', localePageFactory);

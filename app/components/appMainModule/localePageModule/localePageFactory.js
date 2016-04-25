@@ -1,14 +1,16 @@
 'use strict';
 
-var localePageFactory = function($log, $http, CONSTANTS) {
+var localePageFactory = function($log, $http, $q, CONSTANTS) {
   var apiBasePath = CONSTANTS.DISCLOSURE_API_BASEURL;
   var apiEndpoint = '/locality';
 
   var localePageData = {};
+  localePageData.metaData = {};
 
   var service = {
     getLocalePageData: getLocalePageData,
     getMetaDataForPage: getMetaDataForPage
+    // getCurrentBallotData: getCurrentBallotData
     // getLocalePageMetaData: getLocalePageMetaData,
     // setLocalePageMetaData: setLocalePageMetaData
   };
@@ -30,6 +32,14 @@ var localePageFactory = function($log, $http, CONSTANTS) {
       .catch(getMetaDataFailed);
   }
 
+  // function getCurrentBallotData() {
+  // function getCurrentBallotData(localeId) {
+  //   // return $http.get(apiBasePath + apiEndpoint + '/' + localePageData.metaData.localeId)
+  //   return $http.get(apiBasePath + apiEndpoint + '/' + localeId + '/current_ballot')
+  //     .then(getDataComplete)
+  //     .catch(getMetaDataFailed);
+  // }
+
   // function getDataComplete(data, status, headers, config) {
   function getDataComplete(data) {
     return data.data;
@@ -47,5 +57,5 @@ var localePageFactory = function($log, $http, CONSTANTS) {
 
 };
 
-localePageFactory.$inject = ['$log', '$http', 'CONSTANTS'];
+localePageFactory.$inject = ['$log', '$http', '$q', 'CONSTANTS'];
 module.exports = localePageFactory;

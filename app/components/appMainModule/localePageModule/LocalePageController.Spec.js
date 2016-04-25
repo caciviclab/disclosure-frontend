@@ -1,4 +1,4 @@
-describe('Controller: localePage.LocalePageController', function () {
+describe('Controller: localePageModule.LocalePageController', function () {
 
     // load the controller's module
     beforeEach(module('localePage'));
