@@ -35,7 +35,8 @@ function committeePageRoutes($stateProvider) {
     name: 'appMain.committee.main',
     // name: 'appMain.locality.committee.main',
     url: '',
-    template: '<committee-listing committee="committee"></committee-listing>',
+    template: require('./committeePage.html'),
+    //template: '<committee-listing committee="committee"></committee-listing>',
     ncyBreadcrumb: {
       label: '{{ committee.name }}',
       parent: 'appMain.locality'

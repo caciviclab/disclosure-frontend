@@ -1,7 +1,7 @@
 (function() {
   'use strict';
   // Controller naming conventions should start with an uppercase letter
-  function ExamplePage1Controller($scope, $log, TestFactory1, examplePage1Factory) {
+  function ExamplePage1Controller($scope, $log, TestFactory1, examplePage1Factory, $state) {
     $scope.exampleContents1 = 'We are up and running using a required module!';
     $scope.paragraphText = ' Example Page 1 explicitly references required files';
     //var alameda = TestFactory1.getAlameda();
@@ -12,6 +12,8 @@
     var committeeExample = {};
     var electionCandidates = {};
     //var self = this;
+    $scope.pageTitle = $state.current.ncyBreadcrumbLabel;
+    $log.info('STATE', $state.current);
 
     $scope.dataResults = dataResults;
     $log.info('scope.dataResults =', $scope.dataResults);
@@ -51,6 +53,7 @@
     }
     getCommittee('1', '');
 
+
     function getCommitteeExampleForPage(committeeId, urlPaths) {
       return examplePage1Factory.getExampleCommittee(committeeId, urlPaths)
         .then(function(data) {
@@ -88,6 +91,6 @@
   }
 
   // $inject is necessary for minification. See http://bit.ly/1lNICde for explanation.
-  ExamplePage1Controller.$inject = ['$scope', '$log', 'TestFactory1', 'examplePage1Factory'];
+  ExamplePage1Controller.$inject = ['$scope', '$log', 'TestFactory1', 'examplePage1Factory', '$state'];
   module.exports = ExamplePage1Controller;
 })();
