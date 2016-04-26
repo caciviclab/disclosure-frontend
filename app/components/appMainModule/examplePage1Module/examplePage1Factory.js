@@ -10,7 +10,8 @@ var examplePage1Factory = function($http, $q, $log, CONSTANTS) {
   };
   return service;
 
-  function getPageDataComplete(data, status, headers, config) {
+  // function getPageDataComplete(data, status, headers, config) {
+  function getPageDataComplete(data) {
     return data.data;
   }
 

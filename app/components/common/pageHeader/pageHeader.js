@@ -5,6 +5,6 @@
   var pageHeaderDirective = require('./pageHeaderDirective');
 
   module.exports = angular.module('pageHeaderModule', [])
-    .directive('pageHeader', pageHeaderDirective);
+    .directive('odcaPageHeader', pageHeaderDirective);
 
 })();

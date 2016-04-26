@@ -1,15 +1,15 @@
 (function() {
   'use strict';
-  
+
   var template = require('./pageHeader.html');
 
-  module.exports = function pageHeader() {
+  module.exports = function odcaPageHeader() {
     var directive = {
-      restrict: 'EA',
+      restrict: 'E',
       scope: {},
       controllerAs: 'vm',
       bindToController: {
-        pageTitle: '@title',
+        pageTitle: '@pageTitle',
         pageSubtitle: '@subTitle',
         nextElectionDate: '@nextElection'
       },

@@ -17,13 +17,17 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'app/vendor/vendor.js',
+            'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js', // for angular.mock.module and inject.
             'app/**/*.spec.js'
         ],
 
         // list of files to exclude
-        exclude: [],
+        exclude: [
+          'app/components/appMainModule/localityPageModule/*.js',
+          'app/components/common/locality*/*.js',
+          'app/components/services/*/**.js'
+        ],
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
@@ -64,7 +68,7 @@ module.exports = function (config) {
 
         // level of logging
         // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-        logLevel: config.LOG_DEBUG,
+        logLevel: config.LOG_INFO,
 
         // enable / disable watching file and executing tests whenever any file changes
         autoWatch: true,
