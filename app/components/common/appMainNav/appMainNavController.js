@@ -29,15 +29,11 @@ function appMainNavController($scope) {
     handleStateChange();
   });
 
-  $scope.mainNavMenu = [
-    {sref: 'home', title: 'Home'}
-  ];
-
   $scope.demoNavMenu = [
     {sref: 'appMain.examplePage1', title: 'Example page 1'},
-    {sref: 'appMain.locality.money({locality_id: 71})', title: 'Example city'},
-    {sref: 'appMain.committee.main({committee_id: 1})', title: 'Example committee'},
-    {sref: 'appMain.measure.index({measure_id: 1})', title: 'Example ballot measure'}
+    {sref: 'appMain.locality.money({locality_id: 71})', title: 'Ex. city'},
+    {sref: 'appMain.committee.main({committee_id: 1})', title: 'Ex. committee'},
+    {sref: 'appMain.measure.index({measure_id: 1})', title: 'Ex. ballot measure'}
   ];
 
   function handleStateChange() {

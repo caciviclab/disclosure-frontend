@@ -14,7 +14,8 @@
   },
   "scripts": {
     "start": "node server.js",
-    "test": "gulp test"
+    "test": "gulp test",
+    "serve": "beefy main.js --browserify $(which browserify) --live"
   },
   "browserify-shim": {
     "angular": {
@@ -29,10 +30,11 @@
   },
   "jscsConfig": ".jscsrc",
   "devDependencies": {
-    "angular-mocks": "^1.4.9",
+    "angular-mocks": "1.4.9",
     "browserify": "^13.0.0",
     "browserify-istanbul": "^1.0.0",
     "browserify-shim": "^3.8.5",
+    "buffer": "^4.5.1",
     "chai": "^3.5.0",
     "del": "^2.2.0",
     "gulp": "^3.9.1",
@@ -44,10 +46,13 @@
     "gulp-jscs": "^3.0.2",
     "gulp-jshint": "^2.0.0",
     "gulp-less": "^3.0.5",
+    "gulp-livereload": "^3.8.1",
     "gulp-notify": "^2.2.0",
+    "gulp-rename": "^1.2.2",
     "gulp-sourcemaps": "^1.5.2",
     "gulp-streamify": "^1.0.2",
     "gulp-uglify": "^1.2.0",
+    "gulp-util": "^3.0.7",
     "gulp-webserver": "^0.9.1",
     "istanbul": "^0.4.2",
     "jshint": "^2.9.1",
@@ -63,11 +68,13 @@
     "karma-sinon": "^1.0.4",
     "karma-spec-reporter": "0.0.24",
     "logfmt": "^1.1.2",
+    "merge": "^1.2.0",
     "mocha": "^2.2.4",
     "notify-send": "^0.1.2",
     "partialify": "^3.1.6",
     "phantomjs-prebuilt": "^2.1.4",
     "proxy-middleware": "^0.15.0",
+    "rename": "^1.0.3",
     "run-sequence": "^1.1.5",
     "sinon": "^1.14.1",
     "vinyl-buffer": "^1.0.0",

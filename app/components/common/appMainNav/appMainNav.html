@@ -1,36 +1,34 @@
 <header class="appMainHeader">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle appMainNav-navbar-toggle"
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle appMainNav-navbar-toggle"
           ng-click="navCollapsed = !navCollapsed">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar appMainNav-icon-bar"></span>
-            <span class="icon-bar appMainNav-icon-bar"></span>
-            <span class="icon-bar appMainNav-icon-bar"></span>
-          </button>
-          <a class="navbar-brand appMainNav-navbar-brand" ui-sref="home"><span class="appMainNav-navbar-brand--span">OD</span>Ca</a>
-          <span id="navSearchXS" class="nav navbar-nav navbar-right visible-xs-inline">
-            <span search-in-navbar="true"></span>
-          </span>
-        </div>
-        <div class="collapse navbar-collapse navbar-menu" uib-collapse="navCollapsed">
-          <ul class="nav navbar-nav">
-            <li ng-repeat="item in mainNavMenu" ui-sref-active="active"><a ui-sref="{{ item.sref }}">{{ item.title }}</a></li>
-            <li><h4>Demo links</h4></li>
-            <li ng-repeat="item in demoNavMenu" ui-sref-active="active"><a ui-sref="{{ item.sref }}">{{ item.title }}</a></li>
-          </ul>
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar appMainNav-icon-bar"></span>
+          <span class="icon-bar appMainNav-icon-bar"></span>
+          <span class="icon-bar appMainNav-icon-bar"></span>
+        </button>
+        <a class="navbar-brand appMainNav-navbar-brand" ui-sref="home"><span class="appMainNav-navbar-brand--span">OD</span>Ca</a>
+        <span id="navSearchXS" class="nav navbar-nav navbar-right visible-xs-inline">
+          <span search-in-navbar="true"></span>
+        </span>
+      </div>
+      <div class="collapse navbar-collapse navbar-menu" uib-collapse="navCollapsed">
+        <ul class="nav navbar-nav">
+          <li ng-repeat="item in demoNavMenu" ui-sref-active="active"><a ui-sref="{{ item.sref }}">{{ item.title }}</a></li>
+        </ul>
 
-          <div ng-show="searchBarEnabled">
-            <a class="navbar-search"><i class="fa fa-search fa-lg"></i></a>
-          </div>
+        <div ng-show="searchBarEnabled">
+          <a class="navbar-search"><i class="fa fa-search fa-lg"></i></a>
+        </div>
 
           <!--<ul id="navSearchSM" class="nav navbar-nav navbar-right hidden-xs" ng-show="searchInNav">-->
           <!--<ul id="navSearchSM" class="nav navbar-nav navbar-right hidden-xs" ng-if="navbarSearch">-->
             <!--<li search-in-navbar="true"></li>-->
           <!--</ul>-->
-        </div><!--/.nav-collapse -->
+      </div><!--/.nav-collapse -->
 
-      </div>
-    </nav>
+    </div>
+  </nav>
 </header>
