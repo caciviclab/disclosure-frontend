@@ -11,6 +11,7 @@ function committeePageRoutes($stateProvider) {
 //module.exports = function($stateProvider) {
   $stateProvider.state({
     name: 'appMain.committee',
+    // name: 'appMain.locality.committee',
     abstract: true,
     url: '^/committee/:committee_id',
     template: '<ui-view></ui-view>',
@@ -32,8 +33,10 @@ function committeePageRoutes($stateProvider) {
 
   $stateProvider.state({
     name: 'appMain.committee.main',
+    // name: 'appMain.locality.committee.main',
     url: '',
-    template: '<committee-listing committee="committee"></committee-listing>',
+    template: require('./committeePage.html'),
+    //template: '<committee-listing committee="committee"></committee-listing>',
     ncyBreadcrumb: {
       label: '{{ committee.name }}',
       parent: 'appMain.locality'
@@ -42,12 +45,14 @@ function committeePageRoutes($stateProvider) {
 
   $stateProvider.state({
     name: 'appMain.committee.contributors',
+    // name: 'appMain.locality.committee.contributors',
     url: '/contributors',
     controller: 'committeeContributorsPageController',
     template: '<committee-contributors contributors="contributors"></committee-contributors>',
     ncyBreadcrumb: {
       label: 'Contributors',
       parent: 'appMain.committee.main'
+      // parent: 'appMain.locality.committee.main'
     },
     resolve: {
       contributors: function($stateParams, disclosureApi) {

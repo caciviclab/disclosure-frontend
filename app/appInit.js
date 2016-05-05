@@ -8,16 +8,16 @@ function appInit($rootScope, $state) {
     if (angular.isDefined(toState.data.pageTitle)) {
       $rootScope.pageTitle = toState.data.pageTitle;
       $rootScope.pageDescription = toState.data.pageDescription;
-      $rootScope.bodyClasses = toState.data.moduleClasses + ' ' + toState.data.pageClasses;
+      //$rootScope.bodyClasses = toState.data.moduleClasses + ' ' + toState.data.pageClasses;
     }
   });
 
   // Make sure the page scrolls to the top on all state transitions
-  $rootScope.$on('$viewContentLoaded', function() {
-    if (document.readyState === 'complete') {
-      window.scrollTo(0, 0);
-    }
-  });
+  // $rootScope.$on('$viewContentLoaded', function() {
+  //   if (document.readyState === 'complete') {
+  //     window.scrollTo(0, 0);
+  //   }
+  // });
 
   // Proper Regex Pattern for email input form validation
   $rootScope.emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
