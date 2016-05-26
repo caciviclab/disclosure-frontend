@@ -50,7 +50,7 @@ Each Module is self-contained and the js files are exported, combined, and minif
 ### Working with this application structure
 1. All pipeline, automation, and testing dependencies are in the
    ```node_modules``` folder (installed using npm), while all third party
-   application libraries are located in the ```thirdparty``` folder.
+   application libraries are located in the ```vendor``` folder.
 
 2. Any additional third party modules and plugins should always be installed
    automatically whenever possible using ```npm install module_name``` with the
@@ -124,7 +124,7 @@ https://github.com/goodbomb/angular-gulp-browserify-starter/blob/master/app/modu
 1) Create a new folder in the ```app/modules/``` directory with the following files:
 
 ```
-index.js
+moduleName.js
 moduleName.html
 moduleName.less
 moduleNameController.js
@@ -179,22 +179,13 @@ NOTE: This same process applies to sub-modules, except you will treat the module
 
 ### Adding Third Party Vendor JS and CSS files to your app
 
-Instead of bloating the index.html file with a list of scripts and link tags,
-all CSS and Javascript files from Vendors are bundled and concatenated into
-single `vendor.css` and `vendor.js` files using the Gulp pipeline. To
-add vendor files to your workflow, all you have to do is access the
-`gulpfile.js` file and add the relative path to the vendor file (found in
-the `thirdparty` or `node_modules` directories) to the appropriate
-location in the *"File Paths"* section.
-
-#### Third-party CSS
-
-Add the path to the *VendorCSS* workflow in the `gulpfile.js`
+Install the packages via NPM and load the third party vendor JS and CSS files from the `node_modules` directory into their respective file in `vendor/`.  To
+add third party JS files to your workflow, require the module(s) in `vendor/vendor.js`.  To add third party stylesheets (less or css), import the files into `vendor/vendor.less`.  Bundling, concatenation, and minification of these files is handled through the Gulp pipeline.
 
 
 #### Third-party Javascript
-
-Require the file from `thirdparty/index.js`.
+//TODO: Fix this section!
+Require the file from `vendor/vendor.js`.
 
 The `vendor.js` contains uses browserify to bundle all of the third party
 libraries installed via `npm install` into a single javascript file that is

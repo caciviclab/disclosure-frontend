@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/caciviclab/disclosure-frontend-alpha.svg)](https://travis-ci.org/caciviclab/disclosure-frontend-alpha)
+[![Build Status](https://travis-ci.org/caciviclab/disclosure-frontend.svg)](https://travis-ci.org/caciviclab/disclosure-frontend)
 
 # Open Disclosure California
 
@@ -37,10 +37,21 @@ Url                                      | Description
 [disclosure-api]: http://admin.caciviclab.org/docs/
 [disclosure-admin]: http://admin.caciviclab.org/admin/
 
+#### Testing against a development backend
+
+If you want to test against a development backend, you can set an environment
+variable
+
+    $ DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' gulp build
+
+And the tests
+
+    $ DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' gulp test
+
 
 ### Setup Instructions
 
-1. Install [node.js](http://nodejs.com)
+1. Install the LTS version of [node.js](https://nodejs.org/en/)
 2. Install [gulp.js](http://gulpjs.com) (```npm install -g gulp```)
 3. Clone the repository.
 4. Run: ```npm install``` from inside the repository directory, to install all project dependencies.
@@ -53,7 +64,7 @@ To tweak the install,
 
 To point this front-end to another (e.g. local test) back-end:
 * Run `python manage.py runserver` from your back-end repo; this should start your back-end server on port 8000.
-* Edit `app/components/services/disclosure/service.js`, set `DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/';`.
+* Edit `app/app-init.js`, set `$rootScope.swaggerSpec = 'http://127.0.0.1:8000/docs/api-docs/';`.
 
 
 ### Contributing

@@ -5,7 +5,7 @@ function appRoutes($stateProvider) {
   var home = {
     name: 'home', // state name
     url: '/', // url path that activates this state
-    template: '<home-page></home-page>', // generate the Directive "homeView" - when calling the directive in HTML, the name must not be camelCased
+    template: '<home-page class="page-fade"></home-page>', // generate the Directive "homeView" - when calling the directive in HTML, the name must not be camelCased
     ncyBreadcrumb: {
       label: 'Home'
     },
@@ -21,7 +21,7 @@ function appRoutes($stateProvider) {
     name: 'appMain',
     abstract: true,  // This makes it so that the url for this route doesn't actually resolve
     url: '/app-main',
-    template: '<app-main></app-main>'
+    template: '<app-main class="page-fade"></app-main>'
   };
 
   var about = {
@@ -55,6 +55,52 @@ function appRoutes($stateProvider) {
       pageDescription: 'Meta Description goes here' // meta description in <head>
     }
   };
+
+  // var localePage = {
+  //   name: 'appMain.localePage',
+  //   //url: '^/locale',
+  //   //url: '^/:localeType/:localeId',
+  //   url: '^/:localeType/:localeId/:localeName',
+  //
+  //   // template: '<{{localeType}}-page></{{localeType}}-page>',
+  //   //template: '<city-page></city-page>',
+  //   // template: '<h1 class="page-fade">{{localeName}}</h1>',
+  //   template: '<locale-page class="page-fade" locale-name="{{ctrl.localeName}}"></locale-page>',
+  //   controller: function($scope, $stateParams) {
+  //     var ctrl = this;
+  //     // $scope.localeName = $stateParams.localeName;
+  //     ctrl.localeName = $stateParams.localeName;
+  //   },
+  //   controllerAs: 'ctrl',
+  //   ncyBreadcrumb: {
+  //     // label: 'Locale Page',
+  //     label: '{{ctrl.localeName}}',
+  //     parent: 'appMain'
+  //   },
+  //   data: {
+  //     moduleClasses: 'page', // assign a module class to the <body> tag
+  //     pageClasses: 'localePage', // assign a page-specific class to the <body> tag
+  //     pageTitle: '{{ctrl.localeName}}', // set the title in the <head> section of the index.html file
+  //     pageDescription: 'Meta Description goes here' // meta description in <head>
+  //   }
+  // };
+
+  // var cityPage = {
+  //   name: 'appMain.cityPage',
+  //   //url: '^/city',
+  //   url: '^/city/:cityId',
+  //   template: '<h1>City Page</h1>',
+  //   ncyBreadcrumb: {
+  //     label: 'City Page',
+  //     parent: 'appMain'
+  //   },
+  //   data: {
+  //     moduleClasses: 'page', // assign a module class to the <body> tag
+  //     pageClasses: 'cityPage', // assign a page-specific class to the <body> tag
+  //     pageTitle: 'City Page', // set the title in the <head> section of the index.html file
+  //     pageDescription: 'Meta Description goes here' // meta description in <head>
+  //   }
+  // };
 
   //var cityElections = {
   //  name: 'cityElections',
@@ -91,6 +137,8 @@ function appRoutes($stateProvider) {
   $stateProvider.state(appMain);
   $stateProvider.state(about);
   $stateProvider.state(faq);
+  // $stateProvider.state(localePage);
+  //$stateProvider.state(cityPage);
   $stateProvider.state(examplePage1);
 
 }

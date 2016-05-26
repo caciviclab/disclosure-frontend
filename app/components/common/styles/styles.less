@@ -1,12 +1,13 @@
 /* =======================================================================
     Style References
 ======================================================================= */
-//@import (reference) "../../libs/bootstrap/less/bootstrap.less";
-@import (reference) "fonts";
-@import (reference) "colors.less";
-@import (reference) "custom_variables.less";
-@import (reference) "custom_mixins.less";
-@import (reference) "utilities";
+@import "fonts";
+@import "colors.less";
+@import "custom-bs-variables";
+@import "custom_mixins";
+@import "pageTransitions";
+@import "core";
+@import "utilities";
 
 /* =======================================================================
     Base Elements
@@ -72,7 +73,7 @@ body {
 
 .subtitle {
   .h4;
-  color: @grey1;
+  color: @core-grey-3;
   font-size: @font-size-h5;
 }
 

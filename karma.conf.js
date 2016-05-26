@@ -17,13 +17,17 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
-            'app/thirdparty/index.js',
+            'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js', // for angular.mock.module and inject.
             'app/**/*.spec.js'
         ],
 
         // list of files to exclude
-        exclude: [],
+        exclude: [
+          'app/components/appMainModule/localityPageModule/*.js',
+          'app/components/common/locality*/*.js',
+          'app/components/services/*/**.js'
+        ],
 
         // preprocess matching files before serving them to the browser
         // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
@@ -35,8 +39,8 @@ module.exports = function (config) {
 
         browserify: {
             debug: true,
-            transform: ['partialify', istanbul({
-                'ignore': ['**/*.spec.js', '**/thirdparty/**/*.js']
+            transform: ['envify', 'partialify', istanbul({
+              'ignore': ['**/*.spec.js', '**/vendor/**/*.js']
             })],
 
             // don't forget to register the extensions
