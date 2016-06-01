@@ -83,6 +83,7 @@
     "yargs": "^3.25.0"
   },
   "dependencies": {
+    "ag-grid": "^4.2.5",
     "angular": "1.4.9",
     "angular-animate": "1.4.9",
     "angular-breadcrumb": "^0.4.1",

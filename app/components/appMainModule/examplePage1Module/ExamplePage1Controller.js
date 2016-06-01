@@ -11,6 +11,17 @@
     var committee = {};
     var committeeExample = {};
     var electionCandidates = {};
+
+    var rowData = [
+      {name: 'Samantha Brooks', amount: 350, date: '2015-04-12'},
+      {name: 'Lisa Sheppards', amount: 320, date: '2015-01-31'},
+      {name: 'Raul Esposito', amount: 720, date: '2015-04-04'}
+    ];
+
+    $scope.gridOptions5 = {};
+    $scope.gridOptions5.data = rowData;
+
+    var committeesData = [];
     //var self = this;
     $scope.pageTitle = $state.current.ncyBreadcrumbLabel;
     $log.info('STATE', $state.current);
@@ -39,7 +50,17 @@
       return TestFactory1.getCommitteeContributors(committeeId, urlPaths).then(function(data) {
         committee.contributors = data;
         $log.info('COMMITTEE CONTRIBUTORS = ', committee.contributors);
-        return committee.contributors;
+        // $scope.gridOptions1.data = [];
+        // angular.forEach(data, function(contributor) {
+        //   $scope.gridOptions1.data.push(contributor);
+        // });
+        // $scope.committee.push(committee.contributors);
+        // $scope.committee = committee.contributors;
+
+        $scope.gridOptions1.data = data;
+        return $scope.gridOptions1;
+
+        // return committee.contributors;
       });
     }
     getAllContributorsForCommittee('1', '/contributors');
@@ -48,6 +69,7 @@
       return TestFactory1.getCommittee(committeeId, urlPaths).then(function(data) {
         committee = data;
         $log.info('COMMITTEE = ', committee);
+        // $scope.committee = committee;
         return committee;
       });
     }
