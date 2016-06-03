@@ -30,7 +30,11 @@
           columnDefs: columnDefs,
           rowData: this.contributions.data,
           enableSorting: true,
-          rowHeight: 45
+          rowHeight: 45,
+          icons: {
+            sortAscending: '<i class="fa fa-caret-down"/>',
+            sortDescending: '<i class="fa fa-caret-up"/>'
+          }
         };
       }
     };
