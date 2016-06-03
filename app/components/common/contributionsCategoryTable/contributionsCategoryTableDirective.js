@@ -31,6 +31,10 @@
           rowData: this.contributions.data,
           enableSorting: true,
           rowHeight: 45,
+          enableColResize: true,
+          onGridReady: function(params) {
+            params.api.sizeColumnsToFit();
+          },
           icons: {
             sortAscending: '<i class="fa fa-caret-down"/>',
             sortDescending: '<i class="fa fa-caret-up"/>'
