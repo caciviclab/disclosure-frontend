@@ -18,11 +18,10 @@
       controller: function() {
         var vm = this;
 
-        var columnDefs = [  //CHECK
+        var columnDefs = [  //TODO: CHECK FIELD NAMES
           {headerName: 'Contributor', field: 'name'},
-          {headerName: 'Amount', field: 'amount'},
-          {headerName: 'Date', field: 'date'}
           {headerName: 'Amount', field: 'amount', sort: 'desc'},
+          {headerName: 'Date', field: 'date', maxWidth: 86}
         ];
         
         console.log('CONTRIBUTIONS =', this.contributions);
@@ -33,6 +32,9 @@
           enableSorting: true,
           rowHeight: 45,
           enableColResize: true,
+          suppressMovableColumns: true,
+          suppressRowClickSelection: true,
+          suppressCellSelection: true,
           onGridReady: function(params) {
             params.api.sizeColumnsToFit();
           },
