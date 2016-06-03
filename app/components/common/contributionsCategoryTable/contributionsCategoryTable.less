@@ -1,7 +1,11 @@
 //@import "../styles/contentBlock";
-@odca-contributionsTable-header-text-color: @brand-primary;
-@odca-contributionsTable-header-bg-color: white;
-@odca-contributionsTable-header-border-color: @HeaderLightGreyBorderColor;
+@odca-contributionsTable-tableHeader-text-color: @brand-primary;
+//@odca-contributionsTable-tableHeader-bg-color: white;
+@odca-contributionsTable-tableHeader-border-color: @HeaderLightGreyBorderColor;
+
+@odca-contributionsTable-tableHeader-sorted-column-text-color: @core-grey-2;
+@odca-contributionsTable-tableHeader-sorted-column-bg-color: @HeaderLightGreyBorderColor;
+
 
 .odca-contributionsTable-categoryHeading {
 	font-family: @headings-font-family;
@@ -28,19 +32,35 @@
 //https://www.ag-grid.com/javascript-grid-styling/index.php
 
 odca-contributions-category-table {
-	.ag-material .ag-header {
-		border-bottom: 1px solid @odca-contributionsTable-header-border-color;
-	}
+	.ag-material {
+		.ag-header {
+			border-bottom: 1px solid @odca-contributionsTable-tableHeader-border-color;
+		}
 
-	.ag-material .ag-header-icon {
-		color: @odca-contributionsTable-header-text-color;
-		fill: @odca-contributionsTable-header-text-color;
+		.ag-header-icon {
+			color: @odca-contributionsTable-tableHeader-text-color;
+			fill: @odca-contributionsTable-tableHeader-text-color;
+		}
+
+		.ag-sort-ascending-icon,
+		.ag-sort-descending-icon {
+			color: @odca-contributionsTable-tableHeader-sorted-column-text-color;
+			fill: @odca-contributionsTable-tableHeader-sorted-column-text-color;
+		}
 	}
 }
 
-.ag-material .ag-header-cell {
-	.text-left;
-	color: @odca-contributionsTable-header-text-color;
-	font-weight: 600;
-	line-height: 1.1;
+.ag-material {
+	.ag-header-cell {
+		.text-left;
+		color: @odca-contributionsTable-tableHeader-text-color;
+		font-weight: 600;
+		line-height: 1.1;
+
+		&.ag-header-cell-sorted-asc,
+		&.ag-header-cell-sorted-desc {
+			color: @odca-contributionsTable-tableHeader-sorted-column-text-color;
+			background-color: @odca-contributionsTable-tableHeader-sorted-column-bg-color;
+		}
+	}
 }

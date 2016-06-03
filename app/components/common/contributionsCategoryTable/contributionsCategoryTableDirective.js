@@ -22,6 +22,7 @@
           {headerName: 'Contributor', field: 'name'},
           {headerName: 'Amount', field: 'amount'},
           {headerName: 'Date', field: 'date'}
+          {headerName: 'Amount', field: 'amount', sort: 'desc'},
         ];
         
         console.log('CONTRIBUTIONS =', this.contributions);
