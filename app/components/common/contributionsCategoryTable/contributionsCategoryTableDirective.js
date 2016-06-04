@@ -10,17 +10,26 @@
       controllerAs: 'vm',
       bindToController: {
         contributionsCategory: '@category',
-        totalContributions: '@totalContributions',
+        totalContributions: '=totalContributions',
         contributions: '='
       },
       //link: link,
       template: template,
-      controller: function() {
+      controller: function($filter) {
         var vm = this;
 
         var columnDefs = [  //TODO: CHECK FIELD NAMES
           {headerName: 'Contributor', field: 'name'},
-          {headerName: 'Amount', field: 'amount', sort: 'desc'},
+          { headerName: 'Amount',
+            field: 'amount',
+            sort: 'desc',
+            cellRenderer: function(params) {
+              var formattedValue;
+              //do this for now but check for performance issues with large datasets...
+              formattedValue = $filter('currency')(params.data.amount, '$', 0);
+              return formattedValue;
+            }
+          },
           {headerName: 'Date', field: 'date', maxWidth: 86}
         ];
         
@@ -35,6 +44,7 @@
           suppressMovableColumns: true,
           suppressRowClickSelection: true,
           suppressCellSelection: true,
+          angularCompileRows: true, //needed to apply currency filter on 'amount' column
           onGridReady: function(params) {
             params.api.sizeColumnsToFit();
           },

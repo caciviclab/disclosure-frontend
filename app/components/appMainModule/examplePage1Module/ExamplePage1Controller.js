@@ -20,6 +20,7 @@
 
     $scope.gridOptions5 = {};
     $scope.gridOptions5.data = rowData;
+    $scope.contributionTotals = '51000';
 
     var committeesData = [];
     //var self = this;
