@@ -2,6 +2,7 @@
   'use strict';
 
   var template = require('./contributionsCategoryTable.html');
+  var headerCellTemplate = require('./headerCell/headerCellTemplate.html');
 
   module.exports = function odcaContributionsCategoryTable() {
     var directive = {
@@ -38,6 +39,7 @@
         vm.gridOptions = {
           columnDefs: columnDefs,
           rowData: this.contributions.data,
+          headerCellTemplate: headerCellTemplate,
           enableSorting: true,
           rowHeight: 45,
           enableColResize: true,
@@ -47,10 +49,6 @@
           angularCompileRows: true, //needed to apply currency filter on 'amount' column
           onGridReady: function(params) {
             params.api.sizeColumnsToFit();
-          },
-          icons: {
-            sortAscending: '<i class="fa fa-caret-down"/>',
-            sortDescending: '<i class="fa fa-caret-up"/>'
           }
         };
       }
