@@ -1,5 +1,7 @@
 <article class="odca-contributionsTable odca-contentBlock--singleItem">
-	<h3 class="odca-contributionsTable-categoryHeading">{{vm.contributionsCategory}} <span class="odca-contributionsTable-categoryHeading--categoryTotal">{{vm.totalContributions | currency:'$':0}}</span></h3>
+	<h3 class="odca-contributionsTable-categoryHeading">{{vm.contributionsCategory}}
+		<span class="odca-contributionsTable-categoryHeading--categoryTotal">{{vm.totalContributionsFormatted}}</span>
+	</h3>
 
 		<!--<pre>{{vm.contributions}}</pre>-->
 	<div ag-grid="vm.gridOptions" class="ag-material" style="height: 100%;"></div>

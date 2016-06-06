@@ -24,6 +24,8 @@ function ContributionsCategoryTableController($log, $filter) {
 
   console.log('CONTRIBUTIONS CATEGORY =', vm.contributionsCategory);
   console.log('CONTRIBUTIONS =', vm.contributions);
+  
+  vm.totalContributionsFormatted = $filter('currency')(vm.totalContributions, '$', 0);
 
   vm.gridOptions = {
     columnDefs: columnDefs,
