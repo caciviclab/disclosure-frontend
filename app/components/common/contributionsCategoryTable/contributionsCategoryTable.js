@@ -8,6 +8,7 @@
   require('./../../../../node_modules/ag-grid/dist/styles/ag-grid.css');
 
   var contributionsCategoryTableDirective = require('./contributionsCategoryTableDirective');
+  var ContributionsCategoryTableController = require('./ContributionsCategoryTableController');
 
   AgGrid.initialiseAgGridWithAngular1(angular);
 
@@ -15,6 +16,7 @@
       'coreModules',
       'agGrid'
     ])
-    .directive('odcaContributionsCategoryTable', contributionsCategoryTableDirective);
+    .directive('odcaContributionsCategoryTable', contributionsCategoryTableDirective)
+    .controller('ContributionsCategoryTableController', ContributionsCategoryTableController);
 
 })();

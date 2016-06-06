@@ -1,11 +1,21 @@
 //@import "../styles/contentBlock";
-@odca-contributionsTable-tableHeader-text-color: @brand-primary;
-//@odca-contributionsTable-tableHeader-bg-color: white;
-@odca-contributionsTable-tableHeader-border-color: @HeaderLightGreyBorderColor;
 
-@odca-contributionsTable-tableHeader-sorted-column-text-color: @core-grey-2;
-@odca-contributionsTable-tableHeader-sorted-column-bg-color: @HeaderLightGreyBorderColor;
+@odca-contributionsTable-header-text-color: @brand-primary;
+@odca-contributionsTable-header-bg-color: white;
+@odca-contributionsTable-header-border-color: @HeaderLightGreyBorderColor;
 
+@odca-contributionsTable-body-bg-color: @odca-contributionsTable-header-bg-color;
+@odca-contributionsTable-row-hover-bg-color: @odca-contributionsTable-body-bg-color;
+
+@odca-contributionsTable-sorted-column-header-text-color: @core-grey-2;
+@odca-contributionsTable-sorted-column-header-bg-color: @odca-contributionsTable-header-border-color;
+
+
+.odca-contributionsTable {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	//.odca-contentBlock--singleItem;
+}
 
 .odca-contributionsTable-categoryHeading {
 	font-family: @headings-font-family;
@@ -34,18 +44,22 @@
 odca-contributions-category-table {
 	.ag-material {
 		.ag-header {
-			border-bottom: 1px solid @odca-contributionsTable-tableHeader-border-color;
+			border-bottom: 1px solid @odca-contributionsTable-header-border-color;
 		}
 
 		.ag-header-icon {
-			color: @odca-contributionsTable-tableHeader-text-color;
-			fill: @odca-contributionsTable-tableHeader-text-color;
+			color: @odca-contributionsTable-header-text-color;
+			fill: @odca-contributionsTable-header-text-color;
 		}
 
 		.ag-sort-ascending-icon,
 		.ag-sort-descending-icon {
-			color: @odca-contributionsTable-tableHeader-sorted-column-text-color;
-			fill: @odca-contributionsTable-tableHeader-sorted-column-text-color;
+			color: @odca-contributionsTable-sorted-column-header-text-color;
+			fill: @odca-contributionsTable-sorted-column-header-text-color;
+		}
+
+		.ag-row-hover {
+			background-color: @odca-contributionsTable-body-bg-color !important;
 		}
 	}
 }
@@ -53,14 +67,15 @@ odca-contributions-category-table {
 .ag-material {
 	.ag-header-cell {
 		.text-left;
-		color: @odca-contributionsTable-tableHeader-text-color;
+		color: @odca-contributionsTable-header-text-color;
 		font-weight: 600;
 		line-height: 1.1;
+		cursor: pointer;
 
 		&.ag-header-cell-sorted-asc,
 		&.ag-header-cell-sorted-desc {
-			color: @odca-contributionsTable-tableHeader-sorted-column-text-color;
-			background-color: @odca-contributionsTable-tableHeader-sorted-column-bg-color;
+			color: @odca-contributionsTable-sorted-column-header-text-color;
+			background-color: @odca-contributionsTable-sorted-column-header-bg-color;
 		}
 	}
 }
