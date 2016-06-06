@@ -1,0 +1,81 @@
+//@import "../styles/contentBlock";
+
+@odca-contributionsTable-header-text-color: @brand-primary;
+@odca-contributionsTable-header-bg-color: white;
+@odca-contributionsTable-header-border-color: @HeaderLightGreyBorderColor;
+
+@odca-contributionsTable-body-bg-color: @odca-contributionsTable-header-bg-color;
+@odca-contributionsTable-row-hover-bg-color: @odca-contributionsTable-body-bg-color;
+
+@odca-contributionsTable-sorted-column-header-text-color: @core-grey-2;
+@odca-contributionsTable-sorted-column-header-bg-color: @odca-contributionsTable-header-border-color;
+
+
+.odca-contributionsTable {
+	margin-top: 15px;
+	margin-bottom: 15px;
+	//.odca-contentBlock--singleItem;
+}
+
+.odca-contributionsTable-categoryHeading {
+	font-family: @headings-font-family;
+	font-size: ceil((@font-size-base * 1.4));;
+	margin-top: 3px;
+	margin-bottom: 14.5px;
+	.clearfix();
+}
+
+.odca-contributionsTable-categoryHeading--categoryName {
+	color: @core-grey-3;
+}
+
+.odca-contributionsTable-categoryHeading--categoryTotal {
+	.pull-right;
+	color: @core-grey-1;
+}
+
+//AG-GRID THEME OVERRIDES:
+//NOTE: these overrides specifically target specificity levels in the ag-grid theme (ag-material), and are temporary for now, until we write out our own theme file. DO NOT WRITE NESTED STYLES LIKE THESE ELSEWHERE IN THE APPLICATION! you will want to pull your hair out later, I promise :)
+
+//FOR MORE INFO ON CREATING A THEME see:
+//https://github.com/ceolter/ag-grid/tree/master/src/styles
+//https://www.ag-grid.com/javascript-grid-styling/index.php
+
+odca-contributions-category-table {
+	.ag-material {
+		.ag-header {
+			border-bottom: 1px solid @odca-contributionsTable-header-border-color;
+		}
+
+		.ag-header-icon {
+			color: @odca-contributionsTable-header-text-color;
+			fill: @odca-contributionsTable-header-text-color;
+		}
+
+		.ag-sort-ascending-icon,
+		.ag-sort-descending-icon {
+			color: @odca-contributionsTable-sorted-column-header-text-color;
+			fill: @odca-contributionsTable-sorted-column-header-text-color;
+		}
+
+		.ag-row-hover {
+			background-color: @odca-contributionsTable-body-bg-color !important;
+		}
+	}
+}
+
+.ag-material {
+	.ag-header-cell {
+		.text-left;
+		color: @odca-contributionsTable-header-text-color;
+		font-weight: 600;
+		line-height: 1.1;
+		cursor: pointer;
+
+		&.ag-header-cell-sorted-asc,
+		&.ag-header-cell-sorted-desc {
+			color: @odca-contributionsTable-sorted-column-header-text-color;
+			background-color: @odca-contributionsTable-sorted-column-header-bg-color;
+		}
+	}
+}

@@ -15,24 +15,25 @@
   <div class="row">
     <div class="col-xs-12 col-sm-8 col-sm-offset-2">
       <p class="homepageText-body">Search zipcode, city, or county</p>
+       <odca-global-search-bar></odca-global-search-bar>
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <input ng-model="search" type="text" />
-      <ul>
-        <li ng-repeat="locality in searchResults">
-          <!--<a ui-sref="appMain.cityPage({locality_id: locality.locality.id, city: locality.name})">-->
-            <!--{{locality.id}}, {{locality.name}}</a>-->
-          <!-- <a ui-sref="appMain.locality.money({locality_id: locality.id})" ng-click="logClickEvent($event)">
-            {{locality.id}}, {{locality.name}}</a> -->
-         <li ng-repeat="location in searchResults">
-           <a ui-sref="appMain.locality.money({locality_id: location.id })">{{ location.name }}</a>
-        </li>
-      </ul>
-    </div>
-  </div>
+  <!--<div class="row">-->
+    <!--<div class="col-xs-12 col-sm-8 col-sm-offset-2">-->
+      <!--<input ng-model="search" type="text" />-->
+      <!--<ul>-->
+        <!--<li ng-repeat="locality in searchResults">-->
+          <!--&lt;!&ndash;<a ui-sref="appMain.cityPage({locality_id: locality.locality.id, city: locality.name})">&ndash;&gt;-->
+            <!--&lt;!&ndash;{{locality.id}}, {{locality.name}}</a>&ndash;&gt;-->
+          <!--&lt;!&ndash; <a ui-sref="appMain.locality.money({locality_id: locality.id})" ng-click="logClickEvent($event)">-->
+            <!--{{locality.id}}, {{locality.name}}</a> &ndash;&gt;-->
+         <!--<li ng-repeat="location in searchResults">-->
+           <!--<a ui-sref="appMain.locality.money({locality_id: location.id })">{{ location.name }}</a>-->
+        <!--</li>-->
+      <!--</ul>-->
+    <!--</div>-->
+  <!--</div>-->
 </div>
 
 <app-main-footer class="homepageFooter"></app-main-footer>

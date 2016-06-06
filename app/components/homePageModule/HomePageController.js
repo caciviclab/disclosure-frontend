@@ -5,7 +5,7 @@
 function HomePageController($scope, $log, $http, TestFactory1) {
   $scope.searchBarEnabled = false;
   $scope.testVar = 'We are up and running using a required module!';
-  $scope.searchResults = [];
+  //$scope.searchResults = [];
   var localitiesList = {};
   // This is pretty jank, we should debounce this or do the search when the
   // user stops typing.

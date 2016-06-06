@@ -10,25 +10,12 @@ module.exports = function($stateProvider) {
   $stateProvider
     .state({  //TODO: ADD IN MISSING UI-VIEW
       name: 'appMain.locality',
-      //abstract: true,
+      abstract: true,
       url: '^/locality',
-      //url: '^/locality/:locality_id',
-      controller: 'localityPageController',
-      template: '<locality-listing locality="locality" disclosure-summary="disclosureSummary"></locality-listing>',
-      resolve: {
-        locality: function($stateParams, disclosureApi) {
-          return disclosureApi.locality.get({
-            locality_id: $stateParams.locality_id
-          });
-        },
-        ballot: function($stateParams, disclosureApi) {
-          return disclosureApi.locality.current_ballot({
-            locality_id: $stateParams.locality_id
-          });
-        },
-        disclosureSummary: function(disclosureApi, ballot) {
-          return disclosureApi.ballot.disclosure_summary({ballot_id: ballot.id});
-        }
+      template: '<div ui-view class="page-fade"></div>',
+      ncyBreadcrumb: {
+        label: 'Locality',
+        parent: 'appMain'
       },
       data: {
         moduleClasses: 'page',
@@ -41,7 +28,23 @@ module.exports = function($stateProvider) {
     .state({
       name: 'appMain.locality.money',
       url: '^/:locality_id/money',
+      controller: 'localityPageController',
       template: '<locality-money locality="locality" disclosure-summary="disclosureSummary"></locality-money>',
+      resolve: {
+        locality: function ($stateParams, disclosureApi) {
+          return disclosureApi.locality.get({
+            locality_id: $stateParams.locality_id
+          });
+        }
+        // ballot: function($stateParams, disclosureApi) {
+        //   return disclosureApi.locality.current_ballot({
+        //     locality_id: $stateParams.locality_id
+        //   });
+        // },
+        // disclosureSummary: function(disclosureApi, ballot) {
+        //   return disclosureApi.ballot.disclosure_summary({ballot_id: ballot.id});
+        // }
+      },
       ncyBreadcrumb: {
         label: '{{ locality.name }}',
         parent: 'appMain.locality'
@@ -56,9 +59,12 @@ module.exports = function($stateProvider) {
 
     .state({
       name: 'appMain.locality.elections',
-      url: '/elections',
+      url: '^/elections',
       template: '<locality-ballot ballot="ballot"></locality-ballot>',
-      controller: 'localityBallotPageController',
+      //controller: 'localityBallotPageController',
+      // resolve: {
+      //
+      // },
       ncyBreadcrumb: {
         label: '{{ locality.name }}',
         parent: 'appMain.locality'

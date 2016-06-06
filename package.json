@@ -32,6 +32,7 @@
   "devDependencies": {
     "angular-mocks": "1.4.9",
     "browserify": "^13.0.0",
+    "browserify-css": "^0.9.1",
     "browserify-istanbul": "^1.0.0",
     "browserify-shim": "^3.8.5",
     "buffer": "^4.5.1",
@@ -83,13 +84,14 @@
     "yargs": "^3.25.0"
   },
   "dependencies": {
+    "ag-grid": "^4.2.5",
     "angular": "1.4.9",
     "angular-animate": "1.4.9",
     "angular-breadcrumb": "^0.4.1",
     "angular-cookies": "1.4.9",
     "angular-resource": "1.4.9",
     "angular-sanitize": "1.4.9",
-    "angular-ui-bootstrap": "^1.2.1",
+    "angular-ui-bootstrap": "^1.2.5",
     "angular-ui-router": "^0.2.18",
     "animate.css": "^3.5.1",
     "bootstrap": "^3.3.4",
@@ -103,7 +105,6 @@
     "gulp-uglify": "^1.5.3",
     "jquery": "^2.2.1",
     "lodash": "^4.5.1",
-    "ng-ui-select": "^0.12.0",
     "restangular": "^1.5.2",
     "swagger-client": "2.1.6"
   }
