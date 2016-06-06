@@ -2,8 +2,6 @@
   'use strict';
   // Controller naming conventions should start with an uppercase letter
   function ExamplePage1Controller($scope, $log, TestFactory1, examplePage1Factory, $state) {
-    $scope.exampleContents1 = 'We are up and running using a required module!';
-    $scope.paragraphText = ' Example Page 1 explicitly references required files';
     //var alameda = TestFactory1.getAlameda();
     var alamedaData = TestFactory1.getAlamedaData();
     var dataResults = alamedaData.results;
@@ -17,18 +15,20 @@
       {name: 'Lisa Sheppards', amount: 320, date: '2015-01-31'},
       {name: 'Raul Esposito', amount: 720, date: '2015-04-04'}
     ];
+    
+    var example = this;
 
-    $scope.gridOptions5 = {};
-    $scope.gridOptions5.data = rowData;
-    $scope.contributionTotals = '51000';
+    example.gridOptions5 = {};
+    example.gridOptions5.data = rowData;
+    example.contributionTotals = '51000';
 
-    var committeesData = [];
+    // var committeesData = [];
     //var self = this;
-    $scope.pageTitle = $state.current.ncyBreadcrumbLabel;
+    example.pageTitle = $state.current.ncyBreadcrumbLabel;
     $log.info('STATE', $state.current);
 
-    $scope.dataResults = dataResults;
-    $log.info('scope.dataResults =', $scope.dataResults);
+    example.dataResults = dataResults;
+    $log.info('example.dataResults =', example.dataResults);
 
     activate();
 
@@ -43,6 +43,7 @@
       return TestFactory1.getPageData().then(function(data) {
         pageData = data;
         $log.info('page data = ', pageData);
+        example.pageData = pageData;
         return pageData;
       });
     }
@@ -58,8 +59,8 @@
         // $scope.committee.push(committee.contributors);
         // $scope.committee = committee.contributors;
 
-        $scope.gridOptions1.data = data;
-        return $scope.gridOptions1;
+        // $scope.gridOptions1.data = data;
+        // return $scope.gridOptions1;
 
         // return committee.contributors;
       });
@@ -105,8 +106,6 @@
     // }
 
     //$log.info(alamedaData);
-
-    $scope.pageData = alamedaData;
 
     // function getTestOne() {
     //   TestFactory1.testOne();
