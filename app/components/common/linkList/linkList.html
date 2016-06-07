@@ -1,17 +1,17 @@
-<a href="{{vm.linkUrl}}" class="linkList-item--link" target="_blank">
-	<li class="linkList-listItem">
-		<img src="{{vm.avatarImageUrl}}" class="linkList-listItem--avatarImage" alt="" />
+<li>
+	<a href="{{vm.linkUrl}}" class="linkList-item--link linkList-listItem" target="_blank">
+		<img ng-src="{{vm.avatarImageUrl}}" class="linkList-listItem--avatarImage" alt="" />
 		<div class="linkList-listItem--textBlock">
-			<div>
+			<div class="odca-linkItem-contentRow">
 				<span class="linkList-listItem--title">{{vm.linkTitle}}</span>
 				<span class="linkList-listItem--icon">
 					<i class="fa fa-angle-right fa-2x"></i>
 				</span>
 			</div>
-			<div>
+			<div class="odca-linkItem-contentRow">
 				<span class="linkList-listItem--subtitle">{{vm.linkSubTitle}}</span>
 				<span class="linkList-listItem--dollarAmount">{{vm.linkDollarAmount}}</span>
 			</div>
 		</div>
-	</li>
-</a>
+	</a>
+</li>
