@@ -3,7 +3,7 @@
 
   var linkListDirective = require('./linkListDirective');
 
-  module.exports = angular.module('cfaLinkListModule', [])
-    .directive('cfaLinkList', linkListDirective);
+  module.exports = angular.module('linkList', [])
+    .directive('odcaLinkList', linkListDirective);
 
 })();

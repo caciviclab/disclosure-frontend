@@ -3,13 +3,13 @@
 
   var template = require('./linkList.html');
 
-  module.exports = function cfaLinkList() {
+  module.exports = function odcaLinkList() {
     var directive = {
       restrict: 'E',
       scope: {},
       controllerAs: 'vm',
       bindToController: {
-        linkTitle: '@title',
+        linkTitle: '=linkTitle',
         linkSubTitle: '=subTitle',
         linkUrl: '=linkUrl',
         //linkIcon: '@arrowIcon',
