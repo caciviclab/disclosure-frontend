@@ -246,8 +246,11 @@ function bundle(bundler) {
 
 }
 
-gulp.task('bundle', function () {
-    var bundler = browserify(filePath.browserify.src);  // Pass browserify the entry point
+gulp.task('bundle', function() {
+    var bundler = browserify({
+      entries: filePath.browserify.src, // Pass browserify the entry point
+      debug: true
+    });
     bundle(bundler);  // Chain other options -- sourcemaps, rename, etc.
 });
 
