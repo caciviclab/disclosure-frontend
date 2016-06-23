@@ -1,17 +1,3 @@
-<li>
-	<a href="{{vm.linkUrl}}" class="linkList-item--link linkList-listItem" target="_blank">
-		<img ng-src="{{vm.avatarImageUrl}}" class="linkList-listItem--avatarImage" alt="" />
-		<div class="linkList-listItem--textBlock">
-			<div class="odca-linkItem-contentRow">
-				<span class="linkList-listItem--title">{{vm.linkTitle}}</span>
-				<span class="linkList-listItem--icon">
-					<i class="fa fa-angle-right fa-2x"></i>
-				</span>
-			</div>
-			<div class="odca-linkItem-contentRow">
-				<span class="linkList-listItem--subtitle">{{vm.linkSubTitle}}</span>
-				<span class="linkList-listItem--dollarAmount">{{vm.linkDollarAmount}}</span>
-			</div>
-		</div>
-	</a>
-</li>
+<ul class="odca-linkList">
+	<odca-link-list-item ng-repeat="item in vm.listItems" link-url="item.linkUrl" link-title="item.linkTitle" sub-title="item.subTitle" dollar-amount="item.dollarAmount" avatar-url="item.avatarUrl"></odca-link-list-item>
+</ul>

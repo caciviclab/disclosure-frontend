@@ -9,20 +9,22 @@
       scope: {},
       controllerAs: 'vm',
       bindToController: {
-        linkTitle: '=linkTitle',
-        linkSubTitle: '=subTitle',
-        linkUrl: '=linkUrl',
-        //linkIcon: '@arrowIcon',
-        linkDollarAmount: '=dollarAmount',
-        avatarImageUrl: '=avatarUrl'
+        listData: '=listData'
       },
       link: link,
       template: template,
-      controller: function() {}  //if access to the controller is needed, add the controller in separate file
+      controller: function() {
+        var vm = this;
+
+        vm.listItems = vm.listData;
+        console.log('LIST ITEMS = ', vm.listItems);
+      }
     };
     return directive;
 
-    function link(scope, element, attrs, vm) {}
+    function link(scope, element, attrs, vm) {
+      // var listTitle = attrs['listTitle'] || null;
+    }
 
   };
 })();

@@ -1,35 +1,29 @@
+//@import "../styles/contentBlock";
+
 //@odca-linkList-bg-color: white;
 @odca-linkList-item-bg-color: white;
 @odca-linkList-item-link-color: @linkTextColor;
 @odca-linkList-title-color: @core-grey-3;
 @odca-linkList-item-header-color: @core-grey-3;
-@odca-linkList-item-bottom-border-color: #efefef;
+@odca-linkList-item-border-color: #e7e7e7;
 
 @import "linkListItem/linkListItem";
 
-.odca-linkList-container {
-	.list-unstyled;
-	.odca-contentBlock--singleItem;
-	padding: 10px;
-	padding-right: 0;
-	margin-right: -15px; //fix: for mobile only
-	margin-left: -15px;  //fix: for mobile only
-}
-
 .odca-linkList {
 	.list-unstyled;
-	background-color: white;
-	padding-left: 0;
+	.odca-contentBlock--singleItem;
+	padding: 0;
+	margin-top: 0;
 	margin-bottom: 0;
-	width: 100%;
-	box-sizing: border-box;
+	margin-right: -15px; //fix: for mobile only
+	margin-left: -15px;  //fix: for mobile only
 }
 
 ul.odca-linkList-container {
 	//&:nth-child(1)
 	odca-link-list:nth-child(n) {
 		li a {
-			border-bottom: 1px solid @odca-linkList-item-bottom-border-color;
+			border-bottom: 1px solid @odca-linkList-item-border-color;
 		}
 	}
 
@@ -44,22 +38,17 @@ ul.odca-linkList-container {
 ul.odca-linkList-withHeader {
 	li:nth-child(1) {
 		color: @odca-linkList-item-header-color;
-		border-bottom: 1px solid @odca-linkList-item-bottom-border-color;
+		border-bottom: 1px solid @odca-linkList-item-border-color;
 	}
 
 	li:nth-child(n+2) {
 		color: @odca-linkList-item-link-color;
-		border-bottom: 1px solid @odca-linkList-item-bottom-border-color;
+		border-bottom: 1px solid @odca-linkList-item-border-color;
 		margin-left: 30px;
 	}
 }
 
-//TODO: MOVE THE REST (BELOW) TO linkListItem.less!!
-.odca-listItemContainer {
-	width: 100%;
-	padding: 10px;
-}
 
-.linkList-listItem--listHeader {
+.odca-linkList-header {
 	color: @odca-linkList-item-header-color;
 }

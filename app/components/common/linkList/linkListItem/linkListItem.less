@@ -1,4 +1,5 @@
-@odca-linkListItem-horizontal-content-spacing: 12px;
+@odca-linkListItem-horizontal-spacing: 12px;
+@odca-linkListItem-vertical-spacing: 10px;
 
 //reusable flex classes
 .odca-flex-row {
@@ -13,8 +14,8 @@
 // ______________________________________________
 
 .odca-linkListItem {
-	//margin-right: @odca-linkListItem-horizontal-content-spacing;
-	//margin-left: @odca-linkListItem-horizontal-content-spacing;
+	.list-unstyled;
+	width: 100%;
 }
 
 .odca-linkListItem-flexRow {
@@ -25,22 +26,32 @@
 }
 
 .odca-linkListItem-link {  //linkContainer?
-	.odca-linkListItem-flexRow;
+	display: block;
 	min-height: 48px;
 	width: 100%;
-	padding-top: 10px;
-	padding-bottom: 10px;
+	padding-top: @odca-linkListItem-vertical-spacing;
+	//padding-bottom: 10px;
 	background-color: white;
+	padding-left: @odca-linkListItem-horizontal-spacing;
+	padding-right: @odca-linkListItem-horizontal-spacing;
 	box-sizing: border-box;
 
 	&:hover {
 		text-decoration: none;
-		background-color: #e9e9e9;
+		background-color: @odca-linkList-item-border-color;
 		cursor: pointer;
+		width: 100%;
+		box-sizing: border-box;
 	}
 }
 
 .odca-linkListItem-contentContainer {
+	.odca-linkListItem-flexRow;
+	padding-bottom: 10px;
+	border-bottom: 1px solid @odca-linkList-item-border-color;
+}
+
+.odca-linkListItem-innerContainer {
 	.odca-flex-column;
 	width: 100%;
 	box-sizing: border-box;
@@ -49,17 +60,16 @@
 .odca-linkListItem-contentRow {
 	.odca-linkListItem-flexRow;
 	margin-top: 5px;
-	margin-left: @odca-linkListItem-horizontal-content-spacing;
-	margin-right: @odca-linkListItem-horizontal-content-spacing;
 }
 
 .odca-linkListItem-contentRow--firstItem {
 	width: 80%;
 }
 
-//.odca-linkListItem-text {
 .odca-linkListItem-title {
 	.odca-linkListItem-contentRow--firstItem;
+	font-size: 1.2em;
+	font-weight: 500;
 }
 
 .odca-linkListItem-subText {
@@ -70,8 +80,7 @@
 
 .odca-linkListItem-icon {
 	.fa-2x {
-		font-size: 1.5em;
-		//line-height: 24px;
+		font-size: 1.25em;
 		line-height: 0.8em;
 	}
 }
@@ -82,5 +91,5 @@
 
 .odca-linkListItem-avatar {
 	width: 75px;
-	margin-left: @odca-linkListItem-horizontal-content-spacing;
+	margin-right: @odca-linkListItem-horizontal-spacing;
 }
