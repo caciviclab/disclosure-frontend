@@ -9,6 +9,7 @@
       scope: {},
       controllerAs: 'vm',
       bindToController: {
+        listTitle: '@listTitle',
         listData: '=listData'
       },
       link: link,
@@ -24,6 +25,11 @@
 
     function link(scope, element, attrs, vm) {
       // var listTitle = attrs['listTitle'] || null;
+      var childElements = element.children();
+
+      if (!vm.listTitle || vm.listTitle === null || undefined) {
+        childElements.find('h3').remove();
+      }
     }
 
   };
