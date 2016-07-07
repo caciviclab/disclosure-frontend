@@ -5,6 +5,7 @@
   require('../../common/core/core');
   require('../../common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
   require('../../common/pageHeader/pageHeader');
+  require('../../common/linkList/linkList');
   require('../../common/contributionsCategoryTable/contributionsCategoryTable');
 
   /* Components of 'examplePage1Module' */
@@ -18,6 +19,7 @@
       'coreModules',
       'pageHeaderBreadcrumbsModule',
       'pageHeaderModule',
+      'linkList',
       'contributionsCategoryTable'
     ])
     .directive('examplePage1', examplePage1Directive)
