@@ -66,13 +66,24 @@
 	width: 80%;
 }
 
-.odca-linkListItem-indented {  //TODO: FIX THIS
+.odca-linkListItem-indented {
+	margin-left: @odca-linkListItem-horizontal-spacing*2 + 6px;
+}
 
-	odca-link-list-item {
-		article a div.odca-linkListItem-contentContainer {
-			div.odca-linkListItem-innerContainer  {
-				margin-left: @odca-linkListItem-horizontal-spacing*2 + 6px;
-			}
+.odca-linkListItem-withListHeader {
+	.odca-linkListItem-title {
+		color: @link-color;
+	}
+
+	odca-link-list-item.odca-linkListItem-avatar--indented {
+		article a div img.odca-linkListItem-avatar {
+			.odca-linkListItem-indented;
+		}
+	}
+
+	odca-link-list-item.odca-linkListItem-textContent--indented {
+		article a div div.odca-linkListItem-innerContainer {
+			.odca-linkListItem-indented;
 		}
 	}
 }
@@ -81,12 +92,13 @@
 	.odca-linkListItem-contentRow--firstItem;
 	font-size: @odca-linkListItem-font-size;
 	font-weight: 500;
+	color: @headings-color;
 }
 
 .odca-linkListItem-subText {
-	font-style: italic;
-	color: @core-grey-4;
 	.odca-linkListItem-contentRow--firstItem;
+	font-style: italic;
+	color: @core-grey-3;
 }
 
 .odca-linkListItem-icon {
@@ -97,7 +109,9 @@
 }
 
 .odca-linkListItem-dollarAmount {
-	&:before { content: '$'; }
+	color: @core-grey-2;
+	font-family: @font-family-serif;
+	font-size: 26px;
 }
 
 .odca-linkListItem-avatar {
