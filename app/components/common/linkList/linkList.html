@@ -1,6 +1,8 @@
 <div class="odca-contentBlock--singleItem odca-linkList-container">
 	<h3 class="odca-linkList-header">{{vm.listTitle}}</h3>
 	<ul class="odca-linkList">
-		<odca-link-list-item ng-repeat="item in vm.listItems" link-url="item.linkUrl" link-title="item.linkTitle" sub-title="item.subTitle" dollar-amount="item.dollarAmount" avatar-url="item.avatarUrl"></odca-link-list-item>
+		<li class="odca-linkListItem" ng-repeat="item in vm.listItems" ng-class="{'odca-linkListItem-indented': vm.hasHeader }">
+			<odca-link-list-item link-url="item.linkUrl" link-title="item.linkTitle" sub-title="item.subTitle" dollar-amount="item.dollarAmount" avatar-url="item.avatarUrl"></odca-link-list-item>
+		</li>
 	</ul>
 </div>

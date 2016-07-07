@@ -66,6 +66,17 @@
 	width: 80%;
 }
 
+.odca-linkListItem-indented {  //TODO: FIX THIS
+
+	odca-link-list-item {
+		article a div.odca-linkListItem-contentContainer {
+			div.odca-linkListItem-innerContainer  {
+				margin-left: @odca-linkListItem-horizontal-spacing*2 + 6px;
+			}
+		}
+	}
+}
+
 .odca-linkListItem-title {
 	.odca-linkListItem-contentRow--firstItem;
 	font-size: @odca-linkListItem-font-size;
