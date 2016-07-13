@@ -1,5 +1,5 @@
 (function() {
-'use strict';
+  'use strict';
 
   /* Common Modules */
   require('../common/core/core');

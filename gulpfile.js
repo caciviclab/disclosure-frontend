@@ -2,6 +2,7 @@
 
 var argv = require('yargs').argv;
 var browserify = require('browserify');
+var browserifyCss = require('browserify-css');
 var buffer = require('vinyl-buffer');
 
 // =======================================================================
@@ -222,6 +223,7 @@ function bundle(bundler) {
 
     // Add options to add to "base" bundler passed as parameter
     bundler
+      .transform(browserifyCss, {global: true})
       .bundle()                                                        // Start bundle
       .pipe(source(filePath.browserify.src))                        // Entry point
       .pipe(buffer())                                               // Convert to gulp pipeline
@@ -244,8 +246,11 @@ function bundle(bundler) {
 
 }
 
-gulp.task('bundle', function () {
-    var bundler = browserify(filePath.browserify.src);  // Pass browserify the entry point
+gulp.task('bundle', function() {
+    var bundler = browserify({
+      entries: filePath.browserify.src, // Pass browserify the entry point
+      debug: true
+    });
     bundle(bundler);  // Chain other options -- sourcemaps, rename, etc.
 });
 

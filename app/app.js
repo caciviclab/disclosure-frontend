@@ -11,7 +11,7 @@
   require('./components/common/core/core');
   require('./components/homePageModule/homePage');
   require('./components/appMainModule/appMain');
-
+  
   var appInit = require('./appInit');
   var appRoutes = require('./appRoutes');
   var appConfig = require('./appConfig');

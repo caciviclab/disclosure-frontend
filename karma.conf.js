@@ -26,7 +26,8 @@ module.exports = function (config) {
         exclude: [
           'app/components/appMainModule/localityPageModule/*.js',
           'app/components/common/locality*/*.js',
-          'app/components/services/*/**.js'
+          'app/components/services/*/**.js',
+          'app/components/common/linkList/*/**.js'
         ],
 
         // preprocess matching files before serving them to the browser

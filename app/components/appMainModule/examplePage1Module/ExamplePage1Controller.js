@@ -2,8 +2,6 @@
   'use strict';
   // Controller naming conventions should start with an uppercase letter
   function ExamplePage1Controller($scope, $log, TestFactory1, examplePage1Factory, $state) {
-    $scope.exampleContents1 = 'We are up and running using a required module!';
-    $scope.paragraphText = ' Example Page 1 explicitly references required files';
     //var alameda = TestFactory1.getAlameda();
     var alamedaData = TestFactory1.getAlamedaData();
     var dataResults = alamedaData.results;
@@ -11,12 +9,42 @@
     var committee = {};
     var committeeExample = {};
     var electionCandidates = {};
+
+    var rowData = [
+      {name: 'Samantha Brooks', amount: 350, date: '2015-04-12'},
+      {name: 'Lisa Sheppards', amount: 320, date: '2015-01-31'},
+      {name: 'Raul Esposito', amount: 720, date: '2015-04-04'}
+    ];
+    
+    var example = this;
+
+    example.gridOptions5 = {};
+    example.gridOptions5.data = rowData;
+    example.contributionTotals = '51000';
+
+    // var committeesData = [];
     //var self = this;
-    $scope.pageTitle = $state.current.ncyBreadcrumbLabel;
+    example.pageTitle = $state.current.ncyBreadcrumbLabel;
     $log.info('STATE', $state.current);
 
-    $scope.dataResults = dataResults;
-    $log.info('scope.dataResults =', $scope.dataResults);
+    example.dataResults = dataResults;
+    $log.info('example.dataResults =', example.dataResults);
+    
+    example.ballot1 = {};
+    example.ballot1.data = [
+      { linkUrl: '/1', linkTitle: 'Title #1', subTitle: 'some sub-title', dollarAmount: '12000', avatarUrl: 'http://loremflickr.com/75/75/animals'},
+      { linkUrl: '/2', linkTitle: 'Title #2', subTitle: 'some sub-title', dollarAmount: '12000', avatarUrl: 'http://lorempixel.com/75/75/animals'},
+      { linkUrl: '/3', linkTitle: 'Title #3', subTitle: 'some sub-title', dollarAmount: '12000'},
+      { linkUrl: '/4', linkTitle: 'Title #4', subTitle: 'some sub-title'},
+      { linkUrl: '/5', linkTitle: 'Title #5'}
+    ];
+    
+    example.ballot2 = {};
+    example.ballot2.data = [
+      { linkUrl: '/1', linkTitle: 'Title #1'},
+      { linkUrl: '/2', linkTitle: 'Title #2'},
+      { linkUrl: '/3', linkTitle: 'Title #3'}
+    ];
 
     activate();
 
@@ -31,6 +59,7 @@
       return TestFactory1.getPageData().then(function(data) {
         pageData = data;
         $log.info('page data = ', pageData);
+        example.pageData = pageData;
         return pageData;
       });
     }
@@ -39,7 +68,17 @@
       return TestFactory1.getCommitteeContributors(committeeId, urlPaths).then(function(data) {
         committee.contributors = data;
         $log.info('COMMITTEE CONTRIBUTORS = ', committee.contributors);
-        return committee.contributors;
+        // $scope.gridOptions1.data = [];
+        // angular.forEach(data, function(contributor) {
+        //   $scope.gridOptions1.data.push(contributor);
+        // });
+        // $scope.committee.push(committee.contributors);
+        // $scope.committee = committee.contributors;
+
+        // $scope.gridOptions1.data = data;
+        // return $scope.gridOptions1;
+
+        // return committee.contributors;
       });
     }
     getAllContributorsForCommittee('1', '/contributors');
@@ -48,6 +87,7 @@
       return TestFactory1.getCommittee(committeeId, urlPaths).then(function(data) {
         committee = data;
         $log.info('COMMITTEE = ', committee);
+        // $scope.committee = committee;
         return committee;
       });
     }
@@ -82,8 +122,6 @@
     // }
 
     //$log.info(alamedaData);
-
-    $scope.pageData = alamedaData;
 
     // function getTestOne() {
     //   TestFactory1.testOne();

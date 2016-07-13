@@ -1,20 +1,28 @@
-<div class="container">
-	<odca-page-header page-title="{{pageTitle}}"></odca-page-header>
+<div class="container-fluid">
+	<odca-page-header page-title="{{example.pageTitle}}"></odca-page-header>
+
   <div class="row">
     <div class="col-xs-12">
-      <h1>Example Page #1!</h1>
-      <h2>{{exampleContents1}}</h2>
-      <br><br>
-      <p class="lead"><em>Notes:</em></p>
-      <p class="lead">{{paragraphText}}</p>
+      <odca-contributions-category-table category="Individual" total-contributions="example.contributionTotals" contributions="example.gridOptions5"></odca-contributions-category-table>
+      </div>
+	</div>
 
-      <pre>
-        NAME = {{pageData.name}} <br>
-        TYPE = {{pageData.type}} <br>
-        ID = {{pageData.id}} <br>
-      </pre>
+	<div class="row">
+		<div class="col-xs-12">
+			<p class="lead"><em>Notes:</em></p>
+			<pre>NAME = {{example.pageData.name}}<br>TYPE = {{example.pageData.type}}<br>ID = {{example.pageData.id}}<br>
+			</pre>
 
-      <p>{{pageData.name}}</p>
-    </div>
-  </div>
+			<p>{{example.pageData.name}}</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+
+			<odca-link-list list-title="A List Title!" list-data="example.ballot1.data"></odca-link-list>
+
+			<odca-link-list list-data="example.ballot2.data"></odca-link-list>
+		</div>
+	</div>
 </div>

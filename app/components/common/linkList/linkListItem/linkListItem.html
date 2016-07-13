@@ -1,0 +1,21 @@
+<article>
+	<!--TODO: CHANGE HREF TO UI-SREF-->
+	<a class="odca-linkListItem-link" href="{{vm.linkUrl}}" target="_blank">
+		<div class="odca-linkListItem-contentContainer">
+			<img class="odca-linkListItem-avatar" ng-if="vm.avatarImageUrl" ng-src="{{vm.avatarImageUrl}}" alt=""/>
+
+			<div class="odca-linkListItem-innerContainer">
+				<div class="odca-linkListItem-contentRow">
+					<span class="odca-linkListItem-title">{{vm.linkTitle}}</span>
+					<span class="odca-linkListItem-icon"><i class="fa fa-chevron-right fa-2x"></i></span>
+				</div>
+
+				<div class="odca-linkListItem-contentRow">
+					<span class="odca-linkListItem-subText">{{vm.linkSubTitle}}</span>
+					<span class="odca-linkListItem-dollarAmount" ng-if="vm.linkDollarAmount">{{vm.linkDollarAmount}}</span>
+				</div>
+
+			</div>
+		</div>
+	</a>
+</article>
