@@ -1,0 +1,120 @@
+@odca-linkListItem-horizontal-spacing: 12px;
+@odca-linkListItem-vertical-spacing: 10px;
+
+//reusable flex classes
+.odca-flex-row {
+	display: flex;
+	flex-direction: row;
+}
+
+.odca-flex-column {
+	display: flex;
+	flex-direction: column;
+}
+// ______________________________________________
+
+.odca-linkListItem {
+	.list-unstyled;
+	width: 100%;
+}
+
+.odca-linkListItem-flexRow {
+	.odca-flex-row;
+	flex-wrap: nowrap;
+	justify-content: space-between;
+	align-items: flex-start;
+}
+
+.odca-linkListItem-link {  //linkContainer?
+	display: block;
+	min-height: 48px;
+	width: 100%;
+	padding-top: @odca-linkListItem-vertical-spacing;
+	//padding-bottom: 10px;
+	background-color: white;
+	padding-left: @odca-linkListItem-horizontal-spacing;
+	padding-right: @odca-linkListItem-horizontal-spacing;
+	box-sizing: border-box;
+
+	&:hover {
+		text-decoration: none;
+		background-color: @odca-linkList-item-border-color;
+		cursor: pointer;
+		width: 100%;
+		box-sizing: border-box;
+	}
+}
+
+.odca-linkListItem-contentContainer {
+	.odca-linkListItem-flexRow;
+	padding-bottom: 10px;
+	border-bottom: 1px solid @odca-linkList-item-border-color;
+}
+
+.odca-linkListItem-innerContainer {
+	.odca-flex-column;
+	width: 100%;
+	box-sizing: border-box;
+}
+
+.odca-linkListItem-contentRow {
+	.odca-linkListItem-flexRow;
+	margin-top: 5px;
+}
+
+.odca-linkListItem-contentRow--firstItem {
+	width: 80%;
+}
+
+.odca-linkListItem-indented {
+	margin-left: @odca-linkListItem-horizontal-spacing*2 + 6px;
+}
+
+.odca-linkListItem-withListHeader {
+	.odca-linkListItem-title {
+		color: @link-color;
+	}
+
+	odca-link-list-item.odca-linkListItem-avatar--indented {
+		article a div img.odca-linkListItem-avatar {
+			.odca-linkListItem-indented;
+		}
+	}
+
+	odca-link-list-item.odca-linkListItem-textContent--indented {
+		article a div div.odca-linkListItem-innerContainer {
+			.odca-linkListItem-indented;
+		}
+	}
+}
+
+.odca-linkListItem-title {
+	.odca-linkListItem-contentRow--firstItem;
+	font-size: @odca-linkListItem-font-size;
+	font-weight: 500;
+	color: @headings-color;
+}
+
+.odca-linkListItem-subText {
+	.odca-linkListItem-contentRow--firstItem;
+	font-style: italic;
+	color: @core-grey-3;
+}
+
+.odca-linkListItem-icon {
+	.fa-2x {
+		font-size: 1.25em;
+		line-height: 0.8em;
+	}
+}
+
+.odca-linkListItem-dollarAmount {
+	color: @core-grey-2;
+	font-family: @font-family-serif;
+	font-size: 26px;
+}
+
+.odca-linkListItem-avatar {
+	width: 75px;
+	margin-right: @odca-linkListItem-horizontal-spacing;
+}

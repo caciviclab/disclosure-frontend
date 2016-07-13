@@ -29,6 +29,22 @@
 
     example.dataResults = dataResults;
     $log.info('example.dataResults =', example.dataResults);
+    
+    example.ballot1 = {};
+    example.ballot1.data = [
+      { linkUrl: '/1', linkTitle: 'Title #1', subTitle: 'some sub-title', dollarAmount: '12000', avatarUrl: 'http://loremflickr.com/75/75/animals'},
+      { linkUrl: '/2', linkTitle: 'Title #2', subTitle: 'some sub-title', dollarAmount: '12000', avatarUrl: 'http://lorempixel.com/75/75/animals'},
+      { linkUrl: '/3', linkTitle: 'Title #3', subTitle: 'some sub-title', dollarAmount: '12000'},
+      { linkUrl: '/4', linkTitle: 'Title #4', subTitle: 'some sub-title'},
+      { linkUrl: '/5', linkTitle: 'Title #5'}
+    ];
+    
+    example.ballot2 = {};
+    example.ballot2.data = [
+      { linkUrl: '/1', linkTitle: 'Title #1'},
+      { linkUrl: '/2', linkTitle: 'Title #2'},
+      { linkUrl: '/3', linkTitle: 'Title #3'}
+    ];
 
     activate();
 
