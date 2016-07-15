@@ -18,7 +18,7 @@
         var vm = this;
 
         vm.listItems = vm.listData;
-        console.log('LIST ITEMS = ', vm.listItems);
+        // console.log('LIST ITEMS = ', vm.listItems);
 
         if (vm.listTitle !== undefined || null) {
           vm.hasHeader = true;
@@ -26,7 +26,7 @@
           vm.hasHeader = false;
         }
 
-        console.log('HAS HEADER = ', vm.hasHeader);
+        // console.log('HAS HEADER = ', vm.hasHeader);
       }
     };
     return directive;
