@@ -31,14 +31,7 @@
     };
     return directive;
 
-    function link(scope, element, attrs, vm) {
-      // var listTitle = attrs['listTitle'] || null;
-      var childElements = element.children();
-
-      if (!vm.listTitle || vm.listTitle === null || undefined) {
-        childElements.find('h3').remove();
-      }
-    }
+    function link(scope, element, attrs, vm) {}
 
   };
 })();
