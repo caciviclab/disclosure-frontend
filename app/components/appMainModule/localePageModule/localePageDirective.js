@@ -7,7 +7,7 @@
     var directive = {
       restrict: 'E',
       scope: {},
-      controllerAs: 'ctrl',
+      controllerAs: 'locale',
       bindToController: {
         localeName: '@'
         // uiStateName: '=',

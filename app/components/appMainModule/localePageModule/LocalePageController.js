@@ -13,76 +13,76 @@
   // function LocalePageController($log, $state, localePageService) {
   function LocalePageController($log, $state, $stateParams, localePageFactory) {
     var pageMetaData = {};
-    
-    var ctrl = this;
-    ctrl.state = $state;
-    // ctrl.localeName = $state.params.localeName;
-    // ctrl.localeId = $state.params.localeId;
-    ctrl.localeName = $stateParams.localeName;
-    ctrl.localeId = $stateParams.localeId;
-    ctrl.testType = localePageFactory.getLocalePageData(ctrl.localeId).type;
 
-    console.log('TEST TYPE = ', ctrl.testType);
-    
+    var locale = this;
+    locale.state = $state;
+    // locale.localeName = $state.params.localeName;
+    // locale.localeId = $state.params.localeId;
+    locale.localeName = $stateParams.localeName;
+    locale.localeId = $stateParams.localeId;
+    locale.testType = localePageFactory.getLocalePageData(locale.localeId).type;
 
-    // ctrl.localeName = localePageService.localeName;
+    console.log('TEST TYPE = ', locale.testType);
 
-    
-    // ctrl.localeType = ctrl.state.localeType;
-    // ctrl.localeType = pageMetaData.localeType;
 
-    // if (ctrl.localeType === '' || null || undefined) {
+    // locale.localeName = localePageService.localeName;
+
+
+    // locale.localeType = locale.state.localeType;
+    // locale.localeType = pageMetaData.localeType;
+
+    // if (locale.localeType === '' || null || undefined) {
     //   console.log('manually loading data');
-    //   ctrl.manuallyLoadMetaData(ctrl.localeId);
+    //   locale.manuallyLoadMetaData(locale.localeId);
     // }
 
     activate();
 
     function activate() {
-    // ctrl.activate = function() {
-    //   return localePageFactory.getMetaDateForPage(ctrl.localeId)
-      return localePageFactory.getLocalePageData(ctrl.localeId)
+    // locale.activate = function() {
+    //   return localePageFactory.getMetaDateForPage(locale.localeId)
+      return localePageFactory.getLocalePageData(locale.localeId)
         .then(function(data) {
           pageMetaData = data;
-          // ctrl.localeType = pageMetaData.localeType;
-          ctrl.localeType = pageMetaData.type;
+          // locale.localeType = pageMetaData.localeType;
+          locale.localeType = pageMetaData.type;
           $log.info('PAGE META DATA! = ', pageMetaData);
         });
     }
     //
-    // ctrl.manuallyLoadMetaData = function(localeId) {
+    // locale.manuallyLoadMetaData = function(localeId) {
     //   return localePageFactory.getLocalePageData(localeId)
     //     .then(function(data) {
     //       pageMetaData = data;
     //       $log.info('PAGE META DATA! = ', pageMetaData);
     //     });
     // };
-    // ctrl.localeType = localePageService.metaData.type;
-    $log.info('LOCALE TYPE = ', ctrl.localeType);
+    // locale.localeType = localePageService.metaData.type;
+    $log.info('LOCALE TYPE = ', locale.localeType);
 
 
 
-    // ctrl.onStateLoad = function(name, type, id) {
+    // locale.onStateLoad = function(name, type, id) {
     //   var metaData = {};
     //   metaData.locale.name = name;
     //   return metaData;
     // }
-    
-    // ctrl.localeMeta = localePageService;
-    // $log.info('LOCALE META = ', ctrl.localeMeta);
 
-    ctrl.pageParams = $state.params;
-    $log.info('LOCALE META = ', ctrl.pageParams);
+    // locale.localeMeta = localePageService;
+    // $log.info('LOCALE META = ', locale.localeMeta);
 
-    // ctrl.pageData = $stateParams;
-    ctrl.pageData = $state.current;
-    $log.info('LOCALE PAGE DATA = ', ctrl.pageData);
-    
-    // ctrl.pageElement = '<' + ctrl.localeType + '-page><' + '/' + ctrl.localeType + '-page>';
+    locale.pageParams = $state.params;
+    $log.info('LOCALE META = ', locale.pageParams);
 
-    // ctrl.localeName = localeName;
-    // // ctrl.localeName = localePageService.localeName;
-    // $log.info('LOCALE NAME = ', ctrl.localeName);
+    // locale.pageData = $stateParams;
+    locale.pageData = $state.current;
+    $log.info('LOCALE PAGE DATA = ', locale.pageData);
+
+    // locale.pageElement = '<' + locale.localeType + '-page><' + '/' + locale.localeType + '-page>';
+
+    // locale.localeName = localeName;
+    // // locale.localeName = localePageService.localeName;
+    // $log.info('LOCALE NAME = ', locale.localeName);
 
     // function getAlamedaData() {
   }
