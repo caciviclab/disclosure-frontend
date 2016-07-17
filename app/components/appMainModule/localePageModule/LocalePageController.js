@@ -9,10 +9,14 @@
    *
    * @requires $scope
    * */
-   
+
   // function LocalePageController($log, $state, localePageService) {
   function LocalePageController($log, $state, $stateParams, localePageFactory) {
     var pageMetaData = {};
+    var rawBallotData = {};
+    var ballotList = {};
+    ballotList.offices = [];
+    ballotList.measures = [];
 
     var locale = this;
     locale.state = $state;
@@ -60,7 +64,42 @@
     // locale.localeType = localePageService.metaData.type;
     $log.info('LOCALE TYPE = ', locale.localeType);
 
+    // function createBallotList(localeId) {
+    createBallotList();
+    function createBallotList() {
+      return localePageFactory.getCurrentBallotData(locale.localeId)
+        .then(function(data){
+          rawBallotData = data;
+          $log.info('RAW BALLOT DATA = ', rawBallotData);
+          locale.nextElectionDate = rawBallotData.date;
+          splitOfficesAndMeasures(rawBallotData.ballot_items);
+          locale.ballotList = ballotList;
+        });
+    }
 
+    function splitOfficesAndMeasures(arrayOfBallotData) {
+      angular.forEach(arrayOfBallotData, function(contest) {
+        var item = {};
+        item = createBallotListItem(contest);
+
+        if (contest.type == 'office') {
+          ballotList.offices.push(item);
+        } else {
+          ballotList.measures.push(item);
+        }
+      });
+      $log.info('ELECTION DATA = ', ballotList);
+    }
+
+    function createBallotListItem(contestObject) {
+      var ballotListItem = {};
+      ballotListItem.id = contestObject.id;
+      ballotListItem.type = contestObject.type;
+      ballotListItem.linkTitle = contestObject.name;
+      ballotListItem.linkUrl = contestObject.name;
+      ballotListItem.electionDate = rawBallotData.date;
+      return ballotListItem;
+    }
 
     // locale.onStateLoad = function(name, type, id) {
     //   var metaData = {};

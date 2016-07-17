@@ -9,8 +9,8 @@ var localePageFactory = function($log, $http, $q, CONSTANTS) {
 
   var service = {
     getLocalePageData: getLocalePageData,
-    getMetaDataForPage: getMetaDataForPage
-    // getCurrentBallotData: getCurrentBallotData
+    getMetaDataForPage: getMetaDataForPage,
+    getCurrentBallotData: getCurrentBallotData
     // getLocalePageMetaData: getLocalePageMetaData,
     // setLocalePageMetaData: setLocalePageMetaData
   };
@@ -33,12 +33,12 @@ var localePageFactory = function($log, $http, $q, CONSTANTS) {
   }
 
   // function getCurrentBallotData() {
-  // function getCurrentBallotData(localeId) {
-  //   // return $http.get(apiBasePath + apiEndpoint + '/' + localePageData.metaData.localeId)
-  //   return $http.get(apiBasePath + apiEndpoint + '/' + localeId + '/current_ballot')
-  //     .then(getDataComplete)
-  //     .catch(getMetaDataFailed);
-  // }
+  function getCurrentBallotData(localeId) {
+    // return $http.get(apiBasePath + apiEndpoint + '/' + localePageData.metaData.localeId)
+    return $http.get(apiBasePath + apiEndpoint + '/' + localeId + '/current_ballot')
+      .then(getDataComplete)
+      .catch(getMetaDataFailed);
+  }
 
   // function getDataComplete(data, status, headers, config) {
   function getDataComplete(data) {
