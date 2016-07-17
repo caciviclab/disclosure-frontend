@@ -5,6 +5,7 @@
   require('../../common/core/core');
   require('../../common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
   require('../../common/pageHeader/pageHeader');
+  require('../../common/linkList/linkList');
 
   /* Components of 'localePageModule' */
   var localePageRoutes = require('./localePageRoutes');
@@ -16,7 +17,8 @@
     [
       'coreModules',
       'pageHeaderBreadcrumbsModule',
-      'pageHeaderModule'
+      'pageHeaderModule',
+      'linkList'
     ])
     .config(localePageRoutes)
     .directive('localePage', localePageDirective)

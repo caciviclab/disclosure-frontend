@@ -1,7 +1,17 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12">
-			<odca-page-header page-title="{{locale.localeName}}" next-election="{{locale.nextElectionDateForLocale}}"></odca-page-header>
+			<odca-page-header page-title="{{locale.localeName}}" next-election="{{locale.nextElectionDate}}"></odca-page-header>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Upcoming Elections</h3>
+			<odca-link-list list-data="locale.ballotList.offices"></odca-link-list>
+			<odca-link-list list-title="Ballot Measures" list-data="locale.ballotList.measures"></odca-link-list>
 		</div>
 	</div>
 </div>
