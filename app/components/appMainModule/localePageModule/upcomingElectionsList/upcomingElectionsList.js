@@ -4,6 +4,7 @@
   /* Common Modules 'upcomingElectionsList' Depend on */
   var coreModules = require('../../../common/core/core');
   var linkList = require('../../../common/linkList/linkList');
+  var angularFilter = require('angular-filter');  //from node_modules
 
   /* Components of 'upcomingElectionsList' */
   var upcomingElectionsListDirective = require('./upcomingElectionsListDirective');
@@ -13,7 +14,8 @@
   module.exports = angular.module('upcomingElectionsList',
     [
       'coreModules',
-      'linkList'
+      'linkList',
+      'angular.filter'
     ])
     .directive('localeUpcomingElectionsList', upcomingElectionsListDirective)
     .controller('UpcomingElectionsListController', UpcomingElectionsListController)
