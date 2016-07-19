@@ -1,24 +1,24 @@
 (function() {
   'use strict';
 
-  function UpcomingElectionsListController($log, upcomingElectionsListFactory) {
+  function UpcomingElectionsListController($log, $filter, upcomingElectionsListFactory) {
     var rawBallotData = {};
     var ballotList = {};
     ballotList.offices = [];
+    ballotList.councilPositions = [];
     ballotList.measures = [];
-    // ballotList.generalOffices = [];
-    // ballotList.counsels = [];
-    // ballotList.ballotMeasures = [];
 
     var ctrl = this;
+    ctrl.councilTitle = ctrl.localeType + ' Council';
 
     activate();
     function activate() {
       return upcomingElectionsListFactory.getUpcomingElectionData(ctrl.localeId)
         .then(function(data){
           rawBallotData = data;
-          $log.info('upcomingElectionsList #1:RAW BALLOT DATA = ', rawBallotData);
+          $log.info('RAW BALLOT DATA = ', rawBallotData);
           splitOfficesAndMeasures(rawBallotData.ballot_items);
+          $log.info('BALLOT LIST = ', ballotList);
           ctrl.ballotList = ballotList;
         });
     }
@@ -29,12 +29,11 @@
         item = createBallotListItem(contest);
 
         if (contest.type == 'office') {
-          ballotList.offices.push(item);
+          splitCouncilPositionsAndOffices(item);
         } else {
           ballotList.measures.push(item);
         }
       });
-      $log.info('SPLIT OFFICES AND MEASURES = ', ballotList);
     }
 
     function createBallotListItem(contestObject) {
@@ -47,8 +46,19 @@
       return ballotListItem;
     }
 
+    function splitCouncilPositionsAndOffices(position) {
+      var isCouncilPosition;
+      isCouncilPosition = $filter('test')(position.linkTitle, 'Council'); //uses 'angular-filter'
+      // $log.info('IS COUNCIL POSITION = ', isCouncilPosition);
+      if(isCouncilPosition) {
+        ballotList.councilPositions.push(position);
+      } else {
+        ballotList.offices.push(position);
+      }
+    }
+
   }
 
-  UpcomingElectionsListController.$inject = ['$log', 'upcomingElectionsListFactory'];
+  UpcomingElectionsListController.$inject = ['$log', '$filter', 'upcomingElectionsListFactory'];
   module.exports = UpcomingElectionsListController;
 })();

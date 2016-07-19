@@ -11,7 +11,8 @@
       controllerAs: 'ctrl',
       bindToController: {
         // ballotData: '=ballotData'
-        localeId: '='
+        localeId: '=',
+        localeType: '='
       },
       link: link,
       template: template,
