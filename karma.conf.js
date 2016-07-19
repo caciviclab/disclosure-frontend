@@ -13,20 +13,23 @@ module.exports = function (config) {
 
         // frameworks to use
         // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-        frameworks: ['browserify', 'mocha', 'chai', 'sinon', 'chai-jquery'],
+        frameworks: ['browserify',
+            'mocha',
+            'chai',
+            'sinon',
+            'chai-jquery'
+        ],
 
         // list of files / patterns to load in the browser
         files: [
             'node_modules/angular/angular.js',
-            'node_modules/angular-mocks/angular-mocks.js', // for angular.mock.module and inject.
+            'node_modules/angular-mocks/angular-mocks.js',// for angular.mock.module and inject.
             'app/**/*.spec.js'
         ],
 
         // list of files to exclude
         exclude: [
-          'app/components/appMainModule/localityPageModule/*.js',
           'app/components/common/locality*/*.js',
-          'app/components/services/*/**.js',
           'app/components/common/linkList/*/**.js'
         ],
 
@@ -37,12 +40,19 @@ module.exports = function (config) {
         },
 
         // karma-browserify configuration
-
         browserify: {
             debug: true,
-            transform: ['envify', 'partialify', istanbul({
-              'ignore': ['**/*.spec.js', '**/vendor/**/*.js']
-            })],
+            transform: [
+                'envify',
+                'partialify',
+                // istanbul
+                // ({
+                //     ignore: [
+                //         'app/**/*.spec.js',
+                //         '**/vendor/**/*.js'
+                //     ]
+                // })
+            ],
 
             // don't forget to register the extensions
             extensions: ['.js']
@@ -51,7 +61,10 @@ module.exports = function (config) {
         // test results reporter to use
         // possible values: 'dots', 'progress', 'spec'
         // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-        reporters: ['spec', 'coverage'],
+        reporters: [
+            'spec',
+            // 'coverage'
+        ],
 
         coverageReporter: {
             dir: './reports/coverage',
