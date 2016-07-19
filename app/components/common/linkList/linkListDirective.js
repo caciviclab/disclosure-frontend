@@ -17,9 +17,6 @@
       controller: function() {
         var vm = this;
 
-        vm.listItems = vm.listData;
-        // console.log('LIST ITEMS = ', vm.listItems);
-
         if (vm.listTitle !== undefined || null) {
           vm.hasHeader = true;
         } else {
