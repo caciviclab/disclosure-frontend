@@ -57,7 +57,7 @@
         .then(getPageDataComplete)
         .catch(getPageDataFailed);
 
-      function getPageDataComplete(data, status, headers, config) {
+      function getPageDataComplete(data) {
         return data.data;
       }
 
@@ -82,7 +82,7 @@
       // return localePageData.results;
     }
 
-    function getPageDataComplete(data, status, headers, config) {
+    function getPageDataComplete(data) {
       return data.data;
     }
 
@@ -102,11 +102,11 @@
         .catch(getPageDataFailed);
     }
 
-    function getLocaleBallotList(localeId, ballotId, urlPaths) {
-      return $http.get(apiBaseUrl + '/committee/' + committeeId + urlPaths)
-        .then(getPageDataComplete)
-        .catch(getPageDataFailed);
-    }
+    // function getLocaleBallotList(localeId, ballotId, urlPaths) {
+    //   return $http.get(apiBaseUrl + '/committee/' + committeeId + urlPaths)
+    //     .then(getPageDataComplete)
+    //     .catch(getPageDataFailed);
+    // }
 
     function getCommittee(committeeId, urlPaths) {
       return $http.get(apiBaseUrl + '/committee/' + committeeId + urlPaths)
@@ -122,7 +122,7 @@
     }
 
     function setCommitteeContributors() {
-      return getCommitteeContributors().then(function (data) {
+      return getCommitteeContributors().then(function(data) {
         localePageData.committeeContributors = data;
         $log.info('ALL LOCALE PAGE DATA = ', localePageData);
         $log.info('COMMITTEE CONTRIBUTORS = ', localePageData.committeeContributors);
