@@ -20,7 +20,7 @@
     return directive;
 
     function link(scope, element, attrs, vm) {
-      element.addClass('cfa-pageHeader');
+      element.addClass('odca-pageHeader');
 
     //  TODO: add function to format election date properly
 
