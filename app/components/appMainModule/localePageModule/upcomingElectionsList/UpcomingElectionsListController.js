@@ -41,7 +41,7 @@
       ballotListItem.id = contestObject.id;
       ballotListItem.type = contestObject.type;
       ballotListItem.linkTitle = contestObject.name;
-      ballotListItem.linkUrl = contestObject.name;
+      ballotListItem.linkUrl = $filter('slugify')(contestObject.name);
       ballotListItem.electionDate = rawBallotData.date;
       return ballotListItem;
     }
