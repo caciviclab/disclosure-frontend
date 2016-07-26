@@ -20,20 +20,10 @@
     return directive;
 
     function link(scope, element, attrs, vm) {
-      element.addClass('cfa-pageHeader');
-      
-      var htmlItems = element.children();
-      function removeItem(item, index) {
-        if (!item) {
-          htmlItems.eq(index).remove();
-        }
-      }
-
-      removeItem(vm.pageTitle, 0);
-      removeItem(vm.pageSubtitle, 1);
-      removeItem(vm.nextElectionDate, 2);
+      element.addClass('odca-pageHeader');
 
     //  TODO: add function to format election date properly
+
     }
   };
 })();
