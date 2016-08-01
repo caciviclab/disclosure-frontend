@@ -82,7 +82,7 @@
       // return localePageData.results;
     }
 
-    function getPageDataComplete(data) {
+    function getPageDataComplete(data, status, headers, config) {
       return data.data;
     }
 

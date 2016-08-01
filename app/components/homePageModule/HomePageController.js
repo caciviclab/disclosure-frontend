@@ -3,12 +3,9 @@
 // Controller naming conventions should start with an uppercase letter
 // function HomePageController($scope, $log, $http, TestFactory1, disclosureApi) {
 function HomePageController($scope, $log, $http, TestFactory1) {
-  var localitiesList;
-
   $scope.searchBarEnabled = false;
   $scope.testVar = 'We are up and running using a required module!';
   //$scope.searchResults = [];
-  localitiesList = {};
   // This is pretty jank, we should debounce this or do the search when the
   // user stops typing.
   // $scope.$watch('search', function(newValue) {
