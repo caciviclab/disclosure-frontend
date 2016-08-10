@@ -12,7 +12,7 @@
   "quotmark": "single",
   "regexp": true,
   "undef": true,
-  "unused": true,
+  "unused": false,
   "strict": true,
   "trailing": true,
   "smarttabs": true,
@@ -25,6 +25,7 @@
     "afterEach": true,
     "describe": true,
     "expect": true,
+    "inject": true,
     "it": true,
     "xit": true,
     "runs": true,
@@ -38,5 +39,5 @@
     "$": true,
     "gapi": true,
     "FB": true
-    }
+  }
 }
