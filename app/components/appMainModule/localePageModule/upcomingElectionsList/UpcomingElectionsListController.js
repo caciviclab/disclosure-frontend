@@ -28,7 +28,7 @@
         var item = {};
         item = createBallotListItem(contest);
 
-        if (contest.type == 'office') {
+        if (contest.contest_type.toLowerCase() == 'office') {
           splitCouncilPositionsAndOffices(item);
         } else {
           ballotList.measures.push(item);
@@ -39,7 +39,7 @@
     function createBallotListItem(contestObject) {
       var ballotListItem = {};
       ballotListItem.id = contestObject.id;
-      ballotListItem.type = contestObject.type;
+      ballotListItem.type = contestObject.contest_type.toLowerCase();
       ballotListItem.linkTitle = contestObject.name;
       ballotListItem.linkUrl = $filter('slugify')(contestObject.name);
       ballotListItem.electionDate = rawBallotData.date;
