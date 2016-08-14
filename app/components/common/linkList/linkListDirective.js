@@ -17,28 +17,18 @@
       controller: function() {
         var vm = this;
 
-        vm.listItems = vm.listData;
-        console.log('LIST ITEMS = ', vm.listItems);
-
         if (vm.listTitle !== undefined || null) {
           vm.hasHeader = true;
         } else {
           vm.hasHeader = false;
         }
 
-        console.log('HAS HEADER = ', vm.hasHeader);
+        // console.log('HAS HEADER = ', vm.hasHeader);
       }
     };
     return directive;
 
-    function link(scope, element, attrs, vm) {
-      // var listTitle = attrs['listTitle'] || null;
-      var childElements = element.children();
-
-      if (!vm.listTitle || vm.listTitle === null || undefined) {
-        childElements.find('h3').remove();
-      }
-    }
+    function link(scope, element, attrs, vm) {}
 
   };
 })();
