@@ -89,6 +89,7 @@
     "angular-animate": "1.4.9",
     "angular-breadcrumb": "^0.4.1",
     "angular-cookies": "1.4.9",
+    "angular-filter": "^0.5.9",
     "angular-resource": "1.4.9",
     "angular-sanitize": "1.4.9",
     "angular-ui-bootstrap": "^1.2.5",

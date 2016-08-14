@@ -1,7 +1,15 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-xs-12">
-			<odca-page-header page-title="{{ctrl.localeName}}" next-election="{{ctrl.nextElectionDateForLocale}}"></odca-page-header>
+			<odca-page-header page-title="{{locale.localeName}}" next-election="{{locale.nextElectionDate}}"></odca-page-header>
+		</div>
+	</div>
+</div>
+
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-xs-12">
+			<locale-upcoming-elections-list locale-id="locale.localeId" locale-type="locale.localeType"></locale-upcoming-elections-list>
 		</div>
 	</div>
 </div>
