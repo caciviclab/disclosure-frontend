@@ -1,27 +1,27 @@
-.text-blurb {
-    .text-blurb_title {
-        color: @titleTextColor;
-    }
 
-    .text-blurb_body {
-        color: @bodyTextColor;
-    }
-
-    .text-blurb_body_container.collapsed-remove,
-    .text-blurb_body_container {
-        max-height: 5000px; //arbitrarily large number. Cannot be auto for transition to work
-        overflow: hidden;
-        transition: max-height 200ms ease-out;
-    }
-
-    .text-blurb_body_container.collapsed-add,
-    .text-blurb_body_container.collapsed {
-        //TODO: extract lineheight into a variable and multiply here
-        max-height: 80px; //4x line height
-    }
-
-    .text-blurb_action-row {
-        margin-top: 12.5px;
-        margin-bottom: 12.5px;
-    }
+.text-blurb_title {
+    color: @titleTextColor;
 }
+
+.text-blurb_body {
+    color: @bodyTextColor;
+}
+
+.text-blurb_body_container.collapsed-remove,
+.text-blurb_body_container {
+    max-height: 5000px; //arbitrarily large number. Cannot be auto for transition to work
+    overflow: hidden;
+    transition: max-height 200ms ease-out;
+}
+
+.text-blurb_body_container.collapsed-add,
+.text-blurb_body_container.collapsed {
+    //TODO: extract lineheight into a variable and multiply here
+    max-height: 80px; //4x line height
+}
+
+.text-blurb_action-row {
+    margin-top: 12.5px;
+    margin-bottom: 12.5px;
+}
+

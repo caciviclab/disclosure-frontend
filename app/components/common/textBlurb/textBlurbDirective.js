@@ -31,7 +31,6 @@
 
       function refreshButtons() {
         textBlurb.showButtons = shouldShowButtons();
-        scope.$digest(); //since you're outside of angular, you need this here to update the view 
       }
 
       // Determine if the height of the inner box is greater than
