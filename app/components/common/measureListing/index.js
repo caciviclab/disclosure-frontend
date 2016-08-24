@@ -1,6 +1,8 @@
 'use strict';
 
-var measureListing = angular.module('measureListing', [])
+require('../textBlurb/textBlurb');
+
+var measureListing = angular.module('measureListing', ['textBlurbModule'])
   .directive('measureListing', require('./measureListingDirective'));
 
 module.exports = measureListing;

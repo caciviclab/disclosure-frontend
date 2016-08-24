@@ -1,8 +1,7 @@
 <h3>Measure {{ measure.number }}</h3>
 <div class="subtitle">{{ measure.title }}</div>
 <div class="divided-section">
-  <h4>Full Ballot Text</h4>
-  <p>{{ measure.full_text }}</p>
+  <text-blurb title="Full Ballot Text" body="{{measure.full_text}}"></text-blurb>
 </div>
 <div class="divided-section">
   <h4>Money Supporting the Measure</h4>
@@ -13,6 +12,6 @@
 <div class="divided-section">
   <h4>Money Opposing the Measure</h4>
   <div>
-    <span><a ui-sref="appMain.measure.opposing">{{measure.opposing_count }} opposing committee(s)</a></span>
+    <span><a ui-sref="appMain.measure.opposing">{{ measure.opposing_count }} opposing committee(s)</a></span>
   </div>
 </div>
