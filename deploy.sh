@@ -27,4 +27,4 @@ git config user.name "CA Civic Lab deploy script"
 git config user.email "opencal@googlegroups.com"
 git add .
 git commit -m "Deploy to GitHub Pages"
-git push --force --quiet "https://x-api-token:${GITHUB_TOKEN}@${GITHUB_REPO}.git" master:gh-pages
+git push --force --quiet "https://x-api-token:${GITHUB_TOKEN}@${GITHUB_REPO}.git" master:gh-pages &> /dev/null
