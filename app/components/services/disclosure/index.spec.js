@@ -51,8 +51,7 @@ describe('disclosureApi', function() {
   });
 
   // office_election.get
-  // TODO This should be fixed when https://github.com/caciviclab/disclosure-backend/pull/272 is merged
-  it.skip('get an office election', function() {
+  it('get an office election', function() {
     // Search for any locality
     return disclosureApi.locality.search({q: ''})
       .then(function(localities) {
@@ -70,8 +69,7 @@ describe('disclosureApi', function() {
   });
 
   // candidate.get
-  // TODO This should be fixed when https://github.com/caciviclab/disclosure-backend/pull/272 is merged
-  it.skip('get a candidate', function() {
+  it('get a candidate', function() {
     // Search for any locality
     return disclosureApi.locality.search({q: ''})
       .then(function(localities) {
