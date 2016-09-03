@@ -42,6 +42,7 @@
       ballotListItem.type = contestObject.contest_type.toLowerCase();
       ballotListItem.linkTitle = contestObject.name;
       ballotListItem.linkUrl = $filter('slugify')(contestObject.name);
+      ballotListItem.toState = 'appMain.localePage.electionTypePage';
       ballotListItem.electionDate = rawBallotData.date;
       return ballotListItem;
     }

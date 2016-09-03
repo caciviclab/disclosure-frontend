@@ -19,7 +19,7 @@
       bindToController: {
         linkTitle: '=linkTitle',
         linkSubTitle: '=subTitle',
-        linkUrl: '=linkUrl',
+        toStateReference: '=toState',
         linkDollarAmount: '=dollarAmount',
         avatarImageUrl: '=avatarUrl'
       },

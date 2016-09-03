@@ -28,6 +28,12 @@ function localePageRoutes($stateProvider) {
     }
   };
 
+  var electionTypePage = {
+    name: 'appMain.localePage.electionTypePage',
+    url: '/electiontype',
+    template: '<div>Election Type Page</div>'
+  };
+
   // var city = {
   //   name: 'appMain.localePage.city',
   //   // url: '^/city', // The ^ character makes this url override the parent url
@@ -46,6 +52,7 @@ function localePageRoutes($stateProvider) {
   // };
 
   $stateProvider.state(localePage);
+  $stateProvider.state(electionTypePage);
   // $stateProvider.state(city);
 
 }
