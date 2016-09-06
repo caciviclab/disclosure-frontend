@@ -3,8 +3,7 @@
 
 var CONSTANTS = (function() {
     return {
-        // DISCLOSURE_API_BASEURL: 'http://admin.caciviclab.org/docs/api-docs',
-        DISCLOSURE_API_BASEURL: 'http://admin.caciviclab.org:80'
+        DISCLOSURE_API_BASEURL: 'http://disclosure-backend-static.f.tdooner.com'
     };
 }());
 
