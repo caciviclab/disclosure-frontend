@@ -11,6 +11,7 @@
       'ngResource',
       'ngSanitize',
       'ui.router',
+      'ct.ui.router.extras',
       'ui.bootstrap',
       'disclosure'
     ]);

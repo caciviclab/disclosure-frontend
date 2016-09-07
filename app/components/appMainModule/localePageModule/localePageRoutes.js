@@ -15,6 +15,8 @@ function localePageRoutes($stateProvider) {
       // ctrl.localeType = 'city';
     },
     controllerAs: 'ctrl',
+    deepStateRedirect: true,
+    sticky: true,
     ncyBreadcrumb: {
       // label: 'Locale Page',
       label: '{{ctrl.localeName}}',
