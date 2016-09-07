@@ -7,11 +7,14 @@
 </div>
 
 <div class="container-fluid">
-	<div class="row">
-		<div class="col-xs-12">
+	<div class="row bg-white">
+		<div class="col-xs-12 col-sm-4 localePage-listContainer">
 			<locale-upcoming-elections-list locale-id="locale.localeId" locale-type="locale.localeType"></locale-upcoming-elections-list>
 		</div>
+		<div class="col-xs-12 col-sm-8">
+			<!--TODO: Fix breadcrumb problem caused by adding this view in-->
 			<div ui-view></div>
+		</div>
 	</div>
 </div>
 
