@@ -10,11 +10,12 @@
       controllerAs: 'vm',
       bindToController: {
         listTitle: '@listTitle',
-        listData: '=listData'
+        listData: '=listData',
+        selectFn: '&'
       },
       link: link,
       template: template,
-      controller: function() {
+      controller: function($log, $state) {
         var vm = this;
 
         if (vm.listTitle !== undefined || null) {
@@ -24,6 +25,12 @@
         }
 
         // console.log('HAS HEADER = ', vm.hasHeader);
+        vm.selectFn = function(selectedItem) {
+          console.log('SELECTED', selectedItem);
+          // if (selectedItem.electionType === 'office'){
+          //   $state.go('appMain.localePage.officeElectionPage')
+          // }
+        }
       }
     };
     return directive;
