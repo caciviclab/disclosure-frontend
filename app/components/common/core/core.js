@@ -1,4 +1,4 @@
-(function() {
+// (function() {
   'use strict';
 
   require('../../../vendor/vendor');
@@ -16,4 +16,4 @@
       'disclosure'
     ]);
     // .constant('CONSTANTS', appConstants)
-})();
+// })();

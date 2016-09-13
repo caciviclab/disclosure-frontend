@@ -12,7 +12,6 @@ function localePageRoutes($stateProvider) {
       var ctrl = this;
       ctrl.localeName = $stateParams.localeName;
       // ctrl.localeType = $stateParams.localeType;
-      // ctrl.localeType = 'city';
     },
     controllerAs: 'ctrl',
     deepStateRedirect: true,
@@ -28,12 +27,6 @@ function localePageRoutes($stateProvider) {
       pageTitle: '{{ctrl.localeName}}', // set the title in the <head> section of the index.html file
       pageDescription: 'Meta Description goes here' // meta description in <head>
     }
-  };
-
-  var electionTypePage = {
-    name: 'appMain.localePage.electionTypePage',
-    url: '/electiontype',
-    template: '<div>Election Type Page</div>'
   };
 
   // var city = {
@@ -54,7 +47,6 @@ function localePageRoutes($stateProvider) {
   // };
 
   $stateProvider.state(localePage);
-  $stateProvider.state(electionTypePage);
   // $stateProvider.state(city);
 
 }
