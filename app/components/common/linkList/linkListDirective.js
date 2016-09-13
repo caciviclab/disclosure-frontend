@@ -10,8 +10,7 @@
       controllerAs: 'vm',
       bindToController: {
         listTitle: '@listTitle',
-        listData: '=listData',
-        selectFn: '&'
+        listData: '=listData'
       },
       link: link,
       template: template,
@@ -25,9 +24,6 @@
         }
 
         // console.log('HAS HEADER = ', vm.hasHeader);
-        vm.selectFn = function(selectedItem) {
-          console.log('SELECTED', selectedItem);
-        }
       }
     };
     return directive;

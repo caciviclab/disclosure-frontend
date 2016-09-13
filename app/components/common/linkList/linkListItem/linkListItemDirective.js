@@ -5,7 +5,7 @@
  * @description
  *
  *
- * @restrict A
+ * @restrict E
  * */
 (function() {
   'use strict';

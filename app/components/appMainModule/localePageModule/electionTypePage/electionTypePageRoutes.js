@@ -10,10 +10,11 @@ function electionTypePageRoutes($stateProvider) {
     controller: function($scope, $stateParams) {
       var ctrl = this;
       ctrl.electionType = $stateParams.electionType;
+      ctrl.electionTitle = $stateParams.electionTitle;
     },
     controllerAs: 'ctrl'
     // ncyBreadcrumb: {
-    //   // label: '{{ctrl.localeName}}',
+    //   label: '{{ctrl.electionTitle}}',
     //   parent: 'appMain.localePage'
     // }
   };

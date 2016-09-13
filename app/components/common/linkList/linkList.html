@@ -1,8 +1,7 @@
 <div class="odca-contentBlock--singleItem odca-linkList-container">
 	<h3 ng-if="vm.listTitle" class="odca-linkList-header">{{vm.listTitle}}</h3>
 	<ul class="odca-linkList">
-		<!--<li class="odca-linkListItem" ng-repeat="item in vm.listData" ng-class="{'odca-linkListItem-withListHeader': vm.hasHeader }">-->
-		<li class="odca-linkListItem" ng-repeat="item in vm.listData" ng-class="{'odca-linkListItem-withListHeader': vm.hasHeader }" ng-click="vm.selectFn(item)">
+		<li class="odca-linkListItem" ng-repeat="item in vm.listData" ng-class="{'odca-linkListItem-withListHeader': vm.hasHeader }">
 			<odca-link-list-item to-state="item.toState" link-title="item.linkTitle" sub-title="item.subTitle" dollar-amount="item.dollarAmount | currency:'$':0" avatar-url="item.avatarUrl" ng-class="{'odca-linkListItem-avatar--indented': item.avatarUrl !== undefined || null, 'odca-linkListItem-textContent--indented': item.avatarUrl === undefined || null}"></odca-link-list-item>
 		</li>
 	</ul>

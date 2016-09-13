@@ -15,6 +15,7 @@
     var election = this;
     election.state = $state;
     election.electionType = $stateParams.electionType;
+    election.electionTitle = $stateParams.electionTitle;
 
   }
 
