@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function UpcomingElectionsListController($log, $filter, upcomingElectionsListFactory) {
+  function UpcomingElectionsListController($log, $stateParams, $filter, upcomingElectionsListFactory) {
     var rawBallotData = {};
     var ballotList = {};
     ballotList.offices = [];
@@ -9,7 +9,7 @@
     ballotList.measures = [];
 
     var ctrl = this;
-    ctrl.councilTitle = ctrl.localeType + ' Council';
+    ctrl.councilTitle = $stateParams.localeType + ' Council';
 
     activate();
     function activate() {
@@ -71,6 +71,6 @@
 
   }
 
-  UpcomingElectionsListController.$inject = ['$log', '$filter', 'upcomingElectionsListFactory'];
+  UpcomingElectionsListController.$inject = ['$log', '$stateParams', '$filter', 'upcomingElectionsListFactory'];
   module.exports = UpcomingElectionsListController;
 })();
