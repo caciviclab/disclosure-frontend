@@ -4,17 +4,14 @@ function electionTypePageRoutes($stateProvider) {
 
   var electionTypePage = {
     name: 'appMain.localePage.electionTypePage',
-    // url: '/electiontype',
-    // url: '/:electionYear/:electionType/:electionTitle',
-    url: '/:electionYear/:electionType',
-    template: '<locale-election-page type="ctrl.electionType"></locale-election-page>',
-    // template: '<div>ELECTION TYPE = {{ctrl.electionType}}</div>',
+    url: '/:electionYear/:electionType/:electionTitle',
+    // url: '/:electionYear/:electionType',
+    template: '<locale-election-page type="{{ctrl.electionType}}"></locale-election-page>',
     controller: function($scope, $stateParams) {
       var ctrl = this;
       ctrl.electionType = $stateParams.electionType;
     },
     controllerAs: 'ctrl'
-    //template: '<div>Election Type Page</div>'
     // ncyBreadcrumb: {
     //   // label: '{{ctrl.localeName}}',
     //   parent: 'appMain.localePage'

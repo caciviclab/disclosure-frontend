@@ -8,7 +8,7 @@
       scope: {},
       controllerAs: 'election',
       bindToController: {
-        electionType: '=type'
+        electionType: '@type'
       },
       link: link,
       template: template,

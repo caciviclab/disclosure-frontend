@@ -11,8 +11,8 @@
   'use strict';
 
   function ElectionTypePageController($log, $state, $stateParams) {
-    var election = this;
 
+    var election = this;
     election.state = $state;
     election.electionType = $stateParams.electionType;
 

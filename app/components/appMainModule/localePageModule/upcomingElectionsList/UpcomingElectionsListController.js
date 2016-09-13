@@ -41,19 +41,16 @@
       ballotListItem.id = contestObject.id;
       ballotListItem.type = contestObject.contest_type.toLowerCase();
       ballotListItem.linkTitle = contestObject.name;
-      ballotListItem.linkUrl = $filter('slugify')(contestObject.name);
       ballotListItem.linkData = {
-        // electionYear: $filter('date')(angular.isString(rawBallotData.date), 'yyyy'),
-        electionYear: rawBallotData.date,
+        // electionYear: $filter('date')(rawBallotData.date, 'yyyy'),
+        electionYear: $filter('limitTo')(rawBallotData.date, 4, 0),
         electionType: contestObject.contest_type.toLowerCase(),
         electionTitle: $filter('slugify')(contestObject.name)
       };
-      ballotListItem.toState = 'appMain.localePage.electionTypePage';
+      ballotListItem.toState = defineStateForBallotItem(ballotListItem.linkData);
       ballotListItem.electionDate = rawBallotData.date;
       return ballotListItem;
     }
-
-    //sref = '/' + electionYear + '/' + electionType + '/' + electionTitle
 
     function splitCouncilPositionsAndOffices(position) {
       var isCouncilPosition;
@@ -64,6 +61,12 @@
       } else {
         ballotList.offices.push(position);
       }
+    }
+
+    function defineStateForBallotItem(linkDataObject) {
+      var state;
+      state = 'appMain.localePage.electionTypePage({electionYear: ' + linkDataObject.electionYear + ', electionType: "' + linkDataObject.electionType + '", electionTitle: "' + linkDataObject.electionTitle + '"})';
+      return state;
     }
 
   }

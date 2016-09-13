@@ -27,9 +27,6 @@
         // console.log('HAS HEADER = ', vm.hasHeader);
         vm.selectFn = function(selectedItem) {
           console.log('SELECTED', selectedItem);
-          // if (selectedItem.electionType === 'office'){
-          //   $state.go('appMain.localePage.officeElectionPage')
-          // }
         }
       }
     };
