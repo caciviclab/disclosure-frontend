@@ -1,5 +1,10 @@
 <div>ELECTION TYPE = {{election.electionType}}</div>
+
 <div ng-show="election.electionType == 'office'">OFFICE PAGE</div>
-<div ng-show="election.electionType == 'referendum'">REFERENDUM PAGE</div><pre>{{election.electionData | json}}</pre><br>
+
+<!--<div ng-show="election.electionType == 'referendum'">REFERENDUM PAGE</div>-->
+<referendum-page referendum-id="{{election.electionTypeId}}" ng-show="election.electionType == 'referendum'"></referendum-page>
+
+<br>
 
 <pre>{{election.electionData | json}}</pre>
