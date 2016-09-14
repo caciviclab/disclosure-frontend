@@ -6,13 +6,13 @@
 (function() {
   'use strict';
   
-  textBlurbDirective.$inject = ['$window'];
-  function textBlurbDirective($window) {
+  odcaTextBlurb.$inject = ['$window'];
+  function odcaTextBlurb($window) {
     var directive = {
       restrict: 'E',
       bindToController: {
         title: '@',
-        body: '@',
+        body: '@'
       },
       link: link,
       controller: function() {},
@@ -49,6 +49,6 @@
 
   }
 
-  module.exports = textBlurbDirective;
+  module.exports = odcaTextBlurb;
 
 })();
