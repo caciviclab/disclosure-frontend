@@ -13,11 +13,11 @@ function electionTypePageRoutes($stateProvider) {
       ctrl.electionTypeId = $stateParams.electionTypeId;
       ctrl.electionTitle = $stateParams.electionTitle;
     },
-    controllerAs: 'ctrl'
-    // ncyBreadcrumb: {
-    //   label: '{{ctrl.electionTitle}}',
-    //   parent: 'appMain.localePage'
-    // }
+    controllerAs: 'ctrl',
+    ncyBreadcrumb: {
+      label: '{{ctrl.electionTitle}}',
+      parent: 'appMain.localePage'
+    }
   };
 
   var officeElectionPage = {

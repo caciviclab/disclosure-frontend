@@ -8,7 +8,8 @@ var referendumPageFactory = function($log, $http, $q, CONSTANTS) {
   referendumPageData.metaData = {};
 
   var service = {
-    getReferendumMetaData: getReferendumMetaData
+    getReferendumMetaData: getReferendumMetaData,
+    getReferendumPageData: getReferendumPageData
   };
   return service;
 
@@ -27,10 +28,10 @@ var referendumPageFactory = function($log, $http, $q, CONSTANTS) {
   // function storeReferendumData(objectTitle, dataObjectToStore) {
   //   referendumPageData[objectTitle] = dataObjectToStore;
   // }
-  //
-  // function getReferendumPageData() {
-  //   return referendumPageData;
-  // }
+
+  function getReferendumPageData() {
+    return referendumPageData;
+  }
 
   function getReferendumDataComplete(data) {
     return data.data;

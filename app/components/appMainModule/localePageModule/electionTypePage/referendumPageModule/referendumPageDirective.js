@@ -1,4 +1,5 @@
 (function() {
+  'use strict';
 
   var template = require('./referendumPage.html');
 
@@ -8,7 +9,8 @@
       scope: {},
       controllerAs: 'referendum',
       bindToController: {
-        referendumId: '@'
+        referendumId: '@',
+        referendumData: '='
       },
       link: link,
       template: template,
@@ -16,7 +18,7 @@
     };
     return directive;
 
-    function link(scope, element, attrs, election) {}
+    function link(scope, element, attrs, referendum) {}
   }
 
 })();

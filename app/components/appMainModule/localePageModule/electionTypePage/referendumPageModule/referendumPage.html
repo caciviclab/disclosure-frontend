@@ -1,2 +1,10 @@
-<odca-page-header page-header="{{referendum.referendumTitle}}"></odca-page-header>
-<odca-text-blurb></odca-text-blurb>
+<odca-page-header class="referendumPage-titleText"
+  page-title="Measure {{referendum.metaData.number}}">
+</odca-page-header>
+
+<odca-page-header sub-title="{{referendum.metaData.name}}"></odca-page-header>
+
+<odca-text-blurb title="Abstract" body="{{referendum.metaData.summary}}"></odca-text-blurb>
+
+<br>
+<pre>{{referendum.referendumData | json}}</pre>
