@@ -8,7 +8,8 @@
       scope: {},
       controllerAs: 'election',
       bindToController: {
-        electionType: '@type'
+        electionType: '@type',
+        electionTypeId: '@typeId'  //either referendum or office id
       },
       link: link,
       template: template,

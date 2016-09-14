@@ -4,12 +4,13 @@ function electionTypePageRoutes($stateProvider) {
 
   var electionTypePage = {
     name: 'appMain.localePage.electionTypePage',
-    url: '/:electionYear/:electionType/:electionTitle',
+    url: '/:electionYear/:electionType/:electionTypeId/:electionTitle',
     // url: '/:electionYear/:electionType',
-    template: '<locale-election-page type="{{ctrl.electionType}}"></locale-election-page>',
+    template: '<locale-election-page type-id="{{ctrl.electionTypeId}}" type="{{ctrl.electionType}}"></locale-election-page>',
     controller: function($scope, $stateParams) {
       var ctrl = this;
       ctrl.electionType = $stateParams.electionType;
+      ctrl.electionTypeId = $stateParams.electionTypeId;
       ctrl.electionTitle = $stateParams.electionTitle;
     },
     controllerAs: 'ctrl'
