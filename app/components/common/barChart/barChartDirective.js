@@ -5,18 +5,17 @@
  **/
 (function() {
   'use strict';
-  
-  barChartDirective.$inject = ['$window'];
-  function barChartDirective($window) {
+
+  function barChartDirective() {
     var directive = {
       restrict: 'E',
-      scope: {
+      scope: {},
+      bindToController: {
         label: '@',
         value: '@',
       },
       controller: function() {},
       controllerAs: 'odcaBarChart',
-      bindToController: true,
       template: require('./barChart.html')
     };
 
