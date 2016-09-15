@@ -5,6 +5,7 @@
   var coreModules = require('../../../common/core/core');
 
   /* 'electionTypePage' Module Dependencies */
+  var officePageModule = require('./officePageModule/officePage');
   var referendumPageModule = require('./referendumPageModule/referendumPage');
 
   /* Components of 'electionTypePage' */
@@ -15,6 +16,7 @@
   module.exports = angular.module('electionTypePage',
     [
       'coreModules',
+      'officePageModule',
       'referendumPageModule'
     ])
     .config(electionTypePageRoutes)
