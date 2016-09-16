@@ -1,4 +1,4 @@
-(function() {
+// (function() {
   'use strict';
 
   require('../../../vendor/vendor');
@@ -11,8 +11,9 @@
       'ngResource',
       'ngSanitize',
       'ui.router',
+      'ct.ui.router.extras',
       'ui.bootstrap',
       'disclosure'
     ]);
     // .constant('CONSTANTS', appConstants)
-})();
+// })();

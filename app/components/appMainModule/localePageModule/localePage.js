@@ -5,9 +5,11 @@
   require('../../common/core/core');
   require('../../common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
   require('../../common/pageHeader/pageHeader');
-  require('./upcomingElectionsList/upcomingElectionsList');
 
   /* Components of 'localePageModule' */
+  require('./upcomingElectionsList/upcomingElectionsList');
+  require('./electionTypePage/electionTypePage');
+
   var localePageRoutes = require('./localePageRoutes');
   var localePageDirective = require('./localePageDirective');
   var LocalePageController = require('./LocalePageController');
@@ -18,7 +20,8 @@
       'coreModules',
       'pageHeaderBreadcrumbsModule',
       'pageHeaderModule',
-      'upcomingElectionsList'
+      'upcomingElectionsList',
+      'electionTypePage'
     ])
     .config(localePageRoutes)
     .directive('localePage', localePageDirective)

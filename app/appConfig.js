@@ -3,17 +3,20 @@
 
 'use strict';
 
-function appConfig($urlRouterProvider, $locationProvider, $breadcrumbProvider) {
-    $locationProvider.html5Mode(false).hashPrefix('!');
+function appConfig($urlRouterProvider, $locationProvider, $breadcrumbProvider, $stickyStateProvider) {
+  $locationProvider.html5Mode(false).hashPrefix('!');
 
-    // For any unmatched url, redirect to /
-    $urlRouterProvider.otherwise('/');
+  // For any unmatched url, redirect to /
+  $urlRouterProvider.otherwise('/');
 
-    $breadcrumbProvider.setOptions({
-      prefixStateName: 'home',
-      template: 'bootstrap3'
-    });
+  // For route debugging, using ui-router-extras
+  $stickyStateProvider.enableDebug(true);
+
+  $breadcrumbProvider.setOptions({
+    prefixStateName: 'home',
+    template: 'bootstrap3'
+  });
 }
 
-appConfig.$inject = ['$urlRouterProvider', '$locationProvider', '$breadcrumbProvider'];
+appConfig.$inject = ['$urlRouterProvider', '$locationProvider', '$breadcrumbProvider', '$stickyStateProvider'];
 module.exports = appConfig;

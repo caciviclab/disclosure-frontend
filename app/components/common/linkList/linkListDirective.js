@@ -14,7 +14,7 @@
       },
       link: link,
       template: template,
-      controller: function() {
+      controller: function($log, $state) {
         var vm = this;
 
         if (vm.listTitle !== undefined || null) {

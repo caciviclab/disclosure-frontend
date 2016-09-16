@@ -4,17 +4,18 @@ function localePageRoutes($stateProvider) {
 
   var localePage = {
     name: 'appMain.localePage',
-    url: '^/:localeType/:localeId/:localeName',
+    url: '^/:localeType/:localeId/:localeName',   // The ^ character makes this url override the parent url
     // template: '<{{ctrl.localeType}}-page><' + '/' + '{{ctrl.localeType}}' + '-page>',
     // template: '<div ui-view="{{ctrl.localeType}}"></div>',
     template: '<locale-page class="page-fade" locale-name="{{ctrl.localeName}}"></locale-page>',
     controller: function($scope, $stateParams) {
       var ctrl = this;
       ctrl.localeName = $stateParams.localeName;
-      // ctrl.localeType = $stateParams.localeType;
-      // ctrl.localeType = 'city';
+      ctrl.localeType = $stateParams.localeType;
     },
     controllerAs: 'ctrl',
+    deepStateRedirect: true,
+    sticky: true,
     ncyBreadcrumb: {
       // label: 'Locale Page',
       label: '{{ctrl.localeName}}',
@@ -28,25 +29,7 @@ function localePageRoutes($stateProvider) {
     }
   };
 
-  // var city = {
-  //   name: 'appMain.localePage.city',
-  //   // url: '^/city', // The ^ character makes this url override the parent url
-  //   template: '<h1>this is a CITY page</h1>',
-  //   //controller: 'CityPageController',
-  //   ncyBreadcrumb: {
-  //     label: 'City',
-  //     parent: 'appMain'
-  //   },
-  //   data: {
-  //     moduleClasses: 'page',
-  //     pageClasses: 'city',
-  //     pageTitle: 'City',
-  //     pageDescription: 'Some description.'
-  //   }
-  // };
-
   $stateProvider.state(localePage);
-  // $stateProvider.state(city);
 
 }
 

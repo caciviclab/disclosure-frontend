@@ -5,7 +5,7 @@
  * @description
  *
  *
- * @restrict A
+ * @restrict E
  * */
 (function() {
   'use strict';
@@ -19,7 +19,7 @@
       bindToController: {
         linkTitle: '=linkTitle',
         linkSubTitle: '=subTitle',
-        linkUrl: '=linkUrl',
+        toStateReference: '=toState',
         linkDollarAmount: '=dollarAmount',
         avatarImageUrl: '=avatarUrl'
       },

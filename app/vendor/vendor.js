@@ -1,6 +1,7 @@
 'use strict';
 
 var uiRouter = require('angular-ui-router');
+var uiRouterExtras = require('ui-router-extras');
 var angularAnimate = require('angular-animate');
 var angularUiBootstrap = require('angular-ui-bootstrap');
 var angularCookies = require('angular-cookies');
@@ -14,6 +15,7 @@ module.exports = function() {
 
   var vendor = {
     uiRouter: uiRouter,
+    uiRouterExtras: uiRouterExtras,
     angularAnimate: angularAnimate,
     angularUiBootstrap: angularUiBootstrap,
     angularCookies: angularCookies,
