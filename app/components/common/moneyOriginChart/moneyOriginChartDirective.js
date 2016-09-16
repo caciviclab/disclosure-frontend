@@ -1,8 +1,8 @@
 (function() {
   'use strict';
   
-  moneyOriginChart.$inject = [];
-  function moneyOriginChart() {
+  odcaMoneyOriginChart.$inject = [];
+  function odcaMoneyOriginChart() {
     var directive = {
       restrict: 'E',
       scope: {
@@ -21,6 +21,6 @@
 
   }
 
-  module.exports = moneyOriginChart;
+  module.exports = odcaMoneyOriginChart;
 
 })();

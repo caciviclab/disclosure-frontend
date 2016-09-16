@@ -1,6 +1,6 @@
 'use strict';
 
-var moneyOriginChart = angular.module('moneyOriginChartModule', [])
-  .directive('moneyOriginChart', require('./moneyOriginChartDirective'));
+var odcaMoneyOriginChart = angular.module('odcaMoneyOriginChartModule', [])
+  .directive('odcaMoneyOriginChart', require('./moneyOriginChartDirective'));
 
-module.exports = moneyOriginChart;
+module.exports = odcaMoneyOriginChart;
