@@ -21,7 +21,8 @@
         linkSubTitle: '=subTitle',
         toStateReference: '=toState',
         linkDollarAmount: '=dollarAmount',
-        avatarImageUrl: '=avatarUrl'
+        avatarImageUrl: '=avatarUrl',
+        onItemSelected: '&'
       },
       link: link,
       template: template,
