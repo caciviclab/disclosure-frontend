@@ -6,10 +6,12 @@ angular.module('candidate', [
   require('../common'),
   require('../money')
 ])
-  .component('candidatePage', {
+  .directive('candidatePage', {
+    restrict: 'E',
     template: require('./candidate_page.html'),
     controller: CandidatePageController,
-    bindings: {
+    controllerAs: '$ctrl',
+    bindToController: {
       candidate: '=',
       opposing: '=',
       supporting: '='

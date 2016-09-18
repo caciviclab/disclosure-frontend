@@ -6,10 +6,12 @@ require('angular-scroll-animate');
 angular.module('money', [
   'angular-scroll-animate'
 ])
-  .component('moneyByRegion', {
+  .directive('moneyByRegion', {
+    restrict: 'E',
     template: require('./money_by_region.html'),
     controller: MoneyByRegionController,
-    bindings: {
+    controllerAs: '$ctrl',
+    bindToController: {
       color: '@',
       money: '='
     }
