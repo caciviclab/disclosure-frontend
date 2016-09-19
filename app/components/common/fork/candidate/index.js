@@ -3,19 +3,22 @@
 var angular = require('angular');
 
 angular.module('candidate', [
+  require('../candidates'),
   require('../common'),
   require('../money')
 ])
-  .directive('candidatePage', {
-    restrict: 'E',
-    template: require('./candidate_page.html'),
-    controller: CandidatePageController,
-    controllerAs: '$ctrl',
-    bindToController: {
-      candidate: '=',
-      opposing: '=',
-      supporting: '='
-    }
+  .directive('candidatePage', function () {
+    return {
+      restrict: 'E',
+      template: require('./candidate_page.html'),
+      controller: CandidatePageController,
+      controllerAs: '$ctrl',
+      bindToController: {
+        candidate: '=',
+        opposing: '=',
+        supporting: '='
+      }
+    };
   });
 
 function CandidatePageController ($rootScope, pageTitle) {
