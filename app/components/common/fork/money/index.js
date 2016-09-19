@@ -59,9 +59,12 @@ angular.module('money', [
 
         value = parseInt(value) || 0;
 
-        var available_width  = angular.element(element).width() * 2 / 3;
-        var $measure = angular.element(element).find('.money-bar__measure');
-        $measure.width(Math.min(value / ctrl.max * available_width , available_width));
+        var dom_element = element[0];
+        var available_width  = dom_element.clientWidth * 2 / 3;
+        var measure_width = Math.min(value / ctrl.max * available_width , available_width);
+
+        var measure_element = dom_element.getElementsByClassName('money-bar__measure')[0];
+        angular.element(measure_element).css({width: '' + measure_width + 'px'});
       }
     }
   });
