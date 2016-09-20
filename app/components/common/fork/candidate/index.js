@@ -21,7 +21,7 @@ angular.module('candidate', [
     };
   });
 
-function CandidatePageController ($rootScope, pageTitle) {
+function CandidatePageController (pageTitle) {
   var ctrl = this;
   ctrl.onVisible = onVisible;
 

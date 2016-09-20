@@ -3,7 +3,7 @@
 var angular = require('angular');
 
 angular.module('common.url', [])
-  .filter('url', function (base_url) {
+  .filter('url', function ($httpParamSerializer, base_url) {
     return urlFilter;
 
     function urlFilter (path, query) {
@@ -11,10 +11,7 @@ angular.module('common.url', [])
 
       // If relative path, prefix it with base_url
       var url = /^https?:\/\//.test(path) ? path : base_url + '/#!' + path;
-
-      var querystring = Object.keys(query).map(function (param) {
-        return param + '=' + encodeURIComponent(query[param]);
-      }).join('&');
+      var querystring = $httpParamSerializer(query);
 
       if (querystring) {
         url = url + '?' + querystring;
