@@ -10,7 +10,7 @@
  * @requires $log, $state, referendumPageFactory
  * */
 
-function ReferendumPageController($log, $state, $stateParams, referendumPageFactory) {
+function ReferendumPageController($log, $state, $stateParams, referendumPageFactory, static_api) {
   var metaData = {};
   // var uiRouterParams = localeStateDataStore.getStateData();
   var referendumPageData = referendumPageFactory.getReferendumPageData();
@@ -18,6 +18,10 @@ function ReferendumPageController($log, $state, $stateParams, referendumPageFact
   var referendum = this;
   referendum.state = $state;
   referendum.referendumTypeId = $state.params.electionTypeId;
+
+  //TODO move these to resolve
+  referendum.supporting = static_api.referendum.supporting({referendum_id: referendum.referendumTypeId});
+  referendum.opposing = static_api.referendum.opposing({referendum_id: referendum.referendumTypeId});
 
   referendum.referendumData = referendumPageData;
   $log.info('REFERENDUM PAGE DATA = ', referendum.referendumData);
@@ -35,5 +39,5 @@ function ReferendumPageController($log, $state, $stateParams, referendumPageFact
 
 }
 
-ReferendumPageController.$inject = ['$log', '$state', '$stateParams', 'referendumPageFactory'];
+ReferendumPageController.$inject = ['$log', '$state', '$stateParams', 'referendumPageFactory', 'static_api'];
 module.exports = ReferendumPageController;
