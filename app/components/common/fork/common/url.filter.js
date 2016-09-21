@@ -3,6 +3,7 @@
 var angular = require('angular');
 
 angular.module('common.url', [])
+  .constant('base_url', '') //TODO remove this
   .filter('url', function ($httpParamSerializer, base_url) {
     return urlFilter;
 

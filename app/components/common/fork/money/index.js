@@ -6,15 +6,18 @@ require('angular-scroll-animate');
 angular.module('money', [
   'angular-scroll-animate'
 ])
-  .directive('moneyByRegion', {
-    restrict: 'E',
-    template: require('./money_by_region.html'),
-    controller: MoneyByRegionController,
-    controllerAs: '$ctrl',
-    bindToController: {
-      color: '@',
-      money: '='
-    }
+  .directive('moneyByRegion', function () {
+    return {
+      restrict: 'E',
+      template: require('./money_by_region.html'),
+      controller: MoneyByRegionController,
+      controllerAs: '$ctrl',
+      bindToController: true,
+      scope: {
+        color: '@',
+        money: '='
+      }
+    };
   })
   .filter('dollar', function ($filter) {
     // Shortcut for whole-dollar formatting

@@ -1,21 +1,26 @@
 'use strict';
 
 var angular = require('angular');
-var utils = require('../utils');
 
 angular.module('referendum.money', [
-  require('../money')
+  require('../fork/money'),
+  require('../array_update')
 ])
-  .component('referendumMoney', {
-    template: require('./referendum_money.html'),
-    controller: ReferendumMoneyController,
-    bindings: {
-      referendum: '=',
-      money: '='
-    }
+  .directive('referendumMoney', function () {
+    return {
+      restrict: 'E',
+      template: require('./referendum_money.html'),
+      controller: ReferendumMoneyController,
+      controlerAs: '$ctrl',
+      bindToController: true,
+      scope: {
+        referendum: '=',
+        money: '='
+      }
+    };
   });
 
-function ReferendumMoneyController ($routeParams, $q, $scope) {
+function ReferendumMoneyController ($routeParams, $q, $scope, array_update) {
   var ctrl = this;
   ctrl.support_oppose = $routeParams.support_oppose;
   ctrl.committees = [];
@@ -36,7 +41,7 @@ function ReferendumMoneyController ($routeParams, $q, $scope) {
       money.supporting_organizations :
       money.opposing_organizations;
 
-    utils.array_update(ctrl.committees, committees);
+    array_update(ctrl.committees, committees);
   }
 }
 

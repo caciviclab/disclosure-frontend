@@ -10,7 +10,8 @@ angular.module('candidates', [
       controllerAs: '$ctrl',
       controller: CandidateProfileController,
       template: require('./candidate_profile.html'),
-      bindToController: {
+      bindToController: true,
+      scope: {
         candidate: '='
       }
     };
