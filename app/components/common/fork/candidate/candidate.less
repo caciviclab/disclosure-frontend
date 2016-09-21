@@ -1,0 +1,72 @@
+.candidate-profile {
+  margin-bottom: 2rem;
+}
+
+.candidate-profile__info {
+  margin-bottom: 1rem;
+}
+
+.candidate-profile__photo {
+  display: inline-block;
+  margin-right: 1rem;
+  width: 16rem;
+
+  img {
+    width: 100%;
+  }
+}
+
+.candidate-profile__info-content {
+  display: inline-block;
+  line-height: 1.4;
+  max-width: calc(100% - 18rem);
+  min-width: 28rem;
+  vertical-align: bottom;
+}
+
+.candidate-profile__twitter,
+.candidate-profile__website {
+  overflow-x: hidden;
+  text-overflow: ellipsis;
+}
+
+.candidate-profile__bio:extend(.text-serif) {
+}
+
+.candidate__money:extend(.text-large, .text-serif) {
+  margin: 1rem 0;
+  clear: both;
+
+  .money {
+    float: right;
+    text-align: right;
+  }
+}
+
+.candidate__money--contributions {
+  color: @color-green;
+}
+
+.candidate__money--expenditures {
+  color: @color-red;
+
+  .money {
+    &::before {
+      content: '\2796'
+    }
+  }
+}
+
+.candidate__money--loans {
+  color: @color-blue;
+
+  .money {
+    &::before {
+      content: '\2795'
+    }
+  }
+}
+
+.candidate__money--current-balance {
+  color: @core-grey-4;
+}

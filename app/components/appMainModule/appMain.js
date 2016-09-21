@@ -28,6 +28,7 @@
       'appMainNavModule',
       'appMainFooterModule',
       'pageHeaderBreadcrumbsModule',
+      require('../common/fork'),
       'localePageModule',
       'examplePage1Module',
       'aboutPageModule',

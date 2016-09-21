@@ -1,0 +1,16 @@
+<div class="candidate-list-item">
+  <a ng-href="{{ '/candidate/' + $ctrl.candidate.id | url }}" class="odca-list-item__link">
+    <div class="odca-list-item__content">
+      <div class="candidate__photo">
+        <img ng-src="{{ $ctrl.candidate | candidate_photo }}" alt="{{ $ctrl.candidate.name }}">
+      </div>
+      <div class="candidate__info">
+        <div class="candidate__name">{{ $ctrl.candidate.name }}</div>
+        <div ng-if="$ctrl.candidate.total_contributions" class="candidate__contributions">
+          <span class="hidden-xs">amount collected </span><span class="money text-grey-1">{{ $ctrl.candidate.total_contributions | dollar }}</span>
+        </div>
+      </div>
+    </div>
+      <div class="odca-list-item__chevron"></div>
+  </a>
+</div>

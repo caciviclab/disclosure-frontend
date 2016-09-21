@@ -10,7 +10,7 @@
  * @requires $log, $state, officePageFactory
  * */
 
-function OfficePageController($log, $state, officePageFactory) {
+function OfficePageController($interpolate, $log, $state, officePageFactory) {
   // var uiRouterParams = localeStateDataStore.getStateData();
   // var officePageData = officePageFactory.getOfficePageData();
   var officePageData = {};
@@ -48,13 +48,14 @@ function OfficePageController($log, $state, officePageFactory) {
     item.avatarUrl = candidateObject.photo_url;
     item.dollarAmount = null;   //TODO: add in total dollar amounts for candidates
 
-    //TODO: add in candidate state for toStateReference!
-    //temporary state so ui-router doesn't throw an error:
-    item.toStateReference = 'appMain.localePage.electionTypePage.officeElection';
+    item.toState = $interpolate('appMain.localePage.candidate({electionYear: "{{ electionYear }}", candidateId: "{{ candidateId }}" })')({
+      electionYear: $state.params.electionYear,
+      candidateId: candidateObject.id
+    });
     return item;
   }
 
 }
 
-OfficePageController.$inject = ['$log', '$state', 'officePageFactory'];
+OfficePageController.$inject = ['$interpolate', '$log', '$state', 'officePageFactory'];
 module.exports = OfficePageController;

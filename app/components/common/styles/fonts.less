@@ -54,9 +54,68 @@
 }
 
 .text-semibold {
-  font-weight: 600;
+  font-weight: 500;
 }
 
 .text-bold {
   font-weight: 700;
+}
+
+.component__heading:extend(.text-small, .text-semibold) {
+  line-height: 2;
+}
+
+.text-xsmall {
+  font-size: 1.8rem;
+}
+
+.text-small {
+  font-size: 2rem;
+}
+
+.text-medium {
+  font-size: 2.2rem;
+}
+
+.text-large {
+  font-size: 2.4rem;
+}
+
+.text-xlarge {
+  font-size: 2.6rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-blue {
+  color: @brand-primary;
+}
+
+.text-grey-1 {
+  color: @core-grey-1;
+}
+
+.text-grey-2 {
+  color: @core-grey-2;
+}
+
+.text-grey-3 {
+  color: @core-grey-3;
+}
+
+.text-grey-4 {
+  color: @core-grey-4;
+}
+
+.text-grey-5 {
+  color: @core-grey-5;
+}
+
+.text-serif:extend(.creteRound-font-family) {
+}
+
+.text-nowrap {
+  white-space: nowrap;
 }
