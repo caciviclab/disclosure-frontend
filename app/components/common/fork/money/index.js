@@ -22,7 +22,7 @@ angular.module('money', [
   .filter('dollar', function ($filter) {
     // Shortcut for whole-dollar formatting
     return function (money) {
-      return $filter('currency')(money, '$', 0);
+      return $filter('currency')(money || 0, '$', 0);
     };
   })
   .directive('moneyBar', function ($timeout, $window) {
