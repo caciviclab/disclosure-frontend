@@ -92,6 +92,7 @@
     "angular-filter": "^0.5.9",
     "angular-resource": "1.4.9",
     "angular-sanitize": "1.4.9",
+    "angular-scroll-animate": "^0.9.9",
     "angular-ui-bootstrap": "^1.2.5",
     "angular-ui-router": "^0.2.18",
     "animate.css": "^3.5.1",

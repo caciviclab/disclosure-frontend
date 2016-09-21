@@ -7,6 +7,7 @@
   /* 'electionTypePage' Module Dependencies */
   var officePageModule = require('./officePageModule/officePage');
   var referendumPageModule = require('./referendumPageModule/referendumPage');
+  var candidatePageModule = require('./candidatePageModule/candidatePage');
 
   /* Components of 'electionTypePage' */
   var electionTypePageRoutes = require('./electionTypePageRoutes');
@@ -17,7 +18,8 @@
     [
       'coreModules',
       'officePageModule',
-      'referendumPageModule'
+      'referendumPageModule',
+      'candidatePageModule'
     ])
     .config(electionTypePageRoutes)
     .directive('localeElectionPage', electionTypePageDirective)

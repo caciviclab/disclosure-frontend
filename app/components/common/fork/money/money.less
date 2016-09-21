@@ -1,0 +1,43 @@
+money-bar {
+  display: block; // block display so we can calculate width
+
+  .money-bar__measure {
+    background-color: @color-blue;
+    display: inline-block;
+    height: 2rem;
+    margin-right: 1rem;
+    min-width: 5px;
+    transition: 1.5s cubic-bezier(0, 0, 0.05, 1) width;
+
+    // For animations
+    .is-off-screen & {
+      width: 5px !important;
+    }
+  }
+
+  .money-bar__measure--red {
+    background-color: @color-red;
+  }
+
+  .money-bar__measure--green {
+    background-color: @color-green;
+  }
+
+  .money-bar__value {
+    @include .number;
+    color: @core-grey-3;
+    display: inline-block;
+    vertical-align: top;
+  }
+}
+
+.money-by-region {
+  margin-bottom: 2rem;
+  color: @core-grey-3;
+
+  .money-by-region__heading {
+    @include .component__heading;
+  }
+}
+
+
