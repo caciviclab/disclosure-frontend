@@ -1,8 +1,6 @@
 'use strict';
 
-var angular = require('angular');
-
-angular.module('scroll_top', [])
+angular.module('odca.scroll_top', [])
   .run(function ($anchorScroll, $rootScope) {
 
     // Scroll to the top of page on route change
@@ -11,4 +9,4 @@ angular.module('scroll_top', [])
     });
   });
 
-module.exports = 'scroll_top';
+module.exports = 'odca.scroll_top';
