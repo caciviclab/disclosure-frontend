@@ -1,6 +1,9 @@
 'use strict';
 
-angular.module('candidatePageModule', []) // cheating here, the campaignFinanceApp has already pulled in our dependencies
+angular.module('candidatePageModule', [
+  require('../../../../common/candidate'),
+  require('../../../../common/static'),
+])
   .config(require('./candidatePageRoutes'));
 
 module.exports = 'candidatePageModule';

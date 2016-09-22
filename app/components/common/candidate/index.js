@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular.module('candidate', [
   require('../candidates'),
-  require('../common'),
+  require('../page_title'),
   require('../money')
 ])
   .directive('candidatePage', function () {
