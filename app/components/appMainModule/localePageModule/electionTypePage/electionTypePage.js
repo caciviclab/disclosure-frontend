@@ -16,6 +16,7 @@
 
   module.exports = angular.module('electionTypePage',
     [
+      require('../../../common/referendum'),
       'coreModules',
       'officePageModule',
       'referendumPageModule',
