@@ -6,5 +6,26 @@
 
 <odca-text-blurb title="Abstract" body="{{referendum.metaData.summary}}"></odca-text-blurb>
 
+<div class="section">
+  <h3 class="section-header">Money supporting the measure <span class="section-header__subtext">{{ referendum.supporting.total_contributions | dollar }}</span></h3>
+  <money-by-region money="referendum.supporting.contributions_by_region" color="green"></money-by-region>
+  <div class="see-more" ng-if="!!referendum.supporting.supporting_organizations.length">
+    <a class="see-more__content" ng-href="{{ '/referendum/' + referendum.referendum.id + '/supporting' | url }}">{{ referendum.supporting.supporting_organizations.length }} supporting <span class="text-nowrap">committees <span class="fa fa-chevron-right"></span></span></a>
+  </div>
+  <div class="see-more" ng-if="!referendum.supporting.supporting_organizations.length">
+    No data on supporting committees
+  </div>
+</div>
+<div class="section">
+  <h3 class="section-header">Money opposing the measure <span class="section-header__subtext">{{ referendum.opposing.total_contributions | dollar }}</span></h3>
+  <money-by-region money="referendum.opposing.contributions_by_region" color="red"></money-by-region>
+  <div class="see-more" ng-if="!!referendum.opposing.opposing_organizations.length">
+    <a class="see-more__content" ng-href="{{ '/referendum/' + referendum.referendum.id + '/opposing' | url }}">{{ referendum.opposing.opposing_organizations.length }} opposing <span class="text-no-break">committees <span class="fa fa-chevron-right"></span></span></a>
+  </div>
+  <div class="see-more" ng-if="!referendum.opposing.opposing_organizations.length">
+    No data on opposing committees
+  </div>
+</div>
+
 <!--<br>-->
 <!--<pre>{{referendum.referendumData | json}}</pre>-->

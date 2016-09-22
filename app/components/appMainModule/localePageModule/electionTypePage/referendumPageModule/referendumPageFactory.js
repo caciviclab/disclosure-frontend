@@ -1,6 +1,6 @@
 'use strict';
 
-var referendumPageFactory = function($log, $http, $q, CONSTANTS) {
+var referendumPageFactory = function($log, $q, static_api, CONSTANTS) {
   var apiBasePath = CONSTANTS.DISCLOSURE_API_BASEURL;
   var apiEndpoint = '/referendum';
 
@@ -14,9 +14,7 @@ var referendumPageFactory = function($log, $http, $q, CONSTANTS) {
   return service;
 
   function getReferendumMetaData(referendumId) {
-    return $http.get(apiBasePath + apiEndpoint + '/' + referendumId)
-      .then(getReferendumDataComplete)
-      // .then(storeReferendumData('metaData', data))
+    return static_api.referendum.get({referendum_id: referendumId}).$promise
       .then(function (data) {
         referendumPageData.metaData = data;
         $log.info('data from getReferendumMetaData() = ', referendumPageData.metaData);
@@ -25,16 +23,8 @@ var referendumPageFactory = function($log, $http, $q, CONSTANTS) {
       .catch(getReferendumDataFailed);
   }
 
-  // function storeReferendumData(objectTitle, dataObjectToStore) {
-  //   referendumPageData[objectTitle] = dataObjectToStore;
-  // }
-
   function getReferendumPageData() {
     return referendumPageData;
-  }
-
-  function getReferendumDataComplete(data) {
-    return data.data;
   }
 
   function getReferendumDataFailed(e) {
@@ -48,5 +38,5 @@ var referendumPageFactory = function($log, $http, $q, CONSTANTS) {
   }
 };
 
-referendumPageFactory.$inject = ['$log', '$http', '$q', 'CONSTANTS'];
+referendumPageFactory.$inject = ['$log', '$q', 'static_api', 'CONSTANTS'];
 module.exports = referendumPageFactory;

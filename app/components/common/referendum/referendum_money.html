@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h1 ng-if="$ctrl.is_supporting">Supporters of Measure {{ $ctrl.referendum.number }}</h1>
+      <h1 ng-if="!$ctrl.is_supporting">Opponents of Measure {{ $ctrl.referendum.number }}</h1>
+      <div class="divided-section money-summary">
+        <h2 class="money-summary__header">Money {{ $ctrl.support_oppose }} the measure</h2>
+        <div class="money-summary__money"><span class="money">{{ $ctrl.money.total_contributions | dollar }}</span></div>
+      </div>
+      <div class="divided-section">
+        <ul class="odca-list committee-list">
+          <li ng-repeat="committee in $ctrl.committees" class="odca-list-item">
+            <a ng-href="{{ '/committee/' + committee.id  | url }}" class="odca-list-item__link">
+              <div class="odca-list-item__content">
+                <div class="committee-list__name">{{ committee.name }}</div>
+                <div class="committee-list__money">
+                  <div class="row">
+                    <div class="col-xs-8">
+                      <div class="committee-list__money-bar">
+                        <money-bar value="{{ committee.amount }}" max="{{ $ctrl.money.total_contributions }}" color="green" format="percentage"></money-bar>
+                      </div>
+                    </div>
+                    <div class="col-xs-4">
+                      <div class="committee-list__money-value">
+                        <span class="money">{{ committee.amount | dollar }}</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="odca-list-item__chevron"></div></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

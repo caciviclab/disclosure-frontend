@@ -13,7 +13,8 @@ angular.module('candidate', [
       template: require('./candidate_page.html'),
       controller: CandidatePageController,
       controllerAs: '$ctrl',
-      bindToController: {
+      bindToController: true,
+      scope: {
         candidate: '=',
         opposing: '=',
         supporting: '='

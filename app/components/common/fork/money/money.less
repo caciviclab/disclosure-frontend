@@ -24,7 +24,7 @@ money-bar {
   }
 
   .money-bar__value {
-    @include .number;
+    &:extend(.number);
     color: @core-grey-3;
     display: inline-block;
     vertical-align: top;
@@ -36,7 +36,7 @@ money-bar {
   color: @core-grey-3;
 
   .money-by-region__heading {
-    @include .component__heading;
+    &:extend(.component__heading);
   }
 }
 
