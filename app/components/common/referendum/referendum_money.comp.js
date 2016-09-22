@@ -11,7 +11,7 @@ angular.module('referendum.money', [
       restrict: 'E',
       template: require('./referendum_money.html'),
       controller: ReferendumMoneyController,
-      controlerAs: '$ctrl',
+      controllerAs: '$ctrl',
       bindToController: true,
       scope: {
         referendum: '=',
@@ -20,9 +20,9 @@ angular.module('referendum.money', [
     };
   });
 
-function ReferendumMoneyController ($routeParams, $q, $scope, array_update) {
+function ReferendumMoneyController ($stateParams, $q, $scope, array_update) {
   var ctrl = this;
-  ctrl.support_oppose = $routeParams.support_oppose;
+  ctrl.support_oppose = $stateParams.support_or_oppose;
   ctrl.committees = [];
   ctrl.total_contributions = 0;
 
