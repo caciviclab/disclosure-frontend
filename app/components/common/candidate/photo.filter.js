@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-angular.module('candidates.photo', [
+angular.module('odca.candidates.photo', [
   require('../assets')
 ])
   .filter('candidate_photo', function (assets) {
@@ -17,4 +17,4 @@ angular.module('candidates.photo', [
     }
   });
 
-module.exports = 'candidates.photo';
+module.exports = 'odca.candidates.photo';

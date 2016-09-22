@@ -3,10 +3,10 @@
 var angular = require('angular');
 require('angular-scroll-animate');
 
-angular.module('money', [
+angular.module('odca.money', [
   'angular-scroll-animate'
 ])
-  .directive('moneyByRegion', function () {
+  .directive('odcaMoneyByRegion', function () {
     return {
       restrict: 'E',
       template: require('./money_by_region.html'),
@@ -25,7 +25,7 @@ angular.module('money', [
       return $filter('currency')(money || 0, '$', 0);
     };
   })
-  .directive('moneyBar', function ($timeout, $window) {
+  .directive('odcaMoneyBar', function ($timeout, $window) {
     return {
       template: require('./money_bar.html'),
       controller: MoneyBarController,
@@ -120,4 +120,4 @@ function MoneyByRegionController ($scope) {
   }
 }
 
-module.exports = 'money';
+module.exports = 'odca.money';

@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-angular.module('candidate', [
+angular.module('odca.candidate', [
   require('./photo.filter'),
   require('../page_title'),
   require('../money')
 ])
-  .directive('candidatePage', function () {
+  .directive('odcaCandidatePage', function () {
     return {
       restrict: 'E',
       template: require('./candidate_page.html'),
@@ -21,7 +21,7 @@ angular.module('candidate', [
       }
     };
   })
-  .directive('candidateProfile', function () {
+  .directive('odcaCandidateProfile', function () {
     return {
       restrict: 'E',
       controllerAs: '$ctrl',
@@ -57,4 +57,4 @@ function CandidatePageController (pageTitle) {
   }
 }
 
-module.exports = 'candidate';
+module.exports = 'odca.candidate';
