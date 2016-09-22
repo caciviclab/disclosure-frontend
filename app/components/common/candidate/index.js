@@ -3,7 +3,7 @@
 var angular = require('angular');
 
 angular.module('candidate', [
-  require('../candidates'),
+  require('./photo.filter'),
   require('../page_title'),
   require('../money')
 ])
@@ -20,7 +20,25 @@ angular.module('candidate', [
         supporting: '='
       }
     };
+  })
+  .directive('candidateProfile', function () {
+    return {
+      restrict: 'E',
+      controllerAs: '$ctrl',
+      controller: CandidateProfileController,
+      template: require('./candidate_profile.html'),
+      bindToController: true,
+      scope: {
+        candidate: '='
+      }
+    };
   });
+
+
+// Required for conrollerAs/bindToController
+function CandidateProfileController () {
+}
+
 
 function CandidatePageController (pageTitle) {
   var ctrl = this;

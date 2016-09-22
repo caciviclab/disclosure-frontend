@@ -3,7 +3,7 @@
 var angular = require('angular');
 
 angular.module('candidates.photo', [
-  require('../common')
+  require('../assets')
 ])
   .filter('candidate_photo', function (assets) {
     return candidatePhoto;

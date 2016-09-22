@@ -11,6 +11,7 @@ var officePageFactory = require('./officePageFactory');
 
 module.exports = angular.module('officePageModule',
   [
+    require('../../../../common/candidate'),
     'coreModules',
     'pageHeaderModule',
     'linkList'
