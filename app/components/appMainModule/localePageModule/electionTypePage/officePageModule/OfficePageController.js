@@ -10,7 +10,7 @@
  * @requires $log, $state, officePageFactory
  * */
 
-function OfficePageController($interpolate, $log, $state, officePageFactory) {
+function OfficePageController($filter, $interpolate, $log, $state, officePageFactory) {
   // var uiRouterParams = localeStateDataStore.getStateData();
   // var officePageData = officePageFactory.getOfficePageData();
   var officePageData = {};
@@ -45,7 +45,7 @@ function OfficePageController($interpolate, $log, $state, officePageFactory) {
     var item = {};
     item.linkTitle = candidateObject.name;
     item.subTitle = 'amount collected';
-    item.avatarUrl = candidateObject.photo_url;
+    item.avatarUrl = $filter('candidate_photo')(candidateObject);
     item.dollarAmount = null;   //TODO: add in total dollar amounts for candidates
 
     item.toState = $interpolate('appMain.localePage.candidate({electionYear: "{{ electionYear }}", candidateId: "{{ candidateId }}" })')({
@@ -57,5 +57,5 @@ function OfficePageController($interpolate, $log, $state, officePageFactory) {
 
 }
 
-OfficePageController.$inject = ['$interpolate', '$log', '$state', 'officePageFactory'];
+OfficePageController.$inject = ['$filter', '$interpolate', '$log', '$state', 'officePageFactory'];
 module.exports = OfficePageController;
