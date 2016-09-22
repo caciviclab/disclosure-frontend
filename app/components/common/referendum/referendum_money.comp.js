@@ -3,7 +3,7 @@
 var angular = require('angular');
 
 angular.module('referendum.money', [
-  require('../fork/money'),
+  require('../money'),
   require('../array_update')
 ])
   .directive('referendumMoney', function () {
