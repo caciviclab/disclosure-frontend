@@ -34,6 +34,7 @@
 
 .hero {
   &:extend(.jumbotron);
+  background-color: inherit;
 }
 
 .hero__header {
@@ -44,16 +45,25 @@
 
 .hero__description {
   line-height: 1.5;
-  margin-bottom: 6rem;
 }
 
 .hero__cta {
+  margin-top: 6rem;
   text-align: center;
+}
+
+.hero__cta-description {
+  &:extend(.text-serif);
+  &:extend(.text-xlarge);
+  color: @core-grey-2;
+  font-style: italic;
+  margin: 1rem 0 2rem;
 }
 
 .hero__cta-link {
   &:extend(.text-semibold);
   background-color: @color-gold;
+  border: 1px solid @core-grey-5;
   border-radius: 4px;
   color: @core-grey-2;
   display: inline-block;
