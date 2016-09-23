@@ -31,3 +31,59 @@
   bottom: 0;
   width: 100%;
 }
+
+.hero {
+  &:extend(.jumbotron);
+}
+
+.hero__header {
+  color: @white;
+  font-style: italic;
+  text-shadow: 0 2px 3px rgba(30, 30, 30, 0.8);
+}
+
+.hero__description {
+  line-height: 1.5;
+  margin-bottom: 6rem;
+}
+
+.hero__cta {
+  text-align: center;
+}
+
+.hero__cta-link {
+  &:extend(.text-semibold);
+  background-color: @color-gold;
+  border-radius: 4px;
+  color: @core-grey-2;
+  display: inline-block;
+  padding: 1rem;
+
+  &:hover {
+    color: @core-grey-1;
+    text-decoration: none;
+  }
+}
+
+.hero--sacremento {
+  background-image: url("../images/sacremento-capital-splash.png");
+  background-position: bottom;
+  background-size: cover;
+  color: @white;
+  position: relative;
+
+  & .panel {
+    color: initial;
+  }
+
+  // dark overlay
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.2);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
