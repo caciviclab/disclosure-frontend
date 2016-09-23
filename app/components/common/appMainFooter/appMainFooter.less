@@ -1,10 +1,15 @@
 .appMainFooter {
-  background-color: @body-bg;
-  position: relative;
-  width: 100%;
+  .odca-border;
+  background-color: @core-grey-5;
   min-height: 20px;
   margin-top: 15px;
   box-sizing: border-box;
+}
+
+.appMainFooter__brand {
+  &:extend(.text-serif);
+  &:extend(.text-xlarge);
+  margin-bottom: 0.5rem;
 }
 
 .appMainFooter-row {
@@ -25,13 +30,18 @@
 
 .appMainFooter-linksList {
   margin-bottom: 0;
+  padding-left: 0;
+
+  li {
+    list-style: none;
+    margin-bottom: 0.5rem;
+  }
 }
 
 .appMainFooter-linksList--link {
-  color: lighten(@headings-color, 15.5%);
+  cursor: pointer;
   font-size: 16px;
   text-decoration: none;
-  cursor: pointer;
 
   &:hover {
     color: @headings-color;
