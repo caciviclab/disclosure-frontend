@@ -34,6 +34,11 @@ function OfficePageController($filter, $interpolate, $log, $state, officePageFac
   }
 
   function createCandidatesList(candidatesArray) {
+    // Sort candidates by contribution total
+    candidatesArray.sort(function(a, b) {
+      return b.supporting_money.contributions_received - a.supporting_money.contributions_received;
+    });
+
     angular.forEach(candidatesArray, function(candidate) {
       var candidateListItem = {};
       candidateListItem = createCandidateListItem(candidate);
