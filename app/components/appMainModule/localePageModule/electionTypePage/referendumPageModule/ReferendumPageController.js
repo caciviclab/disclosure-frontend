@@ -10,7 +10,7 @@
  * @requires $log, $state, referendumPageFactory
  * */
 
-function ReferendumPageController($log, $state, $stateParams, referendumPageFactory, static_api) {
+function ReferendumPageController($log, $state, $stateParams, pageMetadata, referendumPageFactory, static_api) {
   var metaData = {};
   // var uiRouterParams = localeStateDataStore.getStateData();
   var referendumPageData = referendumPageFactory.getReferendumPageData();
@@ -34,10 +34,15 @@ function ReferendumPageController($log, $state, $stateParams, referendumPageFact
         referendum.metaData = metaData;
         // referendum.referendumTitle = metaData.title;
         $log.info('REFERENDUM META DATA! = ', metaData);
+
+        pageMetadata({
+          title: metaData.title,
+          description: metaData.summary
+        });
       });
   }
 
 }
 
-ReferendumPageController.$inject = ['$log', '$state', '$stateParams', 'referendumPageFactory', 'static_api'];
+ReferendumPageController.$inject = ['$log', '$state', '$stateParams', 'pageMetadata', 'referendumPageFactory', 'static_api'];
 module.exports = ReferendumPageController;

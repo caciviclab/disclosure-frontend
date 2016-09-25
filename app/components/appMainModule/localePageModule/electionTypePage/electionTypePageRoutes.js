@@ -51,7 +51,15 @@ function electionTypePageRoutes($stateProvider) {
     ncyBreadcrumb: {
       label: '{{ctrl.support_or_oppose}}',
       parent: 'appMain.localePage.electionTypePage'
-    }
+    },
+    onEnter: ['$state', 'pageMetadata', 'referendum', function ($state, pageMetadata, referendum) {
+      referendum.$promise.then(function(referendum) {
+        var title = $state.params.support_or_oppose === 'supporting' ?
+          'Supporters of measure ' + referendum.number :
+          'Opponents of measure ' + referendum.number;
+        pageMetadata({title: title, description: referendum.summary});
+      });
+    }]
   };
 
   $stateProvider.state(electionTypePage);

@@ -12,8 +12,7 @@ function appRoutes($stateProvider) {
     data: {
       moduleClasses: 'page', // assign a module class to the <body> tag
       pageClasses: 'home', // assign a page-specific class to the <body> tag
-      pageTitle: 'Home', // set the title in the <head> section of the index.html file
-      pageDescription: 'Meta Description goes here' // meta description in <head>
+      pageTitle: 'Home' // set the title in the <head> section of the index.html file
     }
   };
 
@@ -35,8 +34,7 @@ function appRoutes($stateProvider) {
     data: {
       moduleClasses: 'page', // assign a module class to the <body> tag
       pageClasses: 'aboutPage', // assign a page-specific class to the <body> tag
-      pageTitle: 'About', // set the title in the <head> section of the index.html file
-      pageDescription: 'Meta Description goes here' // meta description in <head>
+      pageTitle: 'About' // set the title in the <head> section of the index.html file
     }
   };
 
@@ -51,8 +49,7 @@ function appRoutes($stateProvider) {
     data: {
       moduleClasses: 'page', // assign a module class to the <body> tag
       pageClasses: 'faqPage', // assign a page-specific class to the <body> tag
-      pageTitle: 'Frequently Asked Questions', // set the title in the <head> section of the index.html file
-      pageDescription: 'Meta Description goes here' // meta description in <head>
+      pageTitle: 'Frequently Asked Questions' // set the title in the <head> section of the index.html file
     }
   };
 

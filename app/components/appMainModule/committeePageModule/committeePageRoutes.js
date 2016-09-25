@@ -25,10 +25,13 @@ function committeePageRoutes($stateProvider) {
     },
     data: {
       moduleClasses: 'page',
-      pageClasses: 'committee',
-      pageTitle: 'Committee',
-      pageDescription: 'A campaign committee.'
-    }
+      pageClasses: 'committee'
+    },
+    onEnter: ['committee', 'pageMetadata', function(committee, pageMetadata) {
+      committee.$promise.then(function(committee) {
+        pageMetadata({title: committee.name});
+      });
+    }]
   });
 
   $stateProvider.state({
@@ -63,9 +66,7 @@ function committeePageRoutes($stateProvider) {
     },
     data: {
       moduleClasses: 'page',
-      pageClasses: 'contributors',
-      pageTitle: 'Committee contributors',
-      pageDescription: 'Contributors to a campaign committee.'
+      pageClasses: 'contributors'
     }
   });
 }

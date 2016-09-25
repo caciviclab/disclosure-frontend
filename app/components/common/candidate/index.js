@@ -40,13 +40,9 @@ function CandidateProfileController () {
 }
 
 
-function CandidatePageController (pageMetadata) {
+function CandidatePageController () {
   var ctrl = this;
   ctrl.onVisible = onVisible;
-
-  ctrl.candidate.$promise.then(function (candidate) {
-    pageMetadata(candidate.name);
-  });
 
   ctrl.supporting.$promise.then(function (supporting) {
     ctrl.current_balance = supporting.total_contributions - supporting.total_expenditures + supporting.total_loans_received;

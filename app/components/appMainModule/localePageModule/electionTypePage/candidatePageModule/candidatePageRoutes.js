@@ -26,7 +26,12 @@ function candidateRoutes ($stateProvider) {
       opposing: function ($stateParams, static_api) {
         return static_api.candidate.opposing({candidate_id: $stateParams.candidateId});
       }
-    }
+    },
+    onEnter: ['$state', 'candidate', 'pageMetadata', function($state, candidate, pageMetadata) {
+      candidate.$promise.then(function(candidate) {
+        pageMetadata({title: candidate.name});
+      });
+    }]
   });
 }
 
