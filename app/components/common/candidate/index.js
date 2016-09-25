@@ -4,7 +4,7 @@ var angular = require('angular');
 
 angular.module('odca.candidate', [
   require('./photo.filter'),
-  require('../page_title'),
+  require('../page_metadata'),
   require('../money')
 ])
   .directive('odcaCandidatePage', function () {
@@ -40,12 +40,12 @@ function CandidateProfileController () {
 }
 
 
-function CandidatePageController (pageTitle) {
+function CandidatePageController (pageMetadata) {
   var ctrl = this;
   ctrl.onVisible = onVisible;
 
   ctrl.candidate.$promise.then(function (candidate) {
-    pageTitle(candidate.name);
+    pageMetadata(candidate.name);
   });
 
   ctrl.supporting.$promise.then(function (supporting) {
