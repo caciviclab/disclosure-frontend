@@ -1,39 +1,39 @@
 <app-main-nav></app-main-nav>
 
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="text-center">
-        <h1 class="serif">Open Disclosure<br><span class="homepageText-header-brandPrimary">California</span></h1>
-        <p class="homepageText-subheader">Bringing Campaign Money to Light</p>
+<div class="hidden-xs hero hero--sacremento">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-12">
+        <h1 class="hero__header">California’s online source for local campaign finance data</h1>
+        <p class="hero__description">
+          We provide transparent, non-partisan campaign contribution and
+          expenditure data in an accessible and easy to understand format. We
+          hope this site will engage the voting public and raise awareness and
+          accountability. Ultimately, this is one step toward shifting politics
+          into a movement of civic engagement and ultimate citizen action.
+        </p>
+        <div class="hero__cta row">
+          <a class="hero__cta-link col-sm-6 col-sm-offset-3" ui-sref="appMain.localePage({localeId: '2', localeName: 'oakland', localeType: 'city'})">View Oakland ballot</a>
+        </div>
       </div>
     </div>
   </div>
 </div>
 
-<div class="container homepageSearchContainer">
+
+<div class="visible-xs-block container">
   <div class="row">
-    <div class="col-xs-12 col-sm-8 col-sm-offset-2">
-      <p class="homepageText-body">Search zipcode, city, or county</p>
-       <odca-global-search-bar></odca-global-search-bar>
+    <div class="col-xs-12">
+      <div class="text-center hero">
+        <h1 class="serif">Open Disclosure<br><span class="homepageText-header-brandPrimary">California</span></h1>
+        <p class="homepageText-subheader">Bringing campaign money to light</p>
+        <div class="hero__cta divided-section row">
+          <div class="hero__cta-description">California’s online source for local campaign finance data</div>
+          <a class="hero__cta-link col-xs-12" ui-sref="appMain.localePage({localeId: '2', localeName: 'oakland', localeType: 'city'})">View Oakland ballot</a>
+        </div>
+      </div>
     </div>
   </div>
-
-  <!--<div class="row">-->
-    <!--<div class="col-xs-12 col-sm-8 col-sm-offset-2">-->
-      <!--<input ng-model="search" type="text" />-->
-      <!--<ul>-->
-        <!--<li ng-repeat="locality in searchResults">-->
-          <!--&lt;!&ndash;<a ui-sref="appMain.cityPage({locality_id: locality.locality.id, city: locality.name})">&ndash;&gt;-->
-            <!--&lt;!&ndash;{{locality.id}}, {{locality.name}}</a>&ndash;&gt;-->
-          <!--&lt;!&ndash; <a ui-sref="appMain.locality.money({locality_id: locality.id})" ng-click="logClickEvent($event)">-->
-            <!--{{locality.id}}, {{locality.name}}</a> &ndash;&gt;-->
-         <!--<li ng-repeat="location in searchResults">-->
-           <!--<a ui-sref="appMain.locality.money({locality_id: location.id })">{{ location.name }}</a>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
-  <!--</div>-->
 </div>
 
-<app-main-footer class="homepageFooter"></app-main-footer>
+<app-main-footer></app-main-footer>
