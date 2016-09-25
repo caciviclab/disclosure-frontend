@@ -8,21 +8,17 @@ function localePageRoutes($stateProvider) {
     // template: '<{{ctrl.localeType}}-page><' + '/' + '{{ctrl.localeType}}' + '-page>',
     // template: '<div ui-view="{{ctrl.localeType}}"></div>',
     template: '<locale-page class="page-fade" locale-name="{{localeCtrl.localeName}}"></locale-page>',
-    controller: function($scope, $state, $stateParams) {
+    controller: ['$rootScope', '$scope', '$stateParams', function($rootScope, $scope, $stateParams) {
       var localeCtrl = this;
       localeCtrl.localeName = $stateParams.localeName;
       localeCtrl.localeType = $stateParams.localeType;
-      // this.localeState = $state;
-      // console.log('this.localeState = ', this.localeState);
-    },
+
+      $scope.breadcrumb = $rootScope.breadcrumb;
+      angular.extend($scope.breadcrumb, $stateParams);
+    }],
     controllerAs: 'localeCtrl',
-    deepStateRedirect: true,
-    sticky: true,
     ncyBreadcrumb: {
-      // label: 'Locale Page',
-      label: '"localeCtrl.localeName"',
-      // label: $state.params.localeName,
-      // label: '{{this.localeName}}',
+      label: '{{ breadcrumb.localeName }}',
       parent: 'appMain'
     },
     data: {
