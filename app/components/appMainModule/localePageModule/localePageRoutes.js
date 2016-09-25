@@ -20,7 +20,7 @@ function localePageRoutes($stateProvider) {
     sticky: true,
     ncyBreadcrumb: {
       // label: 'Locale Page',
-      label: "'localeCtrl.localeName'",
+      label: '"localeCtrl.localeName"',
       // label: $state.params.localeName,
       // label: '{{this.localeName}}',
       parent: 'appMain'

@@ -27,7 +27,7 @@ function upcomingElectionsListFactory($http, $q, $log, CONSTANTS) {
   //CRUD-like function to store data from selected item
   function storeSelectedItemData(selectedItem) {
     selectedItemData = selectedItem;
-    $log.info('SELECTED ITEM DATA = ', selectedItemData)
+    $log.info('SELECTED ITEM DATA = ', selectedItemData);
   }
 
   //CRUD-like function to remove any data stored in memory for a selected item

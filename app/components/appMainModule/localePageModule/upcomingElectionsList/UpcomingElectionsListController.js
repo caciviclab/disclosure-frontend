@@ -30,7 +30,7 @@
         var item = {};
         item = createBallotListItem(contest);
 
-        if (contest.contest_type.toLowerCase() == 'office') {
+        if (contest.contest_type.toLowerCase() === 'office') {
           splitCouncilPositionsAndOffices(item);
         } else {
           ballotList.measures.push(item);

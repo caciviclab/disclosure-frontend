@@ -1,3 +1,5 @@
+'use strict';
+
 (function() {
 
   var template = require('./electionTypePage.html');
@@ -18,6 +20,6 @@
     return directive;
 
     function link(scope, element, attrs, election) {}
-  }
+  };
 
 })();
