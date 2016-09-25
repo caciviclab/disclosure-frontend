@@ -13,7 +13,10 @@
     </div>
     <div class="candidate-profile__bio">{{ $ctrl.candidate.bio }}</div>
   </div>
-  <div>
+  <div ng-if="!$ctrl.supporting.total_contributions" class="divided-section">
+    <p class="text-grey-4">No campaign finance data available</p>
+  </div>
+  <div ng-if="$ctrl.supporting.total_contributions">
     <div class="divided-section">
       <div class="candidate__money candidate__money--contributions">
         <span class="candidate__money-header">Contributions</span>
@@ -33,7 +36,7 @@
       </div>
     </div>
   </div>
-  <div class="divided-section is-off-screen" when-visible="$ctrl.onVisible">
+  <div ng-if="$ctrl.supporting.total_contributions" class="divided-section is-off-screen" when-visible="$ctrl.onVisible">
     <span class="text-serif text-grey-4">Money coming in</span>
     <h3>Contributions</h3>
     <div>
@@ -41,7 +44,7 @@
       <odca-money-bar-chart value="{{ amount }}" max="{{ $ctrl.supporting.total_contributions }}" format="percentage" color="green" ng-repeat-end></odca-money-bar-chart>
     </div>
   </div>
-  <div class="divided-section is-off-screen" when-visible="$ctrl.onVisible">
+  <div ng-if="$ctrl.supporting.total_expenditures" class="divided-section is-off-screen" when-visible="$ctrl.onVisible">
     <span class="text-serif text-grey-4">Money going out</span>
     <h3>Expenditures</h3>
     <div>
