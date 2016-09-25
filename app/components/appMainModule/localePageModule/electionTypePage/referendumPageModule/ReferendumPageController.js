@@ -16,7 +16,7 @@ function ReferendumPageController($log, $state, $stateParams, referendumPageFact
   var referendumPageData = referendumPageFactory.getReferendumPageData();
 
   var referendum = this;
-  referendum.state = $state;
+  referendum.state = $stateParams;
   referendum.referendumTypeId = $state.params.electionTypeId;
 
   //TODO move these to resolve
