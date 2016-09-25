@@ -20,6 +20,22 @@
           rawBallotData = data;
           $log.info('RAW BALLOT DATA = ', rawBallotData);
           splitOfficesAndMeasures(rawBallotData.ballot_items);
+
+          // Sort alphabetically
+          ballotList.offices.sort(function(a, b) {
+            // Council At-Large should be first
+            if (/Council At-Large/.test(a.contest.name)) {
+              return -1;
+            }
+
+            return a.contest.name.localeCompare(b.contest.name);
+          });
+          ballotList.councilPositions.sort(function(a, b) {
+            return a.contest.name.localeCompare(b.contest.name);
+          });
+          ballotList.measures.sort(function(a, b) {
+            return a.contest.number.localeCompare(b.contest.number);
+          });
           $log.info('BALLOT LIST = ', ballotList);
           ctrl.ballotList = ballotList;
         });
@@ -55,12 +71,14 @@
         $log.info('ON ITEM SELECTED = ', itemData);
         upcomingElectionsListFactory.storeSelectedItemData(itemData);
       };
+      ballotListItem.contest = contestObject;
       return ballotListItem;
     }
 
     function splitCouncilPositionsAndOffices(position) {
       var isCouncilPosition;
-      isCouncilPosition = $filter('test')(position.linkTitle, 'Council'); //uses 'angular-filter'
+      // Separate district-specific council contests
+      isCouncilPosition = $filter('test')(position.linkTitle, 'Council District'); //uses 'angular-filter'
       // $log.info('IS COUNCIL POSITION = ', isCouncilPosition);
       if(isCouncilPosition) {
         ballotList.councilPositions.push(position);
