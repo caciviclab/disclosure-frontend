@@ -17,19 +17,19 @@
     <div class="divided-section">
       <div class="candidate__money candidate__money--contributions">
         <span class="candidate__money-header">Contributions</span>
-        <span class="money">{{ $ctrl.supporting.total_contributions | default:0 | dollar }}</span>
+        <span class="money">{{ $ctrl.supporting.total_contributions | dollar }}</span>
       </div>
       <div class="candidate__money candidate__money--expenditures">
         <span class="candidate__money-header">Expenditures</span>
-        <span class="money">{{ $ctrl.supporting.total_expenditures | default:0 | dollar }}</span>
+        <span class="money">{{ $ctrl.supporting.total_expenditures | dollar }}</span>
       </div>
       <div class="candidate__money candidate__money--loans">
         <span class="candidate__money-header">Loans</span>
-        <span class="money">{{ $ctrl.supporting.total_loans_received | default:0 | dollar }}</span>
+        <span class="money">{{ $ctrl.supporting.total_loans_received | dollar }}</span>
       </div>
       <div class="candidate__money candidate__money--current-balance">
         <span class="candidate__money-header">Current balance</span>
-        <span class="money">{{ $ctrl.current_balance | default:0 | dollar }}</span>
+        <span class="money">{{ $ctrl.current_balance | dollar }}</span>
       </div>
     </div>
   </div>
@@ -38,7 +38,7 @@
     <h3>Contributions</h3>
     <div>
       <div class="component__heading" ng-repeat-start="(label, amount) in $ctrl.supporting.contributions_by_type">{{ label }}</div>
-      <money-bar value="{{ amount }}" max="{{ $ctrl.supporting.total_contributions }}" format="percentage" color="green" ng-repeat-end></money-bar>
+      <odca-money-bar-chart value="{{ amount }}" max="{{ $ctrl.supporting.total_contributions }}" format="percentage" color="green" ng-repeat-end></odca-money-bar-chart>
     </div>
   </div>
   <div class="divided-section is-off-screen" when-visible="$ctrl.onVisible">
@@ -46,7 +46,7 @@
     <h3>Expenditures</h3>
     <div>
       <div class="component__heading" ng-repeat-start="(label, amount) in $ctrl.supporting.expenditures_by_type">{{ label }}</div>
-      <money-bar value="{{ amount }}" max="{{ $ctrl.supporting.total_expenditures }}" format="money" color="red" ng-repeat-end></money-bar>
+      <odca-money-bar-chart value="{{ amount }}" max="{{ $ctrl.supporting.total_expenditures }}" format="money" color="red" ng-repeat-end></odca-money-bar-chart>
     </div>
   </div>
 </div>

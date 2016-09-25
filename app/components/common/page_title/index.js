@@ -1,8 +1,6 @@
 'use strict';
 
-var angular = require('angular');
-
-angular.module('page_title', [])
+angular.module('odca.page_title', [])
   .run(function ($rootScope, pageTitle) {
 
     // Listen to route changes to update title from route config
@@ -23,4 +21,4 @@ function pageTitle ($rootScope, title) {
 }
 
 
-module.exports = 'page_title';
+module.exports = 'odca.page_title';

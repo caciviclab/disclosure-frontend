@@ -2,12 +2,12 @@
 
 var angular = require('angular');
 
-angular.module('candidate', [
-  require('../candidates'),
-  require('../common'),
+angular.module('odca.candidate', [
+  require('./photo.filter'),
+  require('../page_title'),
   require('../money')
 ])
-  .directive('candidatePage', function () {
+  .directive('odcaCandidatePage', function () {
     return {
       restrict: 'E',
       template: require('./candidate_page.html'),
@@ -20,7 +20,25 @@ angular.module('candidate', [
         supporting: '='
       }
     };
+  })
+  .directive('odcaCandidateProfile', function () {
+    return {
+      restrict: 'E',
+      controllerAs: '$ctrl',
+      controller: CandidateProfileController,
+      template: require('./candidate_profile.html'),
+      bindToController: true,
+      scope: {
+        candidate: '='
+      }
+    };
   });
+
+
+// Required for conrollerAs/bindToController
+function CandidateProfileController () {
+}
+
 
 function CandidatePageController (pageTitle) {
   var ctrl = this;
@@ -39,4 +57,4 @@ function CandidatePageController (pageTitle) {
   }
 }
 
-module.exports = 'candidate';
+module.exports = 'odca.candidate';

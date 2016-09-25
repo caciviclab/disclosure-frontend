@@ -1,9 +1,8 @@
 'use strict';
 
-var angular = require('angular');
 var asset_url = 'https://s3-us-west-1.amazonaws.com/odca-candidate-photos/';
 
-angular.module('common.assets', [])
+angular.module('odca.assets', [])
   .factory('assets', function () {
     return {
       asset_for: function (asset_name) {
@@ -12,4 +11,4 @@ angular.module('common.assets', [])
     };
   });
 
-module.exports = 'common.assets';
+module.exports = 'odca.assets';

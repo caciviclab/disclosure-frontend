@@ -5,7 +5,7 @@ var angular = require('angular');
 
 var static_backend_url = 'https://disclosure-backend-static.tdooner.com';
 
-angular.module('static_api', [
+angular.module('odca.static_api', [
   require('angular-resource')
 ])
   .factory('static_api', function ($resource) {
@@ -45,4 +45,4 @@ angular.module('static_api', [
     }
   });
 
-module.exports = 'static_api';
+module.exports = 'odca.static_api';

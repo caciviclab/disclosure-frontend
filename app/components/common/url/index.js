@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-angular.module('common.url', [])
+angular.module('odca.url', [])
   .constant('base_url', '') //TODO remove this
   .filter('url', function ($httpParamSerializer, base_url) {
     return urlFilter;
@@ -22,4 +22,4 @@ angular.module('common.url', [])
     }
   });
 
-module.exports = 'common.url';
+module.exports = 'odca.url';

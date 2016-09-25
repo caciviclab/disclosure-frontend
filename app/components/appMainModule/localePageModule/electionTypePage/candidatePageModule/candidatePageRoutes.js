@@ -4,7 +4,7 @@ function candidateRoutes ($stateProvider) {
   $stateProvider.state({
     name: 'appMain.localePage.candidate',
     url: '/candidate/:candidateId',
-    template: '<candidate-page candidate="vm.candidate" supporting="vm.supporting" opposing="vm.opposing"></candidate-page>',
+    template: '<odca-candidate-page candidate="vm.candidate" supporting="vm.supporting" opposing="vm.opposing"></odca-candidate-page>',
     controller: function (candidate, supporting, opposing) {
       var vm = this;
       vm.candidate = candidate;

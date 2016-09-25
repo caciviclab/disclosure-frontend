@@ -8,7 +8,7 @@
 
 <div class="section">
   <h3 class="section-header">Money supporting the measure <span class="section-header__subtext">{{ referendum.supporting.total_contributions | dollar }}</span></h3>
-  <money-by-region money="referendum.supporting.contributions_by_region" color="green"></money-by-region>
+  <odca-money-by-region money="referendum.supporting.contributions_by_region" color="green"></odca-money-by-region>
   <div class="see-more" ng-if="!!referendum.supporting.supporting_organizations.length">
     <a class="see-more__content" ui-sref="appMain.localePage.referendumMoney({localeType: 'city', localeName: referendum.localeName, localeId: 2, localeName: referendum.localeName, electionYear: 2016, electionType: 'referendum', electionTitle: referendum.electionTitle, electionTypeId: referendum.metaData.id, support_or_oppose: 'supporting'})">{{ referendum.supporting.supporting_organizations.length }} supporting <span class="text-nowrap">committees <span class="fa fa-chevron-right"></span></span></a>
   </div>
@@ -18,7 +18,7 @@
 </div>
 <div class="section">
   <h3 class="section-header">Money opposing the measure <span class="section-header__subtext">{{ referendum.opposing.total_contributions | dollar }}</span></h3>
-  <money-by-region money="referendum.opposing.contributions_by_region" color="red"></money-by-region>
+  <odca-money-by-region money="referendum.opposing.contributions_by_region" color="red"></odca-money-by-region>
   <div class="see-more" ng-if="!!referendum.opposing.opposing_organizations.length">
     <a class="see-more__content" ui-sref="appMain.localePage.referendumMoney({localeType: 'city', localeName: referendum.localeName, localeId: 2, localeName: referendum.localeName, electionYear: 2016, electionType: 'referendum', electionTitle: referendum.electionTitle, electionTypeId: referendum.metaData.id, support_or_oppose: 'opposing'})">{{ referendum.opposing.opposing_organizations.length }} opposing <span class="text-no-break">committees <span class="fa fa-chevron-right"></span></span></a>
   </div>

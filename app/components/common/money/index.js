@@ -3,10 +3,10 @@
 var angular = require('angular');
 require('angular-scroll-animate');
 
-angular.module('money', [
+angular.module('odca.money', [
   'angular-scroll-animate'
 ])
-  .directive('moneyByRegion', function () {
+  .directive('odcaMoneyByRegion', function () {
     return {
       restrict: 'E',
       template: require('./money_by_region.html'),
@@ -22,13 +22,13 @@ angular.module('money', [
   .filter('dollar', function ($filter) {
     // Shortcut for whole-dollar formatting
     return function (money) {
-      return $filter('currency')(money, '$', 0);
+      return $filter('currency')(money || 0, '$', 0);
     };
   })
-  .directive('moneyBar', function ($timeout, $window) {
+  .directive('odcaMoneyBarChart', function ($timeout, $window) {
     return {
-      template: require('./money_bar.html'),
-      controller: MoneyBarController,
+      template: require('./money_bar_chart.html'),
+      controller: MoneyBarChartController,
       link: link,
       bindToController: true,
       controllerAs: '$ctrl',
@@ -66,13 +66,13 @@ angular.module('money', [
         var available_width  = dom_element.clientWidth * 2 / 3;
         var measure_width = Math.min(value / ctrl.max * available_width , available_width);
 
-        var measure_element = dom_element.getElementsByClassName('money-bar__measure')[0];
+        var measure_element = dom_element.getElementsByClassName('money-bar-chart__measure')[0];
         angular.element(measure_element).css({width: '' + measure_width + 'px'});
       }
     }
   });
 
-function MoneyBarController ($filter) {
+function MoneyBarChartController ($filter) {
   'ngInject';
 
   var ctrl = this;
@@ -120,4 +120,4 @@ function MoneyByRegionController ($scope) {
   }
 }
 
-module.exports = 'money';
+module.exports = 'odca.money';

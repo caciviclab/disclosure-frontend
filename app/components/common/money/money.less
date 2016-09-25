@@ -1,7 +1,7 @@
-money-bar {
+odca-money-bar-chart {
   display: block; // block display so we can calculate width
 
-  .money-bar__measure {
+  .money-bar-chart__measure {
     background-color: @color-blue;
     display: inline-block;
     height: 2rem;
@@ -15,15 +15,15 @@ money-bar {
     }
   }
 
-  .money-bar__measure--red {
+  .money-bar-chart__measure--red {
     background-color: @color-red;
   }
 
-  .money-bar__measure--green {
+  .money-bar-chart__measure--green {
     background-color: @color-green;
   }
 
-  .money-bar__value {
+  .money-bar-chart__value {
     &:extend(.number);
     color: @core-grey-3;
     display: inline-block;
@@ -39,5 +39,3 @@ money-bar {
     &:extend(.component__heading);
   }
 }
-
-
