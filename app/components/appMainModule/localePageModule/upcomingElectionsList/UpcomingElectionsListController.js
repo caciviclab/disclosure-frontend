@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function UpcomingElectionsListController($log, $stateParams, $filter, upcomingElectionsListFactory) {
+  function UpcomingElectionsListController($interpolate, $log, $stateParams, $filter, upcomingElectionsListFactory) {
     var rawBallotData = {};
     var ballotList = {};
     var selectedItem = upcomingElectionsListFactory.getSelectedItemData();
@@ -57,7 +57,10 @@
     function createBallotListItem(contestObject) {
       var ballotListItem = {};
       ballotListItem.type = contestObject.contest_type.toLowerCase();
-      ballotListItem.linkTitle = contestObject.name;
+      ballotListItem.linkTitle = ballotListItem.type === 'referendum' ?
+        //TODO move this to HTML so we can control what displays on different screen sizes
+        $interpolate('{{ number }} {{ title }}')(contestObject) :
+        contestObject.name;
       ballotListItem.linkData = {
         // electionYear: $filter('date')(rawBallotData.date, 'yyyy'),
         electionYear: $filter('limitTo')(rawBallotData.date, 4, 0),
@@ -95,6 +98,6 @@
 
   }
 
-  UpcomingElectionsListController.$inject = ['$log', '$stateParams', '$filter', 'upcomingElectionsListFactory'];
+  UpcomingElectionsListController.$inject = ['$interpolate', '$log', '$stateParams', '$filter', 'upcomingElectionsListFactory'];
   module.exports = UpcomingElectionsListController;
 })();
