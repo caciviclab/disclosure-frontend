@@ -11,6 +11,7 @@
   require('./components/common/core/core');
   require('./components/homePageModule/homePage');
   require('./components/appMainModule/appMain');
+  require('./components/common/scroll_top');
   
   var appInit = require('./appInit');
   var appRoutes = require('./appRoutes');
@@ -21,7 +22,8 @@
   module.exports = angular.module('campaignFinanceApp', [
       'coreModules',
       'homePageModule',
-      'appMainModule'
+      'appMainModule',
+      'odca.scroll_top'
     ])
     .config(appRoutes)
     .config(appConfig)
