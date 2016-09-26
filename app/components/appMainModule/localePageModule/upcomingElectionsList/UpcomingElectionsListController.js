@@ -1,7 +1,7 @@
 (function() {
   'use strict';
 
-  function UpcomingElectionsListController($log, $stateParams, $filter, upcomingElectionsListFactory) {
+  function UpcomingElectionsListController($interpolate, $log, $stateParams, $filter, upcomingElectionsListFactory) {
     var rawBallotData = {};
     var ballotList = {};
     var selectedItem = upcomingElectionsListFactory.getSelectedItemData();
@@ -20,6 +20,22 @@
           rawBallotData = data;
           $log.info('RAW BALLOT DATA = ', rawBallotData);
           splitOfficesAndMeasures(rawBallotData.ballot_items);
+
+          // Sort alphabetically
+          ballotList.offices.sort(function(a, b) {
+            // Council At-Large should be first
+            if (/Council At-Large/.test(a.contest.name)) {
+              return -1;
+            }
+
+            return a.contest.name.localeCompare(b.contest.name);
+          });
+          ballotList.councilPositions.sort(function(a, b) {
+            return a.contest.name.localeCompare(b.contest.name);
+          });
+          ballotList.measures.sort(function(a, b) {
+            return a.contest.number.localeCompare(b.contest.number);
+          });
           $log.info('BALLOT LIST = ', ballotList);
           ctrl.ballotList = ballotList;
         });
@@ -41,7 +57,10 @@
     function createBallotListItem(contestObject) {
       var ballotListItem = {};
       ballotListItem.type = contestObject.contest_type.toLowerCase();
-      ballotListItem.linkTitle = contestObject.name;
+      ballotListItem.linkTitle = ballotListItem.type === 'referendum' ?
+        //TODO move this to HTML so we can control what displays on different screen sizes
+        $interpolate('{{ number }} {{ title }}')(contestObject) :
+        contestObject.name;
       ballotListItem.linkData = {
         // electionYear: $filter('date')(rawBallotData.date, 'yyyy'),
         electionYear: $filter('limitTo')(rawBallotData.date, 4, 0),
@@ -55,12 +74,14 @@
         $log.info('ON ITEM SELECTED = ', itemData);
         upcomingElectionsListFactory.storeSelectedItemData(itemData);
       };
+      ballotListItem.contest = contestObject;
       return ballotListItem;
     }
 
     function splitCouncilPositionsAndOffices(position) {
       var isCouncilPosition;
-      isCouncilPosition = $filter('test')(position.linkTitle, 'Council'); //uses 'angular-filter'
+      // Separate district-specific council contests
+      isCouncilPosition = $filter('test')(position.linkTitle, 'Council District'); //uses 'angular-filter'
       // $log.info('IS COUNCIL POSITION = ', isCouncilPosition);
       if(isCouncilPosition) {
         ballotList.councilPositions.push(position);
@@ -77,6 +98,6 @@
 
   }
 
-  UpcomingElectionsListController.$inject = ['$log', '$stateParams', '$filter', 'upcomingElectionsListFactory'];
+  UpcomingElectionsListController.$inject = ['$interpolate', '$log', '$stateParams', '$filter', 'upcomingElectionsListFactory'];
   module.exports = UpcomingElectionsListController;
 })();
