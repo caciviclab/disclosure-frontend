@@ -73,8 +73,6 @@ angular.module('odca.money', [
   });
 
 function MoneyBarChartController ($filter) {
-  'ngInject';
-
   var ctrl = this;
   ctrl.$onInit = init;
   ctrl.displayValue = displayValue;
@@ -100,24 +98,33 @@ function MoneyBarChartController ($filter) {
   }
 }
 
-function MoneyByRegionController ($scope) {
-  'ngInject';
+MoneyBarChartController.$inject = ['$filter'];
 
+
+function MoneyByRegionController ($scope) {
   var ctrl = this;
   ctrl.onVisible = onVisible;
   ctrl.total = null;
 
   $scope.$watch('$ctrl.money', function (money) {
-    if (!money) {
+    if (!money || !money.length) {
       return;
     }
 
-    ctrl.total = money.within_oakland + money.within_california + money.out_of_state;
+    // Map the money to key, values
+    ctrl.money_by_region = {};
+    ctrl.total = 0;
+    angular.forEach(money, function(moneyDescriptor) {
+      ctrl.money_by_region[moneyDescriptor.locale] = moneyDescriptor.amount;
+      ctrl.total += moneyDescriptor.amount;
+    });
   });
 
   function onVisible ($el) {
     $el.removeClass('is-off-screen');
   }
 }
+
+MoneyByRegionController.$inject = ['$scope'];
 
 module.exports = 'odca.money';

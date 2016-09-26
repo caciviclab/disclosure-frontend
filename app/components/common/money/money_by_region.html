@@ -1,8 +1,4 @@
 <div class="money-by-region is-off-screen" when-visible="$ctrl.onVisible">
-  <div class="money-by-region__heading">Within Oakland</div>
-  <odca-money-bar-chart value="{{ $ctrl.money.within_oakland }}" format="percentage" color="{{ $ctrl.color }}" max="{{ $ctrl.total }}"></odca-money-bar-chart>
-  <div class="money-by-region__heading">Within California</div>
-  <odca-money-bar-chart value="{{ $ctrl.money.within_california }}" format="percentage" color="{{ $ctrl.color }}" max="{{ $ctrl.total }}"></odca-money-bar-chart>
-  <div class="money-by-region__heading">Out of state</div>
-  <odca-money-bar-chart value="{{ $ctrl.money.out_of_state }}" format="percentage" color="{{ $ctrl.color }}" max="{{ $ctrl.total }}"></odca-money-bar-chart>
+  <div class="money-by-region__heading" ng-repeat-start="(label, amount) in $ctrl.money_by_region">{{ label }}</div>
+  <odca-money-bar-chart ng-repeat-end value="{{ amount }}" format="percentage" color="{{ $ctrl.color }}" max="{{ $ctrl.total }}"></odca-money-bar-chart>
 </div>
