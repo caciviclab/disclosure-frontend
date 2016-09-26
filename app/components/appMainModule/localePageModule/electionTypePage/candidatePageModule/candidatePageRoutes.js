@@ -5,7 +5,7 @@ function candidateRoutes ($stateProvider) {
     name: 'appMain.localePage.candidate',
     url: '/candidate/:candidateId',
     template: '<odca-candidate-page candidate="vm.candidate" supporting="vm.supporting" opposing="vm.opposing"></odca-candidate-page>',
-    controller: ['$rootScope', '$scope', '$stateparams', 'candidate', 'opposing', 'supporting', function ($rootScope, $scope, $stateParams, candidate, opposing, supporting) {
+    controller: ['$rootScope', '$scope', '$stateParams', 'candidate', 'opposing', 'supporting', function ($rootScope, $scope, $stateParams, candidate, opposing, supporting) {
       var vm = this;
       vm.candidate = candidate;
       vm.supporting = supporting;
