@@ -21,7 +21,16 @@ function appRoutes($stateProvider) {
     name: 'appMain',
     abstract: true,  // This makes it so that the url for this route doesn't actually resolve
     url: '/app-main',
-    template: '<app-main class="page-fade"></app-main>'
+    template: '<app-main class="page-fade"></app-main>',
+    controller: ['$rootScope', function($rootScope) {
+      // https://github.com/caciviclab/disclosure-frontend/issues/182
+      // angular-breadcrumb uses the child state to render the breadcrumb
+      // labels. This isn't compatible with how we're using `controllerAs`
+      // syntax and directives with isolate scope. To work-around, store the
+      // breadcrumb state on the root scope and then copy it to the child scope
+      // as needed.
+      $rootScope.breadcrumb = {};
+    }]
   };
 
   var about = {

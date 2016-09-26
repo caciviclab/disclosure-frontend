@@ -7,15 +7,18 @@ function electionTypePageRoutes($stateProvider) {
     url: '/:electionYear/:electionType/:electionTypeId/:electionTitle',
     // url: '/:electionYear/:electionType',
     template: '<locale-election-page type-id="{{ctrl.electionTypeId}}" type="{{ctrl.electionType}}"></locale-election-page>',
-    controller: function($scope, $stateParams) {
+    controller: ['$rootScope', '$scope', '$stateParams', function($rootScope, $scope, $stateParams) {
       var ctrl = this;
       ctrl.electionType = $stateParams.electionType;
       ctrl.electionTypeId = $stateParams.electionTypeId;
       ctrl.electionTitle = $stateParams.electionTitle;
-    },
+
+      $scope.breadcrumb = $rootScope.breadcrumb;
+      angular.extend($scope.breadcrumb, $stateParams);
+    }],
     controllerAs: 'ctrl',
     ncyBreadcrumb: {
-      label: '{{ctrl.electionTitle}}',
+      label: '{{ breadcrumb.electionTitle }}',
       parent: 'appMain.localePage'
     }
   };
@@ -31,12 +34,15 @@ function electionTypePageRoutes($stateProvider) {
     name: 'appMain.localePage.referendumMoney',
     url: '/:electionYear/:electionType/:electionTypeId/:electionTitle/:support_or_oppose',
     template: '<referendum-money referendum="ctrl.referendum" money="ctrl.money"></referendum-money>',
-    controller: ['$stateParams', 'referendum', 'money', function($stateParams, referendum, money) {
+    controller: ['$rootScope', '$scope', '$stateParams', 'referendum', 'money', function($rootScope, $scope, $stateParams, referendum, money) {
       var ctrl = this;
       ctrl.referendum = referendum;
       ctrl.money = money;
       ctrl.support_or_oppose = $stateParams.support_or_oppose;
       //TODO grab the state params so that we have the state we need for other electionTypePage transitions
+
+      $scope.breadcrumb = $rootScope.breadcrumb;
+      angular.extend($scope.breadcrumb, $stateParams);
     }],
     resolve: {
       referendum: ['$stateParams', 'static_api', function($stateParams, static_api) {
@@ -49,7 +55,7 @@ function electionTypePageRoutes($stateProvider) {
     },
     controllerAs: 'ctrl',
     ncyBreadcrumb: {
-      label: '{{ctrl.support_or_oppose}}',
+      label: '{{ breadcrumb.support_or_oppose }}',
       parent: 'appMain.localePage.electionTypePage'
     }
   };
