@@ -3,9 +3,10 @@
 var angular = require('angular');
 
 angular.module('odca.candidate', [
+  require('../money'),
+  require('../percentageCalculator'),
   require('./photo.filter'),
-  require('../page_metadata'),
-  require('../money')
+  require('../page_metadata')
 ])
   .directive('odcaCandidatePage', function () {
     return {
@@ -40,17 +41,19 @@ function CandidateProfileController () {
 }
 
 
-function CandidatePageController () {
+function CandidatePageController (percentageCalculator) {
   var ctrl = this;
   ctrl.onVisible = onVisible;
 
   ctrl.supporting.$promise.then(function (supporting) {
     ctrl.current_balance = supporting.total_contributions - supporting.total_expenditures + supporting.total_loans_received;
+    ctrl.contributions_by_type_percentages = percentageCalculator(supporting.contributions_by_type);
   });
 
   function onVisible ($el) {
     $el.removeClass('is-off-screen');
   }
 }
+
 
 module.exports = 'odca.candidate';
