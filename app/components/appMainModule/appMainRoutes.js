@@ -24,8 +24,7 @@ function appMainRoutes($stateProvider) {
     data: {
       moduleClasses: 'page',
       pageClasses: 'city',
-      pageTitle: 'City',
-      pageDescription: 'Some description.'
+      pageTitle: 'City'
     }
   };
 
@@ -41,8 +40,7 @@ function appMainRoutes($stateProvider) {
     data: {
       moduleClasses: 'page',
       pageClasses: 'state',
-      pageTitle: 'State',
-      pageDescription: 'Some description.'
+      pageTitle: 'State'
     }
   };
 
