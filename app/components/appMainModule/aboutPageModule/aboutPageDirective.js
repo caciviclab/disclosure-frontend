@@ -7,8 +7,9 @@
     return {
       controller: 'AboutPageController',
       restrict: 'E',
-      scope: true,
-      //replace: true,
+      scope: {},
+      bindToController: true,
+      controllerAs: '$ctrl',
       template: template
     };
   };

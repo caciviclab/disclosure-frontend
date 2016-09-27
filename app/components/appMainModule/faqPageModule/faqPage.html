@@ -1,12 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <dl>
-        <div ng-repeat="faq in faqs">
-          <dt>{{ faq.question }}</dt>
-          <dd>{{ faq.answer }}</dd>
-        </div>
-      </dl>
+      <odca-markdown content="$ctrl.content"></odca-markdown>
     </div>
   </div>
 </div>
