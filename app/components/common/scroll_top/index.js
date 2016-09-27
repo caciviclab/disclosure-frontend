@@ -9,8 +9,8 @@ angular.module('odca.scroll_top', [])
         return $anchorScroll();
       }
 
-      // Scroll to the main content
-      $anchorScroll('main');
+      // Scroll to the top content
+      $anchorScroll();
     });
   }]);
 
