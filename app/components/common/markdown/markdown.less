@@ -1,4 +1,32 @@
 odca-markdown {
+
+  .heading-anchor {
+    position: relative;
+
+    a {
+      color: @core-grey-4;
+      display: none;
+      left: -3rem;
+      padding-right: 2rem;
+      position: absolute;
+      text-decoration: none;
+
+      .fa {
+        font-size: 2rem;
+        vertical-align: middle;
+      }
+    }
+
+    // Only show on larger screens
+    @media (min-width: @screen-sm-min) {
+      &:hover {
+        a {
+          display: inline-block;
+        }
+      }
+    }
+  }
+
   // Use the bootstrap styles for tables
   table {
     .table();

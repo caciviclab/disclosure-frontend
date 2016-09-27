@@ -6251,6 +6251,14 @@
           }
         }
       }
+    },
+    "markedify": {
+      "version": "0.0.2",
+      "dependencies": {
+        "highlight.js": {
+          "version": "8.9.1"
+        }
+      }
     }
   }
 }

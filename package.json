@@ -69,7 +69,7 @@
     "karma-sinon": "^1.0.4",
     "karma-spec-reporter": "0.0.24",
     "logfmt": "^1.1.2",
-    "markdownify": "^0.1.0",
+    "markedify": "0.0.2",
     "merge": "^1.2.0",
     "mocha": "^2.2.4",
     "notify-send": "^0.1.2",
