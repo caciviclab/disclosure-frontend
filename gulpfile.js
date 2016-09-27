@@ -3,6 +3,7 @@
 var argv = require('yargs').argv;
 var browserify = require('browserify');
 var browserifyCss = require('browserify-css');
+var markdownify = require('markdownify');
 var buffer = require('vinyl-buffer');
 
 // =======================================================================
@@ -53,7 +54,8 @@ var filePath = {
         watch: [
             './app/**/*.js',
             '!./app/**/*.spec.js',
-            './app/**/*.html'
+            './app/**/*.html',
+            './app/**/*.md'
         ]
     },
     styles: {
@@ -224,6 +226,7 @@ function bundle(bundler) {
     // Add options to add to "base" bundler passed as parameter
     bundler
       .transform(browserifyCss, {global: true})
+      .transform(markdownify)
       .bundle()                                                        // Start bundle
       .pipe(source(filePath.browserify.src))                        // Entry point
       .pipe(buffer())                                               // Convert to gulp pipeline
