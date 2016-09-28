@@ -92,7 +92,7 @@
 
     function defineStateForBallotItem(linkDataObject) {
       var state;
-      state = 'appMain.localePage.electionTypePage({electionYear: ' + linkDataObject.electionYear + ', electionType: "' + linkDataObject.electionType + '", electionTypeId: "' + linkDataObject.electionTypeId + '", electionTitle: "' + linkDataObject.electionTitle + '"})';
+      state = 'appMain.localePage.electionTypePage.index({electionYear: ' + linkDataObject.electionYear + ', electionType: "' + linkDataObject.electionType + '", electionTypeId: "' + linkDataObject.electionTypeId + '", electionTitle: "' + linkDataObject.electionTitle + '"})';
       return state;
     }
 
