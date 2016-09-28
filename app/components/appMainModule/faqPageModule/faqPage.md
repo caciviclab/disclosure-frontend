@@ -57,7 +57,7 @@ Candidate bios are written by Open Disclosure volunteers to present a neutral su
 
 ## How were ballot measure summaries prepared?
 
-Ballot measure descriptions are intended to provide a brief, neutral summary. Summaries are written by Open Disclosure volunteers based on information prepared by the City Attorney for the Alameda County Official Voter Information Guide [voterguide.sos.ca.gov].
+Ballot measure descriptions are intended to provide a brief, neutral summary. Summaries are written by Open Disclosure volunteers based on information prepared by the City Attorney for the Alameda County Official Voter Information Guide.
 
 ## Does Open Disclosure endorse third-party content?
 
