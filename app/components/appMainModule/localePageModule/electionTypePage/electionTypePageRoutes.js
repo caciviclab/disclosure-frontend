@@ -5,7 +5,13 @@ function electionTypePageRoutes($stateProvider) {
   var electionTypePage = {
     name: 'appMain.localePage.electionTypePage',
     url: '/:electionYear/:electionType/:electionTypeId/:electionTitle',
-    // url: '/:electionYear/:electionType',
+    abstract: true,
+    template: '<div ui-view></div>'
+  };
+
+  var electionTypeIndexPage = {
+    name: 'appMain.localePage.electionTypePage.index',
+    url: '',
     template: '<locale-election-page type-id="{{ctrl.electionTypeId}}" type="{{ctrl.electionType}}"></locale-election-page>',
     controller: ['$rootScope', '$scope', '$stateParams', function($rootScope, $scope, $stateParams) {
       var ctrl = this;
@@ -31,8 +37,8 @@ function electionTypePageRoutes($stateProvider) {
 
   // Handles both supporting/opposing pages
   var referendumMoneyPage = {
-    name: 'appMain.localePage.referendumMoney',
-    url: '/:electionYear/:electionType/:electionTypeId/:electionTitle/:support_or_oppose',
+    name: 'appMain.localePage.electionTypePage.referendumMoney',
+    url: '/:support_or_oppose',
     template: '<referendum-money referendum="ctrl.referendum" money="ctrl.money"></referendum-money>',
     controller: ['$rootScope', '$scope', '$stateParams', 'referendum', 'money', function($rootScope, $scope, $stateParams, referendum, money) {
       var ctrl = this;
@@ -56,7 +62,7 @@ function electionTypePageRoutes($stateProvider) {
     controllerAs: 'ctrl',
     ncyBreadcrumb: {
       label: '{{ breadcrumb.support_or_oppose }}',
-      parent: 'appMain.localePage.electionTypePage'
+      parent: 'appMain.localePage.electionTypePage.index'
     },
     onEnter: ['$state', 'pageMetadata', 'referendum', function ($state, pageMetadata, referendum) {
       referendum.$promise.then(function(referendum) {
@@ -68,6 +74,7 @@ function electionTypePageRoutes($stateProvider) {
     }]
   };
 
+  $stateProvider.state(electionTypeIndexPage);
   $stateProvider.state(electionTypePage);
   $stateProvider.state(officeElectionPage);
   $stateProvider.state(referendumMoneyPage);
