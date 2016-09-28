@@ -45,11 +45,11 @@ The total contributions and the itemized lists are calculated using different da
 
 ## What is an Independent Expenditure?
 
-Political spending that expressly advocates the election or defeat of a candidate or ballot measure but is not made in consultation, cooperation, or coordination with the candidate or campaign committee is termed an independent expenditure. Under California law, any entity that makes independent expenditures of $1,000 or more per year to California candidates or ballot measures is subject to California campaign finance disclosure reporting requirements.
+Political spending that expressly advocates the election or defeat of a candidate or ballot measure but is not made in consultation, cooperation, or coordination with the candidate or campaign committee is termed an [independent expenditure](https://www.google.com/url?q=http://www.fppc.ca.gov/content/dam/fppc/NS-Documents/TAD/Campaign%2520Manuals/Manual_4/Manual_4_Ch_11_IE_Reporting.pdf&sa=D&ust=1475098628749000&usg=AFQjCNH0aqYPyTZGWcm91gT0341CE6JBSA). Under California law, any entity that makes independent expenditures of $1,000 or more per year to California candidates or ballot measures is subject to California campaign finance disclosure reporting requirements.
 
 ## What other types of committees must report their campaign-related spending?
 
-Committees that are not candidate-controlled or formed to support or oppose a particular candidate or ballot measure also raise funds and spend money in local elections. Under California’s Political Reform Act (PRA), committees that receive contributions or make expenditures to support or oppose multiple candidates and/or ballot measures must also file statements and reports on their activities just as candidate and ballot measure committees do. They must also report which candidate or ballot measure their expenditure is intended to support or oppose and whether the expenditure is a contribution to the campaign or an independent expenditure (see above). Independent expenditures are not included in the fundraising totals for candidates or ballot measures. For more information, see the California Fair Political Practices Commission guide to Campaign Rules.
+Committees that are not candidate-controlled or formed to support or oppose a particular candidate or ballot measure also raise funds and spend money in local elections. Under California’s Political Reform Act (PRA), committees that receive contributions or make expenditures to support or oppose multiple candidates and/or ballot measures must also file statements and reports on their activities just as candidate and ballot measure committees do. They must also report which candidate or ballot measure their expenditure is intended to support or oppose and whether the expenditure is a contribution to the campaign or an independent expenditure (see above). Independent expenditures are not included in the fundraising totals for candidates or ballot measures. For more information, see the [California Fair Political Practices Commission guide to Campaign Rules](https://www.google.com/url?q=http://www.fppc.ca.gov/learn/campaign-rules.html&sa=D&ust=1475098628704000&usg=AFQjCNFT2E86CBYRUgZ0Io8j2Gp9KG3DOw).
 
 ## How were candidate biographies prepared?
 
@@ -65,21 +65,21 @@ Open Disclosure contains links to various third party websites that contain addi
 
 ## Who do I contact if I believe any of the data is incorrect?
 
-Contact the Open Disclosure team if you believe any of the data or candidate information is incorrect or violates the statement of impartiality outlined in the answer above. We want public feedback and ask to be notified if any errors are present. Thank you! 
+Contact the [Open Disclosure team](https://github.com/caciviclab/disclosure-frontend/issues/new?labels=type%2Fquestion&title=Feedback%3A+a+question+on+data+correctness) if you believe any of the data or candidate information is incorrect or violates the statement of impartiality outlined in the answer above. We want public feedback and ask to be notified if any errors are present. Thank you! 
 
 ## What are Oakland's Campaign Finance Rules?
 
-Any “person” may contribute up to $700* to each candidate per election cycle. “Broad-based political committees” may contribute up to $1,500* to each candidate per election cycle (Oakland Campaign Reform Act (OCRA) 3.12.050).
+Any “person” may contribute up to $700* to each candidate per election cycle. “Broad-based political committees” may contribute up to $1,500* to each candidate per election cycle ([Oakland Campaign Reform Act (OCRA) 3.12.050](https://library.municode.com/HTML/16308/level3/TIT3MUEL_CH3.12THOACAREAC_ARTIIICOLI.html#TIT3MUEL_CH3.12THOACAREAC_ARTIIICOLI_3.12.050LICOPE)).
 
-*Candidates may accept this higher contribution limit ONLY IF they accept the OCRA expenditure ceilings by submitting the OCRA Form 301. If the candidate does not accept the expenditure ceilings then the limit for persons is $100 and the limit for broad-based political committees is $400.
+*Candidates may accept this higher contribution limit ONLY IF they accept the [OCRA expenditure ceilings](http://www2.oaklandnet.com/oakca1/groups/cityclerk/documents/webcontent/oak045203.pdf) by submitting the [OCRA Form 301](http://www2.oaklandnet.com/oakca1/groups/cityclerk/documents/webcontent/oak045769.pdf). If the candidate does not accept the expenditure ceilings then the limit for persons is $100 and the limit for broad-based political committees is $400.
 
-“Person” means an individual, proprietorship, firm, partnership, joint venture, syndicate, business, trust, company, corporation, association, committee, and any other organization or group of persons acting in concert (OCRA 3.12.040).
+“Person” means an individual, proprietorship, firm, partnership, joint venture, syndicate, business, trust, company, corporation, association, committee, and any other organization or group of persons acting in concert ([OCRA 3.12.040](https://library.municode.com/HTML/16308/level3/TIT3MUEL_CH3.12THOACAREAC_ARTIIDE.html#TIT3MUEL_CH3.12THOACAREAC_ARTIIDE_3.12.040INAC)).
 
-”Broad-based political committee” means a committee of persons which has been in existence for more than six months, receives contributions from one hundred (100) or more persons, and acting in concert makes contributions to five or more candidates (OCRA 3.12.040).
+”Broad-based political committee” means a committee of persons which has been in existence for more than six months, receives contributions from one hundred (100) or more persons, and acting in concert makes contributions to five or more candidates ([OCRA 3.12.040](https://library.municode.com/HTML/16308/level3/TIT3MUEL_CH3.12THOACAREAC_ARTIIDE.html#TIT3MUEL_CH3.12THOACAREAC_ARTIIDE_3.12.040INAC)).
 
-For more information on Oakland’s campaign finance rules, please review the Oakland Campaign Reform Act (OCRA) and the Public Ethics Commission’s Guide to OCRA.
+For more information on Oakland’s campaign finance rules, please review the Oakland Campaign Reform Act ([OCRA](https://library.municode.com/HTML/16308/level1/TIT3MUEL.html#TOPTITLE)) and the [Public Ethics Commission’s Guide to OCRA](http://www2.oaklandnet.com/oakca1/groups/ceda/documents/form/oak057203.pdf).
 
-Contact the City of Oakland Public Ethics Commission with any questions at ethicscommission@oaklandnet.com or (510) 238-3593.
+Contact the [City of Oakland Public Ethics Commission](http://www2.oaklandnet.com/Government/o/CityAdministration/d/PublicEthics/index.htm) with any questions at ethicscommission@oaklandnet.com or (510) 238-3593.
 
 ## Expenditure Categories: What each category includes
 
