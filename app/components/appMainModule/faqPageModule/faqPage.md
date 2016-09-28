@@ -193,3 +193,7 @@ Includes payments for website design, e-mail, internet access, production of web
 _\* Payments that are contributions or independent expenditures to support or
 oppose other candidates, measures, and committees must also be summarized on
 Schedule D._
+
+## ODCA Calculation Methodologies
+
+The code we use to make these calculations can be found in the [caciviclab/disclosure-backend-static repository](https://github.com/caciviclab/disclosure-backend-static/tree/master/calculators).
