@@ -1,11 +1,16 @@
 'use strict';
 
 angular.module('odca.scroll_top', [])
-  .run(['$anchorScroll', '$rootScope', function ($anchorScroll, $rootScope) {
-
+  .run(['$anchorScroll', '$location', '$rootScope', function ($anchorScroll, $location, $rootScope) {
     // Scroll to the top of page on route change
-    $rootScope.$on('$stateChangeSuccess', function () {
-      $anchorScroll('main');
+    $rootScope.$on('$stateChangeSuccess', function (event) {
+      if ($location.hash()) {
+        // Scroll to the fragment
+        return $anchorScroll();
+      }
+
+      // Scroll to the top content
+      $anchorScroll();
     });
   }]);
 

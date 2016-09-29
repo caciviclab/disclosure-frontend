@@ -6222,6 +6222,43 @@
     },
     "angular-scroll-animate": {
       "version": "0.9.9"
+    },
+    "markdownify": {
+      "version": "0.1.0",
+      "dependencies": {
+        "path": {
+          "version": "0.4.10"
+        },
+        "pygmentize-bundled": {
+          "version": "2.3.0",
+          "dependencies": {
+            "bl": {
+              "version": "0.4.2",
+              "dependencies": {
+                "readable-stream": {
+                  "version": "1.0.34"
+                }
+              }
+            },
+            "through2": {
+              "version": "0.2.3",
+              "dependencies": {
+                "xtend": {
+                  "version": "2.1.2"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "markedify": {
+      "version": "0.0.2",
+      "dependencies": {
+        "highlight.js": {
+          "version": "8.9.1"
+        }
+      }
     }
   }
 }

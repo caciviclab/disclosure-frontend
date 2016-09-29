@@ -45,6 +45,7 @@ module.exports = function (config) {
             transform: [
                 'envify',
                 'partialify',
+                'markedify'
                 // istanbul
                 // ({
                 //     ignore: [

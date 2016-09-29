@@ -7,7 +7,9 @@
     return {
       controller: 'FaqPageController',
       restrict: 'E',
-      scope: true,
+      scope: {},
+      bindToController: true,
+      controllerAs: '$ctrl',
       template: template
     };
   };

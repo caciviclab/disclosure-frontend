@@ -27,16 +27,6 @@ describe('appMainNavController', function() {
     expect(ctrl).to.not.be.undefined;
   });
 
-  // it('has a main menu', function() {
-  //   expect(scope).to.have.property('mainNavMenu');
-  //   expect(scope.mainNavMenu).to.have.length.gt(0);
-  // });
-
-  it('has a demo menu', function() {
-    expect(scope).to.have.property('demoNavMenu');
-    expect(scope.demoNavMenu).to.have.length.gt(0);
-  });
-
   describe('state change', function() {
     beforeEach(angular.mock.inject(function($state, $rootScope) {
       // Open nav

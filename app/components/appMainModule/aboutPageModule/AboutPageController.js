@@ -1,8 +1,12 @@
 'use strict';
-// Controller naming conventions should start with an uppercase letter
+
 function AboutPageController() {
+  var ctrl = this;
+
+  ctrl.content = require('./aboutPage.md');
 }
 
-// $inject is necessary for minification. See http://bit.ly/1lNICde for explanation.
-AboutPageController.$inject = ['$scope'];
+AboutPageController.$inject = [];
+
+
 module.exports = AboutPageController;
