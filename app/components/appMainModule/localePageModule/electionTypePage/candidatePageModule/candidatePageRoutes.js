@@ -17,7 +17,7 @@ function candidateRoutes ($stateProvider) {
     controllerAs: 'vm',
     ncyBreadcrumb: {
       label: '{{ breadcrumb.candidate.name }}',
-      parent: 'appMain.localePage'
+      parent: 'appMain.localePage.index'
     },
     resolve: {
       candidate: function ($stateParams, static_api) {
