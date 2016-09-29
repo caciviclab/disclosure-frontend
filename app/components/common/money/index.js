@@ -101,7 +101,7 @@ function MoneyBarChartController ($filter) {
 MoneyBarChartController.$inject = ['$filter'];
 
 
-function MoneyByRegionController ($scope) {
+function MoneyByRegionController ($scope, percentageCalculator) {
   var ctrl = this;
   ctrl.onVisible = onVisible;
   ctrl.total = null;
@@ -112,12 +112,15 @@ function MoneyByRegionController ($scope) {
     }
 
     // Map the money to key, values
-    ctrl.money_by_region = {};
-    ctrl.total = 0;
+    var money_by_region = {};
+    var total = 0;
     angular.forEach(money, function(moneyDescriptor) {
-      ctrl.money_by_region[moneyDescriptor.locale] = moneyDescriptor.amount;
-      ctrl.total += moneyDescriptor.amount;
+      money_by_region[moneyDescriptor.locale] = moneyDescriptor.amount;
+      total += moneyDescriptor.amount;
     });
+
+    ctrl.total = total;
+    ctrl.money_by_region_percentages = percentageCalculator(money_by_region, 100);
   });
 
   function onVisible ($el) {
@@ -125,6 +128,7 @@ function MoneyByRegionController ($scope) {
   }
 }
 
-MoneyByRegionController.$inject = ['$scope'];
+MoneyByRegionController.$inject = ['$scope', 'percentageCalculator'];
+
 
 module.exports = 'odca.money';
