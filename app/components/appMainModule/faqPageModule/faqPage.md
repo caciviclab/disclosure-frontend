@@ -71,7 +71,7 @@ Contact the [Open Disclosure team](https://github.com/caciviclab/disclosure-fron
 
 Any “person” may contribute up to $700* to each candidate per election cycle. “Broad-based political committees” may contribute up to $1,500* to each candidate per election cycle ([Oakland Campaign Reform Act (OCRA) 3.12.050](https://library.municode.com/HTML/16308/level3/TIT3MUEL_CH3.12THOACAREAC_ARTIIICOLI.html#TIT3MUEL_CH3.12THOACAREAC_ARTIIICOLI_3.12.050LICOPE)).
 
-*Candidates may accept this higher contribution limit ONLY IF they accept the [OCRA expenditure ceilings](http://www2.oaklandnet.com/oakca1/groups/cityclerk/documents/webcontent/oak045203.pdf) by submitting the [OCRA Form 301](http://www2.oaklandnet.com/oakca1/groups/cityclerk/documents/webcontent/oak045769.pdf). If the candidate does not accept the expenditure ceilings then the limit for persons is $100 and the limit for broad-based political committees is $400.
+*Candidates may accept this higher contribution limit ONLY IF they accept the [OCRA expenditure ceilings](http://www2.oaklandnet.com/oakca1/groups/ceda/documents/agenda/oak056852.pdf) by submitting the [OCRA Form 301](http://www2.oaklandnet.com/oakca1/groups/cityclerk/documents/webcontent/oak034166.pdf). If the candidate does not accept the expenditure ceilings then the limit for persons is $100 and the limit for broad-based political committees is $400.
 
 “Person” means an individual, proprietorship, firm, partnership, joint venture, syndicate, business, trust, company, corporation, association, committee, and any other organization or group of persons acting in concert ([OCRA 3.12.040](https://library.municode.com/HTML/16308/level3/TIT3MUEL_CH3.12THOACAREAC_ARTIIDE.html#TIT3MUEL_CH3.12THOACAREAC_ARTIIDE_3.12.040INAC)).
 
