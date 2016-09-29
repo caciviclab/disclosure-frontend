@@ -16,7 +16,7 @@ Disclosure of campaign finance empowers citizens and strengthens democracy by ke
 
 The Open Disclosure team is a group of volunteer civic hackers that include developers, data scientists, policy wonks, civic workers, designers, and journalists working to promote government integrity and transparency in campaign activities by promoting the exposure and visibility of campaign finance data. 
 
-In 2014, several Code for America brigade project teams from across California joined forces to establish California Civic Lab, a partnership organization to build Open Disclosure California (ODCA). Early members of California Civic Lab came from Oakland, Sacramento, San Francisco, and San Jose. ODCA could not succeed without the guidance and support from their partnership with the Oakland Public Ethics Commission. 
+In 2014, several Code for America brigade project teams from across California joined forces to establish [California Civic Lab](http://caciviclab.org/), a partnership organization to build Open Disclosure California (ODCA). Early members of California Civic Lab came from Oakland, Sacramento, San Francisco, and San Jose. ODCA could not succeed without the guidance and support from their partnership with the [Oakland Public Ethics Commission](http://www2.oaklandnet.com/Government/o/CityAdministration/d/PublicEthics/index.htm). 
 
 All development on OpenDisclosure happens publicly on
 [Github](https://github.com/caciviclab/disclosure-frontend). We invite any
@@ -56,8 +56,8 @@ Github](https://github.com/caciviclab/disclosure-frontend/issues/new?labels=type
 
 And thank you to our brigade teams for your support and assistance:
 
-- OpenOakland
-- Code for San Francisco
-- Code for Sacramento
-- Open San Diego
-- Code For San Jose
+- [OpenOakland](http://openoakland.org/)
+- [Code for San Francisco](http://codeforsanfrancisco.org/)
+- [Code for Sacramento](https://codeforsacramento.org/)
+- [Open San Diego](http://opensandiego.org/)
+- [Code For San Jose](http://codeforsanjose.com/)
