@@ -25,7 +25,7 @@ function electionTypePageRoutes($stateProvider) {
     controllerAs: 'ctrl',
     ncyBreadcrumb: {
       label: '{{ breadcrumb.electionTitle }}',
-      parent: 'appMain.localePage'
+      parent: 'appMain.localePage.index'
     }
   };
 
