@@ -1,4 +1,4 @@
 <div class="money-by-region is-off-screen" when-visible="$ctrl.onVisible">
-  <div class="money-by-region__heading" ng-repeat-start="(label, amount) in $ctrl.money_by_region">{{ label }}</div>
-  <odca-money-bar-chart ng-repeat-end value="{{ amount }}" format="percentage" color="{{ $ctrl.color }}" max="100"></odca-money-bar-chart>
+  <div class="money-by-region__heading" ng-repeat-start="(label, amount) in $ctrl.money_by_region_percentages">{{ label }}</div>
+  <odca-money-bar-chart ng-repeat-end value="{{ amount }}" format="percentage" color="{{ $ctrl.color }}" max="1000" precision="1"></odca-money-bar-chart>
 </div>

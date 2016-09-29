@@ -36,6 +36,7 @@ angular.module('odca.money', [
         color: '@', // One of green, red, blue
         format: '@', // How to format the value, money or percentage
         max: '@', // The maximum value (what counts as 100%) and is used to scale the measure
+        precision: '@', // How many decimal places to format percentages
         value: '@' // The value to visualize
       }
     };
@@ -84,12 +85,14 @@ function MoneyBarChartController ($filter) {
   }
 
   function displayValue() {
-    return format(ctrl.format, ctrl.value);
+    return format(ctrl.format, ctrl.value, ctrl.max, parseInt(ctrl.precision));
   }
 
-  function format (format, value) {
+  function format (format, value, max, precision) {
+    precision = precision || 0;
+
     if (format === 'percentage') {
-      return $filter('number')(value / ctrl.max * 100, 0) + '%';
+      return $filter('number')(value / max * 100, precision) + '%';
     } else if (format === 'money') {
       return $filter('dollar')(value);
     } else {
@@ -120,7 +123,7 @@ function MoneyByRegionController ($scope, percentageCalculator) {
     });
 
     ctrl.total = total;
-    ctrl.money_by_region_percentages = percentageCalculator(money_by_region, 100);
+    ctrl.money_by_region_percentages = percentageCalculator(money_by_region, 1000);
   });
 
   function onVisible ($el) {

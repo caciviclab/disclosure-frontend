@@ -47,7 +47,7 @@ function CandidatePageController (percentageCalculator) {
 
   ctrl.supporting.$promise.then(function (supporting) {
     ctrl.current_balance = supporting.total_contributions - supporting.total_expenditures + supporting.total_loans_received;
-    ctrl.contributions_by_type_percentages = percentageCalculator(supporting.contributions_by_type);
+    ctrl.contributions_by_type_percentages = percentageCalculator(supporting.contributions_by_type, 1000);
   });
 
   function onVisible ($el) {
