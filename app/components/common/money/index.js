@@ -36,6 +36,7 @@ angular.module('odca.money', [
         color: '@', // One of green, red, blue
         format: '@', // How to format the value, money or percentage
         max: '@', // The maximum value (what counts as 100%) and is used to scale the measure
+        precision: '@', // How many decimal places to format percentages
         value: '@' // The value to visualize
       }
     };
@@ -84,12 +85,14 @@ function MoneyBarChartController ($filter) {
   }
 
   function displayValue() {
-    return format(ctrl.format, ctrl.value);
+    return format(ctrl.format, ctrl.value, ctrl.max, parseInt(ctrl.precision));
   }
 
-  function format (format, value) {
+  function format (format, value, max, precision) {
+    precision = precision || 0;
+
     if (format === 'percentage') {
-      return $filter('number')(value / ctrl.max * 100, 0) + '%';
+      return $filter('number')(value / max * 100, precision) + '%';
     } else if (format === 'money') {
       return $filter('dollar')(value);
     } else {
@@ -101,7 +104,7 @@ function MoneyBarChartController ($filter) {
 MoneyBarChartController.$inject = ['$filter'];
 
 
-function MoneyByRegionController ($scope) {
+function MoneyByRegionController ($scope, percentageCalculator) {
   var ctrl = this;
   ctrl.onVisible = onVisible;
   ctrl.total = null;
@@ -112,12 +115,15 @@ function MoneyByRegionController ($scope) {
     }
 
     // Map the money to key, values
-    ctrl.money_by_region = {};
-    ctrl.total = 0;
+    var money_by_region = {};
+    var total = 0;
     angular.forEach(money, function(moneyDescriptor) {
-      ctrl.money_by_region[moneyDescriptor.locale] = moneyDescriptor.amount;
-      ctrl.total += moneyDescriptor.amount;
+      money_by_region[moneyDescriptor.locale] = moneyDescriptor.amount;
+      total += moneyDescriptor.amount;
     });
+
+    ctrl.total = total;
+    ctrl.money_by_region_percentages = percentageCalculator(money_by_region, 1000);
   });
 
   function onVisible ($el) {
@@ -125,6 +131,7 @@ function MoneyByRegionController ($scope) {
   }
 }
 
-MoneyByRegionController.$inject = ['$scope'];
+MoneyByRegionController.$inject = ['$scope', 'percentageCalculator'];
+
 
 module.exports = 'odca.money';
