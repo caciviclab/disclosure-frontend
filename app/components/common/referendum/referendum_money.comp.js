@@ -25,6 +25,7 @@ function ReferendumMoneyController ($stateParams, $q, $scope, array_update) {
   ctrl.support_oppose = $stateParams.support_or_oppose;
   ctrl.committees = [];
   ctrl.total_contributions = 0;
+  ctrl.total_expenditures = 0;
 
   var is_supporting = ctrl.is_supporting = ctrl.support_oppose === 'supporting';
 
@@ -35,11 +36,17 @@ function ReferendumMoneyController ($stateParams, $q, $scope, array_update) {
   });
 
   function updateCommittees (money) {
-    ctrl.total_contributions = is_supporting ? money.money_supporting : money.money_opposing;
+    // This isn't needed, only for symmetry
+    ctrl.total_contributions = money.total_contributions;
 
     var committees = is_supporting ?
       money.supporting_organizations :
       money.opposing_organizations;
+
+    ctrl.total_expenditures = 0;
+    angular.forEach(committees, function(committee) {
+      ctrl.total_expenditures += committee.amount;
+    });
 
     array_update(ctrl.committees, committees);
   }
