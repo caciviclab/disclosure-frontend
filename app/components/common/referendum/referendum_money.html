@@ -21,7 +21,7 @@
                   <div class="row">
                     <div class="col-xs-8">
                       <div class="committee-list__money-bar-chart">
-                        <odca-money-bar-chart value="{{ committee.amount }}" max="{{ $ctrl.total_expenditures }}" color="green" format="percentage" precision="1"></odca-money-bar-chart>
+                        <odca-money-bar-chart value="{{ committee.amount }}" max="{{ $ctrl.total_expenditures }}" color="{{ $ctrl.bar_color }}" format="percentage" precision="1"></odca-money-bar-chart>
                       </div>
                     </div>
                     <div class="col-xs-4">

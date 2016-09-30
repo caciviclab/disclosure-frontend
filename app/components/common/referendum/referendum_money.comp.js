@@ -28,6 +28,7 @@ function ReferendumMoneyController ($stateParams, $q, $scope, array_update) {
   ctrl.total_expenditures = 0;
 
   var is_supporting = ctrl.is_supporting = ctrl.support_oppose === 'supporting';
+  ctrl.bar_color = is_supporting ? 'green' : 'red';
 
   $scope.$watch('$ctrl.money', function (money) {
     $q.when(money.$promise || money, function (money) {
