@@ -26,7 +26,7 @@ Github](https://github.com/caciviclab/disclosure-frontend/issues/new?labels=type
 
 ### Open Disclosure Team
 
-- Aaron Borden
+- Aaron D Borden
 - Ben Cipollini
 - Tom Dooner
 - Suzanne Doran
