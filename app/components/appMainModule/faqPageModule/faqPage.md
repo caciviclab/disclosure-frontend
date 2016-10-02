@@ -2,7 +2,18 @@
 
 - [What data is featured on this
   website?](/#!/faq#what-data-is-featured-on-this-website)
+- [Where does the data come from?](/#!/faq#where-does-the-data-come-from)  
+- [How up-to-date is the data?](/#!/faq#how-up-to-date-is-the-data)
+- [What is a non-itemized contribution (small contribution)?](/#!/faq#what-is-a-non-itemized-contribution-(small-contribution))
+- [What is an Independent Expenditure?](/#!/faq#what-is-an-independent-expenditure)
+- [What other types of committees must report their campaign-related spending?](/#!/faq#what-other-types-of-committees-must-report-their-campaign-related-spending)
+- [How were candidate biographies prepared?](/#!/faq#how-were-candidate-biographies-prepared)
+- [How were ballot measure summaries prepared?](/#!/faq#how-were-ballot-measure-summaries-prepared)
+- [Does Open Disclosure endorse third-party content?](/#!/faq#does-open-disclosure-endorse-third-party-content)
+- [Who do I contact if I believe any of the data is incorrect?](/#!/faq#who-do-I-contact-if-I-believe-any-of-the-data-is-incorrect)
 - [What are Oakland's Campaign Finance Rules?](/#!/faq#what-are-oakland-s-campaign-finance-rules)
+- [Expenditure Categories: What each category includes](/#!/faq#-expenditure-categories:-what-each-category-includes)
+- [ODCA Calculation Methodologies](/#!/faq#ODCA-calculation-methodologies)
 
 
 ## What data is featured on this website?
@@ -62,7 +73,7 @@ Candidate bios are written by Open Disclosure volunteers to present a neutral su
 
 ## How were ballot measure summaries prepared?
 
-Ballot measure descriptions are intended to provide a brief, neutral summary. Summaries are written by Open Disclosure volunteers based on information prepared by the City Attorney for the Alameda County Official Voter Information Guide.
+Ballot measure descriptions are intended to provide a brief, neutral summary. Summaries are written by Open Disclosure volunteers based on information prepared by the City Attorney for the [Alameda County Official Voter Information Guide](https://www.acgov.org/rov/elections/20150317/documents/voter-information-en.pdf).
 
 ## Does Open Disclosure endorse third-party content?
 
