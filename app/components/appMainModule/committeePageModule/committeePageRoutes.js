@@ -21,9 +21,10 @@ function committeePageRoutes($stateProvider) {
         });
       },
       contributions: function($stateParams, static_api) {
-        return static_api.committee.contributions({
+        var apiCall = static_api.committee.contributions({
           filer_id: $stateParams.filer_id
         });
+        return apiCall.$promise;
       }
     },
     data: {

@@ -17,7 +17,7 @@ angular.module('odca.static_api', [
         opposing: {method: 'get', url: '/opposing'}
       }),
       committee: api_group('/committee/:filer_id', {
-        contributions: {method: 'get', url: '/contributions', isArray:true}
+        contributions: {method: 'get', url: '/contributions', isArray: true}
       }),
       locality: api_group('/locality/:locality_id', {
         get: {method: 'get', transformResponse: arrayFirst}, // Workaround for backend returning an  array here

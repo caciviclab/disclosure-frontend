@@ -1,10 +1,18 @@
 <h3>{{ committee.name }}</h3>
-<div class="divided-section">
-  <h4>Contributions</h4>
-  <div contribution-type-breakdown="committee.contribution_by_type"></div>
-  <span class="more-details-cta"><a ui-sref="appMain.committee.contributors({commitee_id: committee.committee_id})">more details</a></span>
-</div>
-<div class="divided-section">
-  <h4>Where is the money coming from?</h4>
-  <div contribution-area-breakdown="committee.contribution_by_area"></div>
+<div class="divided-section row">
+    <div class="col-xs-12">
+        <h4>Contributions by this Committee</h4>            
+    </div>
+    <div class="col-xs-12">
+        <h5><em>This committee has funded the following campaigns:</em></h5>
+    </div>
+
+    <div>
+      <span class="col-xs-6">2016</span>
+      <span class="col-xs-6 text-right">Total money spent to date <span>{{$ctrl.committeeTotal | currency:"$":0}}</span></span>
+    </div>
+
+    <div class="col-xs-12 committee-contributions-grid__container">
+      <div ag-grid="$ctrl.gridOptions" class="ag-dark" style="height: 100%;"></div>
+    </div>
 </div>

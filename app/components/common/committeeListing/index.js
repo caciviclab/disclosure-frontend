@@ -1,18 +1,56 @@
-/**
- * committeeListing/index.js
- *
- * Describes a single political committee.
- **/
+  /**
+   * committeeListing/index.js
+   *
+   * Describes a single political committee.
+   **/
 
-'use strict';
+(function() {
+  'use strict';
 
-require('../contributionAreaBreakdown');
-require('../contributionTypeBreakdown');
+   angular
+   .module('committeeListing', ['agGrid'])
+   .directive('committeeListing', committeeListingDirective);
 
-var committeeListing = angular.module('committeeListing', [
-  'contributionAreaBreakdown',
-  'contributionTypeBreakdown'
-])
-  .directive('committeeListing', require('./committeeListingDirective'));
+   function committeeListingDirective() {
+    return {
+      restrict: 'E',
+      template: require('./committeeListing.html'),
+      controller: committeeListingController,
+      controllerAs: '$ctrl',
+      bindToController: true,
+      scope: {
+        committee: '=',
+        contributions: '=',
+      }
+    };
+  }
 
-module.exports = committeeListing;
+  committeeListingController.$inject = ['$filter'];
+  function committeeListingController($filter) {
+    var ctrl = this;
+    ctrl.committeeTotal = 0;
+    var contributionsObjs;
+
+    // Convert resources to plain old objects to make ag-grid happy
+    contributionsObjs = ctrl.contributions.map(function(resource) {
+      ctrl.committeeTotal += resource.Tran_Amt1;
+      return {
+        Tran_NamL: resource.Tran_NamL,
+        Tran_Amt1: $filter('currency')(resource.Tran_Amt1, "$", 0),
+        Tran_Date: resource.Tran_Date
+      };
+    });
+
+    ctrl.gridOptions = {
+      columnDefs: [
+      {headerName: 'Contributor', field: 'Tran_NamL'},
+      {headerName: 'Amount', field: 'Tran_Amt1'},
+      {headerName: 'Date', field: 'Tran_Date'}
+      ],
+      enableSorting: true,
+      enableFilter: true,
+      rowData: contributionsObjs
+    };  
+  }
+
+})();

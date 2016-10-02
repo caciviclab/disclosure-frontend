@@ -1,11 +1,10 @@
-// (function() {
+(function() {
   'use strict';
 
   require('../../../vendor/vendor');
   require('../../services/disclosure');
 
-  //module.exports = angular.module('common.core', [
-  module.exports = angular.module('coreModules', [
+  angular.module('coreModules', [
       'ngAnimate',
       'ngCookies',
       'ngResource',
@@ -13,7 +12,7 @@
       'ui.router',
       'ct.ui.router.extras',
       'ui.bootstrap',
-      'disclosure'
+      'disclosure',
+      'agGrid'
     ]);
-    // .constant('CONSTANTS', appConstants)
-// })();
+})();

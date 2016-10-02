@@ -10,7 +10,7 @@ function appConfig($urlRouterProvider, $locationProvider, $breadcrumbProvider, $
   $urlRouterProvider.otherwise('/');
 
   // For route debugging, using ui-router-extras
-  $stickyStateProvider.enableDebug(true);
+  // $stickyStateProvider.enableDebug(true);
 
   $breadcrumbProvider.setOptions({
     prefixStateName: 'home',
