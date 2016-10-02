@@ -48,35 +48,24 @@
             headerName: 'Contributor',
             field: 'Tran_NamL',
             filter: 'text',
-            quickFilterText: '',
-            suppressMenuColumnPanel: true,
-            suppressMenuFilterPanel: true,
-            suppressMenuMainPanel: true,
             width: 600,
-            minWidth: 400
+            suppressMenu: true
           },
           {
             headerName: 'Amount',
             field: 'Tran_Amt1',
-            maxWidth: 300,
             width: 200,
             cellFormatter: function(params) {
               return $filter('currency')(params.value, "$", 0);
             },
             sort: 'desc',
-            suppressFilter: true,
-            suppressMenuColumnPanel: true,
-            suppressMenuFilterPanel: true,
-            suppressMenuMainPanel: true
+            suppressMenu: true
           },
           {
             headerName: 'Date',
             field: 'Tran_Date',
-            maxWidth: 300,
             width: 200,
-            suppressMenuColumnPanel: true,
-            suppressMenuFilterPanel: true,
-            suppressMenuMainPanel: true,
+            suppressMenu: true
           }
         ],
         headerHeight: 40,
@@ -84,7 +73,7 @@
         enableFilter: true,
         rowData: contributionsObjs,
         rowHeight: 40,
-        suppressCellSelection: true
+        suppressMovableColumns: true
       };  
     }
 
