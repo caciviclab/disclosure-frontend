@@ -1,11 +1,19 @@
 
-<div class="container">
-	<div class="row">
-		<div class="col-xs-12">
-			<odca-page-header title="{{committee.name}}"></odca-page-header>
-		</div>
-		<div class="col-xs-12">
-			<committee-listing committee="committee" contributions="contributions"></committee-listing>
-		</div>
-	</div>
+<div class="fluid-container">
+    <div class="row">
+        <div class="col-xs-12">
+            <odca-page-header title="{{committee.name}}"></odca-page-header>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>{{committee.name}}</h3>    
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12">
+            <committee-listing committee="committee" contributions="contributions"></committee-listing>             
+        </div>
+    </div>
 </div>
+
