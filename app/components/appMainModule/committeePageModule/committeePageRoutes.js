@@ -8,18 +8,21 @@
 'use strict';
 
 function committeePageRoutes($stateProvider) {
-//module.exports = function($stateProvider) {
   $stateProvider.state({
     name: 'appMain.committee',
-    // name: 'appMain.locality.committee',
     abstract: true,
-    url: '^/committee/:committee_id',
+    url: '^/committee/:filer_id',
     template: '<ui-view></ui-view>',
     controller: 'committeePageController',
     resolve: {
-      committee: function($stateParams, disclosureApi) {
-        return disclosureApi.committee.get({
-          committee_id: $stateParams.committee_id
+      committee: function($stateParams, static_api) {
+        return static_api.committee.get({
+          filer_id: $stateParams.filer_id
+        });
+      },
+      contributions: function($stateParams, static_api) {
+        return static_api.committee.contributions({
+          filer_id: $stateParams.filer_id
         });
       }
     },
@@ -36,10 +39,8 @@ function committeePageRoutes($stateProvider) {
 
   $stateProvider.state({
     name: 'appMain.committee.main',
-    // name: 'appMain.locality.committee.main',
     url: '',
     template: require('./committeePage.html'),
-    //template: '<committee-listing committee="committee"></committee-listing>',
     ncyBreadcrumb: {
       label: '{{ committee.name }}',
       parent: 'appMain.locality'
@@ -58,7 +59,7 @@ function committeePageRoutes($stateProvider) {
       // parent: 'appMain.locality.committee.main'
     },
     resolve: {
-      contributors: function($stateParams, disclosureApi) {
+      contributors: function($stateParams) {
         return disclosureApi.committee.contributors({
           committee_id: $stateParams.committee_id
         });

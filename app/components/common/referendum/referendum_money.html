@@ -10,7 +10,7 @@
       <div class="divided-section">
         <ul class="odca-list committee-list">
           <li ng-repeat="committee in $ctrl.committees" class="odca-list-item">
-            <a ng-href="{{ '/committee/' + committee.id  | url }}" class="odca-list-item__link">
+            <a ng-href="{{ '/committee/' + committee.filer_id  | url }}" class="odca-list-item__link">
               <div class="odca-list-item__content">
                 <div class="committee-list__name">{{ committee.name }}</div>
                 <div class="committee-list__money">
