@@ -1,10 +1,34 @@
-<h3>{{ committee.name }}</h3>
-<div class="divided-section">
-  <h4>Contributions</h4>
-  <div contribution-type-breakdown="committee.contribution_by_type"></div>
-  <span class="more-details-cta"><a ui-sref="appMain.committee.contributors({commitee_id: committee.committee_id})">more details</a></span>
-</div>
-<div class="divided-section">
-  <h4>Where is the money coming from?</h4>
-  <div contribution-area-breakdown="committee.contribution_by_area"></div>
+<div class="committee-listing">  
+    <div class="row">
+        <div class="col-xs-12">
+          <h3>Contributions to this Committee</h3>
+        </div>            
+    </div>
+
+    <div class="row">
+      <div class="form-group col-xs-5 search-container">
+        <label class="sr-only" for="contribution-search">Search Contributions</label>
+        <div class="input-group">
+          <div class="input-group-addon"><i class="fa fa-search"></i></div>
+            <input type="text" class="form-control" id="contribution-search" placeholder="Search Contributions" ng-model="$ctrl.gridOptions.quickFilterText">
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+        <span class="text-xlarge text-semibold">2016</span>
+      </div>
+      <div class="col-xs-6 text-right">
+        <span class="text-xsmall text-semibold">Total money spent to date </span>
+        <span class="text-medium text-bold text-grey-2 committee-total">{{$ctrl.committeeTotal | currency:"$":0}}</span>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12 committee-grid__container">
+        <div ag-grid="$ctrl.gridOptions" class="odca-grid" style="height: 100%;"></div>
+      </div>
+    </div>
+  
 </div>

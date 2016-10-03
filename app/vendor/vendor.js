@@ -10,6 +10,8 @@ var angularSanitize = require('angular-sanitize');
 var angularBreadcrumb = require('angular-breadcrumb');
 var bootstrap = require('bootstrap');
 var domReady = require('domready');
+var AgGrid = require('ag-grid');
+AgGrid.initialiseAgGridWithAngular1(angular);
 
 module.exports = function() {
 
@@ -23,7 +25,8 @@ module.exports = function() {
     angularSanitize: angularSanitize,
     angularBreadcrumb: angularBreadcrumb,
     bootstrap: bootstrap,
-    domReady: domReady
+    domReady: domReady,
+    AgGrid: AgGrid
   };
   return vendor;
 
