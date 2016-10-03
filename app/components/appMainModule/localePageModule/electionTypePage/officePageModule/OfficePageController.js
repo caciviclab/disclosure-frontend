@@ -50,8 +50,8 @@ function OfficePageController($filter, $interpolate, $log, $state, officePageFac
     var item = {};
     item.linkTitle = candidateObject.name;
     item.subTitle = candidateObject.supporting_money.contributions_received ?
-      $interpolate('amount collected {{ money | dollar }}')({money: candidateObject.supporting_money.contributions_received}) :
-      'no campaign finance data available';
+      $interpolate('Amount collected {{ money | dollar }}')({money: candidateObject.supporting_money.contributions_received}) :
+      'No campaign finance data available';
     item.avatarUrl = $filter('candidate_photo')(candidateObject);
     item.dollarAmount = null;   //TODO: add in total dollar amounts for candidates
 
