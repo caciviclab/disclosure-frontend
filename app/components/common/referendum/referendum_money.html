@@ -4,10 +4,14 @@
       <h1 ng-if="$ctrl.is_supporting">Supporters of Measure {{ $ctrl.referendum.number }}</h1>
       <h1 ng-if="!$ctrl.is_supporting">Opponents of Measure {{ $ctrl.referendum.number }}</h1>
       <div class="divided-section money-summary">
-        <h2 class="money-summary__header">Money {{ $ctrl.support_oppose }} the measure</h2>
-        <div class="money-summary__money"><span class="money">{{ $ctrl.money.total_contributions | dollar }}</span></div>
+        <h2 class="money-summary__header">Contributions {{ $ctrl.support_oppose }} the measure</h2>
+        <div class="money-summary__money"><span class="money">{{ $ctrl.total_contributions | dollar }}</span></div>
       </div>
       <div class="divided-section">
+        <div class="money-summary">
+          <h2 class="money-summary__header">Expenditures {{ $ctrl.support_oppose }} the measure</h2>
+          <div class="money-summary__money"><span class="money">{{ $ctrl.total_expenditures | dollar }}</span></div>
+        </div>
         <ul class="odca-list committee-list">
           <li ng-repeat="committee in $ctrl.committees" class="odca-list-item">
             <a ng-href="{{ '/committee/' + committee.id  | url }}" class="odca-list-item__link">
@@ -17,7 +21,7 @@
                   <div class="row">
                     <div class="col-xs-8">
                       <div class="committee-list__money-bar-chart">
-                        <odca-money-bar-chart value="{{ committee.amount }}" max="{{ $ctrl.money.total_contributions }}" color="green" format="percentage" precision="1"></odca-money-bar-chart>
+                        <odca-money-bar-chart value="{{ committee.amount }}" max="{{ $ctrl.total_expenditures }}" color="{{ $ctrl.bar_color }}" format="percentage" precision="1"></odca-money-bar-chart>
                       </div>
                     </div>
                     <div class="col-xs-4">
