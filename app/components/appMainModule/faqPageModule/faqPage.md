@@ -2,20 +2,20 @@
 
 - [What data is featured on this
   website?](/#!/faq#what-data-is-featured-on-this-website)
-- [Where does the data come from?](/#!/faq#where-does-the-data-come-from)  
+- [Where does the data come from?](/#!/faq#where-does-the-data-come-from)
 - [How up-to-date is the data?](/#!/faq#how-up-to-date-is-the-data)
-- [What is a non-itemized contribution (small contribution)?](/#!/faq#what-is-a-non-itemized-contribution-(small-contribution))
-- [How do you calculate the proportion raised within Oakland?](/#!/faq#how-do-you-calculate-the-proportion-raised-within-Oakland)
-- [Why don't the total contributions presented match the numbers in the lists of itemized contributions by location and category?](/#!/faq#why-don't-the-total-contributions-presented-match-the-numbers-in-the-lists-of-itemized-contributions-by-location-and-category)
+- [What is a non-itemized contribution (small contribution)?](/#!/faq#what-is-a-non-itemized-contribution-small-contribution)
+- [How do you calculate the proportion raised within Oakland?](/#!/faq#how-do-you-calculate-the-proportion-raised-within-oakland)
+- [Why don't the total contributions presented match the numbers in the lists of itemized contributions by location and category?](/#!/faq#why-don-t-the-total-contributions-presented-match-the-numbers-in-the-lists-of-itemized-contributions-by-location-and-category)
 - [What is an Independent Expenditure?](/#!/faq#what-is-an-independent-expenditure)
 - [What other types of committees must report their campaign-related spending?](/#!/faq#what-other-types-of-committees-must-report-their-campaign-related-spending)
 - [How were candidate biographies prepared?](/#!/faq#how-were-candidate-biographies-prepared)
 - [How were ballot measure summaries prepared?](/#!/faq#how-were-ballot-measure-summaries-prepared)
 - [Does Open Disclosure endorse third-party content?](/#!/faq#does-open-disclosure-endorse-third-party-content)
-- [Who do I contact if I believe any of the data is incorrect?](/#!/faq#who-do-I-contact-if-I-believe-any-of-the-data-is-incorrect)
+- [Who do I contact if I believe any of the data is incorrect?](/#!/faq#who-do-i-contact-if-i-believe-any-of-the-data-is-incorrect)
 - [What are Oakland's Campaign Finance Rules?](/#!/faq#what-are-oakland-s-campaign-finance-rules)
-- [Expenditure Categories: What each category includes](/#!/faq#-expenditure-categories:-what-each-category-includes)
-- [ODCA Calculation Methodologies](/#!/faq#ODCA-calculation-methodologies)
+- [Expenditure Categories: What each category includes](/#!/faq#expenditure-categories-what-each-category-includes)
+- [ODCA Calculation Methodologies](/#!/faq#odca-calculation-methodologies)
 
 
 ## What data is featured on this website?
