@@ -1,5 +1,23 @@
 # Frequently asked questions
 
+- [What data is featured on this
+  website?](/#!/faq#what-data-is-featured-on-this-website)
+- [Where does the data come from?](/#!/faq#where-does-the-data-come-from)
+- [How up-to-date is the data?](/#!/faq#how-up-to-date-is-the-data)
+- [What is a non-itemized contribution (small contribution)?](/#!/faq#what-is-a-non-itemized-contribution-small-contribution)
+- [How do you calculate the proportion raised within Oakland?](/#!/faq#how-do-you-calculate-the-proportion-raised-within-oakland)
+- [Why don't the total contributions presented match the numbers in the lists of itemized contributions by location and category?](/#!/faq#why-don-t-the-total-contributions-presented-match-the-numbers-in-the-lists-of-itemized-contributions-by-location-and-category)
+- [What is an Independent Expenditure?](/#!/faq#what-is-an-independent-expenditure)
+- [What other types of committees must report their campaign-related spending?](/#!/faq#what-other-types-of-committees-must-report-their-campaign-related-spending)
+- [How were candidate biographies prepared?](/#!/faq#how-were-candidate-biographies-prepared)
+- [How were ballot measure summaries prepared?](/#!/faq#how-were-ballot-measure-summaries-prepared)
+- [Does Open Disclosure endorse third-party content?](/#!/faq#does-open-disclosure-endorse-third-party-content)
+- [Who do I contact if I believe any of the data is incorrect?](/#!/faq#who-do-i-contact-if-i-believe-any-of-the-data-is-incorrect)
+- [What are Oakland's Campaign Finance Rules?](/#!/faq#what-are-oakland-s-campaign-finance-rules)
+- [Expenditure Categories: What each category includes](/#!/faq#expenditure-categories-what-each-category-includes)
+- [ODCA Calculation Methodologies](/#!/faq#odca-calculation-methodologies)
+
+
 ## What data is featured on this website?
 
 Open Disclosure visualizes campaign finance data for all Oakland candidates and ballot measures on the November 2016 ballot. The data comes from the City’s campaign finance portal provided by NetFile on the City Clerk’s website.
@@ -36,11 +54,13 @@ days prior to the election (8/10/16-11/8/16) must be reported within 24 hours.
 ## What is a non-itemized contribution (small contribution)?
 
 Candidate and ballot measure committees must report their total contributions regardless of size. However, contributions of $100 or more must be itemized and include additional information about the contributor. Contributions under $100 may be reported in the aggregate.
-How do you calculate the proportion raised within Oakland?
+
+## How do you calculate the proportion raised within Oakland?
 
 Candidates and ballot measure committees must itemize contributions of $100 or more. Information includes the location of the individual, committee, or business making the contribution. The percentage is the proportion of contributions reported to be from Oakland divided by the total of the itemized contributions. We remove contributions and loans made by the candidate to the campaign from this calculation.
 
-Why don't the total contributions presented match the numbers in the lists of itemized contributions by location and category?
+## Why don't the total contributions presented match the numbers in the lists of itemized contributions by location and category?
+
 The total contributions and the itemized lists are calculated using different data sets. The total sums the amount of total monetary and non-monetary contributions reported by each campaign committee at each filing deadline. The charts displaying contributions by location and category sum the itemized contributions filed, which are a sub-set of the total contributions. This leads to some discrepancies, because contributions under $100 are not required to be itemized with information on the donor’s identity and location.
 
 ## What is an Independent Expenditure?
@@ -57,7 +77,7 @@ Candidate bios are written by Open Disclosure volunteers to present a neutral su
 
 ## How were ballot measure summaries prepared?
 
-Ballot measure descriptions are intended to provide a brief, neutral summary. Summaries are written by Open Disclosure volunteers based on information prepared by the City Attorney for the Alameda County Official Voter Information Guide.
+Ballot measure descriptions are intended to provide a brief, neutral summary. Summaries are written by Open Disclosure volunteers based on information prepared by the City Attorney for the [Alameda County Official Voter Information Guide](https://www.acgov.org/rov/elections/20150317/documents/voter-information-en.pdf).
 
 ## Does Open Disclosure endorse third-party content?
 
