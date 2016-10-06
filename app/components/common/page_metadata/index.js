@@ -17,9 +17,12 @@ angular.module('odca.page_metadata', [])
         description: data.pageDescription
       });
 
-      // Track virtual page views in Google Analytics
-      ga('set', 'page', $location.path());
-      ga('send', 'pageview');
+      // If in prod
+      if ($location.host().indexOf('opendisclosure') !== -1) {
+        // Track virtual page views in Google Analytics
+        ga('set', 'page', $location.path());
+        ga('send', 'pageview');
+      }
     });
   }])
   .factory('pageMetadata', ['$rootElement', '$rootScope', function($rootElement, $rootScope) {
