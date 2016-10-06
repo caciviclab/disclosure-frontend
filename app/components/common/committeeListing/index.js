@@ -86,7 +86,6 @@
 
       // Combine first and last name, capitalize
       function getFriendlyName(resource) {
-        var name = '';
         var names = [];
         if (resource.Tran_NamF) {
           names = names.concat(resource.Tran_NamF.split(' '));
@@ -96,12 +95,7 @@
           names = names.concat(resource.Tran_NamL.split(' '));
         }
         
-        names.forEach(function(newName) {
-          name += _.capitalize(newName);
-          name += ' ';
-        });
-        // Remove the extra space at the end
-        return name.substring(0, name.length - 1);
+        return names.join(' ');
       }
 
     }
