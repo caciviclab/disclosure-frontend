@@ -39,10 +39,10 @@
       <div class="component__heading" ng-repeat-start="(label, amount) in $ctrl.contributions_by_type_percentages">{{ label }}</div>
       <odca-money-bar-chart value="{{ amount }}" max="1000" precision="1" format="percentage" color="green" ng-repeat-end></odca-money-bar-chart>
     </div>
-    <div class="see-more" ng-if="!!$ctrl.supporting.total_contributions">
-      <a class="see-more__content" ui-sref="appMain.committee.main({filer_id: $ctrl.candidate.filer_id})")"><span class="text-no-break">See all contributions<span class="fa fa-chevron-right"></span></span></a>
+    <div class="see-more" ng-if="$ctrl.supporting.total_contributions > 0">
+      <a class="see-more__content" ui-sref="appMain.committee.main({filer_id: $ctrl.candidate.filer_id})">See all <span class="text-no-break">contributions<span class="fa fa-chevron-right"></span></span></a>
     </div>
-    <div class="see-more" ng-if="!$ctrl.supporting.total_contributions">
+    <div class="see-more" ng-if="!($ctrl.supporting.total_contributions > 0)">
       No data on contributions
     </div>
 
