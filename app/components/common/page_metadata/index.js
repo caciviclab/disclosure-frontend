@@ -18,7 +18,7 @@ angular.module('odca.page_metadata', [])
       });
 
       // If in prod
-      if ($location.host().indexOf('opendisclosure') !== -1) {
+      if ($location.host().indexOf('localhost') === -1) {
         // Track virtual page views in Google Analytics
         ga('set', 'page', $location.path());
         ga('send', 'pageview');
