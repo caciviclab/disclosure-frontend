@@ -3,7 +3,8 @@
 var _defaultPageDescription;
 
 angular.module('odca.page_metadata', [])
-  .run(['$rootElement', '$rootScope', 'pageMetadata', function($rootElement, $rootScope, pageMetadata) {
+  .run(['$location', '$rootElement', '$rootScope', 'pageMetadata',
+    function($location, $rootElement, $rootScope, pageMetadata) {
     // Save the initial description
     var descriptionElement = findDescriptionElement($rootElement);
     _defaultPageDescription = descriptionElement.attr('content');
@@ -15,6 +16,13 @@ angular.module('odca.page_metadata', [])
         title: data.pageTitle,
         description: data.pageDescription
       });
+
+      // If in prod
+      if ($location.host().indexOf('opendisclosure') !== -1) {
+        // Track virtual page views in Google Analytics
+        ga('set', 'page', $location.path());
+        ga('send', 'pageview');
+      }
     });
   }])
   .factory('pageMetadata', ['$rootElement', '$rootScope', function($rootElement, $rootScope) {
