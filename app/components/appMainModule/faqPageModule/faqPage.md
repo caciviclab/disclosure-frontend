@@ -108,7 +108,7 @@ E](http://www.fppc.ca.gov/content/dam/fppc/NS-Documents/TAD/Campaign%20Forms/460
 p24_
 
 
-### Campaign Paraphernalia/Miscellaneous (CMP)
+### Campaign Paraphernalia/&#x200b;Miscellaneous (CMP)
 
 Includes lawn signs, buttons, bumper stickers, T-shirts, potholders, etc.
 Includes costs of election night event.
