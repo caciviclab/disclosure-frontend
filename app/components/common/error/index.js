@@ -1,9 +1,6 @@
 'use strict';
 
 angular.module('odca.error', [])
-  .config(['$httpProvider', function ($httpProvider) {
-    $httpProvider.interceptors.push('errorHttpInterceptor');
-  }])
   .run(['$window', 'error', function ($window, error) {
     $window.onerror = onError;
 
@@ -48,14 +45,6 @@ angular.module('odca.error', [])
         });
       }
     }
-  }])
-  .factory('errorHttpInterceptor', ['error', function (error) {
-    return {
-      responseError: function errorHttpInterceptor (response) {
-        //TODO maybe check response.status and redirect to 404?
-        error(new Error(response.statusText));
-      }
-    };
   }]);
 
 
