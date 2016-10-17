@@ -9,6 +9,7 @@
       scope: {},
       controllerAs: 'vm',
       bindToController: {
+        lastUpdated: '=',
         pageTitle: '@pageTitle',
         pageSubtitle: '@subTitle',
         nextElectionDate: '@nextElection'

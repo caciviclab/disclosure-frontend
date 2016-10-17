@@ -9,10 +9,8 @@
       scope: {},
       controllerAs: 'locale',
       bindToController: {
-        localeName: '@'
-        // uiStateName: '=',
-        // localeType: '='
-        //onStateLoad: '&'
+        localeName: '@',
+        stats: '='
       },
       //link: link,
       template: template,
