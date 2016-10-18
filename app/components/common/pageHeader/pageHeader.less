@@ -1,24 +1,41 @@
-.odca-pageHeader {
-	font-family: @headings-font-family;
-}
-
 .odca-pageHeader-title {
-	color: @core-grey-1;
-	font-size: 2.4em;
-	margin-top: 0;
-	margin-bottom: 5px;
-	text-transform: capitalize;
+  color: @core-grey-2;
+  font-size: 2.4em;
+  margin-top: 0;
+  margin-bottom: 5px;
+  text-transform: capitalize;
 }
 
 .odca-pageHeader-subtitle {
-	font-size: 1.4em;
-	color: @core-grey-3;
-	margin-top: 5px;
-	margin-bottom: 0;
+  font-size: 1.4em;
+  color: @core-grey-3;
+  margin-top: 5px;
+  margin-bottom: 0;
+}
+
+.odca-pageHeader-info {
+  .clearfix;
+  margin: 1rem 0;
 }
 
 .odca-pageHeader-nextElection {
-	.homepageText-subheader;
-	color: @core-grey-2;
-	margin-top: 12.5px;
+  .homepageText-subheader;
+  color: @core-grey-4;
+  font-family: @headings-font-family;
+}
+
+.odca-pageHeader-lastUpdated {
+  color: @core-grey-3;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+@media screen and (min-width: @screen-sm-min) {
+  .odca-pageHeader-nextElection {
+    float: left;
+  }
+
+  .odca-pageHeader-lastUpdated {
+    float: right;
+  }
 }

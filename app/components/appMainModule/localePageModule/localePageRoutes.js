@@ -6,10 +6,11 @@ function localePageRoutes($stateProvider) {
     name: 'appMain.localePage',
     url: '^/:localeType/:localeId/:localeName',
     abstract: true,
-    template: '<locale-page class="page-fade" locale-name="{{ $ctrl.localeName }}"></locale-page>',
-    controller: ['$rootScope', '$scope', '$stateParams', function($rootScope, $scope, $stateParams) {
+    template: '<locale-page class="page-fade" locale-name="{{ $ctrl.localeName }}" stats="$ctrl.stats"></locale-page>',
+    controller: ['$rootScope', '$scope', '$stateParams', 'stats', function($rootScope, $scope, $stateParams, stats) {
       var ctrl = this;
       ctrl.localeName = $stateParams.localeName;
+      ctrl.stats = stats;
     }],
     controllerAs: '$ctrl',
     resolve: {
@@ -18,6 +19,9 @@ function localePageRoutes($stateProvider) {
       }],
       locality: ['$stateParams', 'static_api', function($stateParams, static_api) {
         return static_api.locality.get({locality_id: $stateParams.localeId});
+      }],
+      stats: ['static_api', function(static_api) {
+        return static_api.stats.get().$promise;
       }]
     }
   };

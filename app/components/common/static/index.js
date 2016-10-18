@@ -27,6 +27,7 @@ angular.module('odca.static_api', [
         supporting: {method: 'get', url: '/supporting'},
         opposing: {method: 'get', url: '/opposing'}
       }),
+      stats: api_group('/stats', {})
     };
 
     function api_group (base_url, actions, defaultParams) {

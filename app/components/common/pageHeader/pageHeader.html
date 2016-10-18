@@ -1,3 +1,6 @@
 <h1 class="odca-pageHeader-title">{{vm.pageTitle}}</h1>
 <h2 ng-if="vm.pageSubtitle" class="odca-pageHeader-subtitle">{{vm.pageSubtitle}}</h2>
-<p ng-if="vm.nextElectionDate" class="odca-pageHeader-nextElection">Next Election: {{vm.nextElectionDate}}</p>
+<div class="odca-pageHeader-info">
+  <div ng-if="vm.nextElectionDate" class="odca-pageHeader-nextElection">Next Election: {{vm.nextElectionDate}}</div>
+  <div ng-if="vm.lastUpdated" class="odca-pageHeader-lastUpdated">Content last updated {{ vm.lastUpdated | date: 'MMM. d, yyyy' }}</div>
+</div>
