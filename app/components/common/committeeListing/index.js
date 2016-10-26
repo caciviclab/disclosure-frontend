@@ -15,7 +15,7 @@
       return {
         restrict: 'E',
         template: require('./committeeListing.html'),
-        controller: committeeListingController,
+        controller: CommitteeListingController,
         controllerAs: '$ctrl',
         bindToController: true,
         scope: {
@@ -25,18 +25,14 @@
       };
     }
 
-    committeeListingController.$inject = ['$filter'];
-    function committeeListingController($filter) {
-      var contributionsObjs,
-          gridWidth;
-
+    CommitteeListingController.$inject = ['$filter'];
+    function CommitteeListingController($filter) {
       var ctrl = this;
+      
+      var contributionsObjs;
+
       ctrl.committeeTotal = 0;
       ctrl.contributionsSearch = '';
-
-      // ag-grid requires fixed widths in pixels. Calculating them here to take all available space
-      var odcaGridElement = document.querySelectorAll('.odca-grid')[0];
-      gridWidth = odcaGridElement.offsetWidth;
 
       // Convert resources to plain old objects to make ag-grid happy
       contributionsObjs = ctrl.contributions.map(function(resource) {
@@ -56,13 +52,15 @@
             headerName: 'Contributor',
             field: 'Name',
             filter: 'text',
-            width: Math.round(gridWidth * 0.6 * 100) / 100,
+            minWidth: 300,
+            width: getColumnWidth(0.6, 300),
             suppressMenu: true
           },
           {
             headerName: 'Amount',
             field: 'Tran_Amt1',
-            width: Math.round(gridWidth * 0.2 * 100) / 100,
+            minWidth: 100,
+            width: getColumnWidth(0.2, 100),
             cellFormatter: function(params) {
               return $filter('currency')(params.value, '$', 0);
             },
@@ -72,7 +70,8 @@
           {
             headerName: 'Date',
             field: 'Tran_Date',
-            width: Math.round(gridWidth * 0.2 * 100) / 100,
+            minWidth: 110,
+            width: getColumnWidth(0.2, 110),
             suppressMenu: true
           }
         ],
@@ -97,9 +96,18 @@
         
         return names.join(' ');
       }
+      
+      // ag-grid requires fixed widths in pixels. Calculating them here to take all available space
+      function getColumnWidth(percentOfWidth, minWidth) {
+        var allocatedWidth, gridWidth, minWidth, odcaGridElement;
+        
+        odcaGridElement = document.querySelectorAll('.odca-grid')[0];
+        gridWidth = odcaGridElement.offsetWidth;
+        allocatedWidth = Math.round(gridWidth * percentOfWidth * 100) / 100;
 
+        return allocatedWidth >= minWidth ? allocatedWidth : minWidth;
+      }
     }
-
 
 
 })();
