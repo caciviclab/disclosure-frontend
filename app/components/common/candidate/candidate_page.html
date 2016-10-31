@@ -31,7 +31,15 @@
         <span class="money">{{ $ctrl.current_balance | dollar }}</span>
       </div>
     </div>
-  </div>
+   </div>
+   <div ng-if="$ctrl.candidate.opposing_money.opposing_expenditures">
+    <div class="divided-section">
+        <div class="candidate__money candidate__money--current-balance">
+          <span class="candidate__money-header">Expenditures Opposing Candidate</span>
+          <span class="money">{{ $ctrl.candidate.opposing_money.opposing_expenditures | dollar }}</span>
+        </div>
+    </div>
+   </div>
   <div ng-if="$ctrl.supporting.total_contributions" class="divided-section is-off-screen" when-visible="$ctrl.onVisible">
     <span class="text-serif text-grey-4">Money coming in</span>
     <h3>Contributions</h3>
