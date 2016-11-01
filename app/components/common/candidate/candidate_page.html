@@ -9,6 +9,7 @@
         <div ng-if="$ctrl.candidate.is_incumbent" class="text-serif text-grey-4">Incumbent</div>
         <div class="candidate-profile__website"><a ng-href="{{ $ctrl.candidate.website_url }}">{{ $ctrl.candidate.website_url }}</a></div>
         <div class="candidate-profile__twitter"><a ng-href="https://twitter.com/{{ $ctrl.candidate.twitter_url }}">{{ $ctrl.candidate.twitter_url }}</a></div>
+        <div class="candidate-profile__voters-edge"><a ng-href="{{ $ctrl.candidate.votersedge_url }}">Voter's Edge Summary</a></div>
       </div>
     </div>
     <div class="candidate-profile__bio">{{ $ctrl.candidate.bio }}</div>
