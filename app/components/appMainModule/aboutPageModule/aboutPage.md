@@ -1,6 +1,6 @@
 # About the Open Disclosure California Project
 
-The Open Disclosure California (ODCA) project is California’s first online repository combining local and state campaign finance data. This first phase of ODCA includes all campaign finance activity for the November 2016 election in the city of Oakland. We track contributions to Oakland candidates and ballot measures and their expenditures to offer voters the full story of money in this year’s election. This is just the first phase of a larger initiative to offer local campaign finance data statewide.
+The Open Disclosure California (ODCA) project is California’s first online repository combining local and state campaign finance data. This first phase of ODCA includes all campaign finance activity for the November 2016 election in the city of Oakland. We track contributions to Oakland candidates and ballot measures and their expenditures to offer voters the full story of money in this year’s election. This is just the second phase of a larger initiative to offer local campaign finance data statewide. The first phase visualized money in the [2014 Oakland mayoral election](http://2014.opendisclosure.io/).
 
 ## The Future of ODCA
 
