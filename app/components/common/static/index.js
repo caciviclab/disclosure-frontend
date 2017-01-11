@@ -3,7 +3,7 @@
 
 var angular = require('angular');
 
-var static_backend_url = 'https://disclosure-backend-static.tdooner.com';
+var static_backend_url = 'https://disclosure-backend-static.herokuapp.com';
 
 angular.module('odca.static_api', [
   require('angular-resource')
