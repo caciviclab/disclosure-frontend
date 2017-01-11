@@ -3,7 +3,7 @@
 
 var CONSTANTS = (function() {
     return {
-        DISCLOSURE_API_BASEURL: 'http://disclosure-backend-static.f.tdooner.com'
+        DISCLOSURE_API_BASEURL: 'https://disclosure-backend-static.herokuapp.com'
     };
 }());
 
