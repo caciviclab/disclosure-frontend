@@ -224,7 +224,7 @@ gulp.task('bundle-prod', function () {
 function bundle(bundler) {
 
     // Add options to add to "base" bundler passed as parameter
-    bundler
+    return bundler
       .transform(browserifyCss, {global: true})
       .transform(markedify)
       .bundle()                                                        // Start bundle
@@ -239,14 +239,7 @@ function bundle(bundler) {
       .pipe(connect.reload());                              // Reload browser if relevant
 
       //TODO: add this code in for bundling dev vs prod
-      //.pipe(gulpif(!bundle.prod, sourcemaps.init({
-      //             loadMaps: true
-      //         })))
-      //         .pipe(gulpif(!bundle.prod, sourcemaps.write('./')))
-      //         .pipe(gulpif(bundle.prod, streamify(uglify({
-      //             mangle: false
-      //         }))))
-
+      //
 }
 
 gulp.task('bundle', function() {
@@ -254,7 +247,14 @@ gulp.task('bundle', function() {
       entries: filePath.browserify.src, // Pass browserify the entry point
       debug: true
     });
-    bundle(bundler);  // Chain other options -- sourcemaps, rename, etc.
+    bundle(bundler).pipe(gulpif(!bundle.prod, sourcemaps.init({
+                  loadMaps: true
+              })))
+              .pipe(gulpif(!bundle.prod, sourcemaps.write('./')))
+              .pipe(gulpif(bundle.prod, streamify(uglify({
+                  mangle: false
+              }))))
+// ;  // Chain other options -- sourcemaps, rename, etc.
 });
 
 
