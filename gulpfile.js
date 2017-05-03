@@ -33,7 +33,8 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     Karma = require('karma').Server,
     gulpif = require('gulp-if'),
-    envify = require('envify');
+    envify = require('envify'),
+    ngAnnotate = require('gulp-ng-annotate');
 
 
 // =======================================================================
@@ -133,12 +134,11 @@ gulp.task('checkstyle', function () {
 // Browserify Bundle
 // =======================================================================
 
-function bundle() {
+gulp.task('bundle', function () {
     return browserify({
-        entries: filePath.browserify.src, // Pass browserify the entry point
-        debug: true
-    })
-    .transform(browserifyCss, {
+            entries: filePath.browserify.src
+        })
+        .transform(browserifyCss, {
             global: true
         })
         .transform(markedify)
@@ -149,24 +149,12 @@ function bundle() {
         .pipe(sourceMaps.init({
             loadMaps: true
         })) // Strip inline source maps
+        .pipe(ngAnnotate())
+        .pipe(uglify({mangle:false}))
         .pipe(sourceMaps.write(filePath.browserify.mapDir)) // Save source maps to their own directory
         .pipe(gulp.dest(filePath.browserify.outputDir)) // Save 'bundle' to build/
-        .pipe(connect.reload()); // Reload browser if relevant
-}
-
-gulp.task('bundle', function () {
-    bundle().pipe(
-            gulpif(!bundle.prod, sourceMaps.init({
-                loadMaps: true
-            }))
-        )
-        .pipe(gulpif(!bundle.prod, sourceMaps.write('./')))
-        .pipe(gulpif(bundle.prod, streamify(uglify({
-            mangle: false
-        }))))
+        .pipe(connect.reload()) // Reload browser if relevant
 });
-
-
 
 // =======================================================================
 // Styles Task
@@ -342,9 +330,7 @@ gulp.task('build-prod', function (callback) {
 // run "gulp build" in terminal for a full re-build in DEV
 gulp.task('build', function (callback) {
     runSequence(
-        ['clean-full', 'lint','checkstyle'],
-        ['bundle','styles-dev', 'images', 'fonts', 'copyIndex', 'copyFavicon'],
-        ['server', 'watch'],
+        ['clean-full', 'lint', 'checkstyle'], ['bundle', 'styles-dev', 'images', 'fonts', 'copyIndex', 'copyFavicon'], ['server', 'watch'],
         callback
     );
 });

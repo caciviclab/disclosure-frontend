@@ -9,7 +9,7 @@ module.exports = function() {
         browserify: {
             src: './app/app.js', // Entry point
             outputDir: './dist/', // Directory to save bundle to
-            mapDir: './maps/', // Subdirectory to save maps to
+            mapDir: '.', // Subdirectory to save maps to
             outputFile: 'bundle.js', // Name to use for bundle
             watch: [
                 './app/**/*.js',

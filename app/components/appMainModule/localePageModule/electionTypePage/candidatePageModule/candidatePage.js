@@ -2,7 +2,7 @@
 
 angular.module('candidatePageModule', [
   require('../../../../common/candidate'),
-  require('../../../../common/static'),
+  require('../../../../common/static')
 ])
   .config(require('./candidatePageRoutes'));
 
