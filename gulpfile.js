@@ -39,60 +39,7 @@ var gulp = require('gulp'),
 // =======================================================================
 // File Paths
 // =======================================================================
-var filePath = {
-    build: {
-        dest: './dist'
-    },
-    lint: {
-        src: ['./app/**/*.js', '!./app/vendor/noNpm/**/*']
-    },
-    browserify: {
-        src: './app/app.js',       // Entry point
-        outputDir: './dist/',  // Directory to save bundle to
-        mapDir: './maps/',      // Subdirectory to save maps to
-        outputFile: 'bundle.js', // Name to use for bundle
-        watch: [
-            './app/**/*.js',
-            '!./app/**/*.spec.js',
-            './app/**/*.html',
-            './app/**/*.md'
-        ]
-    },
-    styles: {
-        src: './app/app.less',
-        watch: ['./app/**/*.less'],
-        dest: './dist/css/'
-    },
-    assets: {
-        images: {
-            src: './app/assets/images/**/*',
-            watch: ['./app/assets/images', './app/assets/images/**/*'],
-            dest: './dist/images/'
-        },
-        fonts: {
-            src: ['./node_modules/font-awesome/fonts/*', './app/fonts/**/*'],
-            dest: './dist/fonts/'
-        }
-    },
-    vendorJS: {
-        // These files will be bundled into a single vendor.js file that's called at the bottom of index.html
-        src: ['./app/vendor/vendor.js']
-    },
-    //vendorCSS: {
-    //    src: [
-    //        './libs/bootstrap/dist/css/bootstrap.css', // v3.1.1
-    //        './libs/font-awesome/css/font-awesome.css' // v4.1.0
-    //    ]
-    //},
-    copyIndex: {
-        src: './app/index.html',
-        watch: './app/index.html'
-    },
-    copyFavicon: {
-        src: './app/favicon.png'
-    }
-};
-
+var filePath = require('./gulp.config')();
 
 // =======================================================================
 // Error Handling
@@ -102,7 +49,6 @@ function handleError(err) {
     gutil.debug(err);
     // this.emit('end');
 }
-
 
 // =======================================================================
 // Server Task
@@ -185,44 +131,7 @@ gulp.task('checkstyle', function() {
 // Browserify Bundle
 // =======================================================================
 
-// var bundle = {};
-// bundle.conf = {
-//     entries: filePath.browserify.src,
-//     external: filePath.vendorJS.src,
-//     debug: true,
-//     cache: {},
-//     packageCache: {}
-// };
-
-// function configureBundle(prod) {
-//     var bundler = browserify(bundle.conf);
-//
-//     if (!prod) {
-//         bundler = watchify(bundler);
-//         bundler.on('update', rebundle);
-//     }
-//
-//     bundler.transform(envify);
-//
-//     bundle.bundler = bundler;
-//     bundle.prod = prod;
-// }
-
-gulp.task('bundle-dev', function () {
-    // 'use strict';
-    // configureBundle(false);
-    // return rebundle();
-});
-
-gulp.task('bundle-prod', function () {
-    // 'use strict';
-    // configureBundle(true);
-    // return rebundle();
-});
-
-// This method makes it easy to use common bundling options in different tasks
 function bundle(bundler) {
-
     // Add options to add to "base" bundler passed as parameter
     return bundler
       .transform(browserifyCss, {global: true})
@@ -247,14 +156,14 @@ gulp.task('bundle', function() {
       entries: filePath.browserify.src, // Pass browserify the entry point
       debug: true
     });
-    bundle(bundler).pipe(gulpif(!bundle.prod, sourcemaps.init({
+    bundle(bundler).pipe(gulpif(!bundle.prod, sourceMaps.init({
                   loadMaps: true
               })))
-              .pipe(gulpif(!bundle.prod, sourcemaps.write('./')))
+              .pipe(gulpif(!bundle.prod, sourceMaps.write('./')))
               .pipe(gulpif(bundle.prod, streamify(uglify({
                   mangle: false
               }))))
-// ;  // Chain other options -- sourcemaps, rename, etc.
+// ;  // Chain other options -- sourceMaps, rename, etc.
 });
 
 

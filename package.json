@@ -90,7 +90,7 @@
     "angular-animate": "1.4.9",
     "angular-breadcrumb": "^0.4.1",
     "angular-cookies": "1.4.9",
-    "angular-filter": "^0.5.9",
+    "angular-filter": "^0.5.16",
     "angular-resource": "1.4.9",
     "angular-sanitize": "1.4.9",
     "angular-scroll-animate": "^0.9.9",
