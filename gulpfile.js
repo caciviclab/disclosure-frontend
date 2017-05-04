@@ -46,8 +46,8 @@ var filePath = require('./gulp.config')();
 // Error Handling
 // =======================================================================
 function handleError(err) {
-    gutil.log(err);
-    this.emit('end');
+    gutil.log(err.message);
+    // this.emit('end');
 }
 
 // =======================================================================

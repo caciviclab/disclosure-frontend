@@ -10,7 +10,7 @@ var angularSanitize = require('angular-sanitize');
 var angularBreadcrumb = require('angular-breadcrumb');
 var bootstrap = require('bootstrap');
 var domReady = require('domready');
-var AgGrid = require('ag-grid');
+var AgGrid = require('../../node_modules/ag-grid/dist/ag-grid.noStyle');
 AgGrid.initialiseAgGridWithAngular1(angular);
 
 module.exports = function() {
