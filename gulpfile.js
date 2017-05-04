@@ -46,9 +46,8 @@ var filePath = require('./gulp.config')();
 // Error Handling
 // =======================================================================
 function handleError(err) {
-    console.log(err.toString());
-    gutil.debug(err);
-    // this.emit('end');
+    gutil.log(err);
+    this.emit('end');
 }
 
 // =======================================================================
@@ -136,21 +135,24 @@ gulp.task('checkstyle', function () {
 
 gulp.task('bundle', function () {
     return browserify({
-            entries: filePath.browserify.src
+            entries: filePath.browserify.src,
+            debug: true
         })
         .transform(browserifyCss, {
-            global: true
+            global: true,
         })
         .transform(markedify)
         .bundle() // Start bundle
         .pipe(source(filePath.browserify.src)) // Entry point
         .pipe(buffer()) // Convert to gulp pipeline
-        .pipe(rename(filePath.browserify.outputFile)) // Rename output from 'app.js' to 'bundle.js'
         .pipe(sourceMaps.init({
             loadMaps: true
         })) // Strip inline source maps
-        .pipe(ngAnnotate())
-        .pipe(uglify({mangle:false}))
+            .pipe(ngAnnotate())
+            .pipe(uglify({
+                mangle: false
+            })).on('error', handleError)
+            .pipe(rename(filePath.browserify.outputFile)) // Rename output from 'app.js' to 'bundle.js'
         .pipe(sourceMaps.write(filePath.browserify.mapDir)) // Save source maps to their own directory
         .pipe(gulp.dest(filePath.browserify.outputDir)) // Save 'bundle' to build/
         .pipe(connect.reload()) // Reload browser if relevant
