@@ -33,14 +33,6 @@
       </div>
     </div>
    </div>
-   <div ng-if="$ctrl.candidate.opposing_money.opposing_expenditures">
-    <div class="divided-section">
-        <div class="candidate__money candidate__money--current-balance">
-          <span class="candidate__money-header">Expenditures Opposing Candidate</span>
-          <span class="money">{{ $ctrl.candidate.opposing_money.opposing_expenditures | dollar }}</span>
-        </div>
-    </div>
-   </div>
   <div ng-if="$ctrl.supporting.total_contributions" class="divided-section is-off-screen" when-visible="$ctrl.onVisible">
     <span class="text-serif text-grey-4">Money coming in</span>
     <h3>Contributions</h3>
@@ -63,5 +55,31 @@
       <div class="component__heading" ng-repeat-start="(label, amount) in $ctrl.supporting.expenditures_by_type">{{ label }}</div>
       <odca-money-bar-chart value="{{ amount }}" max="{{ $ctrl.supporting.total_expenditures }}" format="money" color="red" ng-repeat-end></odca-money-bar-chart>
     </div>
+  </div>
+
+  <div ng-if="$ctrl.supporting.supporting_money.supporting_expenditures" class="divided-section is-off-screen" when-visible="$ctrl.onVisible">
+    <h3>
+      Expenditures by Independent Committees supporting:
+      {{ $ctrl.supporting.supporting_money.supporting_expenditures | dollar }}
+    </h3>
+    <div class="see-more" >
+      <a class="see-more__content" ui-sref="appMain.committee.supporting({filer_id: $ctrl.candidate.filer_id})">See supporting <span class="text-no-break">committees<span class="fa fa-chevron-right"></span></span></a>
+    </div>
+    <div>
+      <div class="component__heading" ng-repeat-start="(label, amount) in $ctrl.supporting.supporting_money.supporting_by_type">{{ label }}</div>
+      <odca-money-bar-chart value="{{ amount }}" max="{{ $ctrl.supporting.supporting_money.supporting_expenditures }}" format="money" color="red" ng-repeat-end></odca-money-bar-chart>
+    </div>
+  </div>
+
+  <div ng-if="$ctrl.candidate.opposing_money.opposing_expenditures">
+   <h3>
+      Expenditures by Independent Committees opposing:
+      {{ $ctrl.candidate.opposing_money.opposing_expenditures | dollar }}
+   </h3>
+    <div class="see-more" >
+      <a class="see-more__content" ui-sref="appMain.committee.opposing({filer_id: $ctrl.candidate.filer_id})">See opposing <span class="text-no-break">committees<span class="fa fa-chevron-right"></span></span></a>
+    </div>
+   <div class="component__heading" ng-repeat-start="(label, amount) in $ctrl.candidate.opposing_money.opposing_by_type">{{ label }}</div>
+      <odca-money-bar-chart value="{{ amount }}" max="{{ $ctrl.candidate.opposing_money.opposing_expenditures }}" format="money" color="blue" ng-repeat-end></odca-money-bar-chart>
   </div>
 </div>
