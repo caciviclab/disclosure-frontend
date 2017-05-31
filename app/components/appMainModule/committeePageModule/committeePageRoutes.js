@@ -47,30 +47,6 @@ function committeePageRoutes($stateProvider) {
       parent: 'appMain'
     }
   });
-
-  $stateProvider.state({
-    name: 'appMain.committee.contributors',
-    // name: 'appMain.locality.committee.contributors',
-    url: '/contributors',
-    controller: 'committeeContributorsPageController',
-    template: '<committee-contributors contributors="contributors"></committee-contributors>',
-    ncyBreadcrumb: {
-      label: 'Contributors',
-      parent: 'appMain.committee.main'
-      // parent: 'appMain.locality.committee.main'
-    },
-    resolve: {
-      contributors: function($stateParams) {
-        return disclosureApi.committee.contributors({
-          committee_id: $stateParams.committee_id
-        });
-      }
-    },
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'contributors'
-    }
-  });
 }
 
 committeePageRoutes.$inject = ['$stateProvider'];
