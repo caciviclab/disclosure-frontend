@@ -12,19 +12,13 @@ function committeePageRoutes($stateProvider) {
     name: 'appMain.committee',
     abstract: true,
     url: '^/committee/:filer_id',
-    template: '<ui-view></ui-view>',
+    template: require('./committeePage.html'),
     controller: 'committeePageController',
     resolve: {
       committee: function($stateParams, static_api) {
         return static_api.committee.get({
           filer_id: $stateParams.filer_id
         });
-      },
-      contributions: function($stateParams, static_api) {
-        var apiCall = static_api.committee.contributions({
-          filer_id: $stateParams.filer_id
-        });
-        return apiCall.$promise;
       }
     },
     data: {
@@ -39,12 +33,21 @@ function committeePageRoutes($stateProvider) {
   });
 
   $stateProvider.state({
-    name: 'appMain.committee.main',
+    name: 'appMain.committee.contributions',
     url: '',
-    template: require('./committeePage.html'),
+    controller: 'committeePageContributionsController',
+    template: '<committee-listing committee="committee" contributions="contributions"></committee-listing>',
     ncyBreadcrumb: {
       label: '{{ committee.name }}',
       parent: 'appMain'
+    },
+    resolve: {
+      contributions: function($stateParams, static_api) {
+        var apiCall = static_api.committee.contributions({
+          filer_id: $stateParams.filer_id
+        });
+        return apiCall.$promise;
+      }
     }
   });
 }

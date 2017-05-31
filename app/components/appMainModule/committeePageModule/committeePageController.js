@@ -1,9 +1,8 @@
 'use strict';
 
-function committeeController($scope, $state, committee, contributions) {
+function committeeController($scope, $state, committee) {
   $scope.state = $state;
   $scope.committee = committee;
-  $scope.contributions = contributions;
 }
 
 module.exports = committeeController;

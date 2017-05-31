@@ -20,7 +20,6 @@
   require('../../common/pageHeaderBreadcrumbs/pageHeaderBreadcrumbs');
   require('../../common/committeeListing');
 
-  // var committeeModule = angular.module('committeePageModule', [
   module.exports = angular.module('committeePageModule',
     [
       'coreModules',
@@ -29,7 +28,6 @@
       'committeeListing'
     ])
     .controller('committeePageController', require('./committeePageController'))
+    .controller('committeePageContributionsController', require('./committeePageContributionsController'))
     .config(require('./committeePageRoutes'));
-
-  // module.exports = committeeModule;
 }());

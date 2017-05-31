@@ -4,6 +4,8 @@
    * Describes a single political committee.
    **/
 
+   // TODO rename contributions to something more generic so the same component
+   // can be used for contributor data as well as expenditure data.
    (function() {
     'use strict';
 
