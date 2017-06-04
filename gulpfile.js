@@ -33,76 +33,22 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     Karma = require('karma').Server,
     gulpif = require('gulp-if'),
-    envify = require('envify');
+    envify = require('envify'),
+    ngAnnotate = require('gulp-ng-annotate');
 
 
 // =======================================================================
 // File Paths
 // =======================================================================
-var filePath = {
-    build: {
-        dest: './dist'
-    },
-    lint: {
-        src: ['./app/**/*.js', '!./app/vendor/noNpm/**/*']
-    },
-    browserify: {
-        src: './app/app.js',       // Entry point
-        outputDir: './dist/',  // Directory to save bundle to
-        mapDir: './maps/',      // Subdirectory to save maps to
-        outputFile: 'bundle.js', // Name to use for bundle
-        watch: [
-            './app/**/*.js',
-            '!./app/**/*.spec.js',
-            './app/**/*.html',
-            './app/**/*.md'
-        ]
-    },
-    styles: {
-        src: './app/app.less',
-        watch: ['./app/**/*.less'],
-        dest: './dist/css/'
-    },
-    assets: {
-        images: {
-            src: './app/assets/images/**/*',
-            watch: ['./app/assets/images', './app/assets/images/**/*'],
-            dest: './dist/images/'
-        },
-        fonts: {
-            src: ['./node_modules/font-awesome/fonts/*', './app/fonts/**/*'],
-            dest: './dist/fonts/'
-        }
-    },
-    vendorJS: {
-        // These files will be bundled into a single vendor.js file that's called at the bottom of index.html
-        src: ['./app/vendor/vendor.js']
-    },
-    //vendorCSS: {
-    //    src: [
-    //        './libs/bootstrap/dist/css/bootstrap.css', // v3.1.1
-    //        './libs/font-awesome/css/font-awesome.css' // v4.1.0
-    //    ]
-    //},
-    copyIndex: {
-        src: './app/index.html',
-        watch: './app/index.html'
-    },
-    copyFavicon: {
-        src: './app/favicon.png'
-    }
-};
-
+var filePath = require('./gulp.config')();
 
 // =======================================================================
 // Error Handling
 // =======================================================================
 function handleError(err) {
-    console.log(err.toString());
-    gutil.debug(err);
+    gutil.log(err.message);
     // this.emit('end');
 }
-
 
 // =======================================================================
 // Server Task
@@ -112,13 +58,13 @@ var express = require('express'),
 // Server settings
 server.use(express.static(filePath.build.dest));
 // Redirects everything back to our index.html
-server.all('/*', function(req, res) {
+server.all('/*', function (req, res) {
     res.sendfile('/', {
         root: filePath.build.dest
     });
 });
 // uncomment the "middleware" section when you are ready to connect to an API
-gulp.task('server', function() {
+gulp.task('server', function () {
     connect.server({
         root: filePath.build.dest,
         fallback: filePath.build.dest + '/index.html',
@@ -141,7 +87,7 @@ gulp.task('server', function() {
 // =======================================================================
 // Clean out dist folder contents on build
 // =======================================================================
-gulp.task('clean-dev', function() {
+gulp.task('clean-dev', function () {
     del(['./dist/*.js',
         './dist/css/*.css',
         '!./dist/fonts/**',
@@ -151,33 +97,35 @@ gulp.task('clean-dev', function() {
         './dist/*.png',
         './dist/*.ico',
         './reports/**/*',
-        './reports']);
+        './reports'
+    ]);
 });
 
-gulp.task('clean-full', function() {
+gulp.task('clean-full', function () {
     del(['./dist/*',
         './reports/**/*',
-        './reports']);
+        './reports'
+    ]);
 });
 
 
 // =======================================================================
 // JSHint
 // =======================================================================
-gulp.task('lint', function() {
+gulp.task('lint', function () {
     return gulp.src(filePath.lint.src)
-    .pipe(jshint())
-    .pipe(jshint.reporter(stylish));
+        .pipe(jshint())
+        .pipe(jshint.reporter(stylish));
 });
 
 
 // =======================================================================
 // Javascript Checkstyles (JSCS)
 // =======================================================================
-gulp.task('checkstyle', function() {
+gulp.task('checkstyle', function () {
     return gulp.src(filePath.lint.src)
-    .pipe(jscs())
-    .on('error', handleError);
+        .pipe(jscs())
+        .on('error', handleError);
 });
 
 
@@ -185,124 +133,75 @@ gulp.task('checkstyle', function() {
 // Browserify Bundle
 // =======================================================================
 
-// var bundle = {};
-// bundle.conf = {
-//     entries: filePath.browserify.src,
-//     external: filePath.vendorJS.src,
-//     debug: true,
-//     cache: {},
-//     packageCache: {}
-// };
-
-// function configureBundle(prod) {
-//     var bundler = browserify(bundle.conf);
-//
-//     if (!prod) {
-//         bundler = watchify(bundler);
-//         bundler.on('update', rebundle);
-//     }
-//
-//     bundler.transform(envify);
-//
-//     bundle.bundler = bundler;
-//     bundle.prod = prod;
-// }
-
-gulp.task('bundle-dev', function () {
-    // 'use strict';
-    // configureBundle(false);
-    // return rebundle();
+gulp.task('bundle', function () {
+    return browserify({
+            entries: filePath.browserify.src,
+            debug: true
+        })
+        .transform(browserifyCss, {
+            global: true,
+        })
+        .transform(markedify)
+        .bundle() // Start bundle
+        .pipe(source(filePath.browserify.src)) // Entry point
+        .pipe(buffer()) // Convert to gulp pipeline
+        .pipe(sourceMaps.init({
+            loadMaps: true
+        })) // Strip inline source maps
+            .pipe(ngAnnotate())
+            .pipe(uglify({
+                mangle: false
+            })).on('error', handleError)
+            .pipe(rename(filePath.browserify.outputFile)) // Rename output from 'app.js' to 'bundle.js'
+        .pipe(sourceMaps.write(filePath.browserify.mapDir)) // Save source maps to their own directory
+        .pipe(gulp.dest(filePath.browserify.outputDir)) // Save 'bundle' to build/
+        .pipe(connect.reload()) // Reload browser if relevant
 });
-
-gulp.task('bundle-prod', function () {
-    // 'use strict';
-    // configureBundle(true);
-    // return rebundle();
-});
-
-// This method makes it easy to use common bundling options in different tasks
-function bundle(bundler) {
-
-    // Add options to add to "base" bundler passed as parameter
-    bundler
-      .transform(browserifyCss, {global: true})
-      .transform(markedify)
-      .bundle()                                                        // Start bundle
-      .pipe(source(filePath.browserify.src))                        // Entry point
-      .pipe(buffer())                                               // Convert to gulp pipeline
-      .pipe(rename(filePath.browserify.outputFile))          // Rename output from 'app.js'
-                                                                              //   to 'bundle.js'
-      .pipe(sourceMaps.init({ loadMaps : true }))  // Strip inline source maps
-      .pipe(sourceMaps.write(filePath.browserify.mapDir))    // Save source maps to their
-                                                                       //   own directory
-      .pipe(gulp.dest(filePath.browserify.outputDir))        // Save 'bundle' to build/
-      .pipe(connect.reload());                              // Reload browser if relevant
-
-      //TODO: add this code in for bundling dev vs prod
-      //.pipe(gulpif(!bundle.prod, sourcemaps.init({
-      //             loadMaps: true
-      //         })))
-      //         .pipe(gulpif(!bundle.prod, sourcemaps.write('./')))
-      //         .pipe(gulpif(bundle.prod, streamify(uglify({
-      //             mangle: false
-      //         }))))
-
-}
-
-gulp.task('bundle', function() {
-    var bundler = browserify({
-      entries: filePath.browserify.src, // Pass browserify the entry point
-      debug: true
-    });
-    bundle(bundler);  // Chain other options -- sourcemaps, rename, etc.
-});
-
-
 
 // =======================================================================
 // Styles Task
 // =======================================================================
-gulp.task('styles-dev', function() {
+gulp.task('styles-dev', function () {
     return gulp.src(filePath.styles.src)
-    .pipe(sourceMaps.init())
-    .pipe(less())
-    .on('error', handleError)
-    .pipe(sourceMaps.write())
-    .pipe(gulp.dest(filePath.build.dest + '/css'))
-    .on('error', handleError)
-    .pipe(notify({
-        message: 'Styles task complete'
-    }))
-    .pipe(connect.reload());
+        .pipe(sourceMaps.init())
+        .pipe(less())
+        .on('error', handleError)
+        .pipe(sourceMaps.write())
+        .pipe(gulp.dest(filePath.build.dest + '/css'))
+        .on('error', handleError)
+        .pipe(notify({
+            message: 'Styles task complete'
+        }))
+        .pipe(connect.reload());
 });
 
-gulp.task('styles-prod', function() {
+gulp.task('styles-prod', function () {
     return gulp.src(filePath.styles.src)
-    .pipe(less())
-    .on('error', handleError)
-    .pipe(prefix('last 1 version', '> 1%', {
-        map: true
-    }))
-    .pipe(cssnano())
-    .pipe(gulp.dest(filePath.build.dest + '/css'))
-    .on('error', handleError)
-    .pipe(notify({
-        message: 'Styles task complete'
-    }));
+        .pipe(less())
+        .on('error', handleError)
+        .pipe(prefix('last 1 version', '> 1%', {
+            map: true
+        }))
+        .pipe(cssnano())
+        .pipe(gulp.dest(filePath.build.dest + '/css'))
+        .on('error', handleError)
+        .pipe(notify({
+            message: 'Styles task complete'
+        }));
 });
 
 
 // =======================================================================
 // Images Task
 // =======================================================================
-gulp.task('images', function() {
+gulp.task('images', function () {
     return gulp.src(filePath.assets.images.src)
-    .on('error', handleError)
-    .pipe(gulp.dest(filePath.assets.images.dest))
-    .pipe(notify({
-        message: 'Images copied'
-    }))
-    .pipe(connect.reload());
+        .on('error', handleError)
+        .pipe(gulp.dest(filePath.assets.images.dest))
+        .pipe(notify({
+            message: 'Images copied'
+        }))
+        .pipe(connect.reload());
 });
 
 
@@ -335,32 +234,32 @@ gulp.task('fonts', function () {
 // =======================================================================
 // Copy index.html
 // =======================================================================
-gulp.task('copyIndex', function() {
+gulp.task('copyIndex', function () {
     return gulp.src(filePath.copyIndex.src)
-    .pipe(gulp.dest(filePath.build.dest))
-    .pipe(notify({
-        message: 'index.html successfully copied'
-    }))
-    .pipe(connect.reload());
+        .pipe(gulp.dest(filePath.build.dest))
+        .pipe(notify({
+            message: 'index.html successfully copied'
+        }))
+        .pipe(connect.reload());
 });
 
 
 // =======================================================================
 // Copy Favicon
 // =======================================================================
-gulp.task('copyFavicon', function() {
+gulp.task('copyFavicon', function () {
     return gulp.src(filePath.copyFavicon.src)
-    .pipe(gulp.dest(filePath.build.dest))
-    .pipe(notify({
-        message: 'favicon successfully copied'
-    }));
+        .pipe(gulp.dest(filePath.build.dest))
+        .pipe(notify({
+            message: 'favicon successfully copied'
+        }));
 });
 
 
 // =======================================================================
 // Watch for changes
 // =======================================================================
-gulp.task('watch', function() {
+gulp.task('watch', function () {
     gulp.watch(filePath.styles.watch, ['styles-dev']);
     gulp.watch(filePath.assets.images.watch, ['images']);
     gulp.watch(filePath.browserify.watch, ['bundle']);
@@ -373,24 +272,24 @@ gulp.task('watch', function() {
 // =======================================================================
 // Start a webserver to serve the assets to developers directly
 // =======================================================================
-gulp.task('webserver', function() {
-  gulp.src('app')
-  .pipe(webserver({
-    livereload: true,
-    directoryListing: true,
-    open: true
-  }));
+gulp.task('webserver', function () {
+    gulp.src('app')
+        .pipe(webserver({
+            livereload: true,
+            directoryListing: true,
+            open: true
+        }));
 });
 
 // =======================================================================
 // Karma Configuration
 // =======================================================================
-gulp.task('karma', function(done) {
-  var karma = new Karma({
-    configFile: __dirname + '/karma.conf.js',
-    singleRun: !argv.watch
-  }, done);
-  karma.start();
+gulp.task('karma', function (done) {
+    var karma = new Karma({
+        configFile: __dirname + '/karma.conf.js',
+        singleRun: !argv.watch
+    }, done);
+    karma.start();
 });
 
 
@@ -399,51 +298,41 @@ gulp.task('karma', function(done) {
 // =======================================================================
 
 // run "gulp" in terminal to build the DEV app
-gulp.task('build-dev', function(callback) {
+gulp.task('build-dev', function (callback) {
     runSequence(
         ['clean-dev', 'lint', 'checkstyle'],
         // images and vendor tasks are removed to speed up build time. Use "gulp build" to do a full re-build of the dev app.
         [
-          // 'bundle-dev',
-          'bundle',
-          'styles-dev', 'copyIndex', 'copyFavicon'], ['server', 'watch'],
+            'bundle',
+            'styles-dev', 'copyIndex', 'copyFavicon'
+        ], ['server', 'watch'],
         callback
     );
 });
 
 // run "gulp test" in terminal to build the DEV app
-gulp.task('build-test', function(callback) {
+gulp.task('build-test', function (callback) {
     runSequence(
-        ['clean-full', 'lint', 'checkstyle'],
-        ['karma'],
+        ['clean-full', 'lint', 'checkstyle'], ['karma'],
         callback
     );
 });
 
 // run "gulp prod" in terminal to build the PROD-ready app
-gulp.task('build-prod', function(callback) {
+gulp.task('build-prod', function (callback) {
     runSequence(
-        ['clean-full', 'lint', 'checkstyle'],
-        [
-          // 'bundle-prod',
-          'bundle',
-          'styles-prod', 'images', 'fonts','copyIndex', 'copyFavicon'],
+        ['clean-full', 'lint', 'checkstyle'], [
+            'bundle',
+            'styles-prod', 'images', 'fonts', 'copyIndex', 'copyFavicon'
+        ],
         callback
     );
 });
 
 // run "gulp build" in terminal for a full re-build in DEV
-gulp.task('build', function(callback) {
+gulp.task('build', function (callback) {
     runSequence(
-      ['clean-full'
-        // 'lint',
-        // 'checkstyle'
-      ],
-        [
-          // 'bundle-dev',
-          'bundle',
-          'styles-dev', 'images', 'fonts','copyIndex', 'copyFavicon'],
-        ['server', 'watch'],
+        ['clean-full', 'lint', 'checkstyle'], ['bundle', 'styles-dev', 'images', 'fonts', 'copyIndex', 'copyFavicon'], ['server', 'watch'],
         callback
     );
 });

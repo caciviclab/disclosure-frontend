@@ -8,69 +8,69 @@
 'use strict';
 
 function committeePageRoutes($stateProvider) {
-  $stateProvider.state({
-    name: 'appMain.committee',
-    abstract: true,
-    url: '^/committee/:filer_id',
-    template: '<ui-view></ui-view>',
-    controller: 'committeePageController',
-    resolve: {
-      committee: function($stateParams, static_api) {
-        return static_api.committee.get({
-          filer_id: $stateParams.filer_id
-        });
-      },
-      contributions: function($stateParams, static_api) {
-        var apiCall = static_api.committee.contributions({
-          filer_id: $stateParams.filer_id
-        });
-        return apiCall.$promise;
-      }
-    },
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'committee'
-    },
-    onEnter: ['committee', 'pageMetadata', function(committee, pageMetadata) {
-      committee.$promise.then(function(committee) {
-        pageMetadata({title: committee.name});
-      });
-    }]
-  });
+    $stateProvider.state({
+        name: 'appMain.committee',
+        abstract: true,
+        url: '^/committee/:filer_id',
+        template: '<ui-view></ui-view>',
+        controller: 'committeePageController',
+        resolve: {
+            committee: function($stateParams, static_api) {
+                return static_api.committee.get({
+                    filer_id: $stateParams.filer_id
+                });
+            },
+            contributions: function($stateParams, static_api) {
+                var apiCall = static_api.committee.contributions({
+                    filer_id: $stateParams.filer_id
+                });
+                return apiCall.$promise;
+            }
+        },
+        data: {
+            moduleClasses: 'page',
+            pageClasses: 'committee'
+        },
+        onEnter: ['committee', 'pageMetadata', function(committee, pageMetadata) {
+            committee.$promise.then(function(committee) {
+                pageMetadata({ title: committee.name });
+            });
+        }]
+    });
 
-  $stateProvider.state({
-    name: 'appMain.committee.main',
-    url: '',
-    template: require('./committeePage.html'),
-    ncyBreadcrumb: {
-      label: '{{ committee.name }}',
-      parent: 'appMain'
-    }
-  });
+    $stateProvider.state({
+        name: 'appMain.committee.main',
+        url: '',
+        template: require('./committeePage.html'),
+        ncyBreadcrumb: {
+            label: '{{ committee.name }}',
+            parent: 'appMain'
+        }
+    });
 
-  $stateProvider.state({
-    name: 'appMain.committee.contributors',
-    // name: 'appMain.locality.committee.contributors',
-    url: '/contributors',
-    controller: 'committeeContributorsPageController',
-    template: '<committee-contributors contributors="contributors"></committee-contributors>',
-    ncyBreadcrumb: {
-      label: 'Contributors',
-      parent: 'appMain.committee.main'
-      // parent: 'appMain.locality.committee.main'
-    },
-    resolve: {
-      contributors: function($stateParams) {
-        return disclosureApi.committee.contributors({
-          committee_id: $stateParams.committee_id
-        });
-      }
-    },
-    data: {
-      moduleClasses: 'page',
-      pageClasses: 'contributors'
-    }
-  });
+    $stateProvider.state({
+        name: 'appMain.committee.contributors',
+        // name: 'appMain.locality.committee.contributors',
+        url: '/contributors',
+        controller: 'committeeContributorsPageController',
+        template: '<committee-contributors contributors="contributors"></committee-contributors>',
+        ncyBreadcrumb: {
+            label: 'Contributors',
+            parent: 'appMain.committee.main'
+                // parent: 'appMain.locality.committee.main'
+        },
+        resolve: {
+            contributors: function($stateParams, disclosureApi) {
+                return disclosureApi.committee.contributors({
+                    committee_id: $stateParams.committee_id
+                });
+            }
+        },
+        data: {
+            moduleClasses: 'page',
+            pageClasses: 'contributors'
+        }
+    });
 }
 
 committeePageRoutes.$inject = ['$stateProvider'];

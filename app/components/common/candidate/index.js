@@ -40,7 +40,6 @@ angular.module('odca.candidate', [
 function CandidateProfileController () {
 }
 
-
 function CandidatePageController (percentageCalculator) {
   var ctrl = this;
   ctrl.onVisible = onVisible;
@@ -54,6 +53,5 @@ function CandidatePageController (percentageCalculator) {
     $el.removeClass('is-off-screen');
   }
 }
-
 
 module.exports = 'odca.candidate';
