@@ -25,6 +25,7 @@
   "browserify": {
     "transform": [
       "browserify-shim",
+      "envify",
       "partialify"
     ]
   },

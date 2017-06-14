@@ -3,12 +3,12 @@
 
 var angular = require('angular');
 
-var static_backend_url = 'https://disclosure-backend-static.herokuapp.com';
-
 angular.module('odca.static_api', [
     require('angular-resource')
   ])
-  .factory('static_api', function ($resource) {
+  .factory('static_api', function ($resource, settings) {
+    'ngInject';
+
     return {
       candidate: api_group('/candidate/:candidate_id', {
         supporting: {
@@ -51,7 +51,7 @@ angular.module('odca.static_api', [
     };
 
     function api_group(base_url, actions, defaultParams) {
-      var absolute_url = static_backend_url + base_url;
+      var absolute_url = settings.DISCLOSURE_STATIC_BACKEND + base_url;
       defaultParams = defaultParams || {};
 
       var resourceActions = {};

@@ -42,10 +42,12 @@ Url                                      | Description
 If you want to test against a development backend, you can set an environment
 variable
 
+    $ DISCLOSURE_STATIC_BACKEND='http://localhost:4567' gulp build
     $ DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' gulp build
 
 And the tests
 
+    $ DISCLOSURE_STATIC_BACKEND='http://localhost:4567' gulp test
     $ DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' gulp test
 
 
