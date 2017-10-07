@@ -13,6 +13,7 @@
     "node": ">=0.10.38"
   },
   "scripts": {
+    "prod": "gulp prod",
     "start": "node server.js",
     "test": "gulp test",
     "serve": "beefy main.js --browserify $(which browserify) --live"

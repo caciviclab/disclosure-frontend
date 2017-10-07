@@ -14,7 +14,7 @@ fi
 rm -rf ./dist
 
 # Build
-gulp prod
+npm run prod
 
 # Copy CNAME
 cp CNAME dist/
