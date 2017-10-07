@@ -14,9 +14,8 @@
   },
   "scripts": {
     "prod": "gulp prod",
-    "start": "node server.js",
-    "test": "gulp test",
-    "serve": "beefy main.js --browserify $(which browserify) --live"
+    "start": "gulp build",
+    "test": "gulp test"
   },
   "browserify-shim": {
     "angular": {
