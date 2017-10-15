@@ -39,34 +39,30 @@ Url                                      | Description
 
 #### Testing against a development backend
 
-If you want to test against a development backend, you can set an environment
-variable
+If you want to test against a development backend, you can set these environment
+variables
 
-    $ DISCLOSURE_STATIC_BACKEND='http://localhost:4567' gulp build
-    $ DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' gulp build
+    $ DISCLOSURE_STATIC_BACKEND='http://localhost:4567' DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' npm start
 
 And the tests
 
-    $ DISCLOSURE_STATIC_BACKEND='http://localhost:4567' gulp test
-    $ DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' gulp test
+    $ DISCLOSURE_STATIC_BACKEND='http://localhost:4567' DISCLOSURE_SWAGGER_SPEC='http://localhost:8000/docs/api-docs/' npm start
+
+
+##### Legacy python back-end
+
+To point this front-end to another (e.g. local test) back-end:
+* Run `python manage.py runserver` from your back-end repo; this should start your back-end server on port 8000.
+* Edit `app/app-init.js`, set `$rootScope.swaggerSpec = 'http://127.0.0.1:8000/docs/api-docs/';`.
 
 
 ### Setup Instructions
 
 1. Install the LTS version of [node.js](https://nodejs.org/en/)
-2. Install [gulp.js](http://gulpjs.com) (```npm install -g gulp```)
-3. Clone the repository.
-4. Run: ```npm install``` from inside the repository directory, to install all project dependencies.
-5. Run ```gulp build``` (in most cases, `gulp` alone will be enough; `gulp build` rebuilds static files).
-6. Open ```http://localhost:5000``` in your browser
-
-
-To tweak the install,
-* Edit `gulpfile.js` to change the port.
-
-To point this front-end to another (e.g. local test) back-end:
-* Run `python manage.py runserver` from your back-end repo; this should start your back-end server on port 8000.
-* Edit `app/app-init.js`, set `$rootScope.swaggerSpec = 'http://127.0.0.1:8000/docs/api-docs/';`.
+1. Clone the repository.
+1. Run: ```npm install``` from inside the repository directory, to install all project dependencies.
+1. Run ```npm start```
+1. Open [localhost:5000](http://localhost:5000) in your browser
 
 
 ### Contributing
