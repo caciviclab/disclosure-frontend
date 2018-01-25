@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html ng-app="campaignFinanceApp">
+    <head>
+        <base href="/">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, maximum-scale=1.0">
+        <meta name="fragment" content="!">
+
+        <title ng-bind="pageTitle + 'Open Disclosure California'">Open Disclosure California</title>
+        <meta name="description" content="
+          We provide transparent, non-partisan campaign contribution and
+          expenditure data in an accessible and easy to understand format. We
+          hope this site will engage the voting public and raise awareness and
+          accountability. Ultimately, this is one step toward shifting politics
+          into a movement of civic engagement and ultimate citizen action.">
+
+        <link href="/css/app.css" rel="stylesheet">
+
+        <script>
+          if (location.hostname.indexOf('localhost') === -1) {
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-50973042-1', 'auto');
+          }
+        </script>
+    </head>
+
+    <!--<body ng-class="bodyClasses" ng-controller="MainCtrl">-->
+    <body ng-class="bodyClasses">
+
+      <campaign-finance-app></campaign-finance-app>
+
+      <!-- <script src="/vendor.js"></script> -->
+      <script src="bundle.js"></script>
+
+    </body>
+
+</html>
