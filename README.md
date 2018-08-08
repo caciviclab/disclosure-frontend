@@ -1,3 +1,7 @@
+**This repo is no longer maintained. If you’re interested in making campaign finance more accessible for Californians, join us at [CA Civic Lab](https://github.com/caciviclab/odca-jekyll).**
+
+---
+
 [![Build Status](https://travis-ci.org/caciviclab/disclosure-frontend.svg)](https://travis-ci.org/caciviclab/disclosure-frontend)
 
 # Open Disclosure California
